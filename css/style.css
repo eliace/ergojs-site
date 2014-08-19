@@ -1,0 +1,184 @@
+
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.page-header {
+	background-color: #112028;
+}
+
+.page-header h3 {
+	text-transform: uppercase;
+	color: #fcfcfc;
+	margin: 5px 20px;
+}
+
+.page-header > * {
+	display: inline-block;
+}
+
+.page-header > nav > p {
+	display: inline-block;
+	margin-left: 20px;			
+}
+
+.page-header > nav a {
+	text-transform: uppercase;
+	font-size: .7em;
+	text-decoration: none;
+	color: #fcfcfc;
+}
+
+.page-header a:hover {
+	color: #0a80cb;
+}
+
+
+.page-header-ex > * {
+	display: inline-block;
+}
+
+.page-header-ex {
+	padding: 20px;
+	background-color: #152832;
+	color: #fcfcfc;
+}
+
+#page-title {
+	width: 15%;
+}
+
+#page-info {
+	width: 40%;
+}
+
+#page-info h4 {
+	display: inline;
+	font-weight: normal;
+}
+
+#page-info span {
+	font-size: .7em;
+}
+
+#page-info div {
+	display: inline;
+	border-right: 1px solid #fcfcfc;
+	margin: 0 10px;
+	font-size: 0.7em;
+}
+
+#github {
+	float: right;
+	margin: 15px 20px;
+	color: #fcfcfc;
+}
+
+#github a {
+	color: inherit;
+	text-decoration: none;
+	font-size: .8em;
+	margin-left: 5px;
+}
+
+
+
+.page-content {
+	display: table;
+	width: 100%;
+}
+
+.page-content aside {
+	background-color: #f2f4f6;
+	width: 15%;
+}
+
+.page-content > * {
+	display: table-cell;
+}
+
+
+#content-menu {
+	list-style-type: none;
+	font-size: 0.8em;
+	margin: 0;
+	padding: 20px 0;
+}
+
+#content-menu ul {
+	list-style-type: none;
+	font-size: 1em;
+	margin: 0;
+	padding-left: 0px;			
+}		
+
+#content-menu li {
+	padding: 0px 0px 0px 20px;
+	cursor: default;
+}
+
+#content-menu li a {
+	padding: 5px;
+	color: inherit;
+	text-decoration: none;
+	display: block;
+}
+
+
+#content-menu > li {
+	padding-left: 30px;
+	cursor: default;
+	border-left: 3px solid #f2f4f6;
+}
+
+#content-menu > li:hover {
+	border-color: #0a80cb;
+}
+
+
+#samples {
+	padding: 20px;
+}
+
+
+
+
+ul.tabs {
+	list-style-type: none;
+	padding: 0;
+  border-bottom: 2px solid #ccc;
+  margin: 0;	
+}
+
+ul.tabs > li {
+  display: inline-block;
+  font-size: 0.8em;
+  margin-bottom: -2px;
+  padding: 10px 20px;
+  text-transform: uppercase;	
+  border-bottom: 2px solid #ccc;
+}
+
+ul.tabs > li.selected {
+	border-bottom: 2px solid #0a80cb;	
+}
+
+ul.tabs > li:hover {
+	color: #0a80cb;
+} 
+
+
+.panel.sample > .tab-panel > div {
+	padding: 20px;
+}
+
+
+.panel-title {
+	margin: 0;
+	padding: 10px 5px;
+	font-size: 1.0em;
+}
+
