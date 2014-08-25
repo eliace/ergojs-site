@@ -21,7 +21,7 @@ $(document).ready(function(){
 				name: 'core/object-3'
 			}, {
 				title: 'Пространства имен',
-				namr: 'core/object-4'
+				name: 'core/object-4'
 			}]
 		}, {
 			title: 'Виджет',
@@ -85,42 +85,49 @@ $(document).ready(function(){
 			}]
 		}]
 	}, {
-		title: 'Базовые элементы',
+		title: 'Виджеты',
 		children: [{
-			title: 'Бокс',
-			name: 'basic/box'
+			title: 'Базовые элементы',
+			children: [{
+				title: 'Бокс',
+				name: 'basic/box'
+			}, {
+				title: 'Иконка',			
+				name: 'basic/icon'
+			}, {
+				title: 'Кнопка',			
+				name: 'basic/button'
+			}, {
+				title: 'Ссылка',
+				name: 'basic/link'
+			}, {
+				title: 'Линия',
+				name: 'basic/line'
+			}, {
+				title: 'Список',
+				name: 'basic/list'
+			}, {
+				title: 'Панель',
+				name: 'basic/panel'
+			}, {
+				title: 'Таблица',
+				name: 'basic/table'
+			}, {
+				title: 'Текст',
+				name: 'basic/text'
+			}, {
+				title: 'Дерево',
+				name: 'basic/tree'
+			}]
 		}, {
-			title: 'Иконка',			
-			name: 'basic/icon'
+			title: 'Кнопки'
 		}, {
-			title: 'Кнопка',			
-			name: 'basic/button'
-		}, {
-			title: 'Ссылка',
-			name: 'basic/link'
-		}, {
-			title: 'Линия',
-			name: 'basic/line'
-		}, {
-			title: 'Список',
-			name: 'basic/list'
-		}, {
-			title: 'Панель',
-			name: 'basic/panel'
-		}, {
-			title: 'Таблица',
-			name: 'basic/table'
-		}, {
-			title: 'Текст',
-			name: 'basic/text'
-		}, {
-			title: 'Дерево',
-			name: 'basic/tree'
+			title: 'Поля'
 		}]
 	}, {
-		title: 'Кнопки'
+		title: 'Компоновки'
 	}, {
-		title: 'Поля'
+		title: 'Примеси'
 	}];
 	
 	
