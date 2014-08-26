@@ -368,7 +368,69 @@ table {
 
 
 
+/*
+ * LINK BUTTON
+ */
 
+a.btn {
+  text-decoration: none;
+}
+
+
+/*
+ * IMAGE BUTTON
+ */
+
+img.btn {
+	border: none;
+	padding: 0;
+}
+
+img.btn:hover {
+	opacity: 0.8;
+}
+
+img.btn.circle {
+	border-radius: 50%;
+}
+
+.btn.x48 {
+	width: 48px;
+	height: 48px;
+}
+
+.btn.x128 {
+	width: 128px;
+	height: 128px;
+}
+
+.btn.x266 {
+	width: 256px;
+	height: 256px;
+}
+
+
+/*
+ * BUTTON GROUP
+ */
+
+.btn-group > .btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;	
+}
+
+.btn-group > .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;	
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child) {
+	border-radius: 0px;
+}
+
+.btn-group .btn + .btn {
+	margin-left: -1px;
+}
 
 
 /*
@@ -393,3 +455,23 @@ table {
 [layout="band"] > div {
 	padding: 3px 0;
 }
+
+
+
+/*
+ * BAR
+ */
+
+[layout="bar"] > * {
+	margin: 0 3px;
+}
+
+[layout="bar"].left > * {
+	float: left;
+}
+
+[layout="bar"].right > * {
+	float: right;
+}
+
+

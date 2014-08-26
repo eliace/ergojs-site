@@ -22,9 +22,9 @@ var w = $.ergo({
 				cls: 'fa fa-fw',
 				state: 'file',
 				states: {
-					'folder:type': 'fa-folder',
-					'file:type': 'fa-file-text-o',
-					'opened:type': 'fa-folder-open'
+					'folder:type': 'fa-folder-o',
+					'file:type': 'fa-map-marker',
+					'opened:type': 'fa-folder-open-o'
 				}
 			},
 			content: {
@@ -67,4 +67,3 @@ var w = $.ergo({
 
 w.$render('#sample');
 
-console.log(w.item(0).options);

@@ -50,8 +50,14 @@ $(document).ready(function(){
 		}, {
 			title: 'Компоновка',
 			children: [{
+				title: 'Вес',
+				name: 'core/layout'
+			}, {
+				title: 'Контейнер и обертка',
+				name: 'core/layout-2'
+			}, {
 				title: 'Авто-высота',
-				name: 'core/layout-autoheight'
+				name: 'core/layout-3'
 			}]
 		}, {
 			title: 'События',
@@ -83,6 +89,15 @@ $(document).ready(function(){
 				title: 'Обратное связывание',
 				name: 'core/data-binding-5'
 			}]
+		}, {
+			title: 'Состояния',
+			children: [{
+				title: 'Настройка'
+			}, {
+				title: 'Переходы'
+			}, {
+				title: 'Группировка'
+			}]
 		}]
 	}, {
 		title: 'Виджеты',
@@ -90,37 +105,44 @@ $(document).ready(function(){
 			title: 'Базовые элементы',
 			children: [{
 				title: 'Бокс',
-				name: 'basic/box'
+				name: 'widgets/basic/box'
 			}, {
 				title: 'Иконка',			
-				name: 'basic/icon'
+				name: 'widgets/basic/icon'
 			}, {
 				title: 'Кнопка',			
-				name: 'basic/button'
+				name: 'widgets/basic/button'
 			}, {
 				title: 'Ссылка',
-				name: 'basic/link'
+				name: 'widgets/basic/link'
 			}, {
 				title: 'Линия',
-				name: 'basic/line'
+				name: 'widgets/basic/line'
 			}, {
 				title: 'Список',
-				name: 'basic/list'
+				name: 'widgets/basic/list'
 			}, {
 				title: 'Панель',
-				name: 'basic/panel'
+				name: 'widgets/basic/panel'
 			}, {
 				title: 'Таблица',
-				name: 'basic/table'
+				name: 'widgets/basic/table'
 			}, {
 				title: 'Текст',
-				name: 'basic/text'
+				name: 'widgets/basic/text'
 			}, {
 				title: 'Дерево',
-				name: 'basic/tree'
+				name: 'widgets/basic/tree'
 			}]
 		}, {
-			title: 'Кнопки'
+			title: 'Кнопки',
+			children: [{
+				title: 'Типы кнопок',
+				name: 'widgets/buttons/buttons'
+			}, {
+				title: 'Группа кнопок',
+				name: 'widgets/buttons/buttons-2'
+			}]
 		}, {
 			title: 'Поля'
 		}]
@@ -155,7 +177,7 @@ $(document).ready(function(){
 								
 								var v = this.data.get();
 								if(v.name) {
-									load_sample(v.name, v.title);
+									load_sample(v.name, v.title, this.data.source.source.get('title'));
 								}
 							}
 						}
@@ -257,7 +279,7 @@ $(document).ready(function(){
 	
 	
 	
-	var load_sample = function(name, title) {
+	var load_sample = function(name, title, section) {
 		
 		$('#samples').empty();
 
@@ -277,6 +299,14 @@ $(document).ready(function(){
 			
 //			sh_highlightDocument();			
 		});
+		
+		
+		// обновляем строку навигации
+		if(section) {
+			$('#page-info h4').text( section );
+			$('#page-info span').text( title );			
+		}
+		
 		
 	};
 	

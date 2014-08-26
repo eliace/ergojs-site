@@ -3,7 +3,7 @@ var data = {
 	middleName: 'Иванович',
 	lastName: 'Иванов',
 	age: 24,
-	sex: 'м'
+	gender: 'м'
 };
 
 
@@ -28,13 +28,13 @@ var w = $.ergo({
 		// строковое значение является сокращением для Ergo.format_obj.curry("#{age} года")
 		format: '#{age} года'
 	}, {
-		label: 'Отношение к военной службе',
+		label: 'Отношение к воинской службе',
 		format: function(v){
-			return (v.sex == 'м' && v.age >=18 && v.age < 27) ? 'военнообязанный' : 'не военнообязанный';
+			return (v.gender == 'м' && v.age >=18 && v.age < 27) ? 'военнообязанный' : 'не военнообязанный';
 		}
 	}, {
 		label: 'Пол',
-		dataId: 'sex',
+		dataId: 'gender',
 		format: function(v) { return {'м': 'муж.', 'ж': 'жен.'}[v]; }
 	}]
 	

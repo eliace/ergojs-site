@@ -4,11 +4,11 @@ var data = {
 	middleName: 'Иванович',
 	lastName: 'Иванов',
 	age: 24,
-	sex: 'м',
+	gender: 'м',
 	address: {
 		country: 'Россия',
-		region: 'Республика Коми',
-		settlement: 'Сыктывкар'
+		region: 'Краснодарский край',
+		settlement: 'Сочи'
 	}
 };
 
@@ -47,8 +47,8 @@ var w = $.ergo({
 		dataId: 'age' 
 	}, {
 		label: 'Пол',
-		// связываем виджет с полем sex
-		dataId: 'sex' 
+		// связываем виджет с полем gender
+		dataId: 'gender' 
 	}, {
 		label: 'Город',
 		// используем составной ключ
