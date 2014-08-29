@@ -144,10 +144,24 @@ $(document).ready(function(){
 				name: 'widgets/buttons/buttons-2'
 			}]
 		}, {
-			title: 'Поля'
+			title: 'Поля',
+			children: [{
+				title: 'Типы полей',
+				name: 'widgets/fields/all'
+			}]
+		}, {
+			title: 'Другое',
+			children: [{
+				title: 'Оповещения',
+				name: 'widgets/other/alert'
+			}]
 		}]
 	}, {
-		title: 'Компоновки'
+		title: 'Компоновки',
+		children: [{
+			title: 'Grid',
+			name: 'layouts/grid'
+		}]
 	}, {
 		title: 'Примеси'
 	}];
@@ -262,15 +276,23 @@ $(document).ready(function(){
 		
 		type = type || 'info';
 		
-		var titles = {
-			info: 'Информация! ',
-			success: 'Успех! '
+		// var titles = {
+			// info: 'Информация! ',
+			// success: 'Успех! '
+		// };
+		var icons = {
+			info: 'fa-info',
+			success: 'fa-check'
 		};
 		
 		$.ergo({
 			render: '#sample',
 			etype: 'alert',
-			title: titles[type],
+			$icon: {
+				cls: 'fa fa-fw rounded'
+			},
+//			title: titles[type],
+			icon: icons[type],
 			text: msg,
 			state: type
 		});

@@ -7,3 +7,10 @@ var w = $.ergo({
 });
 
 //w.$render('#sample');
+
+var w = $.ergo({
+	etype: 'icon',
+	cls: 'fa rounded',
+	state: 'fa-inbox',
+	render: '#sample'
+});

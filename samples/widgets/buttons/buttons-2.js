@@ -1,6 +1,6 @@
 
 var w = $.ergo({
-	etype: 'button-group',
+	etype: 'button-box',
 	items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3']
 });
 
