@@ -871,13 +871,13 @@ img.btn.circle {
 
 
 .slide-box > div {
-  background-color: #0a80cb;
+  background-color: #3498db/*#0a80cb*/;
   border-radius: 4px;
-  display: inline-block;
+/*  display: inline-block;*/
   height: 100%;
-  text-indent: -100000px;
+/*  text-indent: -100000px;
   margin-right: -10px;
-  padding-left: 20px;
+  padding-left: 20px;*/
 }
 
 .slider {

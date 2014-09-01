@@ -141,16 +141,29 @@ var w = $.ergo({
 	}, {
 		etype: 'box',
 		cls: 'slide-box',
+		// layout: {
+			// wrapper: function(item) {
+				// return $('<div>').append(item.el);
+			// }
+		// },
 		components: {
-			fill: {
-				text: 'val',
-				width: 40
-			},
+			// fill: {
+				// text: 'val',
+				// width: 40
+			// },
 			content: {
-				cls: 'slider',
-				html: '<a href=""/>',
-				$content: {
+				$slider: {
+					cls: 'slider',
+					html: '<a href=""/>',
+					$content: {
+					}					
 				}
+			}
+		},
+		value: '100%',
+		set: {
+			'value': function(v) {
+				this.content.el.css('padding-left', v);
 			}
 		}
 	}]
