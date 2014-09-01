@@ -142,10 +142,13 @@ var w = $.ergo({
 		etype: 'box',
 		cls: 'slide-box',
 		components: {
+			fill: {
+				text: 'val',
+				width: 40
+			},
 			content: {
 				cls: 'slider',
 				html: '<a href=""/>',
-				style: {'margin-left': 30},
 				$content: {
 				}
 			}
