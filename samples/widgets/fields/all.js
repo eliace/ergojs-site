@@ -42,7 +42,8 @@ var w = $.ergo({
 			dropdown: {
 				etype: 'dropdown-menu',
 				popup: {
-					at: 'left bottom'
+					at: 'left bottom',
+					adjust: true
 				},
 				items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 			}
@@ -126,7 +127,8 @@ var w = $.ergo({
 			dropdown: {
 				etype: 'dropdown-list',
 				popup: {
-					at: 'left bottom'
+					at: 'left bottom',
+					adjust: true
 				},
 				items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 			}
@@ -134,6 +136,18 @@ var w = $.ergo({
 		states: {
 			'opened': function(on) {
 				on ? this.dropdown.open() : this.dropdown.close();
+			}
+		}
+	}, {
+		etype: 'box',
+		cls: 'slide-box',
+		components: {
+			content: {
+				cls: 'slider',
+				html: '<a href=""/>',
+				style: {'margin-left': 30},
+				$content: {
+				}
 			}
 		}
 	}]
