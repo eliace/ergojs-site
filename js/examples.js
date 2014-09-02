@@ -150,6 +150,12 @@ $(document).ready(function(){
 				name: 'widgets/fields/all'
 			}]
 		}, {
+			title: 'Приложение',
+			children: [{
+				title: 'Заголовок',
+				name: 'widgets/app/header'
+			}]
+		}, {
 			title: 'Другое',
 			children: [{
 				title: 'Оповещения',
