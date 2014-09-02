@@ -4,7 +4,7 @@ var w = $.ergo({
 	layout: 'form',
 	width: 250,
 	defaultItem: {
-		mixins: ['labelable']
+		mixins: ['label']
 	},
 	items: [{
 		etype: 'text-box',
@@ -25,6 +25,7 @@ var w = $.ergo({
 		etype: 'text-box',
 		cls: 'form-item',
 		label: 'Комбо-бокс',
+		mixins: ['dropdown'],
 		components: {
 			addon: {
 				etype: 'html:span',
@@ -40,19 +41,19 @@ var w = $.ergo({
 				}
 			},
 			dropdown: {
-				etype: 'dropdown-menu',
+//				etype: 'dropdown-menu',
 				popup: {
-					at: 'left bottom',
+//					at: 'left bottom',
 					adjust: true
 				},
 				items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 			}
-		},
-		states: {
-			'opened': function(on) {
-				on ? this.dropdown.open() : this.dropdown.close();
-			}
 		}
+		// states: {
+			// 'opened': function(on) {
+				// on ? this.dropdown.open() : this.dropdown.close();
+			// }
+		// }
 	}, {
 		etype: 'text-box',
 		label: 'Число',
@@ -102,6 +103,7 @@ var w = $.ergo({
 		etype: 'text-box',
 		label: 'Выпадающий список',
 		cls: 'select-box',
+		mixins: ['dropdown'],
 		components: {
 			content: {
 				type: 'button',
@@ -127,30 +129,21 @@ var w = $.ergo({
 			dropdown: {
 				etype: 'dropdown-list',
 				popup: {
-					at: 'left bottom',
+//					at: 'left bottom',
 					adjust: true
 				},
 				items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 			}
-		},
-		states: {
-			'opened': function(on) {
-				on ? this.dropdown.open() : this.dropdown.close();
-			}
 		}
+		// states: {
+			// 'opened': function(on) {
+				// on ? this.dropdown.open() : this.dropdown.close();
+			// }
+		// }
 	}, {
 		etype: 'box',
 		cls: 'slide-box',
-		// layout: {
-			// wrapper: function(item) {
-				// return $('<div>').append(item.el);
-			// }
-		// },
 		components: {
-			// fill: {
-				// text: 'val',
-				// width: 40
-			// },
 			content: {
 				$slider: {
 					cls: 'slider',
@@ -160,7 +153,7 @@ var w = $.ergo({
 				}
 			}
 		},
-		value: '100%',
+		value: '70%',
 		set: {
 			'value': function(v) {
 				this.content.el.css('padding-left', v);

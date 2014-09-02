@@ -26,7 +26,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'box',
 		binding: 'text',
-		mixins: ['labelable'],
+		mixins: ['label'],
 	},
 	
 	items: [{

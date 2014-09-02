@@ -16,7 +16,7 @@ var w = $.ergo({
 	// видеж text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
 		etype: 'line',
-		mixins: ['labelable']
+		mixins: ['label']
 	},
 	
 	items: [{

@@ -102,7 +102,7 @@ $(document).ready(function(){
 	}, {
 		title: 'Виджеты',
 		children: [{
-			title: 'Базовые элементы',
+			title: 'Базовые',
 			children: [{
 				title: 'Бокс',
 				name: 'widgets/basic/box'
@@ -150,10 +150,29 @@ $(document).ready(function(){
 				name: 'widgets/fields/all'
 			}]
 		}, {
+			title: 'Таблицы',
+			children: [{
+				title: 'Таблица',
+				name: 'widgets/grids/table-grid'
+			}, {
+				title: 'Постраничный вывод'
+			}, {
+				title: 'Управление колонками'
+			}, {
+				title: 'Сортировка'
+			}, {
+				title: 'Таблица-Дерево'
+			}, {
+				title: 'Таблица-Свойства'
+			}]
+		}, {
 			title: 'Приложение',
 			children: [{
-				title: 'Заголовок',
+				title: 'Навигация',
 				name: 'widgets/app/header'
+			}, {
+				title: 'Breadcrumbs',
+				name: 'widgets/app/breadcrumbs'
 			}]
 		}, {
 			title: 'Другое',
