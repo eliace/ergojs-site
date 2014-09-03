@@ -1044,7 +1044,7 @@ img.btn.circle {
 
 
 .grid-content {
-	height: 100%;
+/*	height: 100%;*/
 	overflow-y: auto;
 }
 
@@ -1080,16 +1080,19 @@ img.btn.circle {
 
 
 
-
-a.column-text {
+.column-text {
 	padding: 8px 3px;
 	vertical-align: middle;
 	text-overflow: ellipsis;
-	overflow: hidden;
+	overflow: hidden;	
+	display: block;
+}
+
+
+a.column-text {
 	text-decoration: none;
 	color: inherit;
 	cursor: default;
-	display: block;
 }
 
 a.column-text > .caret {
@@ -1102,7 +1105,7 @@ th.sorted a.column-text > .caret {
 }
 
 
-th:hover {
+th.sortable:hover {
 	background-color: #ddd;
 }
 
@@ -1132,3 +1135,34 @@ th:hover > .column-dropdown {
 	display: table-cell;
 }
 */
+
+/*
+ * LOADER
+ */
+
+.loadable {
+	position: relative;
+}
+
+.loader {
+	display: none;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	background-color: rgba(0,0,0,0.05);
+	color: #888;
+}
+
+.loader > i {
+	position: absolute;
+	top: 50%;
+	left: 50%;	
+}
+
+.loading > .loader {
+	display: block;
+}
+
+

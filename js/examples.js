@@ -152,8 +152,11 @@ $(document).ready(function(){
 		}, {
 			title: 'Таблицы',
 			children: [{
-				title: 'Таблица',
+				title: 'Параметры',
 				name: 'widgets/grids/table-grid'
+			}, {
+				title: 'Ajax',
+				name: 'widgets/grids/ajax'
 			}, {
 				title: 'Постраничный вывод'
 			}, {
