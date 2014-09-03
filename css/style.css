@@ -161,7 +161,7 @@ body {
 
 
 #content-menu > div {
-	padding: 8px 0px 3px 20px;
+	padding: 8px 0px 6px 20px;
 	font-weight: bold;
 	font-size: 10px;
 	text-transform: uppercase;
@@ -1050,7 +1050,8 @@ img.btn.circle {
 
 
 .grid-header {
-	background-color: #eee;
+	background-color: #eee; /* #34495e;*/
+	color: #888;
 }
 
 .grid-content > table {
@@ -1070,8 +1071,8 @@ img.btn.circle {
 }
 
 .grid-box th {
-	padding: 6px;
-	border-right: 1px solid #ddd;
+	padding: 0 3px;
+/*	border-right: 1px solid #ddd;*/
 	font-size: 14px;
 	font-weight: bold;
 	text-align: left;
@@ -1080,3 +1081,54 @@ img.btn.circle {
 
 
 
+a.column-text {
+	padding: 8px 3px;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-decoration: none;
+	color: inherit;
+	cursor: default;
+	display: block;
+}
+
+a.column-text > .caret {
+	margin-left: 5px;
+	display: none;
+}
+
+th.sorted a.column-text > .caret {
+	display: inline-block;
+}
+
+
+th:hover {
+	background-color: #ddd;
+}
+
+
+/*
+.column-dropdown:not(.opened) {
+	display: none;	
+}
+
+.column-dropdown {
+	cursor: pointer;
+	padding: 8px 6px;
+	position: relative;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.column-dropdown:hover {
+	color: #2980b9;
+}
+
+.column-dropdown > .dropdown-toggle > .caret {
+	margin: 0;
+}
+
+th:hover > .column-dropdown {
+	display: table-cell;
+}
+*/
