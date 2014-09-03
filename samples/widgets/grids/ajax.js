@@ -4,6 +4,7 @@
 JsonAjaxProvider = {
 	get: function(source) {
 		return $.ajax(source.options.url, {
+			data: source.options.query,
 			dataType: 'json'
 		});
 	}
