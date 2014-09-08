@@ -6,7 +6,7 @@ var w = $.ergo({
 			caret: {
 				weight: -10,
 				etype: 'icon',
-				cls: 'fa fa-fw caret',
+				cls: 'toggle',
 				state: 'closed',
 				onClick: function() {
 					this.parent.states.toggle('expanded');
@@ -16,35 +16,36 @@ var w = $.ergo({
 					'closed:type': 'fa-caret-right'
 				}
 			},
-			icon: {
-				etype: 'icon',
-				weight: -5,
-				cls: 'fa fa-fw',
-				state: 'file',
-				states: {
-					'folder:type': 'fa-folder-o',
-					'file:type': 'fa-map-marker',
-					'opened:type': 'fa-folder-open-o'
-				}
-			},
+			// icon: {
+				// etype: 'icon',
+				// weight: -5,
+				// cls: 'fa fa-fw',
+				// state: 'file',
+				// states: {
+					// 'folder:type': 'fa-folder-o',
+					// 'file:type': 'fa-map-marker',
+					// 'opened:type': 'fa-folder-open-o'
+				// }
+			// },
 			content: {
 				etype: 'link'
 			}
 		},
 		states: {
-			'branch': function(on) {
-				if(on)
-					this.icon.states.set('folder');
-				else
-					this.icon.states.set('file');
-			},
+			'branch': 'branch',
+			// 'branch': function(on) {
+				// if(on)
+					// this.icon.states.set('folder');
+				// else
+					// this.icon.states.set('file');
+			// },
 			'expanded': function(on) {
 				if(on) {
-					this.icon.states.set('opened');
+//					this.icon.states.set('opened');
 					this.caret.states.set('opened');
 				}
 				else {
-					this.icon.states.set('folder');
+//					this.icon.states.set('folder');
 					this.caret.states.set('closed');					
 				}
 			}

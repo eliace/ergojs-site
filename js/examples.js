@@ -1,5 +1,10 @@
 
 
+
+Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
+
+
+
 var LOREMIPSUM = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
 
@@ -158,15 +163,37 @@ $(document).ready(function(){
 				title: 'Ajax',
 				name: 'widgets/grids/ajax'
 			}, {
-				title: 'Постраничный вывод'
+				title: 'Постраничный вывод',
+				name: 'widgets/grids/pagination'
 			}, {
-				title: 'Управление колонками'
+				title: 'Управление колонками',
+				name: 'widgets/grids/columns'
 			}, {
 				title: 'Сортировка'
+			}, {
+				title: 'Чекбоксы'
+			}, {
+				title: 'Фильтрация'
+			}, {
+				title: 'Редактирование'
 			}, {
 				title: 'Таблица-Дерево'
 			}, {
 				title: 'Таблица-Свойства'
+			}]
+		}, {
+			title: 'Деревья',
+			children: [{
+				title: 'Параметры',
+				name: 'widgets/trees/basic'
+			}, {
+				title: 'Ajax'
+			}, {
+				title: 'Пути'
+			}, {
+				title: 'Чекбоксы'
+			}, {
+				title: 'Фильтрация'
 			}]
 		}, {
 			title: 'Приложение',
@@ -182,6 +209,9 @@ $(document).ready(function(){
 			children: [{
 				title: 'Оповещения',
 				name: 'widgets/other/alert'
+			}, {
+				title: 'Контекстное меню',
+				name: 'widgets/other/context-menu'
 			}]
 		}]
 	}, {
@@ -191,7 +221,11 @@ $(document).ready(function(){
 			name: 'layouts/grid'
 		}]
 	}, {
-		title: 'Примеси'
+		title: 'Примеси',
+		children: [{
+			title: 'Caret',
+			name: 'mixins/caret'
+		}]
 	}];
 	
 	

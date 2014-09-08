@@ -26,15 +26,8 @@ var w = $.ergo({
 			content: {
 				etype: 'line',
 				cls: 'column-text',
-				// mixins: ['caret'],
-				// onClick: function() {
-					// this.states.toggle('up');
-				// }
 			}
 		},
-		// states: {
-			// 'sorted': 'sorted'
-		// },
 		autoBind: false,
 		set: {
 			'text': function(v) {this.content.opt('text', v);}
