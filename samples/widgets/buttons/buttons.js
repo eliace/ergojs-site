@@ -10,7 +10,7 @@ var w = $.ergo({
 		text: 'Ссылка'		
 	}, {
 		etype: 'icon-button',
-		state: 'fa fa-cogs'
+		icon: 'fa-cogs'
 	}, {
 		etype: 'image-button',
 		src: 'img/Lil_cr.png',

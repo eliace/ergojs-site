@@ -740,14 +740,15 @@ var w = $.ergo({
 	etype: 'table-grid',
 	height: 400,
 	column: {
+		// обычный заголовок
 		components: {
 			content: {
 				etype: 'link',
 				cls: 'column-text',
-				mixins: ['caret'],
-				onClick: function() {
-					this.states.toggle('up');
-				},
+				// mixins: ['caret'],
+				// onClick: function() {
+					// this.states.toggle('up');
+				// },
 				// states: {
 					// 'up:direction': 'up',
 					// 'down:direction': 'down'
@@ -763,19 +764,20 @@ var w = $.ergo({
 				// $dropdown_items: ['По возрастанию', 'По убыванию', '|', 'Фильтр', 'Скрыть колонку']
 			// }
 		},
-		states: {
-			'sorted': 'sorted'
-		},
+		// states: {
+			// 'sorted': 'sorted'
+		// },
 		autoBind: false,
 		set: {
 			'text': function(v) {this.content.opt('text', v);}
 		}		
 	},
 	columns: [{
-		header: {
-			text: 'ID',
-			sorted: true
-		},
+		// header: {
+			// text: 'ID',
+			// sorted: true
+		// },
+		header: 'ID',
 		dataId: 'User Id',
 		binding: 'text',
 		width: 60

@@ -145,6 +145,11 @@ var w = $.ergo({
 					cls: 'desc',
 					dataId: 'iso',
 					format: function(v) { return v ? '('+v+')' : ''; }
+				},
+				subtree: {
+					effects: {
+						easing: 'easeOutQuad'
+					}
 				}
 			},
 			binding: function(v) {

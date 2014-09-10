@@ -1,9 +1,10 @@
 
 
 JsonAjaxProvider = {
-	get: function(source) {
-		return $.ajax(source.options.url, {
-			data: source.options.query,
+	url: 'data/grid.json', 
+	find_all: function(source, query) {
+		return $.ajax(this.url, {
+			data: query,
 			dataType: 'json'
 		});
 	}
@@ -13,7 +14,6 @@ JsonAjaxProvider = {
 
 var data = new Ergo.data.Collection({
 	provider: JsonAjaxProvider, 
-	url: 'data/grid.json', 
 	parser: function(data){
 		// эмуляция страницы данных
 		var from = this.options.index*this.options.pageSize;

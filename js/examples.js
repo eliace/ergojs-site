@@ -158,7 +158,7 @@ $(document).ready(function(){
 			title: 'Таблицы',
 			children: [{
 				title: 'Параметры',
-				name: 'widgets/grids/table-grid'
+				name: 'widgets/grids/basic'
 			}, {
 				title: 'Ajax',
 				name: 'widgets/grids/ajax'
@@ -169,9 +169,14 @@ $(document).ready(function(){
 				title: 'Управление колонками',
 				name: 'widgets/grids/columns'
 			}, {
-				title: 'Сортировка'
+				title: 'Заголовки',
+				name: 'widgets/grids/headers'
 			}, {
-				title: 'Чекбоксы'
+				title: 'Сортировка',
+				name: 'widgets/grids/sort'
+			}, {
+				title: 'Чекбоксы',
+				name: 'widgets/grids/checkboxes'
 			}, {
 				title: 'Фильтрация'
 			}, {
@@ -187,11 +192,13 @@ $(document).ready(function(){
 				title: 'Параметры',
 				name: 'widgets/trees/basic'
 			}, {
-				title: 'Ajax'
+				title: 'Ajax',
+				name: 'widgets/trees/ajax'
 			}, {
 				title: 'Пути'
 			}, {
-				title: 'Чекбоксы'
+				title: 'Чекбоксы',
+				name: 'widgets/trees/checkboxes'
 			}, {
 				title: 'Фильтрация'
 			}]

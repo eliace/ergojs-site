@@ -29,6 +29,46 @@ var w = $.ergo({
 							etype: 'dropdown-menu',
 							items: ['Page 1', 'Page 2']
 						}
+					}, {
+						etype: 'dropdown-box',
+						text: 'Menu',
+						$dropdown: {
+							etype: 'dropdown-menu',
+//							closeOn: 'mouseleave',
+							items: [{
+								text: 'Page 1'
+							}, {
+								text: 'Page 2',
+								state: 'has-submenu',
+								$content: {
+									$caret: {
+										etype: 'html:span',
+										cls: 'caret right'
+									}
+								},
+								$submenu: {
+									etype: 'dropdown-menu',
+									cls: 'submenu right',
+//									closeOn: 'mouseleave',
+									popup: {
+										at: 'right top'
+									},
+									items: ['Action 1', 'Action 2']
+								},
+								events: {
+									'jquery:mouseenter': function(e, w) {
+										w.submenu.show();
+									},
+									'jquery:mouseleave': function(e, w) {
+										w.submenu.hide();
+										w.events.rise('closeMenu');
+									}
+								}
+							}],
+							onCloseMenu: function(e) {
+								this.close();
+							}
+						}
 					}]
 				},
 				user: {
