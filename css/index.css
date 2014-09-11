@@ -26,15 +26,32 @@ body {
 	font-size: 18px;
 	padding: 8px 0;
 	margin: 0;
+	color: #aaa;
 }
+
+.header > h3 span {
+  color: #ffa000; /*#e51c23;*/
+}
+
 
 .header > nav {
 	float: left;
 }
 
 .header a:hover {
-	color:  #e51c23;
+/*	color:   #03a9f4; /* #e51c23;*/
+	text-decoration: underline;
 }
+
+
+
+.page-footer {
+	border-top: 1px solid #ccc;
+	color: #888;
+	font-size: 12px;
+	text-align: center;
+}
+
 
 
 .menu {

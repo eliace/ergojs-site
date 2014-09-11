@@ -203,6 +203,13 @@ $(document).ready(function(){
 				title: 'Фильтрация'
 			}]
 		}, {
+			title: 'Диалоги',
+			children: [{
+				title: 'Параметры'
+			}, {
+				title: ''
+			}]
+		}, {
 			title: 'Приложение',
 			children: [{
 				title: 'Навигация',
@@ -259,7 +266,7 @@ $(document).ready(function(){
 								this.parent.states.toggle('expanded');
 								
 								var v = this.data.get();
-								if(v.name) {
+								if(!v.children) {
 									load_sample(v.name, v.title, this.data.source.source.get('title'));
 								}
 							}
@@ -376,27 +383,53 @@ $(document).ready(function(){
 
 		$context.events.unreg_all();
 
-		$context.create_sample(title);
-		
-		$.getScript('samples/'+name+'.js').success(function(script){
+		if(name) {
 			
-//			$('pre', $context._sample.el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
-			$('pre code', $context._sample.el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
+			$context.create_sample(title);
 			
-			$('pre code', $context._sample.el).each(function(i, block) {
-		    hljs.highlightBlock(block);
-		  });		
+			$.getScript('samples/'+name+'.js').success(function(script){
+				
+	//			$('pre', $context._sample.el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
+				$('pre code', $context._sample.el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
+				
+				$('pre code', $context._sample.el).each(function(i, block) {
+			    hljs.highlightBlock(block);
+			  });		
+				
+				
+	//			sh_highlightDocument();			
+			});
 			
-			
-//			sh_highlightDocument();			
-		});
-		
-		
-		// обновляем строку навигации
-		if(section) {
-			$('#page-info h4').text( section );
-			$('#page-info span').text( title );			
 		}
+		else {
+			
+			$.ergo({
+				etype: 'box',
+				layout: 'column',
+				render: '#samples',
+				cls: 'under-construct',
+				components: {
+					icon: {
+						etype: 'icon',
+						state: 'fa-wrench fa-3x'
+					},
+					message: {
+						cls: 'message',
+						text: 'Пример все еще находится в разработке. Немножко терпения :)'
+					}
+				}				
+			});
+			
+		}
+
+
+		
+		
+		// // обновляем строку навигации
+		// if(section) {
+			// $('#page-info h4').text( section );
+			// $('#page-info span').text( title );			
+		// }
 		
 		
 	};
@@ -406,11 +439,13 @@ $(document).ready(function(){
 	$( document ).ajaxError(function() {
 		console.log(arguments);
 	});	
-	
+
+/*	
 	var fixed_header = false;
 	var d = $('.page-header-ex').offset().top;
 	var h = $('.page-header-ex').outerHeight();
 	
+
 	$(document).on('scroll', function() {
 //		console.log($('html').scrollTop());
 //		console.log($('.page-header-ex').offset());
@@ -429,7 +464,7 @@ $(document).ready(function(){
 		}
 		
 	});
-	
+*/	
 	
 	$('html').click(function(e){
 		var el = $(e.target);

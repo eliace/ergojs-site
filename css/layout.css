@@ -1,0 +1,82 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+	font-family: "Roboto",Helvetica,Arial, sans-serif;
+	margin: 0;
+}
+
+
+
+
+.page-header {
+	display: table;
+	width: 100%;
+	background-color: #37474f;
+	padding: 0 10px;
+}
+
+.page-header > h3 {
+	float: left;
+	color: #f0f0f0;
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 14px 0;
+	margin: 0;
+}
+
+.page-header > nav {
+	float: left;
+}
+
+.page-header a:hover {
+	/*color:  #0288d1; /* #e51c23;*/
+}
+
+/*
+.header > h3 span {
+  color: #e51c23;
+}
+*/
+
+.menu {
+	list-style: none;
+	margin: 0;
+}
+
+.menu > li {
+	float: left;
+}
+
+.menu > li > a {
+	color: #f0f0f0;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	padding: 18px 20px;
+	float: left;
+}
+
+.menu > li:hover {
+	background-color: #455a64;
+}
+
+
+
+
+.github {
+	float: right;
+	padding: 8px 0;
+}
+
+.github > a {
+	color: #f0f0f0;
+	text-decoration: none;	
+}
+
+.github > a > i {
+	margin: 0 8px;
+}

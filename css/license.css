@@ -1,0 +1,30 @@
+
+
+
+
+.sections {
+	float: left;
+	background-color: #263238;
+}
+
+.sections > ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.sections > ul li {
+	padding: 10px;
+	color: #f0f0f0;
+}
+
+/*
+.sections > ul {
+	list-style: none;
+}
+
+.sections > ul li {
+	float: left;
+	padding: 4px 20px;
+}
+*/
+
