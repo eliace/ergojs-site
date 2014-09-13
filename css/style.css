@@ -232,21 +232,56 @@ ul.tabs > li:hover {
 } 
 
 
-.panel.sample > .tab-panel > div {
-	padding: 20px;
-}
-
-
-.panel-title {
-	margin: 0;
-	padding: 10px 5px;
-	font-size: 1.0em;
-}
 
 
 pre {
 	margin: 0;
 }
+
+
+.sample > .tab-panel > div {
+	padding: 20px;
+}
+
+
+
+
+/*
+ * PANEL
+ */
+
+
+.panel.bordered {
+	border: 1px solid #ccc;
+}
+
+.panel.centered {
+	margin: 0 auto;
+}
+
+.panel > * {
+	padding: 5px;
+}
+
+.panel.bordered > header {
+	background-color: #eee;
+	border-bottom: 1px solid #ccc;
+}
+
+
+.panel > footer {
+	width: 100%;
+}
+
+
+
+
+.panel-title {
+	margin: 0;
+	padding: 5px 5px;
+	font-size: 1.0em;
+}
+
 
 
 
@@ -360,7 +395,7 @@ pre {
 
 
 .btn > i.icon {
-	width: 0;
+/*	width: 0;*/
 }
 
 
@@ -585,6 +620,11 @@ img.btn.circle {
  * BAR
  */
 
+[layout="bar"] {
+	display: table;
+/*	width: 100%;*/
+}
+
 [layout="bar"] > * {
 	margin: 0 3px;
 }
@@ -596,6 +636,16 @@ img.btn.circle {
 [layout="bar"].right > * {
 	float: right;
 }
+
+
+[layout="bar"].center {
+	text-align: center;
+}
+
+[layout="bar"].center > * {
+	display: inline-block;
+}
+
 
 
 /*
@@ -1412,3 +1462,16 @@ input.field {
 .menu-header:hover > .column-dropdown, .column-dropdown.opened {
 	display: table-cell;
 }
+
+
+
+
+/*
+ * WINDOW
+ */
+
+.window {
+	position: absolute;
+	background-color: #fff;
+}
+

@@ -205,9 +205,14 @@ $(document).ready(function(){
 		}, {
 			title: 'Диалоги',
 			children: [{
-				title: 'Параметры'
+				title: 'Параметры',
+				name: 'widgets/dialogs/basic'
 			}, {
-				title: ''
+				title: 'Модальный диалог'
+			}, {
+				title: 'Размеры'
+			}, {
+				title: 'Перемещение'
 			}]
 		}, {
 			title: 'Приложение',
