@@ -21,6 +21,7 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider});
 
 var w = $.ergo({
 	etype: 'table-grid',
+	cls: 'widget',
 	height: 400,
 	column: {
 		cls: 'menu-header',
@@ -33,19 +34,25 @@ var w = $.ergo({
 				etype: 'dropdown-box',
 				cls: 'column-dropdown',
 				$content: {
-					etype: 'icon',
-					state: 'fa-angle-down'
-//					etype: 'html:span',
-//					cls: 'caret'
+					components: {
+						caret: {
+							etype: 'icon',
+							state: 'fa-angle-down'						
+						}
+					}
 				},
-				$dropdown_items: ['По возрастанию', 'По убыванию']
+				$dropdown: {
+					etype: 'dropdown-menu',
+					renderTo: 'body',
+					popup: {
+						behaviour: 'global'
+					},
+					items: ['По возрастанию', 'По убыванию']
+				}
 			}
 			
 		},
-		autoBind: false,
-		set: {
-			'text': function(v) {this.content.opt('text', v);}
-		}		
+		autoBind: false
 	},
 	columns: [{
 		header: {

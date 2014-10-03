@@ -19,6 +19,7 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider});
 
 var w = $.ergo({
 	etype: 'table-grid',
+	cls: 'widget',
 	height: 400,
 	column: {
 		components: {
@@ -28,9 +29,27 @@ var w = $.ergo({
 			}
 		},
 		autoBind: false,
-		set: {
-			'text': function(v) {this.content.opt('text', v);}
-		}		
+		state: 'resizable',
+		events: {
+			'jquery:mousemove': function(e, w) {
+//				console.log(e.pageX, e.pageY);
+				var x = e.pageX;
+//				var y = e.pageY;
+				var offset = this.el.offset();
+				var minX = offset.left;
+				var maxX = offset.left + this.el.outerWidth();
+				// var minY = offset.top;
+				// var maxY = minY + this.el.outerHeight();
+				
+				var prev = this.prev();
+				
+				if((x < minX+2 && prev && prev.states.is('resizable') ) || (this.states.is('resizable') && x > maxX-6))
+					this.parent.states.set('resize');
+				else if(this.parent.states.is('resize'))
+					this.parent.states.unset('resize');
+//					console.log(x, y);
+			}
+		}
 	},
 	columns: [{
 		header: 'ID',
@@ -38,7 +57,7 @@ var w = $.ergo({
 		binding: 'text',
 		width: 60
 	}, {
-		header: 'Full Name',
+		header: 'Full Name', 
 		dataId: 'Full Name',
 		binding: 'text',
 	}, {
@@ -82,9 +101,6 @@ var w = $.ergo({
 							etype: 'text'
 						}
 						
-					},
-					set: {
-						'text': function(v) {this.content.opt('text', v);}
 					}
 				},
 				items: ['ID', 'Full Name', 'Country', 'Email', 'Created At']

@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'widget',
 	html: '<div>',
-	render: '#sample',
+	renderTo: '#sample',
 	
 	// этот параметр содержит параметры общие для всех элементов
 	defaultItem: {

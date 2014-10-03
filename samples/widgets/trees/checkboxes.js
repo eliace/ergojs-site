@@ -20,7 +20,7 @@ var data = new Ergo.data.NodeList({provider: TreeAjaxProvider});
 var w = $.ergo({
 	etype: 'basic-tree',
 	data: data,
-	node: {
+	nestedItem: {
 		binding: function(v) {
 			if(this.data.opt('branch')) this.states.set('expandable');
 			this.icon.states.set(v.type);

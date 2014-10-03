@@ -13,7 +13,7 @@ w.$render('#sample');
 
 var context_menu = $.ergo({
 	etype: 'dropdown-list',
-	render: 'body',
+	renderTo: 'body',
 	cls: 'context-menu',
 	popup: {
 		behaviour: 'contextmenu'

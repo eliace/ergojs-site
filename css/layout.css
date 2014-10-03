@@ -43,16 +43,16 @@ body {
 }
 */
 
-.menu {
+.page-header .menu {
 	list-style: none;
 	margin: 0;
 }
 
-.menu > li {
+.page-header .menu > li {
 	float: left;
 }
 
-.menu > li > a {
+.page-header .menu > li > a {
 	color: #f0f0f0;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -61,7 +61,7 @@ body {
 	float: left;
 }
 
-.menu > li:hover {
+.page-header .menu > li:hover {
 	background-color: #455a64;
 }
 

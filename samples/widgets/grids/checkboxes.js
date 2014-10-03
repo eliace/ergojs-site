@@ -21,6 +21,7 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider});
 
 var w = $.ergo({
 	etype: 'table-grid',
+	cls: 'widget',
 	height: 400,
 	column: {
 		components: {
@@ -29,12 +30,62 @@ var w = $.ergo({
 				cls: 'column-text',
 			}
 		},
-		autoBind: false,
-		set: {
-			'text': function(v) {this.content.opt('text', v);}
-		}		
+		autoBind: false
 	},
-	columns: [{
+	
+	$header_$content: {
+		$control: {
+			$checkcol: {
+				weight: -100,
+				etype: 'html:col',
+				width: 40
+			}
+		},
+		$body: {
+			defaultItem: {
+				$checkcol: {
+					etype: 'html:th',
+					weight: -100,
+					autoBind: false,
+					$content: {
+						etype: 'check',
+						onAction: function() {
+							this.events.rise('checkAll', {value: this.opt('value')}); 
+						}
+					}
+				}
+			}			
+		}
+	},
+
+	$content_$content: {
+		$control: {
+			$checkcol: {
+				weight: -100,
+				etype: 'html:col',
+				width: 40
+			}
+		},
+		$body: {
+			$rows: {
+				defaultItem: {
+					$checkcol: {
+						etype: 'html:td',
+						weight: -100,
+						$content: {
+							etype: 'check',
+							autoBind: false,
+							onAction: function() {
+								this.events.rise('checkOne', {value: this.opt('value')}); 
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	
+	columns: [/*{
 		header: {
 			$content: {
 				etype: 'check',
@@ -51,7 +102,7 @@ var w = $.ergo({
 				this.events.rise('checkOne', {value: this.opt('value')}); 
 			}
 		}
-	}, {
+	},*/ {
 		header: 'ID',
 		dataId: 'User Id',
 		binding: 'text',
@@ -78,21 +129,22 @@ var w = $.ergo({
 	data: data,
 	onCheckAll: function(e) {
 		this.rows().each(function(row) {
-			row.item(0).content.opt('value', e.value);
+			row.checkcol.content.opt('value', e.value);
 		});
 	},
 	onCheckOne: function(e) {
 		var checked = 0;
 		this.rows().each(function(row) {
-			if(row.item(0).content.opt('value')) checked++;
+			if(row.checkcol.content.opt('value')) checked++;
 		});
+		var checker = this.header.content.body.item(0).checkcol.content;
 		if(checked == 0)
-			this.headers().get(0).content.opt('indeterminate', false);
+			checker.opt('indeterminate', false);
 		else if(checked < this.rows().count())
-			this.headers().get(0).content.opt('indeterminate', true);
+			checker.opt('indeterminate', true);
 		else {
-			this.headers().get(0).content.opt('value', true);			
-			this.headers().get(0).content.opt('indeterminate', false);
+			checker.opt('value', true);			
+			checker.opt('indeterminate', false);
 		}
 			
 	}

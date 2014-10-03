@@ -1,6 +1,5 @@
 
 
-
 JsonAjaxProvider = {
 	find_all: function(source) {
 		return $.ajax(source.options.url, {
@@ -20,6 +19,7 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider, url: 'data/grid
 
 var w = $.ergo({
 	etype: 'table-grid',
+	cls: 'widget',
 	height: 400,
 	column: {
 		components: {
@@ -28,10 +28,7 @@ var w = $.ergo({
 				cls: 'column-text',
 			}
 		},
-		autoBind: false,
-		set: {
-			'text': function(v) {this.content.opt('text', v);}
-		}		
+		autoBind: false
 	},
 	columns: [{
 		header: 'ID',

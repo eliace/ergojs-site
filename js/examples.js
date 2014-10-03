@@ -5,7 +5,11 @@ Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
 
 
 
-var LOREMIPSUM = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+var LOREMIPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra dignissim nisl at fermentum. Donec id nisl ut ligula consectetur fermentum at vel urna. Mauris orci tellus, ullamcorper non malesuada eu, aliquet a diam. Phasellus nibh quam, interdum et egestas sit amet, eleifend in augue. Aliquam elementum libero quis est sodales auctor. Suspendisse ac dignissim mauris. Suspendisse scelerisque tristique molestie. Maecenas et tellus nulla. Duis gravida mauris et mi porta, eu scelerisque dolor placerat.';
+var LOREMIPSUM_2 = 'Donec elementum convallis lacus, nec accumsan arcu placerat nec. Integer dapibus lectus at eros ullamcorper malesuada. Suspendisse potenti. Aenean magna quam, bibendum sit amet mi mollis, convallis scelerisque velit. Aliquam ac tempor eros. Vestibulum venenatis neque vitae venenatis sodales. Suspendisse lobortis nec lorem a consequat. Proin lorem ante, pharetra finibus urna sit amet, commodo sollicitudin risus.';
+var LOREMIPSUM_3 = 'Praesent dapibus nunc id quam pellentesque sagittis. Nam scelerisque ut dui in cursus. Morbi fringilla, tellus nec finibus rutrum, ex purus posuere tortor, vitae sodales mi ipsum eu ipsum. Aenean et tristique ex. Vestibulum non tellus id augue dapibus malesuada nec sit amet nisi. Maecenas sed velit vel enim maximus interdum ac nec lectus. In et ante ullamcorper felis sagittis tincidunt eu et magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam vulputate consectetur mauris nec ultricies. Mauris accumsan quam ut dolor porta placerat. Nulla lobortis viverra enim et ornare. Maecenas ullamcorper dignissim odio ut eleifend. Quisque bibendum ornare libero id hendrerit. ';
+var LOREMIPSUM_4 = 'Aliquam erat volutpat. Vivamus eu leo odio. Sed a massa ac sem condimentum rhoncus vel at risus. Integer tincidunt ultricies risus sed luctus. Vestibulum tincidunt dolor a ante consectetur interdum. Sed ut sapien bibendum, congue turpis non, convallis diam. Aliquam mollis, quam non interdum egestas, libero lectus lobortis mauris, vitae tempor nibh diam nec nisi. Sed dolor nulla, molestie nec neque eget, venenatis tristique leo. Phasellus non scelerisque eros, non blandit metus. ';
+var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis vel tellus ligula. Fusce posuere venenatis tellus, vitae tempor lacus pellentesque ac. Proin sit amet pretium lorem. Cras in commodo sem. Proin dolor mi, lacinia nec lectus et, volutpat dapibus arcu. Proin accumsan tortor varius mi feugiat, nec sodales metus lacinia. Duis euismod sollicitudin maximus. Fusce ut lectus libero. Aenean lobortis interdum justo, at fringilla metus ultricies vel. Sed at massa tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam at iaculis nisl. Cras sit amet molestie augue. Donec convallis malesuada sem, nec mollis risus faucibus at. ';
 
 
 $(document).ready(function(){
@@ -166,10 +170,13 @@ $(document).ready(function(){
 				title: 'Постраничный вывод',
 				name: 'widgets/grids/pagination'
 			}, {
-				title: 'Управление колонками',
+				title: 'Отключение колонок',
 				name: 'widgets/grids/columns'
 			}, {
-				title: 'Заголовки',
+				title: 'Ширина колонок',
+				name: 'widgets/grids/resize'
+			}, {
+				title: 'Меню',
 				name: 'widgets/grids/headers'
 			}, {
 				title: 'Сортировка',
@@ -180,11 +187,17 @@ $(document).ready(function(){
 			}, {
 				title: 'Фильтрация'
 			}, {
+				title: 'Группировка',
+				name: 'widgets/grids/group'
+			}, {
 				title: 'Редактирование'
 			}, {
 				title: 'Таблица-Дерево'
 			}, {
 				title: 'Таблица-Свойства'
+			}, {
+				title: '1500 строк',
+				name: 'widgets/grids/1500'
 			}]
 		}, {
 			title: 'Деревья',
@@ -208,7 +221,14 @@ $(document).ready(function(){
 				title: 'Параметры',
 				name: 'widgets/dialogs/basic'
 			}, {
-				title: 'Модальный диалог'
+				title: 'Модальный диалог',
+				name: 'widgets/dialogs/modal'
+			}, {
+				title: 'Пошаговый диалог',
+				name: 'widgets/dialogs/wizard'
+			}, {
+				title: 'Лайтбокс',
+				name: 'widgets/dialogs/lightbox'
 			}, {
 				title: 'Размеры'
 			}, {
@@ -218,19 +238,40 @@ $(document).ready(function(){
 			title: 'Приложение',
 			children: [{
 				title: 'Навигация',
-				name: 'widgets/app/header'
+				name: 'widgets/app/navigation'
 			}, {
 				title: 'Breadcrumbs',
 				name: 'widgets/app/breadcrumbs'
+			}, {
+				title: 'Pagination',
+				name: 'widgets/app/pagination'
 			}]
+		}, {
+			title: 'Меню',
+			children: [{
+				title: 'Навигационное меню',
+				name: 'widgets/menu/nav-menu'
+			}, {
+				title: 'Контекстное меню',
+				name: 'widgets/menu/context-menu'
+			}, {
+				title: 'Боковое меню',
+				name: 'widgets/menu/side-menu'
+			}]			
 		}, {
 			title: 'Другое',
 			children: [{
 				title: 'Оповещения',
 				name: 'widgets/other/alert'
 			}, {
-				title: 'Контекстное меню',
-				name: 'widgets/other/context-menu'
+				title: 'Wizard',
+				name: 'widgets/other/wizard'
+			}, {
+				title: 'Tabs',
+				name: 'widgets/other/tabs'
+			}, {
+				title: 'Growls',
+				name: 'widgets/other/growl'
 			}]
 		}]
 	}, {
@@ -241,10 +282,7 @@ $(document).ready(function(){
 		}]
 	}, {
 		title: 'Примеси',
-		children: [{
-			title: 'Caret',
-			name: 'mixins/caret'
-		}]
+		children: []
 	}];
 	
 	
@@ -263,7 +301,7 @@ $(document).ready(function(){
 				content: {
 					etype: 'list-tree',
 					dataId: 'children',
-					node: {
+					nestedItem: {
 						$content: {
 //							etype: 'link',
 							format: '#{title}',
@@ -340,13 +378,14 @@ $(document).ready(function(){
 							cls: 'javascript',
 						}
 					}
-				}]
+				}],
+				selected: 0
 			}
 		});
 		
 		smpl.$render('#samples');
 		
-		smpl.content.tabbar.item(0).states.set('selected');
+//		smpl.content.tabbar.item(0).states.set('selected');
 		
 		
 		$context._sample = smpl;

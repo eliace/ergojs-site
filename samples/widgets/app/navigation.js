@@ -1,21 +1,23 @@
 
 
 var w = $.ergo({
-	etype: 'html:nav',
-	cls: 'nav-bar',
+//	etype: 'html:nav',
+//	cls: 'nav-bar',
+	etype: 'navigation',
+	title: 'Title',
 	components: {
-		header: {
-			etype: 'box',
-			cls: 'header',
-			$title: {
-				cls: 'title',
-				etype: 'link',
-				text: 'Title'				
-			}
-		},
+		// header: {
+			// etype: 'box',
+			// cls: 'header',
+			// $title: {
+				// cls: 'title',
+				// etype: 'link',
+				// text: 'Title'				
+			// }
+		// },
 		content: {
-			layout: 'fluid',
-			etype: 'box',
+			// layout: 'fluid',
+			// etype: 'box',
 			components: {
 				menu: {
 					etype: 'menu-bar',
@@ -41,9 +43,12 @@ var w = $.ergo({
 								text: 'Page 2',
 								state: 'has-submenu',
 								$content: {
+									$content: {
+										etype: 'text'
+									},
 									$caret: {
-										etype: 'html:span',
-										cls: 'caret right'
+										etype: 'caret',
+										cls: 'right'
 									}
 								},
 								$submenu: {

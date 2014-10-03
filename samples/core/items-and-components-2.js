@@ -4,7 +4,7 @@
  */
 var w = $.ergo({
 	etype: 'box',
-	render: '#sample',
+	renderTo: '#sample',
 	
 	// этот параметр применяется фабрикой для всех компонентов
 	defaultComponent: {

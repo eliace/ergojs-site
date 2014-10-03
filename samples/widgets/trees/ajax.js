@@ -20,25 +20,33 @@ var data = new Ergo.data.NodeList({provider: TreeAjaxProvider});
 var w = $.ergo({
 	etype: 'basic-tree',
 	data: data,
-	node: {
+	nestedItem: {
 		binding: function(v) {
 			if(this.data.opt('branch')) this.states.set('expandable');
-			this.icon.states.set(v.type);
+//			this.icon.states.set(v.type);
 		},
 		components: {
 			content: {
-				dataId: 'title'
+				$icon: {
+					etype: 'icon',
+					weight: -10,
+					states: {
+						// настраиваем FontAwesome-иконки для состояний
+						'drive': 'fa-hdd-o',
+						'folder': 'fa-folder-o',
+						'clip': 'fa-film'
+					},
+					dataId: 'type'
+					// binding: function(v) {
+						// this.states.set(v);
+					// }
+				},
+				$content: {
+					etype: 'text',
+					dataId: 'title'					
+				},
+				binding: false
 			},
-			icon: {
-				etype: 'icon',
-				weight: -10,
-				states: {
-					// настраиваем FontAwesome-иконки для состояний
-					'drive': 'fa-hdd-o',
-					'folder': 'fa-folder-o',
-					'clip': 'fa-film'
-				}
-			}
 		}
 	}
 });

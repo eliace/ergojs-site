@@ -104,7 +104,7 @@ var w = $.ergo({
 	items: [{
 		etype: 'basic-tree',
 		data: data,
-		node: {
+		nestedItem: {
 			components: {
 				content: {
 					dataId: 'title'
@@ -118,25 +118,29 @@ var w = $.ergo({
 	}, {
 		etype: 'basic-tree',
 		data: data,
-		node: {
+		nestedItem: {
 			components: {
 				// checker: {
 					// etype: 'check',
 					// weight: -20,
 					// autoBind: false
 				// },
-				icon: {
-					etype: 'icon',
-					weight: -10,
-					states: {
-						// отображение состояния на класс иконки
-						'cardinals': 'fa-globe',
-						'countries': 'fa-flag',
-						'cities': 'fa-building-o'
-					}
-				},
 				content: {
-					dataId: 'title'
+					$content: {
+						etype: 'text',
+						dataId: 'title'
+					},
+					$icon: {
+						etype: 'icon',
+						weight: -10,
+						states: {
+							// отображение состояния на класс иконки
+							'cardinals': 'fa-globe',
+							'countries': 'fa-flag',
+							'cities': 'fa-building-o'
+						}
+					},
+					binding: false
 				},
 				description: {
 					// выведем дополнительную информацию
@@ -158,7 +162,7 @@ var w = $.ergo({
 				if(v.type != 'cities') 
 					this.states.set('expandable');
 				// устанавливаем состояние иконки
-				this.icon.states.set(v.type);
+				this.content.icon.states.set(v.type);
 			}
 		}
 		

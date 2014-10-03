@@ -738,6 +738,7 @@ var data = [
 
 var w = $.ergo({
 	etype: 'table-grid',
+	cls: 'widget',
 	height: 400,
 	column: {
 		// обычный заголовок
@@ -745,32 +746,9 @@ var w = $.ergo({
 			content: {
 				etype: 'link',
 				cls: 'column-text',
-				// mixins: ['caret'],
-				// onClick: function() {
-					// this.states.toggle('up');
-				// },
-				// states: {
-					// 'up:direction': 'up',
-					// 'down:direction': 'down'
-				// }
-				// $caret: {
-					// etype: 'line',
-					// cls: 'caret'
-				// }
 			}
-			// menuButton: {
-				// etype: 'dropdown-box',
-				// cls: 'column-dropdown',
-				// $dropdown_items: ['По возрастанию', 'По убыванию', '|', 'Фильтр', 'Скрыть колонку']
-			// }
 		},
-		// states: {
-			// 'sorted': 'sorted'
-		// },
-		autoBind: false,
-		set: {
-			'text': function(v) {this.content.opt('text', v);}
-		}		
+		autoBind: false
 	},
 	columns: [{
 		// header: {

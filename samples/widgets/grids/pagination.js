@@ -47,6 +47,7 @@ var data = new Ergo.data.Collection({
 
 var w = $.ergo({
 	etype: 'table-grid',
+	cls: 'widget',
 	height: 400,
 	column: {
 		components: {
@@ -87,38 +88,54 @@ var w = $.ergo({
 	data: data,
 	components: {
 		footer: {
-			items: [{
-				etype: 'grid-pagination',
-				binding: function(v) {
-					this.item(3).opt('value', this.data.opt('index')+1);
-					this.item(5).opt('value', this.data.opt('count'));
-				},
-				events: {
-					'next': function() {
-						this.data.opt('index', this.data.opt('index')+1).fetch();
+			$toolbar: {
+				etype: 'tool-bar',
+				items: [{
+					etype: 'grid-pagination',
+					defaultComponent: {
+						cls: 'flat',
+						set: {
+							'text': function() {}
+						},
+						style: {width: 24}
 					},
-					'previous': function() {
-						this.data.opt('index', this.data.opt('index')-1).fetch();
+					components: {
+						firstButton: {etype: 'icon-button', icon: 'fa-angle-double-left'},
+						prevButton: {etype: 'icon-button', icon: 'fa-angle-left'},
+						nextButton: {etype: 'icon-button', icon: 'fa-angle-right'},
+						lastButton: {etype: 'icon-button', icon: 'fa-angle-double-right'},
 					},
-					'last': function() {
-						this.data.opt('index', this.data.opt('count')-1).fetch();
+					binding: function(v) {
+						this.item(1).opt('value', this.data.opt('index')+1);
+						this.item(3).opt('value', this.data.opt('count'));
 					},
-					'first': function() {
-						this.data.opt('index', 0).fetch();
-					},
-				}
-				// set: {
-					// 'index': function(v) {
-						// console.log(v);
-						// // this.data.opt({
-							// // from: this.data.opt('pageSize')*v,
-							// // to: this.data.opt('pageSize')*(v+1)
-						// // });
-						// this.data.fetch();
-// //						this._index = v;
+					events: {
+						'next': function() {
+							this.data.opt('index', this.data.opt('index')+1).fetch();
+						},
+						'previous': function() {
+							this.data.opt('index', this.data.opt('index')-1).fetch();
+						},
+						'last': function() {
+							this.data.opt('index', this.data.opt('count')-1).fetch();
+						},
+						'first': function() {
+							this.data.opt('index', 0).fetch();
+						},
+					}
+					// set: {
+						// 'index': function(v) {
+							// console.log(v);
+							// // this.data.opt({
+								// // from: this.data.opt('pageSize')*v,
+								// // to: this.data.opt('pageSize')*(v+1)
+							// // });
+							// this.data.fetch();
+	// //						this._index = v;
+						// }
 					// }
-				// }
-			}]
+				}]
+			}
 		}
 	}
 	// set: {
