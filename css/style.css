@@ -7,6 +7,7 @@ body {
 /*	font-family: Helvetica,Arial,sans-serif;*/
 /*	font-family: 'Roboto', sans-serif;*/
 	font-size: 14px;
+/*	font-size: 0.8em;*/
 }
 
 /*
@@ -497,9 +498,22 @@ ul.step-list > li > span {
 
 
 
+li.has-subtree {
+	position: relative;
+}
 
 
+.nav-menu li:not(.has-subtree) > a .caret {
+	display: none;
+}
 
+
+li.has-subtree > a .caret {
+  margin-top: -4px;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+}
 
 
 
