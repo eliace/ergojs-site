@@ -48,78 +48,27 @@ var w = $.ergo({
 			cls: 'side-box',
 			width: 250,
 			$menu: {
-				etype: 'nested-list',
-				cls: 'side-menu',
+				etype: 'side-menu',
 				data: data,
 				nestedItem: {
 					$content: {
-						etype: 'link',
-//						dataId: 'title',
 						$icon: {
-							etype: 'icon',
-							cls: 'before',
-							weight: -100,
 							dataId: 'icon',
-							binding: function(v) {
-								this.states.set(v);
-							}
 						},
-						$text: {
-							etype: 'text',
+						$content: {
 							dataId: 'title'
 						},
-						$caret: {
-							etype: 'html:span',
-							cls: 'caret',
-							state: 'closed',
-							states: {
-								'opened:g': 'down',
-								'closed:g': 'right'
-							},
-							binding: function(v) {
-								if(!v.children) this.hide();
-							}
-						},
-						binding: false,
-						onClick: function() {
-							
-							if( !this.data.get('children') ) {
-								// строим путь
-								var path = [];
-								var w = this.parent;
-								while(w._name) {
-									path.push(w._name);
-									w = w.parent.parent;
-								}
-								this.events.rise('select', {key: path.reverse().join(':')});
-							}
-							else {
-								this.parent.states.toggle('expanded');							
-							}
-						}
 					},
 					binding: function(v) {
 						this._name = v.name;
 					},
-					states: {
-						'expanded': function(on) {
-							this.content.caret.states.set(on ? 'opened' : 'closed');
-							if(on)
-								this.events.rise('expandItem');
-						}
-					}
 				},
-				onExpandItem: function(e) {
+				onExpandItem: function(e) { // FIXME вместо этого должно быть монопольное открытие пути в nested-list
 					this.items.each(function(item){
-//						console.log( item.states.is('expanded') );
 						if(e.target != item && item.states.is('expanded'))
 							item.states.unset('expanded');
 					});					
 				}
-				// onBound: function() {
-					// this.opt('selected', 'dashboard');
-				// }
-//				selected: 'dashboard'
 			}
 		},
 		$content: {
@@ -137,17 +86,7 @@ var w = $.ergo({
 		},
 		mixins: ['selectable'],
 		selectionFinder: function(key) {
-//					console.log(key);
-			var path = key.split(':');
-			var w = this.sidebox.menu;
-			var found = null;
-			for(var i = 0; i < path.length; i++) {
-//						console.log(path[i]);
-				w = w.item({_name: path[i]});
-				found = w;
-				w = w.subtree;
-			}
-			return found;
+			return this.sidebox.menu.find(key); // в выборку добавляем только элемент меню
 		},
 		onSelected: function(e) {
 			this.content.opt('active', {_name: e.key.split(':').join('_')});

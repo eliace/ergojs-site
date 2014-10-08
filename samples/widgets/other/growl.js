@@ -76,6 +76,9 @@ var w = $.ergo({
 		etype: 'button',
 		onClick: function() {
 			
+			
+			
+			
 			growl_list.push({
 				etype: 'alert',
 				$icon: {

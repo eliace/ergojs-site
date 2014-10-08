@@ -406,7 +406,7 @@ $(document).ready(function(){
 		};
 		
 		$.ergo({
-			render: '#sample',
+			renderTo: '#sample',
 			etype: 'alert',
 			$icon: {
 				cls: 'fa fa-fw rounded'
