@@ -61,6 +61,7 @@ var w = $.ergo({
 					},
 					binding: function(v) {
 						this._name = v.name;
+						if(v.children) this.states.set('has-subtree');
 					},
 				},
 				onExpandItem: function(e) { // FIXME вместо этого должно быть монопольное открытие пути в nested-list

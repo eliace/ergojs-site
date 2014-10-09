@@ -42,13 +42,13 @@ var data = [{
 		title: 'Действия',
 		name: 'actions',
 		children: [{
-			title: 'Новая',
+			title: 'Новая подзадача',
 			name: 'new'
 		}, {
-			title: 'Просмотреть',
+			title: 'Переназначить',
 			name: 'show'
 		}, {
-			title: 'Удалить',
+			title: 'Закрыть',
 			name: 'remove'
 		}]
 	}]
@@ -61,6 +61,115 @@ var data = [{
 
 
 
+
+var w = $.ergo({
+	etype: 'navigation',
+	$content: {
+		items: [{
+			etype: 'list',
+			cls: 'nav-menu',
+			data: data,
+			defaultItem: {
+				$content: {
+					etype: 'link',
+					$content: {
+						etype: 'text',
+						format: '#{title}'
+					},
+					$caret: {
+						etype: 'caret',
+						state: 'down'
+					},
+					onClick: function(e) {
+						this.parent.subtree.open();
+						this.parent.subtree.states.set('opened');
+						e.baseEvent.stopPropagation();
+					},
+				},
+				$subtree: {
+					etype: 'nested-list',
+					dataId: 'children',
+					cls: 'dropdown-menu',
+					mixins: ['popup', 'effects'],
+					popup: {
+						at: 'left bottom',
+						exclusive: true
+					},
+					effects: {
+						show: {type: 'slideDown', delay: 200},
+						hide: 'hide',
+						delay: 0
+					},
+					onClosed: function() {
+						this.parent.states.unset('opened');
+					},
+					nestedItem: {
+						$content: {
+							etype: 'link',
+							$content: {
+								etype: 'text',
+								format: '#{title}'
+							},
+							$caret: {
+								etype: 'caret',
+								state: 'right'
+							},
+							events: {
+								'jquery:mouseenter': function(e) {
+									
+									var current = this.parent;
+									
+									this.parent.parent.items.each(function(item){
+										if( item != current && item.states.is('opened') ) {
+											item.subtree.close();
+											item.states.unset('opened');
+										}
+									});
+									
+									if(this.parent.states.is('has-subtree') & !this.parent.states.is('opened')) {
+										this.parent.subtree.open();
+										this.parent.states.set('opened');
+									}
+									
+									e.stopPropagation();							
+								}
+							}
+						},
+						$subtree: {
+							cls: 'dropdown-menu',
+							mixins: ['popup', 'effects'],
+							popup: {
+								at: 'right top',
+								exclusive: false
+							},
+							effects: {
+								show: {type: 'slideDown', delay: 200},
+								hide: 'hide',
+								delay: 0
+							},
+							onClosed: function() {
+								this.parent.states.unset('opened');
+							}
+						},
+						binding: function(v) {
+							if(v.children) this.states.set('has-subtree');
+						},
+						
+					}
+				},
+				binding: function(v) {
+					if(v.children) this.states.set('has-subtree');
+				}
+			},
+		}]
+	}
+});
+
+
+
+
+
+/*
 var w = $.ergo({
 	etype: 'navigation',
 	$content: {
@@ -70,7 +179,7 @@ var w = $.ergo({
 			defaultItem: {
 				$content: {
 					$caret: {
-						'!!state': 'down'
+						'!state': 'down'
 					}
 				},
 				$subtree: {
@@ -99,7 +208,6 @@ var w = $.ergo({
 							this.parent.subtree.states.set('opened');
 						}
 						e.baseEvent.stopPropagation();
-//						e.baseEvent.preventDefault();
 					},
 					events: {
 						'jquery:mouseenter': function(e) {
@@ -128,13 +236,11 @@ var w = $.ergo({
 					mixins: ['popup', 'effects'],
 					popup: {
 						at: 'right top',
-//						closeOn: false,
 						exclusive: false
 					},
 					effects: {
 						show: {type: 'slideDown', delay: 200},
 						hide: 'hide',
-//						hide: 'slideUp',
 						delay: 0
 					},
 					onClosed: function() {
@@ -151,11 +257,11 @@ var w = $.ergo({
 					// }
 				// }
 			},
-//			items: ['Услуги', 'Продукты', 'Обучение', 'О компании'],
-//			dynamic: false,
 			data: data
 		}]
 	}	
 });
+
+*/
 
 w.$render('#sample');

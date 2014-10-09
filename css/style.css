@@ -503,22 +503,42 @@ li.has-subtree {
 }
 
 
-.nav-menu li:not(.has-subtree) > a .caret {
+.nav-menu li:not(.has-subtree) > a .caret, .side-menu li:not(.has-subtree) > a .caret {
 	display: none;
 }
 
 
-li.has-subtree > a .caret {
+.dropdown-menu > li.has-subtree > a .caret {
   margin-top: -4px;
   position: absolute;
   right: 12px;
   top: 50%;
 }
 
+.nav-menu > li > a .caret {
+	margin-top: 0;
+	margin-left: 4px;
+  float: right;
+  right: auto;
+  position: relative;
+	top: 50%;
+}
 
 
 
+.tool-bar {
+	padding: 4px;
+}
 
+.grid-pagination > .btn {
+  height: 28px;
+  padding: 0;
+  width: 28px;	
+}
+
+.grid-pagination > input {
+	height: 28px;
+}
 
 
 /*
