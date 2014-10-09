@@ -10,6 +10,9 @@ var data = new Ergo.data.Collection({
 
 
 var w = $.ergo({
+	etype: 'pagination',
+	data: data
+/*	
 	etype: 'list',
 	cls: 'pagination',
 	mixins: ['selectable'],
@@ -20,7 +23,13 @@ var w = $.ergo({
 			$content: {
 				etype: 'link',
 				text: '»',
-				binding: false
+				binding: false,
+				events: {
+					'jquery:mousedown': function(e) {
+						this.events.rise('nextIndex');
+						e.preventDefault(); // блокируем выделение текста
+					}
+				}
 			}
 		},
 		prevBtn: {
@@ -29,21 +38,44 @@ var w = $.ergo({
 			$content: {
 				etype: 'link',
 				text: '«',
-				binding: false
+				binding: false,
+				events: {
+					'jquery:mousedown': function(e) {
+						this.events.rise('prevIndex');
+						e.preventDefault(); // блокируем выделение текста
+					}
+				}
 			}			
 		}
 	},
 	defaultItem: {
 		$content: {
 			etype: 'link',
+			events: {
+				'jquery:mousedown': function(e) {
+//				this.parent.parent.opt('index', this.parent);
+					var index = this.parent.opt('name');
+					if(index)
+						this.events.rise('action', {action: 'changeIndex', index: index});
+					e.preventDefault(); // блокируем выделение текста
+				}
+			}
 		},
 		binding: false					
 	},
 	dynamic: true,
 	data: data,
-	binding: function(v) {
-		
-		
+	selectionFinder: function(key) {
+		return this.item({_name: key});
+	},
+	onAction: function(e) {
+		this.opt('index', e.index);
+	},
+	onNextIndex: function() {
+		this.opt('index', this.opt('index')+1);
+	},
+	onPrevIndex: function() {
+		this.opt('index', this.opt('index')-1);
 	},
 	set: {
 		'index': function(index) {
@@ -63,35 +95,28 @@ var w = $.ergo({
 			
 			// BEFORE
 			for(var i = 0; i < min_float; i++)
-				this.items.add({text: i+1});
+				this.items.add({text: i+1, name: i+1});
 			
 			if(min_block - min_float > 0)
 				this.items.add({text: '...'});
 			
 			for(var i = min_block; i < max_block; i++)
-				this.items.add({text: i+1});
+				this.items.add({text: i+1, name: i+1});
 
 			if(max_float - max_block > 0)
 				this.items.add({text: '...'});
 			
 			// AFTER
 			for(var i = max_float; i < count; i++)
-				this.items.add({text: i+1});
-			
-			// for(var i = Math.max(index-wrap_pages-1, before_pages); i < Math.min(index+wrap_pages, count); i++)
-				// this.items.add({text: i+1});
-			
-			// var i = 1;
-			// if(index < after_pages + wrap_pages*2) {
-				// for(; i <= index; i++)
-					// this.items.add({text: i});
-			// }
+				this.items.add({text: i+1, name: i+1});
 			
 			this.$render();
 			
+			this.opt('selected', index);
 		}
 		
 	}
+*/	
 });
 
 

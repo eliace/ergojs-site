@@ -1737,7 +1737,7 @@ input.field {
 }
 
 .pagination > li a {
-	border: 1px solid #eee;
+	border: 1px solid #ddd;
 	padding: 6px 12px;
 	margin-left: -1px;
 	text-decoration: none;
