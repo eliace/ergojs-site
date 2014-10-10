@@ -272,6 +272,9 @@ $(document).ready(function(){
 			}, {
 				title: 'Growls',
 				name: 'widgets/other/growl'
+			}, {
+				title: 'Табличный список',
+				name: 'widgets/other/table-list'
 			}]
 		}]
 	}, {

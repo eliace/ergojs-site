@@ -6,7 +6,7 @@ body {
 /*	font-family: 'Open Sans', sans-serif;*/
 /*	font-family: Helvetica,Arial,sans-serif;*/
 /*	font-family: 'Roboto', sans-serif;*/
-	font-size: 14px;
+	font-size: 13px;
 /*	font-size: 0.8em;*/
 }
 
@@ -514,6 +514,15 @@ ul.step-list > li > span {
 .grid-pagination > input {
 	height: 28px;
 }
+
+
+
+.avatar {
+	width: 48px;
+	height: 48px;
+	border-radius: 48px;
+}
+
 
 
 
