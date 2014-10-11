@@ -52,8 +52,23 @@ var w = $.ergo({
 		dataId: 'Created At',
 		binding: 'text'
 	}],
-	mixins: ['loader'],
-	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
+//	mixins: ['loader'],
+//	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
+	// $toolbar: {
+		// weight: -100,
+		// etype: 'tool-bar',
+		// state: 'right',
+		// items: [{
+			// etype: 'icon',
+			// cls: 'lock-icon fa-refresh fa-spin'
+		// }]
+	// },
+	// onFetch: function() {
+		// this.states.set('locked');
+	// },
+	// onFetched: function() {
+		// this.states.unset('locked');
+	// },
 	data: data
 });
 
