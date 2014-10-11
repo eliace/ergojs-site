@@ -192,10 +192,13 @@ $(document).ready(function(){
 			}, {
 				title: 'Редактирование'
 			}, {
+				title: 'Таблица-Список',
+				name: 'widgets/grids/list-grid'
+			}/*, {
 				title: 'Таблица-Дерево'
 			}, {
 				title: 'Таблица-Свойства'
-			}, {
+			}*/, {
 				title: '1500 строк',
 				name: 'widgets/grids/1500'
 			}]
@@ -486,6 +489,12 @@ $(document).ready(function(){
 	$( document ).ajaxError(function() {
 		console.log(arguments);
 	});	
+	
+	
+	$(document).on('scroll', function(){
+		$context.events.fire('scroll');
+	});
+	
 
 /*	
 	var fixed_header = false;

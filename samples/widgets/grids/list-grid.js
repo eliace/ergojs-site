@@ -14,14 +14,38 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider});
 
 
 var w = $.ergo({
-	etype: 'table',
-	cls: 'table-list',
+	etype: 'table-grid',
+	baseCls: 'list-view',
 	
 	data: data,
 	
-	// $head: {
-		// autoRender: false
-	// },
+	$header: {
+		events: {
+			'ctx:scroll': function() {
+				
+				var dy = $(document).scrollTop();
+				var y = this.parent.el.offset().top;
+				
+//				console.log(y, dy);
+				
+				// отсоединяем заголовок
+				if(dy > y && !this.states.is('scrolled')) {
+					this.el.width( this.el.width() );
+					this.states.set('scrolled');
+				}
+				else if(dy <= y && this.states.is('scrolled')) {
+					this.el.width( '' );				
+					this.states.unset('scrolled');
+				}
+				
+				
+			}
+		}
+	},
+	
+	$content: {
+		autoHeight: false
+	},
 	
 	columns: [{
 		header: 'Фото',
@@ -36,7 +60,8 @@ var w = $.ergo({
 				// src += (v < 10) ? '00' : '0';
 				// this.opt('src', src + v + '.jpg');
 			// }
-		}
+		},
+		width: 80
 	}, {
 		header: 'Имя',
 		dataId: 'full_name',
@@ -59,9 +84,17 @@ var w = $.ergo({
 		binding: 'text'
 	}]
 	
+	
 });
 
 
 w.$render('#sample');
 
 data.fetch();
+
+
+
+
+
+
+
