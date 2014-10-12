@@ -1097,7 +1097,7 @@ ul.tabs > li:hover {
 	cursor: default;
 }
 
-.icon.rounded {
+.icon.round {
 	width: 24px;
 	height: 24px;
 	border-width: 1px;

@@ -552,7 +552,8 @@ ul.step-list > li > span {
 .list-view .grid-header.scrolled {
   box-shadow: 0 4px 2px -3px rgba(0, 0, 0, 0.3);
   position: fixed;
-  top: 0;	
+  top: 0;
+  z-index: 1;
 }
 
 
@@ -564,6 +565,29 @@ ul.step-list > li > span {
 
 .list-view > .grid-header th {
  	border-right: none; 	
+}
+
+
+
+
+table.table-view td {
+	color: #444;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 8px;	
+}
+
+table.table-view th {
+  color: #444;
+  border-right: 1px solid #DDDDDD;
+  font-weight: bold;
+	padding: 8px;
+  text-align: left;
+  
+}
+
+table.table-view thead {
+	background-color: #eee;  	
 }
 
 

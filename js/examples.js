@@ -144,15 +144,6 @@ $(document).ready(function(){
 				name: 'widgets/basic/tree'
 			}]
 		}, {
-			title: 'Кнопки',
-			children: [{
-				title: 'Типы кнопок',
-				name: 'widgets/buttons/buttons'
-			}, {
-				title: 'Группа кнопок',
-				name: 'widgets/buttons/buttons-2'
-			}]
-		}, {
 			title: 'Поля',
 			children: [{
 				title: 'Типы полей',

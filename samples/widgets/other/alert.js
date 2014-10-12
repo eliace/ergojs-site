@@ -4,7 +4,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'alert',
 		$icon: {
-			cls: 'fa rounded'
+			cls: 'fa round'
 		}
 	},
 	items: [{
