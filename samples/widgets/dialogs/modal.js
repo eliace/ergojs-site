@@ -1,12 +1,10 @@
 
 var dialog1 = $.ergo({
 	etype: 'panel',
-	cls: 'modal',
+	cls: 'modal widget dark',
 	mixins: ['modal', 'effects'],
 	effects: {
-		show: 'fadeIn',
-		hide: 'fadeOut',
-		delay: 300
+		show: {type: 'fadeIn', delay: 300}
 	},
 //	state: 'bordered',
 	title: 'Диалог',
@@ -17,30 +15,70 @@ var dialog1 = $.ergo({
 		// delay: 300
 	// },
 	$header: {
+		$title: {
+			state: 'tiny'
+		},
 		$toolbar: {
 			etype: 'tool-bar',
+			
+			$dialogButtons: {
+				layout: 'hbox',
+				defaultItem: {
+					etype: 'icon-button',
+					state: 'tool tiny flat',
+					onClick: function() {
+						this.events.rise('action', {action: this.opt('text')});
+					},
+					$content: {
+						states: {
+							'settings': 'fa-cog',
+							'move': 'fa-arrows-alt',
+							'expand': 'fa-expand',
+							'close': 'fa-close'
+						}
+					}
+				},
+				items: ['settings', 'move', 'expand', 'close']
+			}
+			
+/*			
 			cls: 'right',
 			defaultItem: {
 				etype: 'icon-button',
 				state: 'tool flat'
 			},
 			items: [{icon: 'fa-cog'}, {icon: 'fa-arrows-alt'}, {icon: 'fa-expand'}, {icon: 'fa-close'}]
+*/			
 		}
 	},
 	$content: {
-		text: LOREMIPSUM
+		text: LOREMIPSUM,
+		cls: 'panel-content'
 	},
 	$footer: {
 		autoRender: true,
 		$toolbar: {
-			layout: 'bar',
+			etype: 'tool-bar',
 			cls: 'center',
 			defaultItem: {
-				etype: 'button'
+				etype: 'button',
+				onClick: function() {
+					this.events.rise('action', {action: this.opt('name')});
+				}
 			},
-			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
+			items: [{text: 'ОК', state: 'primary', name: 'ok'}, {text: 'Отмена', name: 'cancel'}]
 		}		
+	},
+	
+	onAction: function(e) {
+		
+		if(e.action == 'close' || e.action == 'ok' || e.action == 'cancel')
+			this.close();
+		
 	}
+	
+	
+	
 });
 
 
@@ -49,7 +87,7 @@ var dialog1 = $.ergo({
 
 var dialog2 = $.ergo({
 	etype: 'panel',
-	cls: 'modal',
+	cls: 'modal widget dark',
 	mixins: ['modal', 'effects'],
 //	state: 'bordered',
 	title: 'Диалог',
@@ -61,12 +99,14 @@ var dialog2 = $.ergo({
 	},
 	$header: {
 		$toolbar: {
-			layout: 'bar',
-			cls: 'right',
-			defaultItem: {
-				etype: 'button'
-			},
-			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
+			etype: 'tool-bar',
+			$buttons: {
+				layout: 'bar',
+				defaultItem: {
+					etype: 'button'
+				},
+				items: [{text: 'ОК', state: 'primary'}, 'Отмена']				
+			}
 		}
 	},
 	$content: {

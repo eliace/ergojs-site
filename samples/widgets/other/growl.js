@@ -77,18 +77,41 @@ var w = $.ergo({
 		onClick: function() {
 			
 			
+			var growls = {
+				'success': {
+					icon: 'fa-check',
+					title: 'Готово!',
+					text: 'Процесс завершен',
+					state: 'success'
+				},
+				'info': {
+					icon: 'fa-info',
+					title: 'Информация!',
+					text: 'Помощь при работе с приложением',			
+					state: 'info'
+				},
+				'warning': {
+					icon: 'fa-bell-o',
+					title: 'Предупреждение!',
+					text: 'Автоматическая проверка отключена',					
+					state: 'warning'
+				},
+				'danger': {
+					icon: 'fa-times',
+					title: 'Ошибка!',
+					text: 'Сервер не отвечает на запросы',					
+					state: 'danger'
+				}
+			};
 			
+			var name = this.opt('name');
 			
-			growl_list.push({
+			growl_list.push( Ergo.override({
 				etype: 'alert',
 				$icon: {
-					cls: 'fa rounded'
-				},
-				icon: 'fa-check',
-				title: 'Готово!',
-				text: 'Процесс завершен',
-				state: this.options.name
-			});
+					cls: 'fa round'
+				}
+			}, growls[name]) );
 			
 		}
 	},
@@ -96,7 +119,7 @@ var w = $.ergo({
 		{text: 'Success', state: 'success', name: 'success'},
 		{text: 'Info', state: 'info', name: 'info'},
 		{text: 'Warning', state: 'warning', name: 'warning'},
-		{text: 'Error', state: 'error', name: 'error'}
+		{text: 'Danger', state: 'danger', name: 'danger'}
 	]
 });
 

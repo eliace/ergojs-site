@@ -26,7 +26,7 @@ var w = $.ergo({
 		icon: 'fa-times',
 		title: 'Ошибка!',
 		text: 'Действия пользователя привели к исключительной ситуации',
-		state: 'error'		
+		state: 'danger'		
 	}]
 });
 

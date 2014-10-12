@@ -10,8 +10,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'		
@@ -50,8 +49,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'
@@ -83,8 +81,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -124,12 +121,50 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
 		flat: true
+	},
+	items: [{
+		text: 'Default',
+		type: 'default'
+	}, {
+		text: 'Primary',
+		type: 'primary'
+	}, {
+		text: 'Success',
+		type: 'success'
+	}, {
+		text: 'Warning',
+		type: 'warning'
+	}, {
+		text: 'Danger',
+		type: 'danger'
+	}, {
+		text: 'Tool',
+		type: 'tool'
+	}]
+});
+
+
+
+
+$.ergo({
+	etype: 'html:h3',
+	cls: 'demo-section',
+	text: 'Линейные',
+	renderTo: '#sample'
+});
+
+
+var w = $.ergo({
+	etype: 'tool-bar',
+	renderTo: '#sample',
+	defaultItem: {
+		etype: 'button',
+		line: true
 	},
 	items: [{
 		text: 'Default',
@@ -165,8 +200,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -211,8 +245,7 @@ var w = $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -270,8 +303,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -316,8 +348,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -354,8 +385,7 @@ var w = $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -408,8 +438,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
@@ -440,8 +469,7 @@ var w = $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
@@ -487,8 +515,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'split-button',
@@ -528,8 +555,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	items: [{
 		etype: 'button-box',
@@ -548,8 +574,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	items: [{
 		etype: 'button-box',
@@ -573,8 +598,7 @@ $.ergo({
 
 
 var w = $.ergo({
-	etype: 'box',
-	layout: 'bar',
+	etype: 'tool-bar',
 	renderTo: '#sample',
 	items: [{
 		etype: 'button-box',
@@ -584,8 +608,36 @@ var w = $.ergo({
 			}
 		},
 		items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3'],
-		mixins: ['selectable']
+		mixins: ['selectable'],
+		selected: 0
+	}],
+});
+
+
+
+
+
+$.ergo({
+	etype: 'html:h3',
+	cls: 'demo-section',
+	text: 'Состояния',
+	renderTo: '#sample'
+});
+
+
+var w = $.ergo({
+	etype: 'tool-bar',
+	renderTo: '#sample',
+	items: [{
+		etype: 'button',
+		text: 'Selected',
+		state: 'primary selected'
+	}, {
+		etype: 'button',
+		text: 'Disabled',
+		state: 'primary disabled'
 	}]
 });
+
 
 
