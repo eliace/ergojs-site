@@ -3,7 +3,7 @@
 $.ergo({
 	etype: 'html:h3',
 	cls: 'demo-section',
-	text: 'Вид списка',
+	text: 'Список',
 	renderTo: '#sample'
 });
 
@@ -11,7 +11,7 @@ $.ergo({
 var w = $.ergo({
 	etype: 'table',
 //	cls: 'demo-table',
-	cls: 'list-view',
+	cls: 'list-view cell-large',
 	columns: [{
 		header: 'Наименование'
 	}, {
@@ -36,14 +36,14 @@ w.$render('#sample');
 $.ergo({
 	etype: 'html:h3',
 	cls: 'demo-section',
-	text: 'Вид таблицы',
+	text: 'Таблица',
 	renderTo: '#sample'
 });
 
 
 var w = $.ergo({
 	etype: 'table',
-	cls: 'table-view widget',
+	cls: 'table-view hovered striped',
 	columns: [{
 		header: 'Наименование'
 	}, {
@@ -62,6 +62,42 @@ var w = $.ergo({
 });
 
 w.$render('#sample');
+
+
+
+
+
+$.ergo({
+	etype: 'html:h3',
+	cls: 'demo-section',
+	text: 'Виджет таблицы',
+	renderTo: '#sample'
+});
+
+
+var w = $.ergo({
+	etype: 'table',
+	cls: 'table-view widget hovered cell-small bordered',
+	columns: [{
+		header: 'Наименование'
+	}, {
+		header: 'Площадь, км²'
+	}, {
+		header: 'Население, чел.'
+	}, {
+		header: 'Кол-во государств'
+	}],
+	rows: [['Африка', '30,221,532', '1,032,532,974 (2011)', '55'], 
+				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'], 
+				 ['Европа', '10,180,000', '739,165,030', '50'], 
+				 ['Австралия и Океания', '8,520,000', '33,800,000', '14'],
+				 ['Америка', '42,549,000', '953,700,000', '35+23'],
+				 ['Антарктида', '14,107,000', '-', '-']]
+});
+
+w.$render('#sample');
+
+
 
 
 

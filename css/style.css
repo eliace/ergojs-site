@@ -531,18 +531,24 @@ ul.step-list > li > span {
 
 
 
+.widget {
+	margin: 8px;
+}
+
+
+
 
 
 .list-view td {
 	color: #444;
   border-bottom: 1px solid #ddd;
-  padding: 12px;	
+/*  padding: 12px;*/	
 }
 
 .list-view th {
   color: #bbb;
   font-size: 85%;
-  padding: 12px;
+/*  padding: 12px;*/
   text-align: left;
   text-transform: uppercase;
   
@@ -550,7 +556,7 @@ ul.step-list > li > span {
 
 
 .list-view .grid-header.scrolled {
-  box-shadow: 0 4px 2px -3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 4px -3px rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
   z-index: 1;
@@ -569,28 +575,80 @@ ul.step-list > li > span {
 
 
 
+/*
+table.grid-view td {
+	color: #444;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;	
+}
+
+table.grid-view th {
+  color: #444;
+  font-weight: bold;
+	padding: 8px;
+  text-align: left;
+  
+}
+*/
+
+/*
+table.grid-view thead {
+	background-color: #eee;  	
+}
+*/
+
 
 table.table-view td {
 	color: #444;
   border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
   padding: 8px;	
 }
 
 table.table-view th {
   color: #444;
-  border-right: 1px solid #DDDDDD;
+/*  border-right: 1px solid #DDDDDD;*/
   font-weight: bold;
 	padding: 8px;
   text-align: left;
   
 }
 
+
+/*
 table.table-view thead {
 	background-color: #eee;  	
 }
+*/
 
 
+
+.striped tbody tr:nth-child(even) {
+	background-color: #f9f9f9;	
+}
+
+.hovered tbody tr:hover {
+	background-color: #fffff0;
+}
+
+.cell-small td, .cell-small th {
+	padding: 4px;
+}
+
+.cell-large td, .cell-large th {
+	padding: 12px;
+}
+
+
+
+table.bordered td, table.bordered th {
+  border-right: 1px solid #DDDDDD;	
+}
+
+
+
+table.widget thead {
+	background-color: #eee;  		
+}
 
 
 

@@ -15,7 +15,7 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider});
 
 var w = $.ergo({
 	etype: 'table-grid',
-	baseCls: 'list-view',
+	baseCls: 'list-view cell-large',
 	
 	data: data,
 	
