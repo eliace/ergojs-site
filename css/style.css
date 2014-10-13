@@ -10,6 +10,8 @@ body {
 /*	font-size: 0.8em;*/
 }
 
+
+
 /*
 .page-header {
 	background-color: #112028;
@@ -510,6 +512,7 @@ ul.step-list > li > span {
 }
 */
 
+/*
 .grid-pagination > .btn {
   height: 28px;
   padding: 0;
@@ -519,7 +522,7 @@ ul.step-list > li > span {
 .grid-pagination > input {
 	height: 28px;
 }
-
+*/
 
 
 .avatar {
@@ -598,13 +601,13 @@ table.grid-view thead {
 */
 
 
-table.table-view td {
+.table-view td {
 	color: #444;
   border-bottom: 1px solid #ddd;
   padding: 8px;	
 }
 
-table.table-view th {
+.table-view th {
   color: #444;
 /*  border-right: 1px solid #DDDDDD;*/
   font-weight: bold;
@@ -649,6 +652,15 @@ table.bordered td, table.bordered th {
 table.widget thead {
 	background-color: #eee;  		
 }
+
+
+
+
+
+.pull-right {
+	float: right;
+}
+
 
 
 

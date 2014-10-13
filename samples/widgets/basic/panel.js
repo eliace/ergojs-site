@@ -11,10 +11,8 @@ $.ergo({
 
 var w = $.ergo({
 	etype: 'box',
-	layout: {
-		etype: 'grid',
-		pattern: [6, 6]
-	},
+	layout: 'grid',
+//	pattern: [6, 6],
 	items: [{
 		etype: 'panel',
 		title: 'Демо',
@@ -36,9 +34,7 @@ var w = $.ergo({
 				items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
 			}
 		}		
-	}/*, {
-		etype: 'html:br'
-	}*/, {
+	}, {
 		etype: 'panel',
 		title: 'Демо',
 		cls: 'widget',
@@ -82,77 +78,96 @@ $.ergo({
 
 
 
-var w = $.ergo({
-	etype: 'panel',
-	title: 'Демо',
-	cls: 'widget',
+$.ergo({
+	etype: 'box',
+	layout: 'grid',
 	renderTo: '#sample',
-	$header: {
-		$toolbar: {
+	items: [{
+		etype: 'panel',
+		title: 'Демо',
+		cls: 'widget',
+		$header: {
+			$toolbar: {
+				etype: 'tool-bar',
+				items: [{
+					layout: 'bar',
+					defaultItem: {
+						etype: 'button'
+					},
+					items: [{text: 'ОК', state: 'primary'}, 'Отмена']
+				}]
+			}
+		},
+		$content: {
+			cls: 'panel-content',
+			text: LOREMIPSUM
+		}
+	}, {
+		etype: 'panel',
+		title: 'Демо',
+		cls: 'widget',
+		$header: {
+			$title: {
+				state: 'tiny'
+			},
+			$toolbar: {
+				etype: 'tool-bar',
+				items: [{
+					etype: 'button-box',
+					defaultItem: {
+						size: 'tiny'
+					},
+					items: ['Добавить', 'Удалить', 'Редактировать']
+				}, {
+					layout: 'hbox',
+					defaultItem: {
+						etype: 'icon-button',
+						state: 'tiny line'
+					},
+					items: ['fa-chevron-up', {
+						etype: 'dropdown-button',
+						text: 'fa-cog',
+						components: {
+							'!content': {
+								etype: 'icon-button',
+								onClick: function(e) {
+									this.parent.states.toggle('opened');
+									e.baseEvent.stopPropagation();
+								}
+							}							
+						},
+//						mixins: ['dropdown'],
+						// $content: {
+							// onClick: function() {
+								// this.parent.states.toggle('opened');
+							// }
+						// },
+						$dropdown: {
+							items: ['Настройки', 'Размер']
+						}
+					}, 'fa-close']
+				}]
+			}
+		},
+		$content: {
+			cls: 'panel-content',
+			text: LOREMIPSUM
+		},
+		$footer: {
+			autoRender: true,
 			etype: 'tool-bar',
-			items: [{
+			state: 'right',
+			$buttons: {
 				layout: 'bar',
 				defaultItem: {
 					etype: 'button'
 				},
-				items: [{text: 'ОК', state: 'primary'}, 'Отмена']
-			}]
+				items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+			}
 		}
-	},
-	$content: {
-		cls: 'panel-content',
-		text: LOREMIPSUM
-	}
+	}]
 });
 
-
-$.ergo({etype: 'html:br', renderTo: '#sample'});
-
-
-var w = $.ergo({
-	etype: 'panel',
-	title: 'Демо',
-	cls: 'widget',
-	renderTo: '#sample',
-	$header: {
-		$title: {
-			state: 'tiny'
-		},
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
-				etype: 'button-box',
-				defaultItem: {
-					size: 'tiny'
-				},
-				items: ['Добавить', 'Удалить', 'Редактировать']
-			}, {
-				layout: 'hbox',
-				defaultItem: {
-					etype: 'icon-button',
-					state: 'tiny line'
-				},
-				items: ['fa-chevron-up', 'fa-cog', 'fa-close']
-			}]
-		}
-	},
-	$content: {
-		cls: 'panel-content',
-		text: LOREMIPSUM
-	},
-	$footer: {
-		autoRender: true,
-		etype: 'tool-bar',
-		state: 'right',
-		$buttons: {
-			layout: 'bar',
-			defaultItem: {
-				etype: 'button'
-			},
-			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
-		}
-	}
-});
 
 
 

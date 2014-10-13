@@ -1,126 +1,185 @@
 
 
-var data = [1,2,3,4,5];
+//var data = [1,2,3,4,5];
 
-
-var data = new Ergo.data.Collection({
-	count: 50,
-	index: 1
-});
-
-
-var w = $.ergo({
-	etype: 'pagination',
-	data: data
-/*	
-	etype: 'list',
-	cls: 'pagination',
-	mixins: ['selectable'],
-	components: {
-		nextBtn: {
-			etype: 'html:li',
-			weight: 100,
-			$content: {
-				etype: 'link',
-				text: '»',
-				binding: false,
-				events: {
-					'jquery:mousedown': function(e) {
-						this.events.rise('nextIndex');
-						e.preventDefault(); // блокируем выделение текста
-					}
-				}
+var PageCollection = Ergo.data.Collection.extend({
+	
+	defaults: {
+		provider: {
+			find_all: function(query) {
+				var o = this.options;
+				return $.when({total: 1000, from: query.from, to: query.to/*(o.index-1)*o.pageSize, to: o.index*o.pageSize*/, data: []});
 			}
 		},
-		prevBtn: {
-			etype: 'html:li',
-			weight: -100,
-			$content: {
-				etype: 'link',
-				text: '«',
-				binding: false,
-				events: {
-					'jquery:mousedown': function(e) {
-						this.events.rise('prevIndex');
-						e.preventDefault(); // блокируем выделение текста
-					}
-				}
-			}			
-		}
-	},
-	defaultItem: {
-		$content: {
-			etype: 'link',
-			events: {
-				'jquery:mousedown': function(e) {
-//				this.parent.parent.opt('index', this.parent);
-					var index = this.parent.opt('name');
-					if(index)
-						this.events.rise('action', {action: 'changeIndex', index: index});
-					e.preventDefault(); // блокируем выделение текста
-				}
+		parser: function(v) {
+			this.options.totalCount = v.total;
+			this.options.from = v.from; 
+			this.options.to = v.to; 
+			
+	//		console.log(v);
+			
+			return v.data;
+		},
+		
+		pageSize: 30,
+		index: 0,
+		totalCount: 0,
+		
+		query: {},
+		
+		set: {
+			'index': function(v) {
+				this.options.query.from = (v-1)*this.options.pageSize;
+				this.options.query.to = v*this.options.pageSize;
 			}
 		},
-		binding: false					
-	},
-	dynamic: true,
-	data: data,
-	selectionFinder: function(key) {
-		return this.item({_name: key});
-	},
-	onAction: function(e) {
-		this.opt('index', e.index);
-	},
-	onNextIndex: function() {
-		this.opt('index', this.opt('index')+1);
-	},
-	onPrevIndex: function() {
-		this.opt('index', this.opt('index')-1);
-	},
-	set: {
-		'index': function(index) {
-			
-			var count = this.data.opt('count');
-			
-			var before_pages = 2;
-			var after_pages = 2;
-			var wrap_pages = 2;
-			
-			this.items.apply_all('destroy');
-
-			var min_float = Math.min(before_pages, count);
-			var max_float = Math.max(before_pages, count-after_pages);
-			var min_block = Math.max(min_float, index-wrap_pages-1);
-			var max_block = Math.min(max_float, index+wrap_pages);
-			
-			// BEFORE
-			for(var i = 0; i < min_float; i++)
-				this.items.add({text: i+1, name: i+1});
-			
-			if(min_block - min_float > 0)
-				this.items.add({text: '...'});
-			
-			for(var i = min_block; i < max_block; i++)
-				this.items.add({text: i+1, name: i+1});
-
-			if(max_float - max_block > 0)
-				this.items.add({text: '...'});
-			
-			// AFTER
-			for(var i = max_float; i < count; i++)
-				this.items.add({text: i+1, name: i+1});
-			
-			this.$render();
-			
-			this.opt('selected', index);
+		
+		get: {
+			'count': function() {
+				return Math.ceil(this.options.totalCount / this.options.pageSize);		
+			}
 		}
 		
 	}
-*/	
+	
+});
+
+
+
+var data = new PageCollection();
+
+
+var w = $.ergo({
+	etype: 'panel',
+	cls: 'widget',
+	title: 'Pagination',
+	renderTo: '#sample',
+	data: data,
+	$header: {
+		$title: {
+			state: 'tiny'
+		},
+		$toolbar: {
+			etype: 'tool-bar',
+			items: [{
+				etype: 'pagination',
+				state: 'tiny'
+			}]			
+		}
+	},
+	$content: {
+		cls: 'panel-content',
+		text: LOREMIPSUM
+	},
+	$footer: {
+		autoRender: true,
+
+		debug: true,
+
+		$toolbar: {
+			etype: 'tool-bar',
+			items: [{
+				etype: 'pagination'
+			}]
+		},
+		
+		$toolbar: {
+			etype: 'tool-bar',
+			items: [{
+				etype: 'pagination'
+			}, {
+				layout: 'bar',
+				cls: 'pull-right',
+				defaultItem: {
+					etype: 'button'
+				},
+				items: ['ОК', 'Отмена']
+			}]
+		}
+		
+	},
+	onChangeIndex: function(e) {
+		this.opt('index', e.index);
+	},
+	set: {
+		'index': function(index) {
+
+			this.data.opt('index', index);
+			
+			this.data.fetch();
+			
+		}
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+var w2 = $.ergo({
+	etype: 'panel',
+	cls: 'widget',
+	title: 'Pagination',
+	renderTo: '#sample',
+	data: new PageCollection(),
+	$header: {
+		$title: {
+			state: 'tiny'
+		},
+		$toolbar: {
+			etype: 'tool-bar',
+			items: [{
+				etype: 'grid-pagination',
+				state: 'tiny'
+			}]			
+		}		
+	},
+	$content: {
+		cls: 'panel-content',
+		text: LOREMIPSUM
+	},
+	$footer: {
+		autoRender: true,
+		$toolbar: {
+			etype: 'tool-bar',
+			items: [{
+				etype: 'grid-pagination'
+			}]
+		}
+	},
+	onChangeIndex: function(e) {
+		this.opt('index', e.index);
+	},
+	set: {
+		'index': function(index) {
+
+			this.data.opt('index', index);
+			
+			this.data.fetch();
+			
+		}
+	}
+});
+
+
+
+/*
+var w = $.ergo({
+	etype: 'pagination',
+	data: data
 });
 
 
 w.$render('#sample');
+*/
 
-
-w.opt('index', 44);
+w.opt('index', 24);
+w2.opt('index', 12);
