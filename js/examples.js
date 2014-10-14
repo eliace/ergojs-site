@@ -266,6 +266,9 @@ $(document).ready(function(){
 			}, {
 				title: 'Growls',
 				name: 'widgets/other/growl'
+			}, {
+				title: '10000',
+				name: 'widgets/other/10000'
 			}]
 		}]
 	}, {
@@ -278,7 +281,6 @@ $(document).ready(function(){
 		title: 'Примеси',
 		children: []
 	}];
-	
 	
 	
 	var w = $.ergo({
@@ -336,6 +338,7 @@ $(document).ready(function(){
 */		
 	});
 	
+		
 	w.$render('.page-content > aside');
 	
 	
