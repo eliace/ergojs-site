@@ -283,7 +283,6 @@ $(document).ready(function(){
 	}];
 	
 	
-	
 	var w = $.ergo({
 		etype: 'box',
 		id: 'content-menu',
@@ -339,6 +338,7 @@ $(document).ready(function(){
 */		
 	});
 	
+		
 	w.$render('.page-content > aside');
 	
 	
