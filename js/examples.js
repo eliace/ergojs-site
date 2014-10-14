@@ -266,6 +266,9 @@ $(document).ready(function(){
 			}, {
 				title: 'Growls',
 				name: 'widgets/other/growl'
+			}, {
+				title: '10000',
+				name: 'widgets/other/10000'
 			}]
 		}]
 	}, {
