@@ -12,7 +12,7 @@ JsonAjaxProvider = {
 
 
 
-var data = new Ergo.data.Collection({provider: JsonAjaxProvider, url: 'data/mock-300.json'});
+var data = new Ergo.data.Collection({provider: JsonAjaxProvider, url: 'data/mock-1500.json'});
 
 
 
