@@ -19,6 +19,7 @@ $(document).ready(function(){
 		title: 'Ядро',
 		children: [{
 			title: 'Объект',
+			icon: 'fa-cog',
 			children: [{
 				title: 'Параметры (опции)',
 				name: 'core/object'
@@ -34,6 +35,7 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Виджет',
+			icon: 'fa-code',
 			children: [{
 				title: 'Параметры (опции)',
 				name: 'core/widget'
@@ -43,9 +45,13 @@ $(document).ready(function(){
 			}, {
 				title: 'HTML',
 				name: 'core/widget-3'
+			}, {
+				title: 'Отрисовка',
+				name: 'core/widget-rendering'
 			}]
 		}, {
 			title: 'Элементы и компоненты',
+			icon: 'fa-cubes',
 			children: [{
 				title: 'Элементы (items)',
 				name: 'core/items-and-components'
@@ -58,18 +64,23 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Компоновка',
+			icon: 'fa-columns',
 			children: [{
-				title: 'Вес',
-				name: 'core/layout'
+				title: 'Модель',
+				name: 'core/layout-base'
+			}, {
+				title: 'Вес и индекс',
+				name: 'core/layout-weight'
 			}, {
 				title: 'Контейнер и обертка',
-				name: 'core/layout-2'
+				name: 'core/layout-wrapper'
 			}, {
-				title: 'Авто-высота',
-				name: 'core/layout-3'
+				title: 'Авто-размер',
+				name: 'core/layout-autosize'
 			}]
 		}, {
 			title: 'События',
+			icon: 'fa-flash',
 			children: [{
 				title: 'Обработка событий',
 				name: 'core/events'
@@ -82,6 +93,7 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Данные',
+			icon: 'fa-database',
 			children: [{
 				title: 'Связывание',
 				name: 'core/data-binding'
@@ -100,18 +112,23 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Состояния',
+			icon: 'fa-check-square',
 			children: [{
-				title: 'Настройка'
+				title: 'Настройка',
+				name: 'core/states-basic'
 			}, {
-				title: 'Переходы'
+				title: 'Переходы',
+				name: 'core/states-transitions'
 			}, {
-				title: 'Группировка'
+				title: 'Группировка',
+				name: 'core/states-groups'
 			}]
 		}]
 	}, {
 		title: 'Виджеты',
 		children: [{
 			title: 'Базовые',
+			icon: 'fa-puzzle-piece',
 			children: [{
 				title: 'Бокс',
 				name: 'widgets/basic/box'
@@ -145,12 +162,14 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Поля',
+			icon: 'fa-edit',
 			children: [{
 				title: 'Типы полей',
 				name: 'widgets/fields/all'
 			}]
 		}, {
 			title: 'Таблицы',
+			icon: 'fa-table',
 			children: [{
 				title: 'Параметры',
 				name: 'widgets/grids/basic'
@@ -195,6 +214,7 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Деревья',
+			icon: 'fa-sitemap',
 			children: [{
 				title: 'Параметры',
 				name: 'widgets/trees/basic'
@@ -202,7 +222,8 @@ $(document).ready(function(){
 				title: 'Ajax',
 				name: 'widgets/trees/ajax'
 			}, {
-				title: 'Пути'
+				title: 'Пути',
+				name: 'widgets/trees/paths'
 			}, {
 				title: 'Чекбоксы',
 				name: 'widgets/trees/checkboxes'
@@ -211,6 +232,7 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Диалоги',
+			icon: 'fa-list-alt',
 			children: [{
 				title: 'Параметры',
 				name: 'widgets/dialogs/basic'
@@ -230,6 +252,7 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Приложение',
+			icon: 'fa-rocket',
 			children: [{
 				title: 'Навигация',
 				name: 'widgets/app/navigation'
@@ -242,6 +265,7 @@ $(document).ready(function(){
 			}]
 		}, {
 			title: 'Меню',
+			icon: 'fa-bars',
 			children: [{
 				title: 'Навигационное меню',
 				name: 'widgets/menu/nav-menu'
@@ -254,6 +278,7 @@ $(document).ready(function(){
 			}]			
 		}, {
 			title: 'Другое',
+			icon: 'fa-cogs',
 			children: [{
 				title: 'Оповещения',
 				name: 'widgets/other/alert'
@@ -266,6 +291,18 @@ $(document).ready(function(){
 			}, {
 				title: 'Growls',
 				name: 'widgets/other/growl'
+			}, {
+				title: 'Tags & Badges',
+				name: 'widgets/other/tags_badges'
+			}, {
+				title: 'Media',
+				name: 'widgets/other/media'
+			}, {
+				title: 'Фильтрация',
+				name: 'widgets/other/filter'
+			}, {
+				title: "Drag'n'Drop",
+				name: 'widgets/other/drag_n_drop'
 			}, {
 				title: '10000',
 				name: 'widgets/other/10000'
@@ -286,6 +323,7 @@ $(document).ready(function(){
 	var w = $.ergo({
 		etype: 'box',
 		id: 'content-menu',
+		mixins: ['selectable'],
 		defaultItem: {
 			layout: 'inherited',
 			autoRender: false,
@@ -295,28 +333,61 @@ $(document).ready(function(){
 					binding: 'text'
 				},
 				content: {
-					etype: 'list-tree',
+					etype: 'side-menu',
 					dataId: 'children',
 					nestedItem: {
 						$content: {
 //							etype: 'link',
-							format: '#{title}',
-							onClick: function() {
-								this.parent.states.toggle('expanded');
-								
-								var v = this.data.get();
-								if(!v.children) {
-									load_sample(v.name, v.title, this.data.source.source.get('title'));
-								}
-							}
+//							format: '#{title}',
+							$content_dataId: 'title',
+							$icon_dataId: 'icon'
+							// onClick: function() {
+								// this.parent.states.toggle('expanded');
+// 								
+								// var v = this.data.get();
+								// if(!v.children) {
+									// load_sample(v.name, v.title, this.data.source.source.get('title'));
+								// }
+							// }
+						},
+						binding: function(v) {
+							this.opt('name', v.title);
+						},
+						onItemExpanded: function(e) {
+							var self = this;
+							this.parent.items.each(function(item) {
+								if(item.states.is('expanded') && item != this)
+									item.states.unset('expanded');
+							});
 						}
+					},
+					
+					onMenuAction: function(e) {
+//						console.log(e.target.path());
+						this.events.rise('select', {key: e.target.path()});
 					}
 					
 				}
 			}
 		},
 		data: EXAMPLES,
-		dynamic: true
+		dynamic: true,
+		
+		selectionFinder: function(key) {
+			var result = {};
+			this.items.each(function(item){
+				var w = item.content.find_path(key);
+				if(w) result.found = w;
+			});
+			return result.found;
+		},
+		
+		onSelected: function(e) {
+			var v = e.selection.data.get();
+			console.log(v);
+			load_sample(v.name, v.title, e.selection.data.source.source.get('title'));			
+		}
+		
 /*		
 		etype: 'tree',
 		id: 'content-menu',
@@ -358,6 +429,9 @@ $(document).ready(function(){
 			title: title,
 			$content: {
 				etype: 'tab-panel',
+				$tabbar: {
+					state: 'simple'
+				},
 				tabs: [{
 					tab: {
 						text: 'Пример',
@@ -404,7 +478,7 @@ $(document).ready(function(){
 		
 		$.ergo({
 			renderTo: '#sample',
-			etype: 'alert',
+			etype: 'simple-alert',
 			$icon: {
 				cls: 'fa fa-fw rounded'
 			},

@@ -7,7 +7,7 @@ $.ergo({
 		
 		var v = [];
 		
-    for(var i=0; i<2000; i++){
+    for(var i=0; i<10000; i++){
       v.push({number : i});
     }
 		
@@ -31,7 +31,7 @@ $.ergo({
 
 		var t0 = Ergo.timestamp();
 				
-    for(var i=0; i<2000; i++){
+    for(var i=0; i<10000; i++){
     	w.items.add({text: i});
     }
 

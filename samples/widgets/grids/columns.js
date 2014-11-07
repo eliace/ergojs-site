@@ -73,7 +73,9 @@ var w = $.ergo({
 		dataId: 'Created At',
 		binding: 'text'
 	}],
-	mixins: ['loader'],
+//	mixins: ['loader'],
+
+
 	components: {
 		header: {
 			mixins: ['context-menu'],
@@ -106,20 +108,23 @@ var w = $.ergo({
 				items: ['ID', 'Full Name', 'Country', 'Email', 'Created At']
 			}
 		},
-		loader: {
-			$icon_cls: 'fa fa-spinner fa-spin fa-3x'
-		},
+		// loader: {
+			// $icon_cls: 'fa fa-spinner fa-spin fa-3x'
+		// },
+		
+		
 		footer: {
 			etype: 'tool-bar',
 			items: [{
 				etype: 'icon-button',
-				$icon_cls: 'fa fa-fw fa-refresh',
+				icon: 'fa fa-fw fa-refresh',
+				state: 'flat tool',
 				onClick: function() {
 					this.data.fetch();
 				}
 			}]
-		}
-	},
+		}		
+	},	
 	data: data,
 	onHideColumn: function(e) {
 		this.columns.hide(e.key);

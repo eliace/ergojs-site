@@ -2,7 +2,9 @@
 var w = $.ergo({
 	etype: 'widget',
 	html: '<div>',
-	renderTo: '#sample',
+	
+	// стандартные отступы для горизонтальных элементов
+	layout: 'bar',
 	
 	// этот параметр содержит параметры общие для всех элементов
 	defaultItem: {
@@ -14,9 +16,9 @@ var w = $.ergo({
 		state: 'primary',
 		text: ''
 	}, {
-		cls: 'green',
+		cls: 'success',
 		text: '',
-		tag: 'mytag'    // опция tag задает значение свойства tag
+		name: 'mybutton'    // опция tag задает значение свойства tag
 	}]
 	
 });
@@ -31,20 +33,18 @@ var w = $.ergo({
  * элемент будет добавлен в конец списка
  */
 w.items.add({
-	cls: 'gray',
 	text: 'Этого элемента не должно быть видно'
 });
 
 
 // Добавим еще один элемент и сделаем его вторым по счету
 w.items.add({
-	cls: 'gray',
 	text: 'Элемент 3'
 }, 1);
 
 
 
-w.$render();
+w.$render('#sample');
 
 
 // Удалим последний элемент

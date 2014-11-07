@@ -60,20 +60,20 @@ var w = $.ergo({
 						},
 					},
 					binding: function(v) {
-						this._name = v.name;
+						this.opt('name', v.name);
 						if(v.children) this.states.set('has-subtree');
 					},
-				},
-				onExpandItem: function(e) { // FIXME вместо этого должно быть монопольное открытие пути в nested-list
-					this.items.each(function(item){
-						if(e.target != item && item.states.is('expanded'))
-							item.states.unset('expanded');
-					});					
+					onItemExpanded: function(e) {
+						this.parent.items.each(function(item){
+							if(e.target != item && item.states.is('expanded'))
+								item.states.unset('expanded');
+						}.bind(this));					
+					}
 				}
 			}
 		},
 		$content: {
-			mixins: ['stackable'],
+			mixins: ['pageable'],
 			style: {'margin-left': 250},
 			cls: 'panel-content',
 			items: [
@@ -86,11 +86,14 @@ var w = $.ergo({
 			]
 		},
 		mixins: ['selectable'],
+		onMenuAction: function(e) {
+			this.opt('selected', e.target);
+		},
 		selectionFinder: function(key) {
-			return this.sidebox.menu.find(key); // в выборку добавляем только элемент меню
+			return this.sidebox.menu.find_path(key); // в выборку добавляем только элемент меню
 		},
 		onSelected: function(e) {
-			this.content.opt('active', {_name: e.key.split(':').join('_')});
+			this.content.opt('active', {_name: e.selection.path().split(':').join('_')});
 			
 		}
 	}

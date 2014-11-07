@@ -9,6 +9,7 @@ var w = $.ergo({
 	height: 300,
 //	destroyOnClose: true,
 	$header: {
+		mixins: ['draggable'],
 		$toolbar: {
 			etype: 'tool-bar',
 			$dialogButtons: {
@@ -29,8 +30,13 @@ var w = $.ergo({
 					}
 				},
 				items: ['settings', 'move', 'expand', 'close']
+			},
+			events: {
+				'jquery:mousedown': function(e) {
+					e.stopPropagation();
+				}
 			}
-		}
+		},
 	},
 	
 	onAction: function(e) {
@@ -38,6 +44,13 @@ var w = $.ergo({
 		if(e.action == 'close') {
 			this.close();
 		}
+		
+	},
+	
+	onDrag: function(e) {
+		
+		this.move(e.x - e.dx, e.y - e.dy);
+		
 		
 	}
 	

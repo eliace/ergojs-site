@@ -43,7 +43,7 @@ var w = $.ergo({
 		},
 		content: {
 			height: 200,
-			mixins: ['stackable'],
+			mixins: ['pageable'],
 			defaultItem: {
 				mixins: ['effects'],
 				effects: {

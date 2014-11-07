@@ -20,14 +20,27 @@ var FunctionMixin = function(o) {
 };
 
 
+
+// регистрируем примесь для использования псевдонима
+Ergo.defineMixin('Ergo.mixins.DoAlert', function(o) {
+	
+	this.doAlert = function(m) {
+		$context.alert('!!!!!  ' + m);
+	};	
+	
+}, 'mixins:do-alert');
+
+
+
 var obj = new Ergo.core.Object({
 	
-	mixins: [ ObjectMixin, FunctionMixin ]
+	mixins: [ ObjectMixin, FunctionMixin, 'do-alert' ]
 	
 });
 
 obj.alert("Текстовое сообщение");
 obj.showAlert("Текстовое сообщение 2");
+obj.doAlert("Текстовое сообщение 3");
 
 
 
@@ -36,7 +49,7 @@ obj.showAlert("Текстовое сообщение 2");
 var MyClass = Ergo.core.Object.extend({
 	
 	defaults: {
-		mixins: [ ObjectMixin, FunctionMixin ]			
+		mixins: [ ObjectMixin, FunctionMixin, 'do-alert' ]			
 	}
 	
 });
@@ -46,5 +59,5 @@ obj = new MyClass({
 	prefix: '[MESSAGE]'
 });
 
-obj.alert("Текстовое сообщение 3");
+obj.alert("Текстовое сообщение 4");
 

@@ -130,7 +130,7 @@ body {
 
 
 
-
+/*
 #content-menu {
 	list-style-type: none;
 	font-size: 0.8em;
@@ -146,7 +146,7 @@ body {
 }		
 
 #content-menu li {
-	padding: 0;/* 0px 0px 0px 20px;*/
+	padding: 0;
 	cursor: default;
 }
 
@@ -166,7 +166,6 @@ body {
 
 
 #content-menu .list-tree a {
-/*	padding-left: 30px;*/
 	cursor: default;
 	border-left: 3px solid #f2f4f6;
 }
@@ -177,18 +176,30 @@ body {
 }
 
 
+
+#content-menu > .list-tree {
+	margin-bottom: 4px;
+}
+
+*/
+
+
+
+#content-menu {
+	border-right: 1px solid #eee;
+	background-color: #F8F8F8;
+}
+
+
 #content-menu > div {
 	padding: 8px 0px 6px 20px;
 	font-weight: bold;
 	font-size: 10px;
 	text-transform: uppercase;
-/*	border-bottom: 1px solid #ccc;*/
 	color: #aaa;
 }
 
-#content-menu > .list-tree {
-	margin-bottom: 4px;
-}
+
 
 
 #samples {
@@ -217,7 +228,10 @@ pre {
 }
 
 
-
+.sample > header > .panel-title {
+	color: #aaa;
+	font-size: 16px;
+}
 
 
 
@@ -270,10 +284,39 @@ pre {
 
 
 
+.my-widget {
+	background-color: #e8e8e8;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	padding: 8px;
+	margin: 8px;
+}
 
 
+.my-widget > div {
+	padding: 8px;
+	margin: 8px;
+	background-color: #f0f0f0;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+}
 
 
+.my-widget > div > div > div {
+	padding: 8px;
+	margin: 8px;
+	background-color: #f8f8f8;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+}
+
+.my-widget > div > div > div > div > div {
+	padding: 8px;
+	margin: 8px;
+	background-color: #fff;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+}
 
 
 
@@ -631,6 +674,32 @@ table.table-view thead {
 
 .growl-list > .fade {
    opacity: 1;
+}
+*/
+
+
+
+ul.list-view {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.list-view li, .list-view-item {
+	padding: 8px;
+	border-bottom: 1px solid #e0e0e0;
+	list-style: none;
+}
+
+.list-view-item.drag {
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.075);
+	background-color: #fff;
+}
+
+
+/*
+.drag {
+	transition: all 0.05s linear 0s
 }
 */
 

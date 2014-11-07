@@ -1,8 +1,8 @@
 
 
 var w = $.ergo({
-	etype: 'button',
-	text: 'Кнопка',
+	etype: 'box',
+	text: 'Наведи курсор на меня',
 	
 	events: {
 		// событие виджета

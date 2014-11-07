@@ -150,11 +150,11 @@ var w = $.ergo({
 					dataId: 'iso',
 					format: function(v) { return v ? '('+v+')' : ''; }
 				},
-				subtree: {
-					effects: {
-						easing: 'easeOutQuad'
-					}
-				}
+				// subtree: {
+					// effects: {
+						// easing: 'easeOutQuad'
+					// }
+				// }
 			},
 			binding: function(v) {
 				// узлы с типом cities не должны раскрываться,

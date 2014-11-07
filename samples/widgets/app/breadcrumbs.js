@@ -3,22 +3,10 @@
 var data = {history: ['Страна', 'Регион', 'Город'], current: 'Улица'}; 
 
 var w = $.ergo({
-	etype: 'list',
-	cls: 'breadcrumbs',
+	etype: 'breadcrumbs',
 	data: data.history,
-	defaultItem: {
-		$content: {
-			etype: 'link'
-		},
-		binding: function(v) {
-			this.content.opt('text', v);
-		}
-	},
 	$current: {
-		weight: 100,
-		etype: 'html:li',
-		data: data.current,
-		binding: 'text'
+		data: data.current
 	} 
 });
 

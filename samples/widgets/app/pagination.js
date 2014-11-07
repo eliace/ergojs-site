@@ -74,8 +74,6 @@ var w = $.ergo({
 	$footer: {
 		autoRender: true,
 
-		debug: true,
-
 		$toolbar: {
 			etype: 'tool-bar',
 			items: [{

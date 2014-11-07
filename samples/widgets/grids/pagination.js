@@ -16,10 +16,12 @@ var data = new Ergo.data.Collection({
 	provider: JsonAjaxProvider, 
 	parser: function(data){
 		// эмуляция страницы данных
-		var from = this.options.index*this.options.pageSize;
-		var to = (this.options.index+1)*this.options.pageSize;
+		var from = (this.options.index-1)*this.options.pageSize;
+		var to = this.options.index*this.options.pageSize;
 		
 		var v = [];
+		
+		to = Math.min(to, data.length);
 		
 		for(var i = from; i < to; i++) {
 			v.push(data[i]);
@@ -92,6 +94,7 @@ var w = $.ergo({
 				etype: 'tool-bar',
 				items: [{
 					etype: 'grid-pagination',
+/*					
 					defaultComponent: {
 						cls: 'flat',
 						set: {
@@ -134,19 +137,28 @@ var w = $.ergo({
 	// //						this._index = v;
 						// }
 					// }
+*/					
 				}]
 			}
 		}
+	},
+	onChangeIndex: function(e) {
+		this.opt('index', e.index);
+	},
+	set: {
+		'index': function(index) {
+			
+			this.data.opt('index', index);
+			
+			this.data.fetch();
+			
+//			this.footer.item(0).opt('index', v);
+		}
 	}
-	// set: {
-		// 'index': function(v) {
-			// this.footer.item(0).opt('index', v);
-		// }
-	// }
 });
 
 
 w.$render('#sample');
 
-data.fetch();
 
+w.opt('index', 1);

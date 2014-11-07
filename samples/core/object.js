@@ -6,14 +6,14 @@ var obj = new Ergo.core.Object({
 	
 	title: 'Некоторый текст',				// задаем параметр title
 	
-	// Блок сеттеров (мутаторов)
+	// Блок сеттеров
 	set: {
 		'color': function(v) {				// определяем собственный сеттер для color
 			this._color = v;
 		}
 	},
 	
-	// Блок геттеров (аксессоров)
+	// Блок геттеров
 	get: {
 		'color': function() {					// определяем собственный геттер для color
 			return this._color;
