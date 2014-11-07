@@ -112,9 +112,9 @@ body {
 	text-align: center;
 }
 
-.banner > div > button {
+.banner > div > a {
 	margin: 10px 40px;
-	padding: 8px;
+	padding: 8px 16px;
 	background-color: #607d8b; /*#78909c;*/
 	width: 128px;
 	color: #f0f0f0;
@@ -122,14 +122,15 @@ body {
 	border-radius: 4px;
 	font-size: 16px;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 
-.banner button > i {
+.banner a > i {
 	margin-right: 8px;
 }
 
-.banner button:hover {
+.banner a:hover {
 	background-color: #90a4ae;
 }
 
