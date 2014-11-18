@@ -25,7 +25,7 @@ var w = $.ergo({
 	column: {
 		components: {
 			content: {
-				etype: 'line',
+				etype: 'inline',
 				cls: 'column-text',
 			}
 		},
@@ -59,6 +59,6 @@ var w = $.ergo({
 });
 
 
-w.$render('#sample');
+w.render('#sample');
 
 data.fetch();

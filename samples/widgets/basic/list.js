@@ -5,7 +5,7 @@ var w = $.ergo({
 	items: ['Африка', 'Азия', 'Европа', 'Австралия']
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 
 var w2 = $.ergo({
@@ -13,4 +13,4 @@ var w2 = $.ergo({
 	items: ['Африка', 'Азия', 'Европа', 'Австралия']
 });
 
-w2.$render('#sample');
+w2.render('#sample');

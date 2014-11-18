@@ -410,7 +410,7 @@ $(document).ready(function(){
 	});
 	
 		
-	w.$render('.page-content > aside');
+	w.render('.page-content > aside');
 	
 	
 	$context = new Ergo.core.Object({
@@ -454,7 +454,7 @@ $(document).ready(function(){
 			}
 		});
 		
-		smpl.$render('#samples');
+		smpl.render('#samples');
 		
 //		smpl.content.tabbar.item(0).states.set('selected');
 		

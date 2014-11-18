@@ -131,7 +131,7 @@ var buttons = $.ergo({
 		etype: 'button',
 		text: 'Модальный диалог №1',
 		onClick: function() {
-			dialog1.$render('body');
+			dialog1.render('body');
 			dialog1.open();
 			
 			// setTimeout(function(){
@@ -143,7 +143,7 @@ var buttons = $.ergo({
 		etype: 'button',
 		text: 'Модальный диалог №2',
 		onClick: function() {
-			dialog2.$render('body');
+			dialog2.render('body');
 			dialog2.open();
 		}		
 	}]
@@ -152,6 +152,6 @@ var buttons = $.ergo({
 
 
 
-buttons.$render('#sample');
+buttons.render('#sample');
 
 

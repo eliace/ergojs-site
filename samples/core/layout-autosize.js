@@ -47,7 +47,7 @@ var w = $.ergo({
 
 
 // обновляем компоновку
-w.$layoutChanged();
+w._layoutChanged();
 
 
 
@@ -102,7 +102,7 @@ var w = $.ergo({
 });
 
 // обновляем компоновку
-w.$layoutChanged();
+w._layoutChanged();
 
 
 
@@ -153,7 +153,7 @@ var w = $.ergo({
 
 
 // обновляем компоновку
-w.$layoutChanged();
+w._layoutChanged();
 
 
 
@@ -205,7 +205,7 @@ var w = $.ergo({
 
 
 // обновляем компоновку
-w.$layoutChanged();
+w._layoutChanged();
 
 
 

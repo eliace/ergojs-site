@@ -144,7 +144,7 @@ var w = $.ergo({
 				},
 				description: {
 					// выведем дополнительную информацию
-					etype: 'line',
+					etype: 'inline',
 					weight: 10,
 					cls: 'desc',
 					dataId: 'iso',
@@ -169,5 +169,5 @@ var w = $.ergo({
 	}]
 });
 
-w.$render('#sample');
+w.render('#sample');
 

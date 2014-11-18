@@ -176,7 +176,7 @@ var w = $.ergo({
 });
 
 
-w.$render('#sample');
+w.render('#sample');
 */
 
 w.opt('index', 24);

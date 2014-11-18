@@ -59,7 +59,7 @@ var w = $.ergo({
 });
 
 
-//w.$render('body');
+//w.render('body');
 //w.open();
 
 
@@ -67,9 +67,9 @@ var button = $.ergo({
 	etype: 'button',
 	text: 'Новое окно',
 	onClick: function() {
-		w.$render('body');
+		w.render('body');
 		w.open(300, 200);
 	}
 });
 
-button.$render('#sample');
+button.render('#sample');

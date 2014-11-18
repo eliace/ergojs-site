@@ -83,11 +83,11 @@ $.ergo({
 			this.content.items.each(function(item) {
 				var v = item.opt('value');
 				if(!(v && v.indexOf(e.text) > -1)) {
-					item.$unrender();
+					item.unrender();
 				}
 				else {
 					if(!item._rendered) {
-						item.$render();
+						item.render();
 					}					
 				}
 			});

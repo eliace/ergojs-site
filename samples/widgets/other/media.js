@@ -24,7 +24,7 @@ var w = $.ergo({
 				binding: 'text'
 			},
 			$description: {
-				etype: 'line',
+				etype: 'inline',
 				dataId: 'desc'
 			}
 		}
@@ -33,4 +33,4 @@ var w = $.ergo({
 
 
 
-w.$render('#sample');
+w.render('#sample');

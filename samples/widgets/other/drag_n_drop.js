@@ -74,13 +74,13 @@ var w = $.ergo({
 						
 						stub.el.after(self.el);
 						
-						stub.$unrender();
+						stub.unrender();
 
-						drag_obj.$unrender();
+						drag_obj.unrender();
 						
 						glass.remove();
 						
-						self.$render();
+						self.render();
 
 						self.events.rise('drop', {target: self});						
 					});
@@ -90,10 +90,10 @@ var w = $.ergo({
 					var drag_obj = this.parent.drag;
 					
 					stub.opt('autoRender', true);
-					stub.$render();
+					stub.render();
 
 					drag_obj.opt('autoRender', true);
-					drag_obj.$render();
+					drag_obj.render();
 					
 					this.el.before(stub.el);
 					
@@ -101,7 +101,7 @@ var w = $.ergo({
 					stub.el.height(this.el.height());
 					
 					
-					drag_obj.$bind(this.data);
+					drag_obj.bind(this.data);
 					
 					
 					var drag_wrapper = drag_obj.el;//$('<div style="position: absolute"/>');
@@ -115,7 +115,7 @@ var w = $.ergo({
 	
 	
 	
-					this.$unrender();
+					this.unrender();
 //					this.el.hide();
 //					drag_wrapper.append(this.el);
 					

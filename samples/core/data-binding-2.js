@@ -15,7 +15,7 @@ var w = $.ergo({
 	data: data,
 	// видеж text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
-		etype: 'line',
+		etype: 'inline',
 		mixins: ['label']
 	},
 	
@@ -41,4 +41,4 @@ var w = $.ergo({
 	
 });
 
-w.$render('#sample');
+w.render('#sample');

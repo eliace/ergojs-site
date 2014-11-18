@@ -43,7 +43,7 @@ var w = $.ergo({
 });
 
 
-w.$render('#sample');
+w.render('#sample');
 
 
 // немножко пошалим спорядком элементов
@@ -82,4 +82,4 @@ var w2 = $.ergo({
 
 
 
-w2.$render('#sample');
+w2.render('#sample');

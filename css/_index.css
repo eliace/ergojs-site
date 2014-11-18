@@ -1,0 +1,160 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+	font-family: "Roboto",Helvetica,Arial, sans-serif;
+	margin: 0;
+}
+
+
+
+
+.header {
+	display: table;
+	width: 70%;
+	margin: 10px auto;
+}
+
+.header > h3 {
+	float: left;
+	color: #37474f;
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 8px 0;
+	margin: 0;
+	color: #aaa;
+}
+
+.header > h3 span {
+  color: #ffa000; /*#e51c23;*/
+}
+
+
+.header > nav {
+	float: left;
+}
+
+.header a:hover {
+/*	color:   #03a9f4; /* #e51c23;*/
+	text-decoration: underline;
+}
+
+
+
+.page-footer {
+	border-top: 1px solid #ccc;
+	color: #888;
+	font-size: 12px;
+	text-align: center;
+}
+
+
+
+.menu {
+	list-style: none;
+	margin: 0;
+}
+
+.menu > li {
+	float: left;
+	padding: 8px 20px;
+}
+
+.menu > li > a {
+	color: #37474f;
+	text-decoration: none;
+}
+
+
+.github {
+	float: right;
+	padding: 8px 0;
+}
+
+.github > a {
+	color: #37474f;
+	text-decoration: none;	
+}
+
+.github > a > i {
+	margin: 0 8px;
+}
+
+
+.banner {
+/*	width: 90%;*/
+	margin: 0 auto;
+	background-color: #607d8b; /*#78909c;*/
+	color: #f0f0f0;
+	padding: 70px 0;
+	clear: both;
+}
+
+
+.banner h1 {
+	font-size: 56px;
+	text-align: center;
+}
+
+
+.banner p {
+	font-size: 24px;
+	text-align: center;
+}
+
+
+.banner > div {
+	padding-top: 24px;
+	text-align: center;
+}
+
+.banner > div > a {
+	margin: 10px 40px;
+	padding: 8px 16px;
+	background-color: #607d8b; /*#78909c;*/
+	width: 128px;
+	color: #f0f0f0;
+	border: 1px solid #f0f0f0;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+
+.banner a > i {
+	margin-right: 8px;
+}
+
+.banner a:hover {
+	background-color: #90a4ae;
+}
+
+
+.description {
+	display: table;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.description > div {
+	display: table-cell;
+	padding: 32px;
+}
+
+.description > div:first-child {
+	padding-left: 0;
+}
+
+.description > div:last-child {
+	padding-right: 0;
+}
+
+.description h3 {
+	text-transform: capitalize;
+}
+

@@ -12,7 +12,7 @@ var w = $.ergo({
 	
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 // объявление обработчика события otherAction
 w.events.reg('otherAction', function(e){

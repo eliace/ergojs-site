@@ -4,7 +4,7 @@ var w = $.ergo({
 	text: 'Hello there!'
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 
 var w2 = $.ergo({
@@ -12,4 +12,4 @@ var w2 = $.ergo({
 	text: 'Hello there 2!'
 });
 
-w2.$render('#sample');
+w2.render('#sample');

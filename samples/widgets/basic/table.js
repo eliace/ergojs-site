@@ -29,7 +29,7 @@ var w = $.ergo({
 				 ['Антарктида', '14,107,000', '-', '-']]
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 
 
@@ -61,7 +61,7 @@ var w = $.ergo({
 				 ['Антарктида', '14,107,000', '-', '-']]
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 
 
@@ -95,7 +95,7 @@ var w = $.ergo({
 				 ['Антарктида', '14,107,000', '-', '-']]
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 
 

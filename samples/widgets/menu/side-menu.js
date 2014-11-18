@@ -99,7 +99,7 @@ var w = $.ergo({
 	}
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 w.content.opt('selected', 'dashboard');
 

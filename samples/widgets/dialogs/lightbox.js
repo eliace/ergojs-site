@@ -2,7 +2,7 @@
 //var w = $.ergo();
 
 
-//w.$render('#sample');
+//w.render('#sample');
 
 
 
@@ -57,7 +57,7 @@ var buttons = $.ergo({
 		etype: 'button',
 		text: 'Открыть лайтбокс',
 		onClick: function() {
-			dialog1.$render();//'body');
+			dialog1.render();//'body');
 //			dialog1.open().then(function(){
 				
 				var img = $.ergo({
@@ -105,8 +105,8 @@ var buttons = $.ergo({
 //							console.log(a, b);
 							
 							dialog1.content.components.set('image', img);
-							dialog1.content.$render();
-//							img.$render();
+							dialog1.content.render();
+//							img.render();
 							
 							dialog1.open().then(function(){
 
@@ -124,12 +124,12 @@ var buttons = $.ergo({
 				
 				
 				$('body').append(img.el);
-//				img.$render('body');
+//				img.render('body');
 				
 				
 //				dialog1.content.components.set('image', img);
 				
-//				dialog1.content.$render();
+//				dialog1.content.render();
 				
 //			}.bind(this));
 			
@@ -144,7 +144,7 @@ var buttons = $.ergo({
 
 
 
-buttons.$render('#sample');
+buttons.render('#sample');
 
 
 

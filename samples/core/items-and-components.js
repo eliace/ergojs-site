@@ -44,7 +44,7 @@ w.items.add({
 
 
 
-w.$render('#sample');
+w.render('#sample');
 
 
 // Удалим последний элемент

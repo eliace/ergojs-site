@@ -103,7 +103,7 @@ var w = $.ergo({
 });
 
 
-w.$render('#sample');
+w.render('#sample');
 
 
 
@@ -154,7 +154,7 @@ var w2 = $.ergo({
 });
 
 
-w2.$render('#sample');
+w2.render('#sample');
 
 
 

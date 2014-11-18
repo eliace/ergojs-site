@@ -5,7 +5,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'text'
 	},
-	items: ['В этом тексте есть ', {etype: 'line', text: 'особенная строчка'}, ' которая обернута тегом <span>']
+	items: ['В этом тексте есть ', {etype: 'inline', text: 'особенная строчка'}, ' которая обернута тегом <span>']
 });
 
-w.$render('#sample');
+w.render('#sample');

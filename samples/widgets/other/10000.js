@@ -38,7 +38,7 @@ $.ergo({
 		var t1 = Ergo.timestamp();
 
 		if(!Ergo.noDynamicRender)
-			w.$render();
+			w.render();
 
 		var t2 = Ergo.timestamp();
 		

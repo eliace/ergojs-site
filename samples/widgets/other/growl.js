@@ -46,7 +46,7 @@ growl_list.push = function(o) {
 		$content: o
 	});
 	
-	this.$render();
+	this.render();
 	
 	
 	setTimeout(function() {
@@ -123,4 +123,4 @@ var w = $.ergo({
 	]
 });
 
-w.$render('#sample');
+w.render('#sample');

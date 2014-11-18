@@ -5,4 +5,4 @@ var w = $.ergo({
 	href: 'https://github.com/eliace/ergo-js'
 });
 
-w.$render('#sample');
+w.render('#sample');

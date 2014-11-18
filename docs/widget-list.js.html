@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Documentation Source: core/widget-list.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+	
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top ">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">Documentation</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="Ergo.html">Ergo</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.html">core</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.data.html">data</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.events.html">events</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.html">html</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.layouts.html">layouts</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.html">widgets</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="Ergo.core.Array.html">Array</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.Collection.html">Collection</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.Context.html">Context</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.DataSource.html">DataSource</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.Layout.html">Layout</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.Object.html">Object</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.StateManager.html">StateManager</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.Widget.html">Widget</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.core.WidgetArray.html">WidgetArray</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.data.Collection.html">Collection</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.data.Object.html">Object</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.events.Dispatcher.html">Dispatcher</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.events.Event.html">Event</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.Button.html">Button</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.Iframe.html">Iframe</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.Img.html">Img</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.Input.html">Input</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.Select.html">Select</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.Textarea.html">Textarea</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.html.Widget.html">Widget</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Box.html">Box</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Button.html">Button</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Check.html">Check</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Field.html">Field</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Icon.html">Icon</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Inline.html">Inline</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Link.html">Link</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.List.html">List</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.NestedList.html">NestedList</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Panel.html">Panel</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Table.html">Table</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.TableRow.html">TableRow</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.widgets.Text.html">Text</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="mixins.list.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="Ergo.Observable.html">Observable</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.Statable.html">Statable</a>
+						</li>
+						
+						<li>
+							<a href="Ergo.WidgetOptions.html">WidgetOptions</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html#apply_all">apply_all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#clear">clear</a>
+						</li>
+						
+						<li>
+							<a href="global.html#each">each</a>
+						</li>
+						
+						<li>
+							<a href="global.html#filter">filter</a>
+						</li>
+						
+						<li>
+							<a href="global.html#find">find</a>
+						</li>
+						
+						<li>
+							<a href="global.html#find_all">find_all</a>
+						</li>
+						
+						<li>
+							<a href="global.html#get">get</a>
+						</li>
+						
+						<li>
+							<a href="global.html#has_key">has_key</a>
+						</li>
+						
+						<li>
+							<a href="global.html#includes">includes</a>
+						</li>
+						
+						<li>
+							<a href="global.html#is_empty">is_empty</a>
+						</li>
+						
+						<li>
+							<a href="global.html#key_of">key_of</a>
+						</li>
+						
+						<li>
+							<a href="global.html#keys">keys</a>
+						</li>
+						
+						<li>
+							<a href="global.html#map">map</a>
+						</li>
+						
+						<li>
+							<a href="global.html#remove">remove</a>
+						</li>
+						
+						<li>
+							<a href="global.html#remove_at">remove_at</a>
+						</li>
+						
+						<li>
+							<a href="global.html#remove_if">remove_if</a>
+						</li>
+						
+						<li>
+							<a href="global.html#set">set</a>
+						</li>
+						
+						<li>
+							<a href="global.html#size">size(1)</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+			<div class="span12">
+				
+				<div id="main">
+					
+
+
+		<h1 class="page-title">Source: core/widget-list.js</h1>
+    
+    <section>
+        <article>
+            <pre class="sunlight-highlight-javascript ">
+//= require "array"
+
+
+
+/*
+ * Массив виджетов
+ * 
+ * 
+ * @class
+ * @name Ergo.core.WidgetArray
+ * @extends Ergo.core.Array
+ * 
+ * 
+ */
+Ergo.declare('Ergo.core.WidgetChildren', 'Ergo.core.Array', /** @lends Ergo.core.Array.prototype */{
+	
+	defaults: {
+		plugins: [Ergo.Observable]
+	},
+	
+	
+	_initialize: function(w, o) {
+		this._super(null, o);
+//		Ergo.core.WidgetArray.superclass._initialize.call(this, null, o);
+		
+		this.autobinding = true;
+		
+		this.widget = w;
+	},
+	
+	
+	factory: function(o, type) {
+		var default_opt = this.options.defaultOpt || 'text';
+		if($.isString(o)) {
+			var v = o;
+			o = (this.options.shortcuts || {})[v];
+			if(!o) {
+				o = {}; 
+				o[default_opt] = v;//{text: o};
+			}
+		}
+		else if($.isArray(o)) o = {items: o};
+		var default_child = 'default' + type[0].toUpperCase() + type.substr(1);
+		return $.ergo( [this.options[default_child], o] );
+//		return $.ergo( Ergo.smart_override({}, this.options[default_child], o) );
+	},
+	
+	
+
+	add: function(item, i, type) {		
+		
+//		var key;
+		var w = this.widget;
+		
+//		item = w.factory(item);
+		
+		// если не определен тип компонента
+		if(type == undefined) {
+			// если не определен ключ компонента
+			type = (i && $.isString(i)) ? 'component' : 'item';
+		}
+		
+//		type = type || 'item';
+
+		// создаем виджет с помощью фабрики элементов
+		if(!(item instanceof Ergo.core.Widget))
+			item = (w.options[type+'Factory'] || this.factory).call(w, item, type);
+			
+		item._type = type;
+
+		// для элементов с текстовыми ключами (компонентов) сохраняем ключ в поле _key
+		if(i && $.isString(i)) {
+			item._key = i;
+			i = undefined;
+		}
+		else {
+			item._index = i;
+		}
+
+		// определяем поле parent
+		item.parent = w;
+		
+		// добавляем элемент в компоновку с индексом i (для компонентов он равен undefined)
+		if(item.options.autoRender === true)
+			w.layout.add(item, item._index);//i);
+
+		// определяем индекс элемента в children 
+		if(item._index) {
+			for(i = 0; i &lt; this.src.length; i++) {
+				if(('_index' in this.src[i]) && this.src[i]._index == item._index) {
+//					i--;
+					break;
+				}
+			}
+		}
+		else if(i == null && ('_index' in item)) {
+			item._index = 0;
+			for(var j = 0; j &lt; this.src.length; j++)
+				if(this.src[j]._type == item._type) item._index++;
+		}
+
+
+		// добавляем элемент в коллекцию
+		i = this._super(item, i);		
+		
+		// обновляем свойство _index у соседних элементов
+		for(var j = i+1; j &lt; this.src.length; j++) {
+			if(this.src[j]._index)
+				this.src[j]._index++;
+		}
+//			this.src[j]._index = j;
+		
+		//FIXME скорее всего вызов метода show должен находиться не здесь
+		if(item.options.autoRender === true) {
+			if(item.options.showOnRender) item.show();
+			if(item.options.hideOnRender) item.hide();
+		}
+		
+		// для элементов с текстовыми ключами (компонентов) добавляем accessor
+		if(item._key) {
+			w[item._key] = item;
+		}
+		
+		// выполняем иерархическое связывание данных (автобиндинг)
+		if(w.data && !item.data && this.autobinding)
+			item.bind(w.data, false, false);
+		
+
+		
+//		console.log('item:add');
+		this.events.fire('item:add', {'item': item});
+		
+		return item;
+	},
+	
+	remove_at: function(i) {
+		
+//		var key;
+		var w = this.widget;		
+		
+		// для компонентов определяем индекс через accessor
+		if($.isString(i)) {
+//			key = i;
+			i = w[i]._index;
+		}
+		
+		
+		var item = this._super(i); //Ergo.core.WidgetArray.superclass.remove_at.call(this, i);
+		
+		
+//		if('hide' in item) item.hide();		
+				
+		// обновляем свойство _index у соседних элементов
+		for(var j = i; j &lt; this.src.length; j++) {
+			if(this.src[j]._index)
+				this.src[j]._index--;
+		}
+		
+//			this.src[j]._index = j;
+		
+		// поля parent, _index и _key больше не нужны
+		delete item.parent;
+		delete item._index;
+
+		if(item._key) {
+			delete w[item._key];
+			delete item._key;
+		}
+
+		
+		// if(item.options.hideOnDestroy) {
+			// item.hide().then(function(){ w.layout.remove(item); });
+		// }
+		// else {
+			// удаляем элемент из компоновки	
+			w.layout.remove(item);
+		// }			
+		
+		
+//		this.events.fire('item:remove', {'item': item});
+		
+		return item;
+	}
+	
+	
+	// _destroy_all: function() {
+		// while(this.src.length)
+			// this.remove_at(0)._destroy();
+	// }
+	
+//	find: function(i) {
+//		return Ergo.core.ItemCollection.superclass.find.call(this, Ergo.utils.widget_filter(i));
+//	}	
+		
+});
+
+
+
+
+
+
+
+
+
+Ergo.declare('Ergo.core.WidgetComponents', 'Ergo.core.Array', {
+
+	defaults: {
+		plugins: [Ergo.Observable]
+	},
+	
+	
+	_initialize: function(w, o) {
+		this._super(null, o);
+		
+		this._widget = w;
+	},
+
+
+	_source: function() {
+		var result = {};
+		var o = this.options;
+		this._widget.children.each(function(c) { if(c._type == o.type) result[c._key] = c; });
+		return result;
+	},
+	
+	
+	
+	create: function(v) {
+		return new Ergo.core.WidgetComponents(this._widget);
+	},
+	
+	
+	/**
+	 * Установка значения
+	 * @param {Object} i ключ
+	 * @param {Object} item значение
+	 */
+	set: function(i, item) {
+		if(i in this._widget)
+			this._widget.children.remove_at(i);
+		this._widget.children.add(item, i, this.options.type);
+	},
+	
+	
+	
+	
+	/**
+	 * Получение значения по ключу
+	 * @param {Object} i
+	 */
+	get: function(i) {
+		return this._source()[i];
+	},
+	
+	/**
+	 * Добавление нового значения
+	 * @param {Object} item значение
+	 * @param {Object} [i] ключ
+	 * 
+	 * Аналогично по работе методу set
+	 */
+	// add: function(item, i) {
+		// this.src[i] = item;
+// //		this.events.fire('item:add', {'item': item});
+	// },
+
+
+
+	/**
+	 * Удаление значения по ключу
+	 * @param {Object} i ключ
+	 */
+	remove_at: function(i) {
+		return this._widget.children.remove_at(i);
+	},
+	
+	/**
+	 * Удаление значения
+	 *
+	 * Для удаления используется метод remove_at
+	 *
+	 * @param {Object} item значение
+	 */
+	remove: function(item) {
+		return this.remove_at(item._index);
+	},
+
+	/**
+	 * Удаление значения по условию
+	 *
+	 * Для удаления используется метод remove_at
+	 *
+	 * @param {Object} criteria функция-условие
+	 * 
+	 * Значение удаляеся, если результат, возвращаемый criteria равен true 
+	 */
+	remove_if: function(criteria) {
+		var keys = Ergo.filter_keys(this._source(), criteria);
+		keys.sort(Ergo.sort_numbers).reverse();
+		var removed = [];
+		for(var i = 0; i &lt; keys.length; i++) removed.push( this.remove_at(keys[i]) );
+		return removed;
+	},
+	
+
+	remove_all: function() {
+		var src = this._source();
+		for(i in src)
+			this.remove_at(i);
+	},
+	
+	
+	/**
+	 * Очистка коллекции от всех значений
+	 */
+	clear: function() {
+		this.remove_all();
+	},
+	
+	/**
+	 * Последовательный обход всех значений
+	 * @param {Object} callback
+	 * @param {Object} delegate
+	 */
+	each: function(callback, delegate) {
+		return Ergo.each(this._source(), callback, delegate);
+	},
+	
+//	ensure: function(i) {
+//		
+//	},
+	
+	/**
+	 * Поиск первого элемента, удовлетворяющего критерию
+	 */
+	find: function(criteria) {
+		return Ergo.find(this._source(), criteria);
+	},
+	
+	/**
+	 * Поиск всех элементов, удовлетворяющих критерию
+	 */
+	find_all: function(criteria) {
+		return Ergo.filter(this._source(), callback);
+	},
+	
+	
+	
+	//
+	//TODO методам filter и map имеет смысл возвращать коллекцию, а не значение
+	//
+	
+	/**
+	 * Фильтрация элементов
+	 */
+	filter: function(callback) {
+		return this.create( Ergo.filter(this._source(), callback) );
+	},
+
+	/**
+	 * Отображение элементов
+	 */
+	map: function(callback) {
+		return this.create( Ergo.map(this._source(), callback) );		
+	},
+	
+	/**
+	 * Проверка вхождения значения в коллекцию
+	 * @param {Object} criteria
+	 */
+	includes: function(criteria) {
+		return Ergo.includes(this._source(), callback);
+	},
+	
+	/**
+	 * Размер коллекции
+	 */
+	size: function() {
+		var n = 0;
+		var src = this._source();
+		for(var i in src) n++;
+		return n;
+	},
+	
+	/**
+	 * Проверка, является ли коллекция пустой
+	 */
+	is_empty: function() {
+		return this.size() == 0;
+	},
+	
+	/**
+	 * Получение ключа элемента
+	 * @param {Object} item
+	 */
+	key_of: function(item) {
+		return Ergo.key_of(this._source(), item);
+	},
+	
+	/**
+	 * Вызов для всех элементов коллекции указанного метода 
+	 *
+	 * @param {Object} m
+	 * @param {Object} args
+	 */
+	apply_all: function(m, args) {
+		Ergo.apply_all(this._source(), m, args);
+	},
+	
+	
+	/**
+	 * Проверка наличия элемента с указанным ключом
+	 * @param {Object} i ключ
+	 */
+	has_key: function(i) {
+		return (i in this._source());
+	},
+	
+	/**
+	 * Список всех ключей в коллекции
+	 */
+	keys: function() {
+		var k = [];
+		for(var i in this._source()) k.push(i);
+		return k;
+	},
+	
+	
+	add: function(item, i) {
+		return this._widget.children.add(item, i, this.options.type);
+	},
+	
+	
+	first: function() {
+		return this._source()[0];
+	},
+	
+	
+	last: function() {
+		var src = this._source();
+		return src[src.length-1];
+	}	
+	
+
+});
+
+
+
+
+Ergo.declare('Ergo.core.WidgetItems', 'Ergo.core.WidgetComponents', {
+
+	_source: function() {
+		var result = [];
+		this._widget.children.each(function(c) { if(!('_key' in c)) result.push(c); });
+		return result;
+	},
+	
+	
+	
+	create: function(v) {
+		return new Ergo.core.WidgetItems(this._widget);
+	},
+	
+	
+	last: function() {
+		var src = this._source();
+		return src[src.length-1];		
+	},
+	
+	size: function() {
+		var src = this._source();
+		return src.length;
+	},
+	
+	remove_all: function() {
+		var src = this._source();
+		for(var i = 0; i &lt; src.length; i++)
+			this.remove(src[i]);//_at(src[i]._index);
+	},
+	
+	
+	
+	
+/*	
+	set: function(i, item) {
+		this._widget.children.add(item, i, 'item');
+	},
+	
+	add: function(item, i) {
+		this._widget.children.add(item, i, 'item');
+	}
+*/	
+	
+});
+
+</pre>
+        </article>
+    </section>
+
+
+
+
+
+				</div>
+
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="jsdoc-message">
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a>
+		on Fri Nov 14 2014 01:28:08 GMT+0400 (MSK) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		</span>
+				</footer>
+			</div>
+
+			
+			<br clear="both">
+		</div>
+
+	</div>
+	<script src="scripts/sunlight.js"></script>
+	<script src="scripts/sunlight.javascript.js"></script>
+	<script src="scripts/sunlight-plugin.doclinks.js"></script>
+	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
+	<script src="scripts/sunlight-plugin.menu.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.scrollTo.js"></script>
+	<script src="scripts/jquery.localScroll.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
+
+
+	<script>  Sunlight.highlightAll({lineNumbers:,  showMenu: true, enableDoclinks :true}); </script>
+
+	<script>
+		$( function () {
+			$( "#toc" ).toc( {
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : 60
+			} );
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+
+		} );
+	</script>
+
+	
+
+</body>
+</html>

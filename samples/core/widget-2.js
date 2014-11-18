@@ -38,6 +38,6 @@ var child3 = new Ergo.core.Widget({
 w.children.add(child3);
 
 // отрисовываем всю иерархию виджетов
-w.$render();        
+w.render();        
 
 

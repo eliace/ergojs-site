@@ -6,7 +6,7 @@ var w = $.ergo({
 	style: {'background-color': '#eee'}
 });
 
-w.$render('#sample');
+w.render('#sample');
 
 
 
@@ -42,7 +42,7 @@ var context_menu = $.ergo({
 		{$icon: {autoRender: false}, $check: {etype: 'html:input', style: {'margin-right': 10}, weight: -10, type: 'checkbox'}, text: 'Вариант 1'}]
 });
 
-//context_menu.$render('body');
+//context_menu.render('body');
 
 
 w.el.on('contextmenu', function(e) {

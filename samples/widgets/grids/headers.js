@@ -84,6 +84,6 @@ var w = $.ergo({
 });
 
 
-w.$render('#sample');
+w.render('#sample');
 
 data.fetch();

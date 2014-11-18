@@ -182,14 +182,14 @@ var buttons = $.ergo({
 		etype: 'button',
 		text: 'Пошаговый диалог №1',
 		onClick: function() {
-			dialog3.$render('body');
+			dialog3.render('body');
 			dialog3.open();
 		}		
 	}, {
 		etype: 'button',
 		text: 'Пошаговый диалог №2',
 		onClick: function() {
-			dialog4.$render('body');
+			dialog4.render('body');
 			dialog4.open();
 		}		
 	}]
@@ -198,6 +198,6 @@ var buttons = $.ergo({
 
 
 
-buttons.$render('#sample');
+buttons.render('#sample');
 
 

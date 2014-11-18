@@ -8,15 +8,19 @@
 body {
 	font-family: "Roboto",Helvetica,Arial, sans-serif;
 	margin: 0;
+	padding: 0;
+	font-size: 13px;
 }
 
 
 
 
+/*
 .header {
 	display: table;
-	width: 70%;
-	margin: 10px auto;
+	width: 100%;
+	padding: 8px 16px;
+	background-color: #37474f;
 }
 
 .header > h3 {
@@ -30,7 +34,7 @@ body {
 }
 
 .header > h3 span {
-  color: #ffa000; /*#e51c23;*/
+  color: #fff;
 }
 
 
@@ -39,10 +43,9 @@ body {
 }
 
 .header a:hover {
-/*	color:   #03a9f4; /* #e51c23;*/
 	text-decoration: underline;
 }
-
+*/
 
 
 .page-footer {
@@ -53,7 +56,7 @@ body {
 }
 
 
-
+/*
 .menu {
 	list-style: none;
 	margin: 0;
@@ -65,33 +68,35 @@ body {
 }
 
 .menu > li > a {
-	color: #37474f;
+	color: #fff;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 
 .github {
 	float: right;
-	padding: 8px 0;
+	padding: 16px;
 }
 
 .github > a {
-	color: #37474f;
+	color: #fff;
 	text-decoration: none;	
 }
 
 .github > a > i {
 	margin: 0 8px;
 }
-
+*/
 
 .banner {
 /*	width: 90%;*/
 	margin: 0 auto;
-	background-color: #607d8b; /*#78909c;*/
-	color: #f0f0f0;
+	/*background-color: #607d8b; /*#78909c;*/
+	color: #444;
 	padding: 70px 0;
 	clear: both;
+	border-bottom: 1px solid #ccc;
 }
 
 
@@ -115,10 +120,10 @@ body {
 .banner > div > a {
 	margin: 10px 40px;
 	padding: 8px 16px;
-	background-color: #607d8b; /*#78909c;*/
+/*	background-color: #607d8b; /*#78909c;*/
 	width: 128px;
-	color: #f0f0f0;
-	border: 1px solid #f0f0f0;
+	color: #666;
+	border: 1px solid #ccc;
 	border-radius: 4px;
 	font-size: 16px;
 	cursor: pointer;
@@ -131,14 +136,19 @@ body {
 }
 
 .banner a:hover {
-	background-color: #90a4ae;
+	background-color: #f0f0f0; /*#90a4ae;*/
 }
 
 
 .description {
 	display: table;
-	width: 70%;
+	width: 80%;
 	margin: 0 auto;
+}
+
+
+.description p {
+	color: #888;
 }
 
 .description > div {
