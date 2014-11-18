@@ -12,7 +12,7 @@ JsonAjaxProvider = {
 
 
 
-var data = new Ergo.data.Collection({
+var data = new Ergo.data.PagedCollection({
 	provider: JsonAjaxProvider, 
 	parser: function(data){
 		// эмуляция страницы данных
@@ -31,16 +31,14 @@ var data = new Ergo.data.Collection({
 		
 		return v;
 	},
-//	from: 0,
-//	to: 30,
-	totalCount: 0,
-	pageSize: 30,
-	index: 0,
-	get: {
-		'count': function() {
-			return Math.ceil(this.options.totalCount / this.options.pageSize);		
-		}
-	}
+	// totalCount: 0,
+	// pageSize: 30,
+	// index: 0,
+	// get: {
+		// 'count': function() {
+			// return Math.ceil(this.options.totalCount / this.options.pageSize);		
+		// }
+	// }
 });
 
 
@@ -142,7 +140,7 @@ var w = $.ergo({
 			}
 		}
 	},
-	onChangeIndex: function(e) {
+	onChangeDataIndex: function(e) {
 		this.opt('index', e.index);
 	},
 	set: {
