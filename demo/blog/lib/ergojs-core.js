@@ -601,67 +601,6 @@ var Ergo = (function(){
 	
 	
 	
-	E.loadpath = {};
-	
-	
-	/*
-	 * Синхронная загрузка модулей через Ajax
-	 * 
-	 * В качестве аргументов передается список путей к классам
-	 * 
-	 */
-	E.require = function() {
-		
-		for(var i = 0; i < arguments.length; i++) {
-
-			var class_name = arguments[i];
-			
-			//TODO здесь нужно проверить, загружен ли класс
-			try{
-				if( eval('typeof '+class_name) == 'function') continue;
-			}
-			catch(e) {
-			}
-			
-			for(var j in E.loadpath) {
-				if(class_name.search(j) != -1) {
-					class_name = class_name.replace(j, E.loadpath[j]);
-					break;
-				}
-			}
-			
-			var url = class_name.replace(/\./g, '/') + '.js';
-			
-			$.ajax({
-			  url: url,
-			  dataType: "script",
-			  success: function(){
-			  	//TODO здесь нужно вызывать функцию, оповещающую, что класс загружен
-			  },
-			  error: function(jqXHR, textStatus, errorThrown){
-			  	console.log(errorThrown);
-			  },
-			  async: false
-			});			
-			
-		}
-		
-		
-	};
-	
-	
-	
-	
-	//TODO перенести в примеси
-	E.glass_pane = function() {
-		
-		return $('<div class="e-glass-pane" autoheight="ignore"/>')
-			.on('mousedown', function(e){
-				e.preventDefault();
-				return false;				
-			});
-		
-	};
 	
 	
 	
@@ -1546,6 +1485,74 @@ Function.prototype.rcurry = function(arg) {
 		
 		return copy;
 	};
+
+
+
+
+	E.loadpath = {};
+	
+	
+	/*
+	 * Синхронная загрузка модулей через Ajax
+	 * 
+	 * В качестве аргументов передается список путей к классам
+	 * 
+	 */
+	E.require = function() {
+		
+		for(var i = 0; i < arguments.length; i++) {
+
+			var class_name = arguments[i];
+			
+			//TODO здесь нужно проверить, загружен ли класс
+			try{
+				if( eval('typeof '+class_name) == 'function') continue;
+			}
+			catch(e) {
+			}
+			
+			for(var j in E.loadpath) {
+				if(class_name.search(j) != -1) {
+					class_name = class_name.replace(j, E.loadpath[j]);
+					break;
+				}
+			}
+			
+			var url = class_name.replace(/\./g, '/') + '.js';
+			
+			$.ajax({
+			  url: url,
+			  dataType: "script",
+			  success: function(){
+			  	//TODO здесь нужно вызывать функцию, оповещающую, что класс загружен
+			  },
+			  error: function(jqXHR, textStatus, errorThrown){
+			  	console.log(errorThrown);
+			  },
+			  async: false
+			});			
+			
+		}
+		
+		
+	};
+	
+	
+	
+	
+	//TODO перенести в примеси
+	E.glass_pane = function() {
+		
+		return $('<div class="e-glass-pane" autoheight="ignore"/>')
+			.on('mousedown', function(e){
+				e.preventDefault();
+				return false;				
+			});
+		
+	};
+
+
+
 
 
 
@@ -6428,6 +6435,79 @@ Ergo.defineClass('Ergo.core.Context', 'Ergo.core.Object', /** @lends Ergo.core.C
 	
 	
 	
+	
+	_construct: function(o) {
+		this._super(o);
+		
+		
+		
+		
+		if(o.hashLinks) {
+			
+			// обрабатываем нажатие ссылок
+			$('html').click(function(e){
+				var el = $(e.target);
+		//		console.log(el[0].localName);
+		//		console.log(el.attr('href'));
+				if(el[0] && el[0].localName == 'a' && el.attr('href') == '#') {
+					e.preventDefault();
+					
+					// !
+					// var w = el.ergo();
+					// if(w && w.opt('link')) {
+		// //				$context.setState( w.opt('link'), 'pages', {}, true );
+					// }
+				}
+			});
+			
+			
+		}
+		
+		
+		if(o.history) {
+			
+			// для полифила
+			var location = window.history.location || window.location;
+			
+			
+		}
+		
+		
+		
+		
+		if(o.windowBox) {
+			
+			// обновляем компоновку при изменении размеров окна
+			$(window).on('resize', function(){
+				
+				//устанавливаем высоту <body> по высоте окна
+				$('body').height(window.innerHeight);
+				// обновляем компоновку
+				$context.app._layoutChanged();
+				
+			});
+			
+			
+			$('body').height(window.innerHeight);		
+		}
+		
+		
+	},
+	
+	
+	
+	state: function(s, fn) {
+		this.states.state(s, function() {
+			fn.apply(this, arguments);
+			return false;
+		}.bind(this));
+	},
+	
+	
+	
+	
+	
+	
 	open_glass_pane: function() {
 		var gp = $('<div class="glass-pane" autoheight="ignore"/>')
 			.on('mousedown', function(e){
@@ -6479,7 +6559,8 @@ Ergo.declare('Ergo.data.Collection', 'Ergo.core.DataSource', /** @lends Ergo.dat
 	
 	defaults: {
 		model: null,
-		idKey: 'id'
+		idKey: 'id',
+		query: {}
 	},
 	
 	/**
@@ -6797,22 +6878,38 @@ Ergo.defineClass('Ergo.data.Node', 'Ergo.data.Object', {
 
 
 
-Ergo.declare('Ergo.data.PageCollection', 'Ergo.data.Collection', {
+Ergo.declare('Ergo.data.PagedCollection', 'Ergo.data.Collection', {
 	
 	defaults: {
-		pageSize: 1,
-		totalCount: 1
+		pageSize: 30,
+		totalCount: 0,
+		index: 0
 	},
 	
 	
-
 	
-	get_pageCount: function() {
+	set_index: function(v) {
+		this.options.query.from = (v-1)*this.options.pageSize;
+		this.options.query.to = v*this.options.pageSize;
+	},
+	
+	
+	get_count: function() {
 		return Math.ceil(this.options.totalCount / this.options.pageSize);
 	},
 	
 	
+	parse: function(v) {
+		this.options.totalCount = v.total;
+		this.options.from = v.from;
+		this.options.to = v.to;
+		
+		return v.data;
+	}
 	
+	
+	
+/*	
 	fetch: function() {
 
 		this.events.fire('fetch');
@@ -6840,7 +6937,7 @@ Ergo.declare('Ergo.data.PageCollection', 'Ergo.data.Collection', {
 		}
 		
 	}
-	
+*/	
 	
 	
 });
@@ -7086,7 +7183,14 @@ Ergo.declare('Ergo.layouts.Table', 'Ergo.core.Layout', {
 
 
 
-
+/**
+ * Перегружаемт методы show() и hide() для поддержки анимации
+ * 
+ * Опции:
+ * 	`effects`
+ * 
+ * @mixin Ergo.mixins.Effects
+ */
 Ergo.defineMixin('Ergo.mixins.Effects', function(o) {
 	
 	this.show = function() {
@@ -7395,7 +7499,14 @@ Ergo.defineClass('Ergo.core.Selection', 'Ergo.core.Object', {
 
 
 
-
+/**
+ * Эксклюзивное отображение одного из дочерних виджетов
+ * 
+ * Опции:
+ * 	`active`
+ * 
+ * @mixin Ergo.mixins.Pageable
+ */
 Ergo.defineMixin('Ergo.mixins.Pageable', function(o) {
 	
 	Ergo.smart_override(o, {
@@ -7768,6 +7879,12 @@ Ergo.defineMixin('Ergo.mixins.Window', function(o) {
 
 
 
+/**
+ * Отображает виджет как модальное окно
+ * 
+ * Добавляются методы `open()`, `close()`, `resize()` и компонент `overlay`
+ *  
+ */
 Ergo.defineMixin('Ergo.mixins.Modal', function(o) {
 	
 	
@@ -7967,7 +8084,14 @@ Ergo.defineMixin('Ergo.mixins.Draggable', function(o) {
 
 }, 'mixins:draggable');
 
-
+/**
+ * Добавляет компонент label
+ * 
+ * Опции:
+ * 	`label`
+ * 
+ * @mixin Ergo.mixins.Label
+ */
 Ergo.defineMixin('Ergo.mixins.Label', function(o) {
 
 	Ergo.smart_override(o, {
@@ -7990,7 +8114,15 @@ Ergo.defineMixin('Ergo.mixins.Label', function(o) {
 
 }, 'mixins:label');
 
-
+/**
+ * Добавляет компонент dropdown
+ * 
+ * Состояния:
+ * 	`opened`
+ * 
+ * 
+ * @mixin Ergo.widgets.Dropdown
+ */
 Ergo.defineMixin('Ergo.widgets.Dropdown', function(o){
 	
 	o.components = Ergo.smart_override({
@@ -8087,12 +8219,19 @@ Ergo.defineMixin('Ergo.widgets.Lockable', function(o){
 
 
 
-
+/**
+ * Добавляет компонент contextMenu
+ * 
+ * События:
+ * 	`contextMenu`
+ * 
+ * @mixin Ergo.mixins.ContextMenu
+ */
 Ergo.defineMixin('Ergo.mixins.ContextMenu', function(o) {
 
 	o.components = Ergo.smart_override({
 		contextMenu: {
-			etype: 'dropdown-list',
+			etype: 'dropdown-menu',
 			cls: 'context-menu',
 			renderTo: 'body',
 			autoBind: false,

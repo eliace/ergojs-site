@@ -2,9 +2,9 @@
 
 
 /**
- * Простой <div/>, у которого дочерние виджеты по умолчанию тоже имеют тип "box"
+ * Блочный элемент, у которого все дочерние элементы тоже имеют тип `box`
  *  
- * `etype: 'box'`
+ * :`box`
  * 
  * @class
  * @name Ergo.widgets.Box
@@ -97,7 +97,7 @@ Ergo.defineClass('Ergo.widgets.SimpleAlert', 'Ergo.widgets.Box', {
  * Список
  * 
  * :list
- * 	[~]:html:li
+ * \s [~]:html:li
  *  
  * 
  * @class
@@ -238,7 +238,7 @@ Ergo.defineClass('Ergo.widgets.Pagination', 'Ergo.widgets.List', {
 		// }
 		
 		binding: function(v) {
-			this.opt('index', this.data.opt('index'));
+			this.opt('dataIndex', this.data.opt('index'));
 		},
 		
 		
@@ -246,15 +246,15 @@ Ergo.defineClass('Ergo.widgets.Pagination', 'Ergo.widgets.List', {
 			'index:next': function(e) {
 				var i = this.data.opt('index')+1;
 				if( i <= this.data.opt('count') )
-					this.events.rise('changeIndex', {index: i});
+					this.events.rise('changeDataIndex', {index: i});
 			},
 			'index:prev': function(e) {
 				var i = this.data.opt('index')-1;
 				if( i > 0 )
-					this.events.rise('changeIndex', {index: i});
+					this.events.rise('changeDataIndex', {index: i});
 			},
 			'index:change': function(e) {
-				this.events.rise('changeIndex', {index: e.index});
+				this.events.rise('changeDataIndex', {index: e.index});
 			}
 		}
 		
@@ -264,7 +264,7 @@ Ergo.defineClass('Ergo.widgets.Pagination', 'Ergo.widgets.List', {
 	
 	
 	
-	set_index: function(index) {
+	set_dataIndex: function(index) {
 
 		var count = this.data.opt('count');
 		
@@ -303,7 +303,7 @@ Ergo.defineClass('Ergo.widgets.Pagination', 'Ergo.widgets.List', {
 //		data.opt('index', index);
 //		data.fetch();
 		
-		this.events.fire('indexChanged', {index: index});
+		this.events.fire('dataIndexChanged', {index: index});  //?
 	}
 	
 	
@@ -384,25 +384,25 @@ Ergo.defineClass('Ergo.widgets.GridPagination', 'Ergo.widgets.Box', {
 		
 		events: {
 			'index:first': function(e) {
-				this.events.rise('changeIndex', {index: 1});
+				this.events.rise('changeDataIndex', {index: 1});
 			},
 			'index:last': function(e) {
-				this.events.rise('changeIndex', {index: this.data.opt('count')});
+				this.events.rise('changeDataIndex', {index: this.data.opt('count')});
 			},
 			'index:next': function(e) {
 				var i = this.data.opt('index')+1;
 				if( i <= this.data.opt('count') )
-					this.events.rise('changeIndex', {index: i});
+					this.events.rise('changeDataIndex', {index: i});
 			},
 			'index:prev': function(e) {
 				var i = this.data.opt('index')-1;
 				if( i > 0 )
-					this.events.rise('changeIndex', {index: i});
+					this.events.rise('changeDataIndex', {index: i});
 			},
 			'index:change': function(e) {
 				var i = e.index;
 				if( !isNaN(i) && i > 0 && i <= this.data.opt('count') )
-					this.events.rise('changeIndex', {index: e.index});
+					this.events.rise('changeDataIndex', {index: e.index});
 //				this.states.set('invalid');
 //					this.opt('value', this.opt('value'));
 				
@@ -422,7 +422,7 @@ Ergo.defineClass('Ergo.widgets.GridPagination', 'Ergo.widgets.Box', {
 	
 	
 	
-	set_index: function(v) {
+	set_dataIndex: function(v) {
 		
 	}
 	
@@ -472,9 +472,9 @@ Ergo.defineClass('Ergo.widgets.Navigation', 'Ergo.widgets.Box', {
 
 
 /**
- * <span/>
+ * Строчный элемент
  *  
- * `etype: 'inline'`
+ * :`inline`
  * 
  * @class
  * @name Ergo.widgets.Inline
@@ -502,9 +502,9 @@ Ergo.defineClass('Ergo.widgets.Caret', 'Ergo.widgets.Inline', {
 
 
 /**
- * <button/>
+ * Кнопка
  *  
- * `etype: 'button'`
+ * :`button`
  * 
  * Состояния:
  * 	`type` [default, primary, success, info, warning, danger, tool]
@@ -549,9 +549,9 @@ Ergo.defineClass('Ergo.widgets.Button', 'Ergo.core.Widget', /** @lends Ergo.widg
 
 
 /**
- * <i class="icon">
+ * Пиктограмма
  *  
- * `etype: 'icon'`
+ * :`icon`
  * 
  * Опции:
  * 	`text`
@@ -583,9 +583,9 @@ Ergo.defineClass('Ergo.widgets.Icon', 'Ergo.core.Widget', {
 
 
 /**
- * <a href="#"/>
+ * Ссылка
  *  
- * `etype: 'link'`
+ * :`link`
  * 
  * Опции:
  * 	`href`
@@ -613,11 +613,11 @@ Ergo.defineClass('Ergo.widgets.Link', 'Ergo.core.Widget', /** @lends Ergo.widget
 /**
  * Панель
  * 
- * :panel
- * 	header:box
- * 		title:html:span
- * 	content:box
- * 	footer:box
+ * :`panel`
+ * \s	header:`box`
+ * \s\s		title:`html:span`
+ * \s	content:`box`
+ * \s	footer:`box`
  * 
  * Опции:
  * 	`title`
@@ -665,14 +665,14 @@ Ergo.defineClass('Ergo.widgets.Panel', 'Ergo.widgets.Box', /** @lends Ergo.widge
 /**
  * Таблица
  * 
- * :table
- * 	control
- * 		[]:html:col
- * 	head
- * 		[]:table-row
- * 			[]:html:th
- * 	body
- * 		[~]:table-row
+ * :`table`
+ * 	\s control:`box`
+ * 	\s\s [...]:`html:col`
+ * 	\s head:`html:thead`
+ * 	\s\s [...]:`table-row`
+ * 	\s\s\s [...]:`html:th`
+ * 	\s body:`html:tbody`
+ * 	\s\s [~]:`table-row`
  *  
  * 
  * Опции:
@@ -963,8 +963,8 @@ Ergo.defineClass('Ergo.controllers.Columns', 'Ergo.core.Object', {
 /**
  * Строка таблицы
  * 
- * :table-row
- * 	[]:box
+ * :`table-row`
+ * \s	[...]:`box`
  *  
  * 
  * @class
@@ -1010,7 +1010,7 @@ Ergo.defineClass('Ergo.widgets.Text', 'Ergo.core.Widget', {
 /**
  * Текстовое содержимое
  * 
- * :text
+ * :`text`
  *  
  * Опции:
  * 	`text`
@@ -1038,8 +1038,8 @@ Ergo.defineClass('Ergo.widgets.Text', 'Ergo.core.Widget', {
 /**
  * Вложенный список
  * 
- * :nested-list
- * 	[~]:nested-item
+ * :`nested-list`
+ * \s	[~]:`nested-item`
  *  
  * Опции:
  * 	`nestedItem`
@@ -1119,7 +1119,24 @@ Ergo.defineClass('Ergo.widgets.NestedList', 'Ergo.widgets.Box', {
 
 
 
-Ergo.defineClass('Ergo.widgets.NestedItem', 'Ergo.widgets.Box', {
+
+
+
+/**
+ * Вложенный список
+ * 
+ * :`nested-item`
+ * \s	content:`text`
+ * \s subtree:`nested-list`
+ *  
+ * Опции:
+ * 	`nestedItem`
+ * 
+ * @class
+ * @name Ergo.widgets.NestedItem
+ * @extends Ergo.widgets.Box
+ */
+Ergo.defineClass('Ergo.widgets.NestedItem', 'Ergo.widgets.Box', /** @lends Ergo.widgets.NestedItem.prototype */{
 	
 	defaults: {
 		
@@ -1151,6 +1168,10 @@ Ergo.defineClass('Ergo.widgets.NestedItem', 'Ergo.widgets.Box', {
 	},
 	
 	
+	
+	/**
+	 * Путь к элементу вложенного списка 
+	 */
 	path: function() {
 		
     var path = [];
@@ -1184,8 +1205,16 @@ Ergo.defineClass('Ergo.widgets.NestedItem', 'Ergo.widgets.Box', {
 
 
 
-
-Ergo.defineClass('Ergo.widgets.Tree', 'Ergo.widgets.NestedList', {
+/**
+ * Дерево
+ * 
+ * :`tree`
+ * 
+ * @class
+ * @name Ergo.widgets.Tree
+ * @extends Ergo.widgets.NestedList
+ */
+Ergo.defineClass('Ergo.widgets.Tree', 'Ergo.widgets.NestedList', /** @lends Ergo.widgets.Tree.prototype */{
 	
 	defaults: {
 		cls: 'tree'
@@ -1202,9 +1231,9 @@ Ergo.defineClass('Ergo.widgets.Tree', 'Ergo.widgets.NestedList', {
 
 
 /**
- * <input type="text" class="field">
+ * Поле ввода
  *  
- * `etype: 'field'`
+ * :`field`
  * 
  * События:
  * 	`change`
@@ -1233,9 +1262,9 @@ Ergo.defineClass('Ergo.widgets.Field', 'Ergo.core.Widget', {
 
 
 /**
- * <input type="checkbox">
+ * Чекбокс
  *  
- * `etype: 'check'`
+ * :`check`
  * 
  * Опции:
  * 	`indeterminate`
@@ -1391,6 +1420,11 @@ Ergo.defineClass('Ergo.widgets.TextBox', 'Ergo.widgets.Box', {
 				this.states.toggle('focused', e.focus);
 			}
 		}
+	},
+	
+	
+	set_placeholder: function(v) {
+		this.content.opt('placeholder', v);
 	}
 	
 }, 'widgets:text-box');

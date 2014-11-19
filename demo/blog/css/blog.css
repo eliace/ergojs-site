@@ -1,0 +1,24 @@
+
+
+body {
+	background: url('greyzz.png');
+	padding: 32px 0;
+	font-family: "Roboto",Helvetica,Arial, sans-serif;
+}
+
+
+
+
+
+
+.app-content {
+	width: 80%;
+	margin: 0 auto;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+	background-color: #fff;
+}
+
+
+.app-content > nav {
+	padding: 24px;
+}

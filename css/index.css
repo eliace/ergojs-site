@@ -97,6 +97,7 @@ body {
 	padding: 70px 0;
 	clear: both;
 	border-bottom: 1px solid #ccc;
+	background: url('fabric_of_squares_gray.png');
 }
 
 
@@ -167,4 +168,24 @@ body {
 .description h3 {
 	text-transform: capitalize;
 }
+
+.description h2 {
+	color: #444;
+}
+
+
+
+.banner a.download {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+}
+
+.banner a.download:hover {
+  background-color: #449d44;
+  border-color: #398439;
+  color: #fff;
+}
+
+
 
