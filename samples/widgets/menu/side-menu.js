@@ -89,7 +89,7 @@ var w = $.ergo({
 		onMenuAction: function(e) {
 			this.opt('selected', e.target);
 		},
-		selectionFinder: function(key) {
+		selector: function(key) {
 			return this.sidebox.menu.find_path(key); // в выборку добавляем только элемент меню
 		},
 		onSelected: function(e) {

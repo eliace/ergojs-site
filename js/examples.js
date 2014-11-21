@@ -166,6 +166,18 @@ $(document).ready(function(){
 			children: [{
 				title: 'Типы полей',
 				name: 'widgets/fields/all'
+			}, {
+				title: 'SelectBox',
+				name: 'widgets/fields/select-box'
+			}, {
+				title: 'ComboBox',
+				name: 'widgets/fields/combo-box'
+			}, {
+				title: 'RadioBox',
+				name: 'widgets/fields/radio-box'
+			}, {
+				title: 'CheckBox',
+				name: 'widgets/fields/check-box'
 			}]
 		}, {
 			title: 'Таблицы',
@@ -373,7 +385,7 @@ $(document).ready(function(){
 		data: EXAMPLES,
 		dynamic: true,
 		
-		selectionFinder: function(key) {
+		selector: function(key) {
 			var result = {};
 			this.items.each(function(item){
 				var w = item.content.find_path(key);

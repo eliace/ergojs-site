@@ -36,7 +36,7 @@ var w = $.ergo({
 		}
 	},
 	
-	selectionFinder: function(i) {
+	selector: function(i) {
 		return this.tabs.item(i);
 	},
 	onSelected: function(e) {
@@ -88,7 +88,7 @@ var w = $.ergo({
 		}
 	},
 	
-	selectionFinder: function(i) {
+	selector: function(i) {
 		return this.tabs.item(i);
 	},
 	onSelected: function(e) {
@@ -141,7 +141,7 @@ var w = $.ergo({
 		}
 	},
 	
-	selectionFinder: function(i) {
+	selector: function(i) {
 		return this.tabs.item(i);
 	},
 	onSelected: function(e) {
@@ -208,7 +208,7 @@ var w = $.ergo({
 			}
 		},
 		
-		selectionFinder: function(i) {
+		selector: function(i) {
 			return this.header.tabbar.item(i);
 		},
 		onSelected: function(e) {
