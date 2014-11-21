@@ -30,7 +30,7 @@ var data3 = new Ergo.data.Collection({
 //		console.log(q);
 		
 		for(var i in v) {
-			if(!q || (v[i].full_name.indexOf(q.filter) > -1))
+			if(!q.filter || (v[i].full_name.indexOf(q.filter) > -1))
 				r.push(v[i]);
 		}
 		
@@ -114,7 +114,7 @@ $.ergo({
 			
 			// Метод №3
 			
-			this.data.opt('query', {filter: e.text});
+			this.data.opt('query', {filter: e.text});			
 			this.data.fetch();
 			
 		}		

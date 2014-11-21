@@ -2,7 +2,7 @@
 
 //var data = [1,2,3,4,5];
 
-var PageCollection = Ergo.data.Collection.extend({
+var PageCollection = Ergo.data.PagedCollection.extend({
 	
 	defaults: {
 		provider: {
@@ -21,24 +21,24 @@ var PageCollection = Ergo.data.Collection.extend({
 			return v.data;
 		},
 		
-		pageSize: 30,
-		index: 0,
-		totalCount: 0,
-		
-		query: {},
-		
-		set: {
-			'index': function(v) {
-				this.options.query.from = (v-1)*this.options.pageSize;
-				this.options.query.to = v*this.options.pageSize;
-			}
-		},
-		
-		get: {
-			'count': function() {
-				return Math.ceil(this.options.totalCount / this.options.pageSize);		
-			}
-		}
+		// pageSize: 30,
+		// index: 0,
+		// totalCount: 0,
+// 		
+		// query: {},
+// 		
+		// set: {
+			// 'index': function(v) {
+				// this.options.query.from = (v-1)*this.options.pageSize;
+				// this.options.query.to = v*this.options.pageSize;
+			// }
+		// },
+// 		
+		// get: {
+			// 'count': function() {
+				// return Math.ceil(this.options.totalCount / this.options.pageSize);		
+			// }
+		// }
 		
 	}
 	
@@ -96,7 +96,7 @@ var w = $.ergo({
 		}
 		
 	},
-	onChangeIndex: function(e) {
+	onChangeDataIndex: function(e) {
 		this.opt('index', e.index);
 	},
 	set: {
@@ -153,7 +153,7 @@ var w2 = $.ergo({
 			}]
 		}
 	},
-	onChangeIndex: function(e) {
+	onChangeDataIndex: function(e) {
 		this.opt('index', e.index);
 	},
 	set: {
