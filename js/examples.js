@@ -313,8 +313,17 @@ $(document).ready(function(){
 				title: 'Фильтрация',
 				name: 'widgets/other/filter'
 			}, {
+				title: 'Сортировка',
+				name: 'widgets/other/sort'
+			}, {
 				title: "Drag'n'Drop",
 				name: 'widgets/other/drag_n_drop'
+			}, {
+				title: "Списки",
+				name: 'widgets/other/lists'
+			}, {
+				title: "Dynamic List",
+				name: 'widgets/other/dynamic-list'
 			}, {
 				title: '10000',
 				name: 'widgets/other/10000'

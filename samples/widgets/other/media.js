@@ -13,9 +13,12 @@ var w = $.ergo({
 	data: data,
 	defaultItem: {
 		cls: 'media',
+		layout: 'column',
 		$icon: {
-			etype: 'icon',
-			state: 'fa-cog'
+			etype: 'html:img',
+			state: 'rounded',
+			width: 64,
+			src: 'img/avatars/001.jpg'
 		},
 		$content: {
 			$title: {

@@ -11,6 +11,11 @@ body {
 }
 
 
+input[type="checkbox"] {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 
 /*
 .page-header {
@@ -703,3 +708,56 @@ ul.list-view li, .list-view-item {
 }
 */
 
+
+.item-box {
+	position: relative;	
+}
+
+.item-box > .addon {
+	float: none;
+	position: absolute;
+	top: 50%;
+	right: 8px;
+}
+
+
+
+.list-box > div {
+	padding: 8px 16px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.list-box .remove-btn {
+	right: 16px;
+}
+
+
+
+.icon-box {
+	padding: 4px;
+	border-radius: 2px;
+}
+
+.icon-box.warning {
+	color: #fff;
+  background-color: #F0AD4E;
+}
+
+
+
+
+.tool-box {
+	padding: 8px;
+}
+
+.tool-box > *:not(:first-child):not(:last-child) {
+	margin: 0 8px;
+}
+
+
+
+/*
+[layout="item"] > .addon.pull-right {
+	right: 0;
+}
+*/

@@ -196,7 +196,7 @@ var w = $.ergo({
 //		this.$rebind(true);
 //		this.content.content.body.rows.$rebind(true);
 //		this.data.events.fire('value:changed');
-		this.$dataChanged();
+		this._dataChanged();
 	}
 });
 

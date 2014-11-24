@@ -49,3 +49,39 @@ $.ergo({
 
 
 
+/*
+$.ergo({
+	etype: 'box',
+	renderTo: '#sample',
+	$button: {
+		etype: 'html:button',
+		text: 'Добавить элемент',
+		onClick: function() {
+			this.events.rise('action');
+		}
+	},
+	$content: {
+		data: [],
+		dynamic: true,
+		defaultItem: {
+//			hidden: true,
+			mixins: ['effects'],
+			effects: {
+				'show': {type: 'fadeIn', delay: 400},
+				'hide': {type: 'fadeOut', delay: 400},
+			},
+//			showOnRender: true,
+			binding: 'text'
+		}
+	},
+	onAction: function() {
+		this.content.data.add('Item');
+	}
+});
+
+*/
+
+
+
+
+

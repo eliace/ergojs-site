@@ -54,6 +54,7 @@ $.ergo({
 				$filter: {
 					etype: 'text-box',
 					width: 200,
+					autoBind: false,
 					$addon: {
 						etype: 'icon',
 						cls: 'fa-search addon'
