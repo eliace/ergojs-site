@@ -20,7 +20,7 @@ var w = $.ergo({
 		data: [],
 		defaultItem: {
 //			binding: 'text',
-			layout: 'item',
+			etype: 'item-box',
 			$checker: {
 				etype: 'check'
 			},
@@ -50,7 +50,13 @@ var w = $.ergo({
 				binding: false,
 //				autoDock: true,
 			}
+		},
+		
+		$buttons: {
+			etype: 'button',
+			text: 'Test'
 		}
+		
 	},
 	
 	
