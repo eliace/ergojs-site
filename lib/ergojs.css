@@ -2431,7 +2431,7 @@ input.field {
 }
 
 .pagination li.selected > a {
-  background-color: #BBBBBB;
+  background-color: #428BCA;/*#BBBBBB;*/
   border-color: #CCCCCC;	
 /*  background-color: #428BCA;
   border-color: #428BCA;*/
