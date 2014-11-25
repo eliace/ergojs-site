@@ -713,11 +713,18 @@ ul.list-view li, .list-view-item {
 	position: relative;	
 }
 
-.item-box > .addon {
+.item-box > .before {
 	float: none;
 	position: absolute;
 	top: 50%;
-	right: 8px;
+	left: 0;
+}
+
+.item-box > .after {
+	float: none;
+	position: absolute;
+	top: 50%;
+	right: 0;
 }
 
 
@@ -754,6 +761,32 @@ ul.list-view li, .list-view-item {
 	margin: 0 8px;
 }
 
+
+
+.check-box {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #0a80cb;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  width: 16px;
+  cursor: pointer;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.check-box > i {
+	display: block;
+	line-height: 16px;
+	margin-top: -1px;
+	width: 14px;
+	cursor: pointer;
+}
+
+.check-box:hover {
+	border-color: #0a80cb;
+}
 
 
 /*

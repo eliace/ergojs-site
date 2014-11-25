@@ -6,6 +6,27 @@ var data = new Ergo.data.Collection({
 
 
 
+Ergo.defineClass('Ergo.wigets.CheckBox', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		cls: 'check-box',
+		components: {
+			content: {
+				etype: 'icon',
+				cls: 'fa'
+			}
+		},
+		states: {
+			'checked': function(on) {
+				this.content.states.toggle('fa-check', on);
+			}
+		},
+		onClick: function() {
+			this.states.toggle('checked');
+		}		
+	}
+	
+}, 'widgets:check-box');
 
 
 
@@ -31,7 +52,7 @@ var w = $.ergo({
 			etype: 'item-box',
 			layout: 'fluid',
 			items: [{
-				etype: 'check',
+				etype: 'check-box',
 				autoBind: false,
 				style: {
 					'margin-right': 8
@@ -64,10 +85,10 @@ var w = $.ergo({
 				binding: 'text',
 				dataId: 'country'
 			}],
-			$addon: {
+			$after: {
 				etype: 'icon-button',
 				icon: 'fa-close',
-				cls: 'addon remove-btn',
+				cls: 'remove-btn',
 				state: 'line tool primary tiny',
 				binding: false,
 				autoRender: true
@@ -102,7 +123,7 @@ var w = $.ergo({
 			layout: 'hbox',
 			etype: 'item-box',
 			items: [{
-				etype: 'check',
+				etype: 'check-box',
 				autoBind: false,
 				style: {
 					'margin-right': 8
@@ -135,10 +156,10 @@ var w = $.ergo({
 				binding: 'text',
 				dataId: 'country'
 			}],
-			$addon: {
+			$after: {
 				etype: 'icon-button',
 				icon: 'fa-close',
-				cls: 'addon remove-btn',
+				cls: 'remove-btn',
 				state: 'line tool primary tiny',
 				binding: false,
 				autoRender: true
@@ -172,11 +193,24 @@ var w = $.ergo({
 			layout: 'stack',
 			etype: 'item-box',
 			items: [{
-				etype: 'check',
-				autoBind: false,
+				cls: 'check-box',
+				$content: {
+					etype: 'html:i',
+					cls: 'fa'
+				},
+				// etype: 'check',
+				// autoBind: false,
 				style: {
 					'margin-right': 8,
 					'float': 'left'
+				},
+				states: {
+					'checked': function(on) {
+						this.content.states.toggle('fa-check', on);
+					}
+				},
+				onClick: function() {
+					this.states.toggle('checked');
 				}
 			}, {
 				binding: 'text',
@@ -204,13 +238,10 @@ var w = $.ergo({
 				binding: 'text',
 				dataId: 'country'
 			}],
-			$addon: {
+			$after: {
 				state: 'warning',
 				autoRender: true,
 				cls: 'icon-box',				
-				style: {
-					'right': 16
-				}	,
 				
 				$content: {
 					etype: 'icon',

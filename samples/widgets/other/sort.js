@@ -63,13 +63,13 @@ var w = $.ergo({
 			$button: {
 				etype: 'select-box',
 				$dropdown: {
-					defaultItem: {
-						get: {
-							'key': function() {
-								return this.opt('name');
-							}
-						}
-					},
+					// defaultItem: {
+						// get: {
+							// 'key': function() {
+								// return this.opt('name');
+							// }
+						// }
+					// },
 					items: [
 						{text: 'По возрастанию', name: 'asc'}, 
 						{text: 'По убыванию', name: 'desc'}]
@@ -92,15 +92,12 @@ var w = $.ergo({
 					binding: 'text',
 					dataId: 'full_name',
 				},
-				$addon: {
+				$after: {
 //					etype: 'inline',
 					autoRender: true,
 					binding: 'text',
 					cls: 'tag warning',
-					dataId: 'country',
-					style: {
-						'right': 8
-					}
+					dataId: 'country'
 				}
 				
 			}

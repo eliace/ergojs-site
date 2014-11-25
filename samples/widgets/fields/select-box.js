@@ -26,7 +26,7 @@ var w = $.ergo({
 	$dropdown: {
 		defaultItem: {
 			get: {
-				'key': function() {
+				'name': function() {
 					return this.opt('text');
 				}
 			}
@@ -52,7 +52,7 @@ var w = $.ergo({
 	renderTo: '#sample',
 	
 	width: 160,
-		
+	
 	$dropdown: {
 		data: data,
 		dataId: 'countries'
@@ -89,17 +89,17 @@ var w = $.ergo({
 	
 	width: 160,
 	
-	
 	$dropdown: {
 		data: data,
 		dataId: 'countries',
 		defaultItem: {
 			binding: function(v) {
 				this.opt('text', v.name);
+				this.opt('name', v.iso);
 			},
 			get: {
-				'key': function() {
-					return this.data.get('iso');
+				'name': function() {
+					return this.options.name; //this.data.get('iso');
 				}
 			}
 		}

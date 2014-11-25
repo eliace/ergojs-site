@@ -22,7 +22,7 @@ var growl_list = $.ergo({
 			// hide: 'fadeOut',
 			// delay: 600
 		},
-		hideOnDestroy: true,
+		hideOnUnrender: true,
 		//showOnRender: true,
 //		style: {'display': 'none'},
 //		style: {'opacity': 0},
@@ -33,7 +33,7 @@ var growl_list = $.ergo({
 		onClose: function() {
 			this.el.height(this.el.height());
 			this.content.hide().then(function(){
-				this.destroy();//.el.slideUp(300);
+				this._destroy();//.el.slideUp(300);
 			}.bind(this));			
 		}
 	}
