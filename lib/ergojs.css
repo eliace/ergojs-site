@@ -99,6 +99,7 @@ body {
 .panel-title {
 	padding: 12px 8px;
 	margin: 0;
+	font-size: 14px;
 	float: left;
 }
 
@@ -115,6 +116,21 @@ body {
 
 
 
+/*
+ * LINK
+ */
+.link {
+	color: #428bca; /*#0a80cb;*/	
+}
+
+
+/*
+ * LIST
+ */
+.list {
+	list-style: none;
+	padding-left: 0;
+}
 
 
 
@@ -1876,8 +1892,18 @@ input.field {
 
 .tool-bar > * {
 	display: inline-block;
-	margin: 0 3px;
 }
+
+/*
+.tool-bar > *:not(:first-child):not(:last-child) {
+	margin-right: 4px;
+}
+*/
+
+.tool-bar > *:not(:last-child) {
+	margin-right: 4px;
+}
+
 
 .tool-bar > .group > * {
 	display: inline-block;
@@ -2882,4 +2908,47 @@ table.widget thead {
 
 img.rounded {
 	border-radius: 99999px;
+}
+
+
+.before {
+	margin-right: 4px;
+}
+
+.after {
+	margin-left: 4px;
+}
+
+
+
+
+/*
+ * CHECK
+ */
+
+.check {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #0a80cb;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  width: 16px;
+  cursor: pointer;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+/*	margin: 0 4px;*/
+}
+
+.check > i {
+	display: inline-block;
+	height: 16px;
+	margin-top: -1px;
+	width: 14px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.check:hover {
+	border-color: #0a80cb;
 }

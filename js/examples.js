@@ -178,6 +178,9 @@ $(document).ready(function(){
 			}, {
 				title: 'CheckBox',
 				name: 'widgets/fields/check-box'
+			}, {
+				title: 'NumberBox',
+				name: 'widgets/fields/number-box'
 			}]
 		}, {
 			title: 'Таблицы',
@@ -324,6 +327,9 @@ $(document).ready(function(){
 			}, {
 				title: "Dynamic List",
 				name: 'widgets/other/dynamic-list'
+			}, {
+				title: "Detail List",
+				name: 'widgets/other/detail-list'
 			}, {
 				title: '10000',
 				name: 'widgets/other/10000'

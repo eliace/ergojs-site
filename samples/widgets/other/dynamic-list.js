@@ -1,60 +1,109 @@
 
 
 var w = $.ergo({
-	etype: 'box',
+	etype: 'panel',
 	renderTo: '#sample',
+	
+	title: 'Динамический список',
+	
+	cls: 'widget',
 	
 	$toolbar: {
 		etype: 'tool-bar',
+		weight: -5,
 		items: [{
 			etype: 'button',
 			text: 'Добавить элемент',
+			state: 'primary',
+			$icon: {
+				etype: 'icon',
+				weight: 10,
+				cls: 'after',
+				icon: 'fa-plus'
+			},
+			$content: {
+				etype: 'text'
+			},
 			onClick: function() {
 				this.events.rise('newItemDialog');
 			}
+		}, {
+			etype: 'button',
+			text: 'Удалить элемент',
+			state: 'danger',
+			hidden: true,
+			$icon: {
+				etype: 'icon',
+				weight: 10,
+				cls: 'after',
+				icon: 'fa-ban'
+			},
+			$content: {
+				etype: 'text'
+			},
+			onClick: function() {
+				this.events.rise('removeItems');
+			}
+			
 		}]
 	},
 	
 	$content: {
+		cls: 'list-box',
 		dynamic: true,
+		
+		height: 300,
+		
 		data: [],
+		
 		defaultItem: {
-//			binding: 'text',
-			etype: 'item-box',
+//			etype: 'item-box',
+			
+			mixins: ['effects'],
+			
+			effects: {
+				show: {type: 'fadeIn', delay: 400}
+			},
+			
+			renderEffects: true,
+			
+			hidden: true,
+			
+			
 			$checker: {
-				etype: 'check'
-			},
-			$icon: {
-				etype: 'icon',
-				icon: 'fa-cloud',
-				binding: false,
-				weight: -10
-			},
-			$content: {
-				etype: 'inline',
-				$icon: {
-					etype: 'icon',
-					icon: 'fa-cog',
-					binding: false,
-					weight: -10
-				},
-				$content: {
-					etype: 'text'
+				etype: 'check',
+				autoBind: false,
+				cls: 'before',
+				onDataChanged: function() {
+					
 				}
 			},
-			$addon: {
-				etype: 'icon-button',
-				icon: 'fa-close',
-				cls: 'addon',
-				state: 'line tool danger tiny',
-				binding: false,
-//				autoDock: true,
-			}
-		},
-		
-		$buttons: {
-			etype: 'button',
-			text: 'Test'
+			// $icon: {
+				// etype: 'icon',
+				// icon: 'fa-cloud',
+				// binding: false,
+				// weight: -10
+			// },
+			$content: {
+				etype: 'inline',
+				// $icon: {
+					// etype: 'icon',
+					// icon: 'fa-cog',
+					// binding: false,
+					// weight: -10
+				// },
+				// $content: {
+					// etype: 'text'
+				// }
+			},
+			// $after: {
+				// etype: 'icon-button',
+				// icon: 'fa-close',
+// //				cls: 'addon',
+				// state: 'line tool danger tiny',
+				// binding: false,
+// //				autoDock: true,
+			// }
 		}
 		
 	},
@@ -66,14 +115,12 @@ var w = $.ergo({
 		
 		var obj = {text: 'Новый элемент'};
 		
+		
 		var dlg = $.ergo({
 			etype: 'modal-dialog',
 			title: 'Добавление элемента списка',
 			cls: 'dark',
 			data: obj,
-			effects: {
-				'show': {type: 'fadeIn', delay: 400}
-			},
 			$content: {
 				layout: 'form',
 				cls: 'panel-content',
@@ -93,9 +140,26 @@ var w = $.ergo({
 			},
 			
 			onOpened: function() {
-				console.log('open');
-				this.content.item(0).content.el.focus();//[0].setSelectionRange(0, 5);//.select();
+//				console.log('open');
+				
+				var input = this.content.item(0).content.el;
+				
+				input.focus();//[0].setSelectionRange(0, 5);//.select();
 //				this.content.item(0).content.el.select();
+				var pos = input.val().length;
+				var elem = input[0];
+
+		    if (elem.setSelectionRange) {
+		      elem.setSelectionRange(pos, pos);
+		    } else if (elem.createTextRange) {
+		      var range = elem.createTextRange();
+		      range.collapse(true);
+		      range.moveEnd('character', pos);
+		      range.moveStart('character', pos);
+		      range.select();
+		    }
+
+
 			},
 			
 			onOk: function() {
@@ -105,7 +169,11 @@ var w = $.ergo({
 			
 		});
 		
-		dlg.render('body');
+		
+		console.log('---1---');
+		
+		
+//		dlg.render('body');
 		dlg.open();
 		
 	},

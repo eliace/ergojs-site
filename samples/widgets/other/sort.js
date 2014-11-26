@@ -1,8 +1,43 @@
 
 var provider = new Ergo.data.AjaxProvider('data/mock-15.json');
 
+// сортировка по полю
+var sort_values = function(a, b, sort, sort_field) {
+	
+	if(sort == 'asc') {
+		a = a[sort_field];
+		b = b[sort_field];				
+	}
+	else {
+		var c = a;
+		a = b[sort_field];
+		b = c[sort_field];					
+	}
+	
+	if( a < b ) return -1;
+	if( a > b ) return 1;
+	return 0;	
+};
 
-//var sort_fn = ;
+// сортировка по опции
+var sort_opts = function(a, b, sort, sort_opt) {
+	
+	if(sort == 'asc') {
+		a = a.opt(sort_opt);
+		b = b.opt(sort_opt);				
+	}
+	else {
+		var c = a;
+		a = b.opt(sort_opt);
+		b = c.opt(sort_opt);					
+	}
+	
+	if( a < b ) return -1;
+	if( a > b ) return 1;
+	return 0;	
+};
+
+
 
 
 
@@ -18,22 +53,7 @@ var data2 = new Ergo.data.Collection({
 		var q = this.options.query;
 		
 		if(q.sort) {
-			v.sort(function(a, b) {
-				
-				if(q.sort == 'asc') {
-					a = a[q.sort_field];
-					b = b[q.sort_field];				
-				}
-				else {
-					var c = a;
-					a = b[q.sort_field];
-					b = c[q.sort_field];					
-				}
-				
-				if( a < b ) return -1;
-				if( a > b ) return 1;
-				return 0;
-			});
+			v.sort( sort_values.rcurry(q.sort, q.sort_field) );
 		}
 		
 		return v;
@@ -63,13 +83,6 @@ var w = $.ergo({
 			$button: {
 				etype: 'select-box',
 				$dropdown: {
-					// defaultItem: {
-						// get: {
-							// 'key': function() {
-								// return this.opt('name');
-							// }
-						// }
-					// },
 					items: [
 						{text: 'По возрастанию', name: 'asc'}, 
 						{text: 'По убыванию', name: 'desc'}]
@@ -120,46 +133,17 @@ var w = $.ergo({
 					items.push(item);
 				});
 				
-				items.sort(function(a, b) {
+				items.sort( sort_opts.rcurry(sort, 'text') );
 					
-					if(sort == 'asc') {
-						a = a.opt('text');
-						b = b.opt('text');
-					}
-					else {
-						var c = a;
-						a = b.opt('text');
-						b = c.opt('text');			
-					}
-					
-					if( a < b ) return -1;
-					if( a > b ) return 1;
-					return 0;
-				});
-
-
-//				console.log(items.length);
 				
 				for(var i = 0; i < items.length; i++) {
-//					console.log( items[i].opt('text') );
 					this.content.items.remove( items[i] );
-//					console.log(this.content.items.size());
 				}
 
 				for(var i = 0; i < items.length; i++) {
-//					console.log(items[i]._index);
 					this.content.items.add( items[i], i );
-//					console.log(items[i]._index);
 				}
 
-//				for(var i = 0; i < 3; i++) {
-//					console.log( items[i].opt('text') );
-//					console.log(this.content.children.get(i)._index);
-//					console.log(this.content.items.size());
-//				}
-
-				
-//				console.log(this.content.items.size());
 				
 				this.content.render();
 				
@@ -192,26 +176,8 @@ var w = $.ergo({
 			
 			var v = this.data.get();
 			
-			var sort = e.value;
-			var sort_field = 'full_name';
-			
-			if(sort) {
-				v.sort(function(a, b) {
-					
-					if(sort == 'asc') {
-						a = a[sort_field];
-						b = b[sort_field];				
-					}
-					else {
-						var c = a;
-						a = b[sort_field];
-						b = c[sort_field];					
-					}
-					
-					if( a < b ) return -1;
-					if( a > b ) return 1;
-					return 0;
-				});
+			if(e.value) {
+				v.sort( sort_values.rcurry(e.value, 'full_name') );
 			}
 			
 			this.data.events.fire('value:changed');
@@ -231,7 +197,10 @@ data.fetch().then(function() {
 	
 	for(var i = 0; i < v.length; i++) {
 		list.items.add({
-			text: v[i].full_name
+			text: v[i].full_name,
+			$after: {
+				text: v[i].country
+			}
 		});
 	}
 	

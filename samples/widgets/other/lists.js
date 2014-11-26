@@ -6,27 +6,6 @@ var data = new Ergo.data.Collection({
 
 
 
-Ergo.defineClass('Ergo.wigets.CheckBox', 'Ergo.widgets.Box', {
-	
-	defaults: {
-		cls: 'check-box',
-		components: {
-			content: {
-				etype: 'icon',
-				cls: 'fa'
-			}
-		},
-		states: {
-			'checked': function(on) {
-				this.content.states.toggle('fa-check', on);
-			}
-		},
-		onClick: function() {
-			this.states.toggle('checked');
-		}		
-	}
-	
-}, 'widgets:check-box');
 
 
 
@@ -52,7 +31,7 @@ var w = $.ergo({
 			etype: 'item-box',
 			layout: 'fluid',
 			items: [{
-				etype: 'check-box',
+				etype: 'check',
 				autoBind: false,
 				style: {
 					'margin-right': 8
@@ -123,7 +102,7 @@ var w = $.ergo({
 			layout: 'hbox',
 			etype: 'item-box',
 			items: [{
-				etype: 'check-box',
+				etype: 'check',
 				autoBind: false,
 				style: {
 					'margin-right': 8
@@ -193,7 +172,7 @@ var w = $.ergo({
 			layout: 'stack',
 			etype: 'item-box',
 			items: [{
-				cls: 'check-box',
+				cls: 'check',
 				$content: {
 					etype: 'html:i',
 					cls: 'fa'

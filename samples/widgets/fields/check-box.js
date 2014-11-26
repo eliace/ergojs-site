@@ -2,46 +2,68 @@
 
 
 
+
 var w = $.ergo({
-	etype: 'html:fieldset',
+	etype: 'box',
+	layout: 'grid',
 	renderTo: '#sample',
 	
-	$title: {
-		etype: 'html:legend',
-		text: 'Выбор страны'
-	},
-	
 	defaultItem: {
-		etype: 'html:label',
-		$radio: {
-			etype: 'field',
-			type: 'checkbox',
-			onChange: function() {
-				this.events.rise('action', {key: this.parent.opt('key')});
-			},
-			binding: function(v) {
-				this.el.prop('checked', v);
-			}
+		etype: 'html:fieldset',
+
+		layout: 'stack',
+		
+		$title: {
+			etype: 'html:legend',
+			text: 'Выбор страны'
 		},
-		$content: {
-			etype: 'text'
-		},
-		style: {
-			'display': 'block'
-		},
-		get: {
-			'key': function() {
-				return this._index;
-			}
-		},
-		states: {
-			'selected': function(on) {
-				this.radio.opt('value', on);
+		
+		defaultItem: {
+			style: {
+				'display': 'block'
 			}
 		}
+		
 	},
 	
-	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+	items: [{
+		
+
+		defaultItem: {
+			etype: 'box',
+			$check: {
+				etype: 'check',
+				cls: 'before'
+			},
+			$content: {
+				etype: 'text',
+				weight: 10
+			}
+		},
+		
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
+		
+	}, {
+		
+		defaultItem: {
+			etype: 'html:label',
+			$check: {
+				etype: 'html:checkbox',
+				cls: 'before'
+			},
+			$content: {
+				etype: 'text'
+			}
+		},
+		
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
+		
+	}]
 	
 	
 });
+
+
+
+
+

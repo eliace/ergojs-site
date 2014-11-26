@@ -1,11 +1,18 @@
 var w = $.ergo({
 	etype: 'box',
 	
+	events: {
+		'action': function(e) {
+			var t = w.opt('text');
+			this.opt('text', Ergo.format('%s action: %s | ', t, e.value));			
+		}
+	},
+	
 	// упрощенное объявление обработчика события action
 	onAction: function(e) {
 		// при возникновении события action меняем текст виджета
 		var t = w.opt('text');
-		this.opt('text', Ergo.format('%s action: %s ', t, e.value));
+		this.opt('text', Ergo.format('%s onAction: %s | ', t, e.value));
 	},
 	
 	text: 'События: '
