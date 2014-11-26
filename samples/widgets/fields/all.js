@@ -10,6 +10,7 @@ var w = $.ergo({
 		etype: 'text-box',
 		cls: 'form-item',
 		label: 'Текст',
+		data: 'текст',
 		components: {
 			addon: {
 				etype: 'html:span',
