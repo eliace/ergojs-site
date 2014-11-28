@@ -880,9 +880,11 @@ img.btn.circle {
 
 [layout="stack"] > * {
 	display: block;
-	margin-bottom: 8px;
 }
 
+[layout="stack"] > *:not(:last-child) {
+	margin-bottom: 8px;
+}
 
 
 
@@ -1201,7 +1203,7 @@ li.has-submenu > a > .caret {
   font-size: 0.8em;
   padding: 12px 20px;
   text-transform: uppercase;
-  margin-top: 4px;	
+  margin-top: 5px;	
 /*  border-bottom: 2px solid #ccc;*/
 }
 
@@ -1953,13 +1955,13 @@ input.field {
 
 
 .tab-bar.small > li {
-	margin-top: 4px;
+	margin-top: 5px;
 	padding: 9px 20px;
 }
 
 
 .tab-bar.tiny > li {
-  margin-top: 2px;
+  margin-top: 3px;
   padding: 4px 20px;	
 }
 
@@ -2949,6 +2951,45 @@ img.rounded {
 	vertical-align: middle;
 }
 
-.check:hover {
+.check:hover, label:hover .check {
+	border-color: #0a80cb;
+}
+
+
+
+/**
+ * 	RADIO
+ */
+
+.radio {
+  border: 1px solid #ccc;
+  border-radius: 999px;
+/*  color: #0a80cb;*/
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  width: 16px;
+  cursor: pointer;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+/*	margin: 0 4px;*/
+}
+
+.radio > div {
+	display: inline-block;
+  border-radius: 999px;
+	height: 8px;
+	margin-top: -4px;
+	width: 8px;
+	cursor: pointer;
+	vertical-align: middle;
+/*	font-size: 12px;*/
+}
+
+.radio.checked > div {
+  background-color: #0a80cb;	
+}
+
+.radio:hover, label:hover .radio {
 	border-color: #0a80cb;
 }

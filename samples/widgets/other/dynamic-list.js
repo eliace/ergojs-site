@@ -8,6 +8,14 @@ var w = $.ergo({
 	
 	cls: 'widget',
 	
+	mixins: ['selectable'],
+	
+	selector: function(i) {
+		return this.content.item(i);
+	},
+	
+	multiselect: true,
+	
 	$toolbar: {
 		etype: 'tool-bar',
 		weight: -5,
@@ -29,18 +37,30 @@ var w = $.ergo({
 			}
 		}, {
 			etype: 'button',
-			text: 'Удалить элемент',
+//			text: 'Удалить элемент',
+			format: function(v) {
+				return 'Удалить элементы ('+v+')';
+			},
+			binding: 'text',
 			state: 'danger',
 			hidden: true,
-			$icon: {
-				etype: 'icon',
-				weight: 10,
-				cls: 'after',
-				icon: 'fa-ban'
+			
+			mixins: ['effects'],
+			
+			effects: {
+				show: {type: 'fadeIn', delay: 400},
+				hide: {type: 'fadeOut', delay: 400}
 			},
-			$content: {
-				etype: 'text'
-			},
+			
+			// $icon: {
+				// etype: 'icon',
+				// weight: 10,
+				// cls: 'after',
+				// icon: 'fa-ban'
+			// },
+			// $content: {
+				// etype: 'text'
+			// },
 			onClick: function() {
 				this.events.rise('removeItems');
 			}
@@ -56,27 +76,29 @@ var w = $.ergo({
 		
 		data: [],
 		
+		
+		
 		defaultItem: {
 //			etype: 'item-box',
 			
 			mixins: ['effects'],
 			
 			effects: {
-				show: {type: 'fadeIn', delay: 400}
+				show: {type: 'fadeIn', delay: 400},
+				hide: {type: 'fadeOut', delay: 400}
 			},
 			
 			renderEffects: true,
 			
 			hidden: true,
 			
-			
 			$checker: {
 				etype: 'check',
 				autoBind: false,
 				cls: 'before',
-				onDataChanged: function() {
-					
-				}
+				// onChange: function(e) {
+// 					
+				// }
 			},
 			// $icon: {
 				// etype: 'icon',
@@ -96,6 +118,21 @@ var w = $.ergo({
 					// etype: 'text'
 				// }
 			},
+			
+			states: {
+				'selected': function(on) {
+					this.checker.opt('value', on);
+				}
+			},
+			
+			
+			onClick: function() {
+				this.events.rise( this.states.is('selected') ? 'unselect' : 'select');
+			}
+			
+			
+			
+			
 			// $after: {
 				// etype: 'icon-button',
 				// icon: 'fa-close',
@@ -105,6 +142,7 @@ var w = $.ergo({
 // //				autoDock: true,
 			// }
 		}
+		
 		
 	},
 	
@@ -139,9 +177,16 @@ var w = $.ergo({
 				}
 			},
 			
-			onOpened: function() {
-//				console.log('open');
+			onOpen: function() {
 				
+				var s = this.data.get('text');
+				
+				$('input', this.content.el).first().focus();
+				
+				$('.text-box', this.content.el).ergo().cursor_position(s.length);
+				
+//				console.log('open');
+/*
 				var input = this.content.item(0).content.el;
 				
 				input.focus();//[0].setSelectionRange(0, 5);//.select();
@@ -158,7 +203,7 @@ var w = $.ergo({
 		      range.moveStart('character', pos);
 		      range.select();
 		    }
-
+*/
 
 			},
 			
@@ -170,11 +215,13 @@ var w = $.ergo({
 		});
 		
 		
-		console.log('---1---');
+//		console.log('---1---');
+		
 		
 		
 //		dlg.render('body');
 		dlg.open();
+
 		
 	},
 	
@@ -185,7 +232,28 @@ var w = $.ergo({
 		
 //		this.content._layoutChanged();
 		
+	},
+	
+	
+	onRemoveItems: function() {
+		
+		this.selection.each(function(item) {
+			item.data.del();
+		});
+		
+		this.selection.clear();
+		
+	},
+	
+	
+	onSelectionChanged: function() {
+
+		this.toolbar.item(1).opt('value', this.selection.size());
+		
+		this.selection.is_empty() ? this.toolbar.item(1).hide() : this.toolbar.item(1).show();
+		
 	}
+	
 	
 	
 	

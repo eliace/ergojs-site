@@ -1,59 +1,101 @@
 
 
 var w = $.ergo({
-	etype: 'html:fieldset',
+	etype: 'box',
+	layout: 'grid',
 	renderTo: '#sample',
 	
-	$title: {
-		etype: 'html:legend',
-		text: 'Выбор страны'
-	},
-	
-	mixins: ['selectable'],
-	
 	defaultItem: {
-		etype: 'html:label',
-		$radio: {
-			etype: 'field',
-			type: 'radio',
-			onChange: function() {
-				this.events.rise('action', {key: this.parent.opt('key')});
+
+		etype: 'html:fieldset',
+		
+		layout: 'stack',
+		
+		$title: {
+			etype: 'html:legend',
+			text: 'Выбор страны'
+		},
+		
+		mixins: ['selectable'],
+		
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
+	},
+	
+	
+	items: [{
+		
+		defaultItem: {
+			etype: 'html:label',
+			$radio: {
+				etype: 'radio',				
 			},
-			binding: function(v) {
-				this.el.prop('checked', v);
+			$content: {
+				etype: 'text'
+			},
+			
+			states: {
+				'selected': function(on) {
+					this.radio.opt('value', on);
+				}
+			},
+			
+			onClick: function() {
+				this.events.rise('select');				
 			}
+			
+			
 		},
-		$content: {
-			etype: 'text'
+		
+		binding: function(v) {
+			this.opt('selected', v);
 		},
-		style: {
-			'display': 'block'
-		},
-		get: {
-			'key': function() {
-				return this._index;
+		
+		value: 1		
+		
+		
+	}, {
+
+		defaultItem: {
+			etype: 'html:label',
+			$radio: {
+				etype: 'html:radio',
+				controlName: 'my-radio',
+				set: {
+					'controlName': function(v) {
+						this.el.attr('name', v);
+					}
+				}
+			},
+			$content: {
+				etype: 'text'
+			},
+
+			states: {
+				'selected': function(on) {
+					this.radio.opt('value', on);
+				}
+			},
+			
+			onChange: function(e) {
+				this.events.rise('select');
 			}
+			
 		},
-		states: {
-			'selected': function(on) {
-				this.radio.opt('value', on);
-			}
-		}
-	},
+		
+		
+		// onAction: function(e) {
+			// this.opt('value', e.key);
+		// },
+		
+		binding: function(v) {
+			this.opt('selected', v);
+		},
+		
+		value: 3
+		
+	}]
 	
-	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
 	
-	onAction: function(e) {
-//		console.log(e.key);
-//		this.opt('selected', e.key);
-		this.opt('value', e.key);
-	},
-	
-	binding: function(v) {
-		this.opt('selected', v);
-	},
-	
-	value: 3
 	
 	
 });

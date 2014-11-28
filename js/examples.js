@@ -400,7 +400,7 @@ $(document).ready(function(){
 		data: EXAMPLES,
 		dynamic: true,
 		
-		selector: function(key) {
+		selector: function(key) {			
 			var result = {};
 			this.items.each(function(item){
 				var w = item.content.find_path(key);
@@ -409,9 +409,9 @@ $(document).ready(function(){
 			return result.found;
 		},
 		
-		onSelected: function(e) {
+		onSelectionChanged: function(e) {
 			var v = e.selection.data.get();
-			console.log(v);
+//			console.log(v);
 			load_sample(v.name, v.title, e.selection.data.source.source.get('title'));			
 		}
 		

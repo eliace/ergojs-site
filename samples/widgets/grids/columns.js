@@ -92,8 +92,10 @@ var w = $.ergo({
 					components: {
 						addon: {
 							etype: 'check',
-							onAction: function() {
-								this.events.rise(this.opt('value') ? 'showColumn': 'hideColumn', {key: this.parent._index});
+							weight: -10,
+							cls: 'before',
+							onChange: function(e) {
+								this.events.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
 							},
 							onClick: function(e) {
 								e.baseEvent.stopPropagation();

@@ -87,13 +87,15 @@ var w = $.ergo({
 		},
 		mixins: ['selectable'],
 		onMenuAction: function(e) {
-			this.opt('selected', e.target);
+//			console.log(e.target.opt('name'));
+			this.selection.set(e.target);//.opt('name'));
+//			this.opt('selected', e.target);
 		},
 		selector: function(key) {
 			return this.sidebox.menu.find_path(key); // в выборку добавляем только элемент меню
 		},
-		onSelected: function(e) {
-			this.content.opt('active', {_name: e.selection.path().split(':').join('_')});
+		onSelectionChanged: function(e) {
+			this.content.opt('active', {_name: this.selection.get().path().split(':').join('_')});
 			
 		}
 	}
