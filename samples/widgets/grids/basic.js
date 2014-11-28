@@ -740,6 +740,7 @@ var w = $.ergo({
 	etype: 'table-grid',
 	cls: 'widget',
 	height: 400,
+	
 	column: {
 		// обычный заголовок
 		components: {
