@@ -2,23 +2,103 @@
 
 body {
 	background: url('greyzz.png');
-	padding: 32px 0;
+/*	padding: 32px 0;*/
 	font-family: "Roboto",Helvetica,Arial, sans-serif;
+	font-size: 13px;
 }
 
 
 
-
+nav {
+	padding: 0 24px;
+}
 
 
 .app-content {
-	width: 80%;
-	margin: 0 auto;
+	width: 90%;
 	box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
 	background-color: #fff;
+	padding: 16px 0;
+	margin: 32px auto;
 }
 
 
-.app-content > nav {
-	padding: 24px;
+.app-content > div {
+	padding: 8px 24px 0 24px;
 }
+
+
+
+
+
+.blog-banner {
+	overflow: hidden;
+}
+
+.blog-banner img {
+	width: 100%;
+	margin-bottom: -130px;
+}
+
+
+
+.blog-title {
+	font-size: 36px;
+	color: #666;
+}
+
+.blog-title div {
+	font-size: 15px;
+	color: #aaa;
+}
+
+
+
+
+
+
+.nav-menu {
+	padding-left: 0;
+}
+
+
+
+.feed {
+	margin-right: 16px;
+}
+
+.feed-post {
+	margin-bottom: 8px;
+}
+
+.feed-post .panel-title {
+	font-size: 28px;
+	color: #444;
+	cursor: pointer;
+}
+
+.feed-post .panel-title:hover {
+	color: #000;	
+}
+
+
+.feed-post .post-date {
+	padding: 20px;
+	color: #aaa;
+}
+
+.feed-post .post-img {
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+
+.feed-post > div {
+	font-size: 15px;
+}
+
+.feed-post > footer {
+	padding: 8px 0;
+}
+
+

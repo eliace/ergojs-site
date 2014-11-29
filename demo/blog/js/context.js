@@ -1,5 +1,7 @@
 
 
+
+
 Ergo.defineClass('Blog.app.Context', 'Ergo.core.Context', {
 	
 	defaults: {

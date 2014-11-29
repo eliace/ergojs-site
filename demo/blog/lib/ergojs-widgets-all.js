@@ -88,7 +88,7 @@ Ergo.defineClass('Ergo.widgets.SimpleAlert', 'Ergo.widgets.Box', {
 
 	set_title: function(v) {
 		this.title.opt('text', v);
-	}
+	}	
 
 }, 'widgets:simple-alert');
 
@@ -224,8 +224,9 @@ Ergo.defineClass('Ergo.widgets.Pagination', 'Ergo.widgets.List', {
 			autoBind: false					
 		},
 //		dynamic: true,
-		selectionFinder: function(key) {
-			return this.item({_name: key});
+		// выборка происходит только по имени
+		selector: function(key) {
+			return this.item( Ergo.by_opts.curry({name: key}) );
 		},
 		// onChangeIndex: function(e) {
 			// this.opt('index', e.index);
@@ -298,7 +299,9 @@ Ergo.defineClass('Ergo.widgets.Pagination', 'Ergo.widgets.List', {
 		
 		this.render();
 		
-		this.opt('selected', index);
+		this.selection.set(index);
+		
+//		this.opt('selected', index);
 		
 //		data.opt('index', index);
 //		data.fetch();
@@ -597,6 +600,7 @@ Ergo.defineClass('Ergo.widgets.Icon', 'Ergo.core.Widget', {
 Ergo.defineClass('Ergo.widgets.Link', 'Ergo.core.Widget', /** @lends Ergo.widgets.Link.prototype */{
 	
 	defaults: {
+		baseCls: 'link',
 		html: '<a href="#"/>',
 		binding: 'text'
 	},
@@ -1256,55 +1260,74 @@ Ergo.defineClass('Ergo.widgets.Field', 'Ergo.core.Widget', {
 				this.events.fire('change', {value: this.el.val()});
 			}			
 		}
+	},
+	
+	set_type: function(v) {
+		this.el.attr('type', v);
 	}
 	
 }, 'widgets:field');
 
 
-/**
- * Чекбокс
- *  
- * :`check`
- * 
- * Опции:
- * 	`indeterminate`
- * 
- * События
- * 	`action` пользователь изменил значение чекбокса
- * 
- * @class
- * @name Ergo.widgets.Check
- * @extends Ergo.core.Widget
- */
-Ergo.defineClass('Ergo.widgets.Check', 'Ergo.core.Widget', /** @lends Ergo.widgets.Check.prototype */{
+
+
+Ergo.defineClass('Ergo.wigets.Check', 'Ergo.widgets.Box', {
 	
 	defaults: {
-		html: '<input type="checkbox"/>',
-		binding: function(v) {
-				this.el.prop('checked', v);
-//			this.states.toggle('checked');
-//			v ? this.el.attr('checked', '') : this.el.removeAttr('checked');
+		cls: 'check',
+		components: {
+			content: {
+				etype: 'icon',
+				cls: 'fa'
+			}
+		},
+		states: {
+			'checked': function(on) {
+				this.content.states.toggle('fa-check', on);
+			}
 		},
 		events: {
-			'jquery:change': function(e, w) {
-				w.opt('value', w.el.prop('checked'));
-				w.events.fire('action');
+			'change': function(e) {
+				this.opt('value', e.value);			
+			},
+			// действие пользователя
+			'jquery:click': function() {
+				this.events.fire('change', {value: !this.opt('value')});
 			}
+		},
+		binding: function(v) {
+			this.states.toggle('checked', !(!v));
 		}
-		// states: {
-			// 'checked': function(on) {
-				// this.el.prop('checked', on);
-// //				on ? this.el.prop('checked', '') : this.el.removeAttr('checked');				
-			// }
-		// }
-	},
-	
-	
-	set_indeterminate: function(v) {
-		this.el.prop('indeterminate', v);
 	}
 	
 }, 'widgets:check');
+
+
+
+Ergo.defineClass('Ergo.widgets.Radio', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		cls: 'radio',
+		components: {
+			content: {
+			}
+		},
+		events: {
+			'change': function(e) {
+				this.opt('value', e.value);
+			},
+			// действие пользователя
+			'jquery:click': function() {
+				this.events.rise('change', {value: !this.opt('value')});
+			}
+		},
+		binding: function(v) {
+			this.states.toggle('checked', !(!v));
+		}		
+	}
+	
+	
+}, 'widgets:radio');
 
 
 
@@ -1364,6 +1387,315 @@ Ergo.defineClass('Ergo.widgets.MenuBar', 'Ergo.widgets.List', {
 
 
 
+Ergo.defineClass('Ergo.widgets.TextBox', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		baseCls: 'text-box',
+		
+		binding: function(v) {
+			this.content.opt('value', v);
+		},
+		
+		components: {
+			content: {
+				etype: 'html:input',
+				autoBind: false,
+				events: {
+					'jquery:keyup': function() {
+						this.events.rise('changeText', {text: this.el.val()});
+					},
+					'jquery:focus': function() {
+						this.events.rise('focus', {focus: true});
+					},
+					'jquery:blur': function() {
+						this.events.rise('focus', {focus: false});
+					},
+					'jquery:change': function() {
+						this.events.rise('change', {text: this.el.val()});
+					}
+				}
+			}
+		},
+		
+		onChange: function(e) {
+			this.opt('value', e.text);			
+		},
+		
+		onFocus: function(e) {
+			this.states.toggle('focused', e.focus);			
+		}
+		
+	},
+	
+	
+	
+	
+	
+	set_placeholder: function(v) {
+		this.content.opt('placeholder', v);
+	},
+	
+	
+	
+	selection_range: function(v0, v1) {
+		
+		var elem = this.content.el[0];
+
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(v0, v1);
+    } 
+    else if (elem.createTextRange) {
+      var range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', v0);
+      range.moveStart('character', v1);
+      range.select();
+    }
+		
+	},
+	
+	cursor_position: function(v) {
+		this.selection_range(v, v);		
+	}
+	
+}, 'widgets:text-box');
+
+
+
+Ergo.defineClass('Ergo.widgets.SelectBox', 'Ergo.widgets.TextBox', {
+	
+	defaults: {
+		cls: 'select-box',
+		
+		mixins: ['dropdown', 'selectable'],
+		
+		components: {
+			content: {
+				type: 'button',
+				autoBind: false,
+				onClick: function(e) {
+					this.events.rise('dropdown');
+					e.baseEvent.stopPropagation();
+				}
+			},
+			addon: {
+				etype: 'html:span',
+				cls: 'addon',
+				components: {
+					content: {
+						etype: 'icon',
+						html: '<button/>',
+						cls: 'fa fa-fw fa-caret-down'
+					}				
+				},
+				onClick: function(e) {
+					this.events.rise('dropdown');
+					e.baseEvent.stopPropagation();
+				}
+			},
+			dropdown: {
+				popup: {
+					adjust: true
+				},
+				defaultItem: {
+					onClick: function() {
+						this.events.rise('action', {key: this.opt('name')});
+					}
+					// get: {
+						// 'name': function() {
+							// return this._index;
+						// }
+					// }
+				},
+			}
+		},
+		
+		onDropdown: function(e) {
+			this.states.toggle('opened');
+		},
+		
+		
+		onAction: function(e) {
+			this.opt('value', e.key);
+		},
+		
+		selector: function(key) {
+			return this.dropdown.item(function(v) {
+				return v.opt('name') == key;
+			});
+		},
+		
+		binding: function(v) {
+			this.opt('selected', v);
+			this.content.opt('value', this.selection.get().opt('text'));
+		}
+		
+	
+	}	
+	
+}, 'widgets:select-box');
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.ComboBox', 'Ergo.widgets.TextBox', {
+	
+	defaults: {
+		cls: 'combo-box',
+		
+		mixins: ['dropdown'],
+		
+		components: {
+			content: {
+//				type: 'button',
+				onClick: function(e) {
+//					this.events.rise('dropdown');
+					e.baseEvent.stopPropagation();
+				}
+			},
+			addon: {
+				etype: 'html:span',
+				cls: 'addon',
+				components: {
+					content: {
+						etype: 'icon',
+						html: '<button/>',
+						cls: 'fa fa-fw fa-caret-down'
+					}				
+				},
+				onClick: function(e) {
+					this.events.rise('dropdownOpen');
+					e.baseEvent.stopPropagation();
+				}
+			},
+			dropdown: {
+				popup: {
+					adjust: true
+				},
+				defaultItem: {
+					onClick: function() {
+						this.events.rise('action', {key: this.opt('key')});
+					},
+					get: {
+						'key': function() {
+							return this.opt('text');
+						}
+					}
+				},
+			}
+		},
+		
+		
+		
+		onDropdownOpen: function(e) {
+			this.states.set('opened');
+		},
+		
+		
+		onAction: function(e) {
+			this.opt('value', e.key);
+		}
+		
+		// selector: function(key) {
+			// return this.dropdown.item(function(v) {
+				// return v.opt('key') == key;
+			// });
+		// },
+		
+		// binding: function(v) {
+// //			this.opt('selected', v);
+			// this.content.opt('value', v);//this._selected.opt('text'));
+		// }
+		
+	
+	}	
+	
+}, 'widgets:combo-box');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.NumberBox', 'Ergo.widgets.TextBox', {
+	
+	defaults: {
+		cls: 'number',
+		components: {
+			addon: {
+				cls: 'addon spinner',
+				html: '<span>',
+				components: {
+					up: {
+						html: '<span>',
+						cls: 'up',
+						components: {
+							content: {
+								etype: 'icon',
+								html: '<button/>',
+								cls: 'fa fa-fw fa-caret-up',
+								onClick: function() {
+									this.events.rise('up');
+								}
+							}
+						}
+					},
+					down: {
+						html: '<span>',
+						cls: 'down',
+						components: {
+							content: {
+								etype: 'icon',
+								html: '<button/>',
+								cls: 'fa fa-fw fa-caret-down',
+								onClick: function() {
+									this.events.rise('down');
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+		step: 1,
+		
+		binding: function(v) {
+			this.content.opt('value', v);
+		},
+		
+		events: {
+			'up': function(e) {
+				this.up();
+				e.stop();
+			},
+			'down': function(e) {
+				this.down();
+				e.stop();
+			}
+		}	
+	},
+	
+	
+	up: function() {
+		var v = this.opt('value');
+		var step = this.options.step;
+		this.opt('value', (v ? (v+step) : step));
+	},
+	
+	down: function() {
+		var v = this.opt('value');
+		var step = this.options.step;
+		this.opt('value', (v ? (v-step) : -step));		
+	}
+	
+	
+	
+	
+	
+}, 'widgets:number-box');
+
+
+
 Ergo.defineClass('Ergo.widgets.ButtonBox', 'Ergo.widgets.Box', {
 	
 	defaults: {
@@ -1392,42 +1724,6 @@ Ergo.defineClass('Ergo.widgets.ButtonBox', 'Ergo.widgets.Box', {
 	}
 	
 }, 'widgets:button-box');
-
-
-
-Ergo.defineClass('Ergo.widgets.TextBox', 'Ergo.widgets.Box', {
-	
-	defaults: {
-		baseCls: 'text-box',
-		components: {
-			content: {
-				etype: 'html:input',
-				events: {
-					'jquery:keyup': function() {
-						this.events.rise('changeText', {text: this.el.val()});
-					},
-					'jquery:focus': function() {
-						this.events.rise('focus', {focus: true});
-					},
-					'jquery:blur': function() {
-						this.events.rise('focus', {focus: false});
-					}
-				}
-			}
-		},
-		events: {
-			'focus': function(e) {
-				this.states.toggle('focused', e.focus);
-			}
-		}
-	},
-	
-	
-	set_placeholder: function(v) {
-		this.content.opt('placeholder', v);
-	}
-	
-}, 'widgets:text-box');
 
 
 Ergo.defineClass('Ergo.widgets.CaretBox', 'Ergo.widgets.Box', {
@@ -1499,6 +1795,67 @@ Ergo.defineClass('Ergo.widgets.DropdownBox', 'Ergo.widgets.Box', {
 	// }
 	
 }, 'widgets:dropdown-box');
+
+
+
+Ergo.defineClass('Ergo.widgets.ItemBox', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		baseCls: 'item-box',
+		components: {
+			before: {
+				cls: 'before',
+				autoRender: false
+			},
+			after: {
+				cls: 'after',
+				autoRender: false
+			}
+		}
+	},
+	
+	_layoutChanged: function() {
+		this._super();
+		
+		
+		if(this.before._rendered) {
+			var h = this.before.el.outerHeight();
+			var w = this.before.el.outerWidth();
+			this.before.el.css({
+				'margin-top': -h/2,
+				'left': this.el.css('padding-left') || 0
+			});
+			
+			if(this.content) {
+				this.content.el.css({
+					'margin-left': w
+				});
+			}
+		}
+
+		if(this.after._rendered) {
+			var h = this.after.el.outerHeight();
+			var w = this.after.el.outerWidth();
+			this.after.el.css({
+				'margin-top': -h/2,
+				'right': this.el.css('padding-right') || 0
+			});
+			
+			if(this.content) {
+				this.content.el.css({
+					'margin-right': w
+				});
+			}
+			
+		}
+		
+	}	
+	
+	
+}, 'widgets:item-box');
+
+
+
 
 
 
@@ -1622,6 +1979,80 @@ Ergo.defineClass('Ergo.widgets.SplitButton', 'Ergo.widgets.DropdownButton', {
 
 
 
+Ergo.defineClass('Ergo.widgets.ModalDialog', 'Ergo.widgets.Panel', {
+	
+	defaults: {
+		mixins: ['modal', 'effects'],
+		
+		cls: 'modal widget',
+		
+		closeOn: 'outerClick',
+		
+		renderTo: 'body',
+		
+		effects: {
+			'show': {type: 'fadeIn', delay: 400}
+		},
+		
+		width: 600,
+				
+		components: {
+			footer: {
+				autoRender: true,
+				layout: 'row',
+//				etype: 'tool-bar',
+				components: {
+					buttons: {
+						layout: 'bar',
+						defaultItem: {
+							etype: 'button',
+							onClick: function() {
+								this.events.rise('dialogAction', {action: this.opt('name')});
+								// var name = this.opt('name');
+								// if(name)
+									// this.events.rise(name);
+							}
+						}
+					}
+				}
+//				items: []
+			}
+		},
+		
+		onClick: function(e) {
+			e.stop();
+		},
+		
+		onDialogAction: function(e) {
+			
+			if(e.action)
+				this.events.fire(e.action);
+			
+			this.close();
+		}
+	}
+	
+	
+/*	
+	_construct: function(o) {
+		this._super(o);
+		
+		if(o.dialogButtons) {
+			
+			for(var btn in o.dialogButtons) {
+				this.footer.buttons.items.add(btn);			
+			}
+			
+		}
+		
+	}
+*/	
+	
+}, 'widgets:modal-dialog');
+
+
+
+
 
 
 Ergo.defineClass('Ergo.widgets.TableGrid', 'Ergo.widgets.Box', {
@@ -1670,10 +2101,10 @@ Ergo.defineClass('Ergo.widgets.TableGrid', 'Ergo.widgets.Box', {
 
 
 	_pre_construct: function(o) {
-		this._super(o);		
+		this._super(o);
 		
-		// if(o.row)
-			// Ergo.smart_override(o.components.content.components.content, {components: {body: {defaultItem: o.row}}});
+		if(o.row)
+			Ergo.smart_override(o.components.content.components.content, {components: {body: {components: {rows: {defaultItem: o.row}}}}});
 		
 	},
 
@@ -1925,7 +2356,7 @@ Ergo.defineClass('Ergo.widgets.TabPanel', 'Ergo.widgets.Panel', {
 				etype: 'tab-bar',
 				defaultItem: {
 					onClick: function() {
-						this.events.rise('select', {key: this._name || this._index});
+						this.events.rise('select', {key: this.opt('name') /*this._name || this._key || this._index*/});
 					}					
 				}
 			},
@@ -1948,13 +2379,14 @@ Ergo.defineClass('Ergo.widgets.TabPanel', 'Ergo.widgets.Panel', {
 			// e.stop();
 		// },
 		
-		selectionFinder: function(key) {
+		selector: function(key) {
+			console.log(key);
 			return this.tabbar.item(key);//, this.content.item(key)];
 		},
 		
-		onSelected: function(e) {
-			this.content.opt('active', e.key);
-			this.events.fire('selectTab', {key: e.key});
+		onSelectionChanged: function(e) {
+			this.content.opt('active', e.selection.opt('name'));
+			this.events.fire('selectTab', {key: e.selection.opt('name')});
 			e.stop();
 		}
 		
