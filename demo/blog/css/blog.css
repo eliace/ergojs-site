@@ -9,15 +9,66 @@ body {
 
 
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	color: inherit;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+
 nav {
 	padding: 0 24px;
+/*	border-bottom: 1px solid #eee;*/
+}
+
+
+
+.nav-menu li {
+	cursor: pointer;
+}
+
+.nav-menu li.selected a {
+	color: #000;
+/*	border-bottom: 2px solid #0a80cb;*/
+}
+
+
+
+.paper {
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+	background-color: #fff;
+}
+
+
+
+.pager {
+  list-style: outside none none;
+  margin: 20px 0;
+  padding-left: 0;
+  text-align: center;	
+}
+
+.pager li a {
+  background-color: #fff;
+/*  border: 1px solid #ddd;
+  border-radius: 15px;*/
+  display: inline-block;
+  padding: 5px 14px;
+  
+  cursor: pointer;
+  color: #428bca;
+  text-decoration: none;  
+}
+
+
+.pager li:hover a {
+	background-color: #eee;
 }
 
 
 .app-content {
 	width: 90%;
-	box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
-	background-color: #fff;
 	padding: 16px 0;
 	margin: 32px auto;
 }
@@ -28,6 +79,12 @@ nav {
 }
 
 
+.app-footer {
+	text-align: center;
+	margin-bottom: 24px;
+	color: #666;
+}
+
 
 
 
@@ -37,13 +94,13 @@ nav {
 
 .blog-banner img {
 	width: 100%;
-	margin-bottom: -130px;
+	margin-bottom: -140px;
 }
 
 
 
 .blog-title {
-	font-size: 36px;
+	font-size: 28px;
 	color: #666;
 }
 
@@ -53,6 +110,21 @@ nav {
 }
 
 
+.blog-sidebar {
+}
+
+.blog-sidebar > .panel {
+	padding-bottom: 16px;
+	padding-top: 8px;
+	border-bottom: 1px solid #eee;
+}
+
+.blog-sidebar > .panel .panel-title {
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #888;
+	padding-left: 0;
+}
 
 
 
@@ -64,7 +136,7 @@ nav {
 
 
 .feed {
-	margin-right: 16px;
+	margin-right: 48px;
 }
 
 .feed-post {
@@ -72,18 +144,27 @@ nav {
 }
 
 .feed-post .panel-title {
+	padding-left: 0;	
+}
+
+.feed-post .panel-title a {
 	font-size: 28px;
 	color: #444;
 	cursor: pointer;
 }
 
-.feed-post .panel-title:hover {
+.feed-post .panel-title a:hover {
 	color: #000;	
+	text-decoration: underline;
 }
 
+.feed-post .post-author {
+	color: #888;
+	font-size: 12px;
+}
 
 .feed-post .post-date {
-	padding: 20px;
+	padding: 20px 0;
 	color: #aaa;
 }
 
@@ -100,5 +181,131 @@ nav {
 .feed-post > footer {
 	padding: 8px 0;
 }
+
+
+
+.media > * {
+	display: table-cell;
+	vertical-align: top;
+}
+
+/*
+.media img {
+	margin-right: 8px;
+}
+*/
+
+.recent-comment {
+	color: #666;
+}
+
+.recent-comment .comment-date {
+	color: #aaa;
+}
+
+
+
+
+.galleries {
+/*	margin-right: 32px;*/	
+}
+
+
+.galleries > .title {
+	color: #999;
+}
+
+.galleries > .gallery {
+	margin-bottom: 48px;
+}
+
+
+.gallery h2 {
+	color: #444;
+	padding: 8px 0;
+	border-bottom: 1px solid #ddd;	
+}
+
+
+.image-preview img {
+	width: 100%;
+/*	margin: 0 auto;*/
+	display: block;
+}
+
+
+.image-slider {
+	overflow: hidden;
+	padding: 16px 0;
+}
+
+.image-slider img {
+	height: 80px;
+}
+
+
+
+
+
+
+.profile .panel-title, .profile-activity .panel-title {
+  color: #aaa;
+  font-size: 18px;	
+}
+
+
+.profile .image-wrap {
+/*	text-align: center;*/
+	padding: 4px;
+	display: inline-block;
+	border: 1px solid #ddd;
+}
+
+.profile > div, .profile-activity > div {
+	padding-top: 16px;
+}
+
+
+
+.image-wrap img {
+	display: block;
+}
+
+
+
+.profile-activity {
+	margin-left: 48px;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: bold;	
+}
+
+.block-title {
+  border-bottom: 1px solid #eee;
+  color: #444;
+  padding-bottom: 8px;	
+}
+
+
+.profile-actions {
+  margin-top: 32px;
+  text-align: center;	
+}
+
+
+
+.comment-date {
+	color: #aaa;
+}
+
+
+.feed-comment {
+	padding-top: 8px;
+}
+
+
+
 
 

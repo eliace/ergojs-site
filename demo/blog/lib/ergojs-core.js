@@ -3428,15 +3428,25 @@ Ergo.declare('Ergo.core.Layout', 'Ergo.core.Object', /** @lends Ergo.core.Layout
 		// создаем обертку (если она необходима) для элемента-виджета
 		var item_el = (o.wrapper) ? o.wrapper.call(this, item) : this.wrap(item);
 		
-		if(item_el != item.el) {
-			item._wrapper = item_el;
+		
+		
+		// экспериментальный код
+		if(item.options.wrapper) {
 			
-			// экспериментальный код
-			if(item.options.wrapper) {
-				item.wrapper = $.ergo( Ergo.deep_override({etype: 'widgets:widget', html: item._wrapper, autoRender: false}, item.options.wrapper) );
-				item.wrapper._weight = weight;
+			if(item_el == item.el) {
+				item_el = $('<div/>').append(item.el);
 			}
+			
+			item.wrapper = $.ergo( Ergo.deep_override({etype: 'widgets:widget', html: item_el, autoRender: false}, item.options.wrapper) );
+			item.wrapper._weight = weight;
+			
 		}
+		
+		
+		if(item_el != item.el) {
+			item._wrapper = item_el;			
+		}
+				
 		
 		
 //		item_el.data('weight', weight);
@@ -3682,38 +3692,42 @@ Ergo.declare('Ergo.core.Layout', 'Ergo.core.Object', /** @lends Ergo.core.Layout
 	update: function() {
 		
 		// AUTO WIDTH
-		if(this._widget.options.autoWidth === true){
-
+		if(this._widget.options.autoWidth){
+			
+			var _el = this._widget.el;
+			
 			// если элемент не отображается - его не надо выравнивать
-			if(!this.el.not(':hidden')) return;
+			if(!_el.not(':hidden')) return;
 			
 			// рассчитываем отступы
 			var dw = 0;
-			if(this.el.is(':button')) dw = this.el.outerWidth(true) - this.el.outerWidth();
-			else dw = this.el.outerWidth(true) - this.el.width();
+			if(_el.is(':button')) dw = _el.outerWidth(true) - _el.outerWidth();
+			else dw = _el.outerWidth(true) - _el.width();
 			// скрываем элемент
-			this.el.hide();
+			_el.hide();
 			
 			// ищем родителя, у которого определена ширина
 			var w = 0;
-			this.el.parents().each(function(i, el){
+			_el.parents().each(function(i, el){
 				if(!w) w = $(el).width();
 				if(w) return false;
 			});
 			
-			// обходим всех видимых соседей и получаем их ширину
-			this.el.siblings().not(':hidden').each(function(i, sibling){
-				var sibling = $(sibling);
-				if(sibling.attr('autoWidth') != 'ignore') 
-					w -= sibling.outerWidth(true);
-			});
+			if(_el.attr('autowidth') != 'ignore-siblings') {
+				// обходим всех видимых соседей и получаем их ширину
+				_el.siblings().not(':hidden').each(function(i, sibling){
+					var sibling = $(sibling);
+					if(sibling.attr('autoWidth') != 'ignore') 
+						w -= sibling.outerWidth(true);
+				});
+			}
 			
 			// задаем ширину элемента (с учетом отступов), если она не нулевая
 			if(w - dw) 
-				this.el.width(w - dw);
+				_el.width(w - dw);
 				
 			// отображаем элемент
-			this.el.show();
+			_el.show();
 		}
 		
 		// AUTO HEIGHT

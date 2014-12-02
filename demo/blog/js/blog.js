@@ -2,7 +2,11 @@
 Ergo.require(
 	'js.context',
 	'js.states.feed',
-	'js.widgets.feed'
+	'js.states.gallery',
+	'js.states.profile',
+	'js.widgets.feed',
+	'js.widgets.media',
+	'js.widgets.comment'
 );
 
 
@@ -24,200 +28,109 @@ $context.ready(function() {
 				
 		
 		$content: {
-			cls: 'app-content',
+			cls: 'app-content paper',
 			
 			$header: {
 //				html: '',
 				cls: 'blog-header clearfix',
 				$title: {
 					cls: 'pull-left blog-title',
+//					$content: {
+//						etype: 'text',
 					$content: {
 						etype: 'text',
-						text: 'Блог SF'
+						text: 'Блог о '
+					},
+					$sf: {
+						etype: 'html:strong',
+						text: '[Science Fiction]'
+//						}
 					},
 					$subtitle: {
-						text: 'Демонстрационное приложение'
+						text: 'Демонстрационное приложение ErgoJS'
 					}
 				},
 				$search: {
 					etype: 'text-box',
 					placeholder: 'Поиск',
-					cls: 'pull-right'
+					width: 180,
+					cls: 'pull-right',
+					$after: {
+						etype: 'icon',
+						cls: 'addon',
+						state: 'fa fa-search'
+					}
 				}
 			},
 
 			$menu: {
 				etype: 'html:nav',
 				cls: 'clearfix',
+				
+				mixins: ['selectable'],
+				
 				$content: {
 					etype: 'list',
 					cls: 'nav-menu pull-right',
 					defaultItem: {
 						$content: {
 							etype: 'html:a'
+						},
+						onClick: function() {
+							$context.states.set( this.opt('name') );						
 						}
 					},
-					items: ['Главная', 'Галерея', 'Профиль']
-				}
-			},
-			
-			$banner: {
-				cls: 'blog-banner',
-				$image: {
-					etype: 'html:img',
-					src: 'img/rising_force-wallpaper-1600x900.jpg',//build_2-wallpaper-1920x1080.jpg'
-					tooltip: 'http://wallpaperswide.com'
-				}
-			},			
-			
-			$content: {
-				
-				layout: 'grid',
-				
-				pattern: [9, 3],
-				
-				$feed: {
-					
-					cls: 'feed',
-					
-					dynamic: true,
-					
-					defaultItem: {
-						etype: 'feed-item'
-					},
-					
-					data: [{
-						title: 'Снятся ли андроидам электрические овцы?',
-						created_at: '5 минут назад',
-						comments: 12,
-						text: LOREMIPSUM
-					}, {
-						title: 'Звездный зверь',
-						created_at: 'Вчера',
-						comments: 4,
-						text: LOREMIPSUM_2
-					}, {
-						image: 'img/cosmonaut-wallpaper-960x540.jpg',
-						title: 'Будет скафандр - будут и путешествия',
-						created_at: '24.11.2014',
-						comments: 31,
-						text: LOREMIPSUM_3
-					}, {
-						image: 'img/asteroids_hitting_other_planets-wallpaper-960x540.jpg',
-						title: 'Путешествия Тафа. Чумная Звезда',
-						created_at: '16.09.2014',
-						comments: 11,
-						text: LOREMIPSUM_4
-					}, {
-						title: 'Путь на Амальтею',
-						created_at: '28.09.2014',
-						comments: 7,
-						text: LOREMIPSUM_5
-					}]
-/*					
-					defaultItem: {
-						etype: 'panel',
-						cls: 'feed-post'
-					},
-					
-					items: [{
-						title: 'Снятся ли андроидам электрические овцы?',
-						$header: {
-							$toolbar: {
-								layout: 'fluid',
-								$date: {
-									etype: 'inline',
-									cls: 'pull-right post-date',
-									text: '5 минут назад'
-								}
-							}
-						},
-						$content: {
-							$content: {
-								etype: 'text',
-								text: LOREMIPSUM
-							},
-							$readmore: {
-								etype: 'link',
-								text: 'Читать дальше',
-								cls: 'after'
-							}
-						},
-						$footer: {
-							autoRender: true,
-							$comments: {
-								$content: {
-									etype: 'link',
-									text: '12 комментариев'
-								}
-							}
-						}
-					}]
-*/					
+					items: [{text: 'Главная', name: 'feed'}, {text: 'Галерея', name: 'gallery'}, {text: 'Профиль', name: 'profile'}]
 				},
 				
-				$sidebar: {
-					cls: 'blog-sidebar',
-					etype: 'html:aside',
-					$tags: {
-						etype: 'panel',
-						title: 'Теги',
-						$content: {
-							layout: 'fluid',
-							defaultItem: {
-								etype: 'inline',
-								cls: 'tag warning',
-								style: {
-									'margin': 8,
-									'font-size': 13
-								}
-							},
-							items: ['SF', 'Р. Асприн', 'космос', 'сингулярность', 'Star Trek', 'Star Wars', 'Р. Хайнлайн', 'Ф. Дик']
-						}
-					},
-					$recentComments: {
-						etype: 'panel',
-						title: 'Последние комментарии',
-						$content: {
-							dynamic: true,
-							
-							data: [{
-								author: 'Jean Lawson',
-								comment: LOREMIPSUM
-							}, {
-								author: 'Earl Grant',
-								comment: LOREMIPSUM_2
-							}, {
-								author: 'Michael Carr',
-								comment: LOREMIPSUM_3
-							}, {
-								author: 'Frank Williams',
-								comment: LOREMIPSUM_4
-							}],
-							
-							defaultItem: {
-								$author: {
-									etype: 'link',
-									dataId: 'author'
-								},
-								$comment: {
-									dataId: 'comment',
-									binding: function(v) {
-										this.opt('text', v.substr(0, 100) );
-									}
-								}
-							}
-						}
+				selector: function(key) {
+					return this.content.item(key);
+				},
+				
+				set: {
+					'index': function(v) {
+						this.selection.set(v);
 					}
 				}
 				
-			}
+			},
 			
+			
+		},
+		
+		
+		$footer: {
+			cls: 'app-footer',
+			items: [{
+				$text: {
+					etype: 'text',
+					text: '©Copyright'
+				},
+				$link: {
+					etype: 'link',
+					cls: 'after',
+					text: 'ErgoJS',
+					href: 'http:/ergojs.com'
+				}
+			}, {
+				$text: {
+					etype: 'text',
+					text: 'Изображения взяты с'
+				},
+				$link: {
+					etype: 'link',
+					cls: 'after',
+					text: 'wallpaperswide.com',
+					href: 'http://wallpaperswide.com'
+				}				
+			}]
 		}
 		
 	});
 	
-	this.pages = this.app.content.content;
+	this.pages = this.app.content;
+	this.menu = this.app.content.menu;
+//	this.banner = this.app.content.banner;
 	
 	this.app.render();
 	
