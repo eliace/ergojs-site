@@ -109,6 +109,15 @@ nav {
 	color: #aaa;
 }
 
+.blog-title a {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.blog-title a:hover {
+	color: #444;
+}
+
 
 .blog-sidebar {
 }
@@ -240,7 +249,7 @@ nav {
 }
 
 .image-slider img {
-	height: 80px;
+	height: 100px;
 }
 
 

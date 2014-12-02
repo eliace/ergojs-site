@@ -42,7 +42,7 @@ $context.ready(function() {
 						text: 'Блог о '
 					},
 					$sf: {
-						etype: 'html:strong',
+						etype: 'html:a',
 						text: '[Science Fiction]'
 //						}
 					},
