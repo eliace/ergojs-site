@@ -30,7 +30,7 @@ var w = $.ergo({
 				icon: 'fa-plus'
 			},
 			$content: {
-				etype: 'text'
+				etype: '&text'
 			},
 			onClick: function() {
 				this.events.rise('newItemDialog');
@@ -107,7 +107,7 @@ var w = $.ergo({
 				// weight: -10
 			// },
 			$content: {
-				etype: 'inline',
+				etype: 'text',
 				// $icon: {
 					// etype: 'icon',
 					// icon: 'fa-cog',

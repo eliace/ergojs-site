@@ -127,7 +127,7 @@ var w = $.ergo({
 				// },
 				content: {
 					$content: {
-						etype: 'text',
+						etype: '&text',
 						dataId: 'title'
 					},
 					$icon: {
@@ -144,7 +144,7 @@ var w = $.ergo({
 				},
 				description: {
 					// выведем дополнительную информацию
-					etype: 'inline',
+					etype: 'text',
 					weight: 10,
 					cls: 'desc',
 					dataId: 'iso',

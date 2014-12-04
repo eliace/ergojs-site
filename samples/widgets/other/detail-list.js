@@ -18,7 +18,7 @@ $.ergo({
 				state: 'fa-angle-right'
 			},
 			$content: {
-				etype: 'text',
+				etype: '&text',
 				dataId: 'full_name'
 			}
 		},
@@ -39,11 +39,11 @@ $.ergo({
 				}				
 			},
 			items: [{
-				etype: 'inline',
+				etype: 'text',
 				dataId: 'ip_address',
 				label: 'fa-globe'
 			}, {
-				etype: 'inline',
+				etype: 'text',
 				dataId: 'country',
 				label: 'fa-map-marker'
 			}, {

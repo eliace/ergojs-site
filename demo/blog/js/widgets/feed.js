@@ -35,7 +35,7 @@ Ergo.defineClass('App.widgets.FeedItem', 'Ergo.widgets.Panel', {
 						layout: 'fluid',
 						components: {
 							date: {
-								etype: 'inline',
+								etype: 'text',
 								cls: 'pull-right post-date',
 								dataId: 'created_at'
 //								text: '5 минут назад'
@@ -61,7 +61,7 @@ Ergo.defineClass('App.widgets.FeedItem', 'Ergo.widgets.Panel', {
 			content: {
 				components: {
 					content: {
-						etype: 'text',
+						etype: '&text',
 						dataId: 'text'
 //						text: LOREMIPSUM
 					},

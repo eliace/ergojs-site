@@ -121,7 +121,13 @@ body {
  */
 .link {
 	color: #428bca; /*#0a80cb;*/	
+	text-decoration: none;
 }
+
+.link:hover {
+/*	text-decoration: underline;*/
+}
+
 
 
 /*
@@ -2908,7 +2914,11 @@ table.widget thead {
 
 
 
-img.rounded {
+.padded {
+	padding: 8px;
+}
+
+.rounded {
 	border-radius: 99999px;
 }
 

@@ -1666,6 +1666,7 @@ Ergo.override(Ergo.core.Object.prototype, /** @lends Ergo.core.Object.prototype 
 			this.constructor.NO_REBUILD_SKELETON = true;
 			this.constructor.prototype.defaults = Ergo.deep_copy(o);
 //			Ergo.smart_build(this.constructor.prototype.defaults);
+
 		}
 		else {
 			Ergo.deep_override(o, this.defaults);
@@ -1715,7 +1716,7 @@ Ergo.override(Ergo.core.Object.prototype, /** @lends Ergo.core.Object.prototype 
 		// }
 // //		}
 
-
+		
 
 		this.options = $.isArray(opts) ? Ergo.smart_override.apply(this, [o].concat(opts)) : Ergo.smart_override(o, opts);
 		
@@ -1893,7 +1894,6 @@ Ergo.override(Ergo.core.Object.prototype, /** @lends Ergo.core.Object.prototype 
 					// $unknown_opt(i, o[i]);
 			}
 		}
-
 
 //		profiler.tick('opt', 'other');
 //
@@ -2383,8 +2383,8 @@ Ergo.declare('Ergo.core.DataSource', 'Ergo.core.Object', /** @lends Ergo.core.Da
 			this.id = id;
 		}
 		
-		this._super(o || {});
-//		Ergo.core.DataSource.superclass._initialize.call(this, o || {});
+//		this._super(o || {});
+		Ergo.core.DataSource.superclass._initialize.call(this, o || {});
 		
 		var self = this;
 		var o = this.options;
@@ -3324,12 +3324,13 @@ Ergo.Statable = function(o) {
 Ergo.declare('Ergo.core.Layout', 'Ergo.core.Object', /** @lends Ergo.core.Layout.prototype */ {
 	
 	defaults: {
-		updateMode: 'auto'
+//		updateMode: 'auto'
 	},
 	
+/*	
 	_initialize: function(o){
-		this._super(o);
-//		Ergo.core.Layout.superclass._initialize.apply(this, arguments);
+//		this._super(o);
+		Ergo.core.Layout.superclass._initialize.call(this, o);
 		
 //		var o = this.options = {};
 //		
@@ -3339,6 +3340,7 @@ Ergo.declare('Ergo.core.Layout', 'Ergo.core.Object', /** @lends Ergo.core.Layout
 //		Ergo.smart_override(o, this.defaults, opts);
 		
 	},
+*/	
 	
 	/**
 	 * ассоциация компоновки с виджетом
@@ -3945,11 +3947,14 @@ Ergo.WidgetOptions = {
 	
 	set_text: function(v) { 
 		if(this.children.size() == 0)
-			this.layout.el.text( v == null ? '': v ); 
+//			this.layout.el.text( v == null ? '': v ); 
+			this.layout.el[0].textContent = ( v == null ? '': v ); 		 
 		else if(this.content)
 			this.content.opt('text', v == null ? '': v);
 		else
-			this.layout.el.text( v == null ? '': v ); 		 
+//			this.layout.el.text( v == null ? '': v );
+ 			this.layout.el[0].textContent = ( v == null ? '': v ); 		 
+
 	},
 	set_innerText: function(v) {	this.layout.el.text(v); },
 	set_innerHtml: function(v) {	this.layout.el.html(v); },
@@ -4385,8 +4390,13 @@ Ergo.declare('Ergo.core.WidgetChildren', 'Ergo.core.Array', /** @lends Ergo.core
 	
 	
 	_initialize: function(w, o) {
-		this._super(null, o);
+//		this._super(null, o);
+		
 //		Ergo.core.WidgetArray.superclass._initialize.call(this, null, o);
+		
+		this.options = o;
+		this.src = [];
+//		this.events = new Ergo.events.Observer(this);
 		
 		this.autobinding = true;
 		
@@ -4478,7 +4488,8 @@ Ergo.declare('Ergo.core.WidgetChildren', 'Ergo.core.Array', /** @lends Ergo.core
 //		var i0 = i;
 
 		// добавляем элемент в коллекцию
-		i = this._super(item, i);
+//		i = this._super(item, i);
+		i = Ergo.core.WidgetChildren.superclass.add.call(this, item, i);
 		
 //		console.log(i0 + ' > '+i);
 		
@@ -4507,7 +4518,7 @@ Ergo.declare('Ergo.core.WidgetChildren', 'Ergo.core.Array', /** @lends Ergo.core
 
 		
 //		console.log('item:add');
-		this.events.fire('item:add', {'item': item});
+//		this.events.fire('item:add', {'item': item});
 		
 		return item;
 	},
@@ -4524,7 +4535,8 @@ Ergo.declare('Ergo.core.WidgetChildren', 'Ergo.core.Array', /** @lends Ergo.core
 		// }
 		
 		
-		var item = this._super(i); //Ergo.core.WidgetArray.superclass.remove_at.call(this, i);
+//		var item = this._super(i); 
+		var item = Ergo.core.WidgetChildren.superclass.remove_at.call(this, i);
 		
 		
 //		if('hide' in item) item.hide();		
@@ -4589,7 +4601,12 @@ Ergo.declare('Ergo.core.WidgetComponents', 'Ergo.core.Array', {
 	
 	
 	_initialize: function(w, o) {
-		this._super(null, o);
+//		this._super(null, o);
+		
+		this.options = o;
+		
+		this.src = [];
+//		this.events = new Ergo.events.Observer(this);
 		
 		this._widget = w;
 	},
@@ -4953,8 +4970,8 @@ Ergo.defineClass('Ergo.core.Widget', 'Ergo.core.Object', /** @lends Ergo.core.Wi
 // //			'unselectable': 'unselectable'
 		// },
 		plugins: [Ergo.Observable, Ergo.Statable],
-		autoBind: true,
-		autoUpdate: true,
+//		autoBind: true,
+//		autoUpdate: true,
 		layoutFactory: function(layout) {
 			if( $.isString(layout) )
 				layout = $.ergo({etype: layout}, 'layouts');
@@ -5110,7 +5127,8 @@ Ergo.defineClass('Ergo.core.Widget', 'Ergo.core.Object', /** @lends Ergo.core.Wi
 	 * 
 	 */
 	_pre_construct: function(o) {
-		this._super(o);
+		Ergo.core.Widget.superclass._pre_construct.call(this, o);
+//		this._super(o);
 		
 		
 		var self = this;
@@ -5145,25 +5163,6 @@ Ergo.defineClass('Ergo.core.Widget', 'Ergo.core.Object', /** @lends Ergo.core.Wi
 						val = val[k] = v;
 					}					
 				}
-				
-/*				
-				val[k] = o[i];
-				
-				
-				var key = key_a.shift();
-				while(key_a.length > 0) {
-					if(key[0] == '$') {
-						key = key.substring(1);
-						val.components = {};
-						val = val.components[key] = {};
-					}
-					else {
-						val = val[key] = {};						
-					}
-					key = key_a.shift();
-				}
-				val[key] = o[i];
-*/				
 				
 				Ergo.smart_override(o, overrides);
 			}
@@ -5227,7 +5226,8 @@ Ergo.defineClass('Ergo.core.Widget', 'Ergo.core.Object', /** @lends Ergo.core.Wi
 	 * 
 	 */
 	_construct: function(o) {
-		this._super(o);
+//		this._super(o);
+		Ergo.core.Widget.superclass._construct.call(this, o);
 		
 		
 		var self = this;
@@ -5485,14 +5485,17 @@ Ergo.defineClass('Ergo.core.Widget', 'Ergo.core.Object', /** @lends Ergo.core.Wi
 	 * 
 	 */
 	_post_construct: function(o) {
-		this._super(o);
+//		this._super(o);
+		Ergo.core.Widget.superclass._post_construct.call(this, o);
+		
 		
 		// добавляем элемент в документ
 		if('renderTo' in o)
 			this.render(o.renderTo);
 		
 		// подключаем данные и обновляем их, если установлен параметр autoUpdate
-		this.bind(o.data, o.autoUpdate);
+		if('data' in o)
+			this.bind(o.data, o.autoUpdate);
 						
 		
 //		this.$afterBuild();

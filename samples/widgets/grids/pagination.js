@@ -52,7 +52,7 @@ var w = $.ergo({
 	column: {
 		components: {
 			content: {
-				etype: 'inline',
+				etype: 'text',
 				cls: 'column-text'
 			}
 		},

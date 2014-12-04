@@ -21,11 +21,11 @@ var w = $.ergo({
 		},
 		events: {
 			'jquery:change': function(e, self) {
-				self.setValue( self.el.val());			
+				self.opt('value', self.el.val());			
 			}			
 		}
 	}, {
-		etype: 'inline'
+		etype: 'text'
 	}]
 	
 	

@@ -18,7 +18,7 @@ var w = $.ergo({
 				$content: {
 					etype: 'link',
 					$title: {
-						etype: 'text'
+						etype: '&text'
 					},
 					$content: {
 						etype: 'html:span',
@@ -127,7 +127,7 @@ var w2 = $.ergo({
 				$content: {
 					etype: 'link',
 					$title: {
-						etype: 'text'
+						etype: '&text'
 					},
 					$content: {
 						etype: 'html:span',

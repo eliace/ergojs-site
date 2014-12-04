@@ -42,7 +42,7 @@ var w = $.ergo({
 					// }
 				},
 				$content: {
-					etype: 'text',
+					etype: '&text',
 					dataId: 'title'					
 				},
 				binding: false

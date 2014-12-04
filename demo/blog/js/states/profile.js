@@ -137,7 +137,7 @@ $context.state('profile:page', function(on, params) {
 								weight: -10,
 							},
 							$content: {
-								etype: 'text'
+								etype: '&text'
 							},
 							binding: function(v) {
 								this.tag.opt('text', v);
@@ -169,7 +169,7 @@ $context.state('profile:page', function(on, params) {
 							weight: -10
 						},
 						$content: {
-							etype: 'text'
+							etype: '&text'
 						}
 					}
 				}

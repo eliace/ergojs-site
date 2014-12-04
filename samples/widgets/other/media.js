@@ -31,13 +31,13 @@ var w = $.ergo({
 				// binding: 'text'
 			},
 			$description: {
-				etype: 'inline',
+				etype: 'text',
 				text: LOREMIPSUM
 //				dataId: 'desc'
 			}
 		},
 		$date: {
-			etype: 'inline',
+			etype: 'text',
 			text: '25 ноября',
 			style: {
 				'vertical-align': 'top'
@@ -74,13 +74,13 @@ var w = $.ergo({
 				// binding: 'text'
 			},
 			$description: {
-				etype: 'inline',
+				etype: 'text',
 				text: LOREMIPSUM_3
 //				dataId: 'desc'
 			}
 		},
 		$after: {
-			etype: 'inline',
+			etype: 'text',
 			text: '25 ноября',
 			autoRender: true
 			// style: {

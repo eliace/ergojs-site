@@ -73,7 +73,7 @@ var w = $.ergo({
 				$content: {
 					etype: 'link',
 					$content: {
-						etype: 'text',
+						etype: '&text',
 						format: '#{title}'
 					},
 					$caret: {
@@ -107,7 +107,7 @@ var w = $.ergo({
 						$content: {
 							etype: 'link',
 							$content: {
-								etype: 'text',
+								etype: '&text',
 								format: '#{title}'
 							},
 							$caret: {

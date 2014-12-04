@@ -38,7 +38,7 @@ $context.ready(function() {
 //					$content: {
 //						etype: 'text',
 					$content: {
-						etype: 'text',
+						etype: '&text',
 						text: 'Блог о '
 					},
 					$sf: {
@@ -76,8 +76,12 @@ $context.ready(function() {
 						$content: {
 							etype: 'html:a'
 						},
-						onClick: function() {
-							$context.states.set( this.opt('name') );						
+						events: {
+							'jquery:mousedown': function(e) {
+								if(e.button == 0) {
+									$context.states.set( this.opt('name') );													
+								}
+							}
 						}
 					},
 					items: [{text: 'Главная', name: 'feed'}, {text: 'Галерея', name: 'gallery'}, {text: 'Профиль', name: 'profile'}]
@@ -103,7 +107,7 @@ $context.ready(function() {
 			cls: 'app-footer',
 			items: [{
 				$text: {
-					etype: 'text',
+					etype: '&text',
 					text: '©Copyright'
 				},
 				$link: {
@@ -114,7 +118,7 @@ $context.ready(function() {
 				}
 			}, {
 				$text: {
-					etype: 'text',
+					etype: '&text',
 					text: 'Изображения взяты с'
 				},
 				$link: {

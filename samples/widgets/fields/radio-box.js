@@ -30,7 +30,7 @@ var w = $.ergo({
 				etype: 'radio',				
 			},
 			$content: {
-				etype: 'text'
+				etype: '&text'
 			},
 			
 			states: {
@@ -67,7 +67,7 @@ var w = $.ergo({
 				}
 			},
 			$content: {
-				etype: 'text'
+				etype: '&text'
 			},
 
 			states: {

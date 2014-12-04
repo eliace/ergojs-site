@@ -58,7 +58,7 @@ var w = $.ergo({
 					}
 				},
 				$content: {
-					etype: 'text'
+					etype: '&text'
 				}
 			}, {
 				binding: 'text',
@@ -129,7 +129,7 @@ var w = $.ergo({
 					}
 				},
 				$content: {
-					etype: 'text'
+					etype: '&text'
 				}
 			}, {
 				binding: 'text',
@@ -211,7 +211,7 @@ var w = $.ergo({
 					}
 				},
 				$content: {
-					etype: 'text'
+					etype: '&text'
 				}
 			}, {
 				binding: 'text',

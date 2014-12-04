@@ -210,7 +210,7 @@ var w = $.ergo({
 			cls: 'before'
 		},
 		$content: {
-			etype: 'text'
+			etype: '&text'
 		},
 		set: {
 			'icon': function(v) { this.icon.opt('icon', v); }
@@ -255,7 +255,7 @@ var w = $.ergo({
 			cls: 'after'
 		},
 		$content: {
-			etype: 'text'
+			etype: '&text'
 		},
 		set: {
 			'icon': function(v) { this.icon.opt('icon', v); }

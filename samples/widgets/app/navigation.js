@@ -44,7 +44,7 @@ var w = $.ergo({
 								state: 'has-submenu',
 								$content: {
 									$content: {
-										etype: 'text'
+										etype: '&text'
 									},
 									$caret: {
 										etype: 'caret',

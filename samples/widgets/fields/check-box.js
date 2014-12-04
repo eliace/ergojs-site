@@ -39,7 +39,7 @@ var w = $.ergo({
 				cls: 'before'
 			},
 			$content: {
-				etype: 'text',
+				etype: '&text',
 				weight: 10
 			},
 			
@@ -70,7 +70,7 @@ var w = $.ergo({
 				cls: 'before'
 			},
 			$content: {
-				etype: 'text'
+				etype: '&text'
 			}
 		},
 		

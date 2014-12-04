@@ -131,7 +131,7 @@ var w = $.ergo({
 						weight: 100
 					},
 					content: {
-						etype: 'text'
+						etype: '&text'
 					}
 				},
 				states: {

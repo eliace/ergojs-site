@@ -26,11 +26,11 @@ var context_menu = $.ergo({
 				style: {'margin-right': 10}
 			},
 			content: {
-				etype: 'text'
+				etype: '&text'
 			}
 		},
 		set: {
-			'text': function(v) {this.content.opt('text', v);},
+//			'text': function(v) {this.content.opt('text', v);},
 			'icon': function(v) {this.icon.states.set(v);}
 		}
 	},

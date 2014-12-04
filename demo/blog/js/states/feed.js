@@ -118,7 +118,7 @@ $context.state('feed:page', function(on, params) {
 					$content: {
 						layout: 'fluid',
 						defaultItem: {
-							etype: 'inline',
+							etype: 'text',
 							cls: 'tag warning',
 							style: {
 								'padding': 6,
