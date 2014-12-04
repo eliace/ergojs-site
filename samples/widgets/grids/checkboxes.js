@@ -49,7 +49,7 @@ var w = $.ergo({
 					autoBind: false,
 					$content: {
 						etype: 'check',
-						onAction: function() {
+						onChange: function() {
 							this.events.rise('checkAll', {value: this.opt('value')}); 
 						}
 					}
@@ -75,7 +75,7 @@ var w = $.ergo({
 						$content: {
 							etype: 'check',
 							autoBind: false,
-							onAction: function() {
+							onChange: function() {
 								this.events.rise('checkOne', {value: this.opt('value')}); 
 							}
 						}
@@ -133,18 +133,24 @@ var w = $.ergo({
 		});
 	},
 	onCheckOne: function(e) {
+		
+		
 		var checked = 0;
 		this.rows().each(function(row) {
 			if(row.checkcol.content.opt('value')) checked++;
 		});
 		var checker = this.header.content.body.item(0).checkcol.content;
+		
+		
+		console.log(checked, this.rows().count());		
+		
 		if(checked == 0)
-			checker.opt('indeterminate', false);
+			checker.states.unset('indeterminate');
 		else if(checked < this.rows().count())
-			checker.opt('indeterminate', true);
+			checker.states.set('indeterminate');
 		else {
 			checker.opt('value', true);			
-			checker.opt('indeterminate', false);
+			checker.states.unset('indeterminate');
 		}
 			
 	}
