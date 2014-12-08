@@ -752,6 +752,7 @@ img.btn.circle {
 
 [layout="band"] > div > * {
 	display: table-cell;
+	vertical-align: middle;
 }
 
 [layout="band"] > div {
@@ -789,23 +790,27 @@ img.btn.circle {
 
 [layout="bar"] > * {
 	display: inline-block;
-	margin: 0 3px;
+/*	margin: 0 3px;*/
 	vertical-align: middle;
 }
 
+[layout="bar"] > *:not(:last-child) {
+	margin-right: 6px;	
+}
 
-[layout="bar"].left {
+
+[layout="bar"].align-left {
 /*	float: left;*/
 	text-align: left;
 }
 
-[layout="bar"].right {
+[layout="bar"].align-right {
 /*	float: right;*/
 	text-align: right;
 }
 
 
-[layout="bar"].center {
+[layout="bar"].align-center {
 	text-align: center;
 }
 
@@ -821,16 +826,16 @@ img.btn.circle {
 	vertical-align: middle;
 }
 
-[layout="hbox"].left {
+[layout="hbox"].align-left {
 	text-align: left;
 }
 
-[layout="hbox"].right {
+[layout="hbox"].align-right {
 	text-align: right;
 }
 
 
-[layout="hbox"].center {
+[layout="hbox"].align-center {
 	text-align: center;
 }
 

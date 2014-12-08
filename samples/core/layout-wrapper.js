@@ -3,7 +3,7 @@
 $.ergo({
 	etype: 'html:h3',
 	cls: 'demo-section',
-	text: 'Элементы обертываются вспомогательным тегом',
+	text: 'Элементы можно обернуть вспомогательным тегом',
 	renderTo: '#sample'
 });
 
@@ -28,7 +28,31 @@ $.ergo({
 $.ergo({
 	etype: 'html:h3',
 	cls: 'demo-section',
-	text: 'Если виджет состоит из нескольких тегов, необходимо корректировать компоновку',
+	text: 'Необходимость "обертки" и ее настройки могут задаваться дочерним виджетом',
+	renderTo: '#sample'
+});
+
+
+
+$.ergo({
+	etype: 'box',
+	renderTo: '#sample',
+	items: ['Item 0', 'Item 1', {
+		text: 'Item 2',
+		wrapper: {
+			cls: 'my-widget'
+		}
+	}]
+});
+
+
+
+
+
+$.ergo({
+	etype: 'html:h3',
+	cls: 'demo-section',
+	text: 'Если виджет состоит из нескольких тегов, можно добиться нужного результата, настраивая компоновку',
 	renderTo: '#sample'
 });
 

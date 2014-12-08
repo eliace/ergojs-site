@@ -14,6 +14,10 @@ body {
 
 
 
+pre {
+}
+
+
 
 /*
 .header {
@@ -46,6 +50,12 @@ body {
 	text-decoration: underline;
 }
 */
+
+
+.before {
+	margin-right: 8px;
+}
+
 
 
 .page-footer {
@@ -187,5 +197,38 @@ body {
   color: #fff;
 }
 
+
+
+
+.divider {
+	border-bottom: 1px solid #ccc;
+}
+
+
+.quickstart {
+	width: 80%;
+	margin: 32px auto;
+}
+
+
+.quickstart h2 {
+	color: #444;
+	margin-bottom: 32px;
+}
+
+.quickstart h3 {
+	color: #444;
+	margin-bottom: 0;
+}
+
+.quickstart pre {
+	margin: 0;
+}
+
+.quickstart > span {
+	margin-top: 16px;
+	color: #888;
+	display: block;
+}
 
 

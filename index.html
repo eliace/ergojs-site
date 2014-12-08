@@ -25,6 +25,9 @@
 		
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 		
+		<link rel="stylesheet" href="lib/highlight/github.min.css">
+		<script src="lib/highlight/highlight.min.js"></script>		
+		
 	</head>
 
 	<body>
@@ -59,18 +62,56 @@
 			
 			<div class="description">
 				<div>
-					<h2>Декларативный стиль</h2>
+					<h2><i class="fa fa-magic before"></i>Декларативный стиль</h2>
 					<p>Набор готовых компонентов и широкие возможности по их комбинации позволяют разработчику сфокусироваться на "конструировании" веб-приложения, а не его "написании"</p>
 				</div>
 				<div>
-					<h2>Каскадное связывание</h2>
+					<h2><i class="fa fa-sitemap before"></i>Каскадное связывание</h2>
 					<p>Представление данных на странице, как правило, отражает их структуру в БД или модели. Поэтому при подключении иерархических данных к виртуальному дереву виджетов, Ergo связывает их вместе на всех уровнях вложений.</p>
 				</div>
 				<div>
-					<h2>Совместимость</h2>
+					<h2><i class="fa fa-cogs before"></i>Совместимость</h2>
 					<p>Для работы с DOM, анимацией, AJAX-ом и др. используется проверенная и удобная библиотка jQuery. Это означает, что виджеты Ergo могут комбинироваться с огромным количеством уже существующих jQuery-плагинов</p>
 				</div>
 			</div>
+			
+			<div class="divider"></div>
+			
+			<div class="quickstart">
+				<h2>Быстрый старт</h2>				
+				<h3>1. Подключаем стили</h3>				
+				<pre>
+					<code class="html">
+&lt;link href='lib/ergojs.css' rel='stylesheet' type='text/css'&gt;
+					</code>
+				</pre>
+				<h3>2. Загружаем скрипты</h3>				
+				<pre>
+					<code class="html">
+&lt;script src="lib/ergojs-core.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="lib/ergojs-widgets-all.js" type="text/javascript"&gt;&lt;/script&gt;
+					</code>
+				</pre>
+				<h3>3. Создаем виджет</h3>
+				<span>Добавим код создания виджета в обработчик события onready</span>
+				<pre>
+					<code class="javascript">
+$(document).ready(function() {
+	
+  // создаем виджет
+  var w = $.ergo({
+    etype: 'list',
+    items: ['Австралия', 'Африка', 'Европа']
+  });
+	
+  // отрисовываем виджет в &lt;body&gt;
+  w.render('body');
+	
+});
+					</code>
+				</pre>
+			</div>
+			
 			
 			
 			<footer class="page-footer">
@@ -79,4 +120,11 @@
 			</footer>
 		</div>
 	</body>
+	
+	<script>
+		
+		hljs.initHighlightingOnLoad();
+		
+	</script>
+	
 </html>

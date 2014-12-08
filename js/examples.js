@@ -331,6 +331,9 @@ $(document).ready(function(){
 				title: "Detail List",
 				name: 'widgets/other/detail-list'
 			}, {
+				title: "Галерея",
+				name: 'widgets/other/gallery'
+			}, {
 				title: '10000',
 				name: 'widgets/other/10000'
 			}]
@@ -340,6 +343,12 @@ $(document).ready(function(){
 		children: [{
 			title: 'Grid',
 			name: 'layouts/grid'
+		}, {
+			title: 'HVF',
+			name: 'layouts/h_v_f'
+		}, {
+			title: 'Form',
+			name: 'layouts/form'
 		}]
 	}, {
 		title: 'Примеси',
