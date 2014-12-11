@@ -59,8 +59,9 @@ var w = $.ergo({
 			
 			$prevBtn: {
 				etype: 'button',
-				state: 'tool line',
-				width: 24,
+				state: 'tool line disabled',
+				cls: 'slider-button',
+//				width: 48,
 				$content: {
 					etype: 'icon',
 					icon: 'fa-chevron-left'
@@ -73,12 +74,9 @@ var w = $.ergo({
 			$content: {
 				cls: 'gallery-slider',
 
-				layout: {
-//					etype: 'default',
-					html: '<div style="white-space: nowrap; display: inline-block"/>'
-				},
-				
-				autoWidth: true, //'ignore-siblings',
+				layout: 'hslide',
+
+				autoWidth: true,
 				
 				dynamic: true,
 				
@@ -90,7 +88,13 @@ var w = $.ergo({
 						this.opt('src', 'img/galleries/space/preview/'+v);
 					},
 					onClick: function() {
-						this.events.rise('change');
+						this.events.rise('selectImage');
+					}
+				},
+				
+				events: {
+					'layout:slide': function(e) {
+						this.events.rise('slide', e);
 					}
 				}
 				
@@ -98,8 +102,9 @@ var w = $.ergo({
 
 			$nextBtn: {
 				etype: 'button',
-				width: 24,
+//				width: 48,
 				state: 'tool line',
+				cls: 'slider-button',
 				$content: {
 					etype: 'icon',
 					icon: 'fa-chevron-right'
@@ -109,80 +114,25 @@ var w = $.ergo({
 				}
 			},
 			
-			
-			mixins: [{
-				next_frame: function() {
-					var w = this.content.el.width();
-					if(!this._offset) this._offset = 0;
-					this._offset += w;
-					if(this._offset > this.content.layout.el.width() - w) {
-						this._offset = this.content.layout.el.width() - w;
-						this.nextBtn.states.set('disabled');
-					}
-					else {
-						this.nextBtn.states.unset('disabled');						
-					}
-					this.prevBtn.states.unset('disabled');
-					this.content.layout.el.css('margin-left', -this._offset);
-				},
-				prev_frame: function() {
-					var w = this.content.el.width();
-					if(!this._offset) this._offset = 0;					
-					this._offset -= w;
-					if(this._offset < 0) {
-						this._offset = 0;
-						this.prevBtn.states.set('disabled');
-					}
-					else {
-						this.prevBtn.states.unset('disabled');						
-					}
-					
-					this.nextBtn.states.unset('disabled');
-					this.content.layout.el.css('margin-left', -this._offset);
-				},
-				frame_to: function(i) {
-					var x = this.item_offset(i);
-					var w = this.content.item(i).el.outerWidth(true);
-					var frame_w = this.content.el.width();
-					if(x < this._offset) {
-						this._offset = x;
-						this.content.layout.el.css('margin-left', -this._offset);
-					}
-					else if(x+w > this._offset+frame_w) {
-						this._offset = (x+w-frame_w);
-						this.content.layout.el.css('margin-left', -this._offset);
-					}
-				},
-				item_offset: function(i) {
-					var offset = this.content.item(i).el.offset();
-					var offset0 = this.content.layout.el.offset();
-					
-					return offset.left - offset0.left;
-					
-					// var x = 0;
-					// for(var j = 0; j < i; j++) {
-						// x += this.content.item(j).el.outerWidth(true);
-					// }
-					// return x;
-				}
-			}],
-			
-			
-			
 			onNext: function() {
 				
-				this.next_frame();
+				this.content.layout.slide_next();
 				
 			},
 			
 			
 			onPrev: function() {
 				
-				this.prev_frame();
+				this.content.layout.slide_prev();
 			},
 			
-			onChange: function(e) {
-				this.frame_to( e.target.opt('name') );
+			onSelectImage: function(e) {
+				this.content.layout.slide_to_item( e.target, 20 );
+			},
+			
+			onSlide: function(e) {
+				this.prevBtn.states.toggle('disabled', !e.hasPrev);
+				this.nextBtn.states.toggle('disabled', !e.hasNext);
 			}
 			
 //			index: 0
@@ -196,15 +146,16 @@ var w = $.ergo({
 			return this.slider.content.item(i);
 		},
 		
-		onChange: function(e) {
+		onSelectImage: function(e) {
 			this.opt('index', e.target.opt('name'));
 		},
 		
 		
 		set: {
 			'index': function(v) {
-				this.preview.content.opt('value', this.slider.content.item(v).opt('value'));
-				this.selection.set(v);				
+				var img = this.slider.content.item(v);
+				this.preview.content.opt('value', img.opt('value'));
+				this.selection.set(img);
 			}
 		}
 		

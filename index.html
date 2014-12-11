@@ -79,23 +79,34 @@
 			
 			<div class="quickstart">
 				<h2>Быстрый старт</h2>				
-				<h3>1. Подключаем стили</h3>				
+				<h3>1. Подключаем зависимости</h3>				
+				<pre>
+					<code class="html">
+&lt;!-- jQuery (для ядра) --&gt;
+&lt;script src="lib/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;!-- Font-Awesome (для библиотеки виджетов) --&gt;
+&lt;link href='lib/font-awesome.min.css' rel='stylesheet'&gt;
+					</code>
+				</pre>
+				<h3>2. Подключаем стили</h3>				
 				<pre>
 					<code class="html">
 &lt;link href='lib/ergojs.css' rel='stylesheet' type='text/css'&gt;
 					</code>
 				</pre>
-				<h3>2. Загружаем скрипты</h3>				
+				<h3>3. Загружаем скрипты</h3>				
 				<pre>
 					<code class="html">
+&lt;!-- Ядро --&gt;
 &lt;script src="lib/ergojs-core.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;!-- Библиотека виджетов --&gt;
 &lt;script src="lib/ergojs-widgets-all.js" type="text/javascript"&gt;&lt;/script&gt;
 					</code>
 				</pre>
-				<h3>3. Создаем виджет</h3>
-				<span>Добавим код создания виджета в обработчик события onready</span>
+				<h3>4. Создаем виджет</h3>
 				<pre>
 					<code class="javascript">
+// Добавим код создания виджета в обработчик события onready
 $(document).ready(function() {
 	
   // создаем виджет

@@ -29,6 +29,7 @@ table {
 
 button {
 	margin: 0;
+	box-sizing: border-box;
 }
 
 
@@ -450,7 +451,7 @@ body {
 	color: #444;
 }
 
-.btn.tool.line:hover {
+.btn.tool.line:hover:not([disabled]) {
 	color: #0A80CB;
 }
 
@@ -515,9 +516,11 @@ body {
 .btn[disabled] {
   box-shadow: none;
   cursor: default; /*not-allowed;*/
-  opacity: 0.65;
+  opacity: 0.45;
 /*  pointer-events: none;*/	
 }
+
+
 
 
 .btn > i.icon {

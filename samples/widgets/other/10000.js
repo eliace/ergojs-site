@@ -208,7 +208,7 @@ $.ergo({
 		var v = [];
 		
     for(var i=0; i<10000; i++){
-      v.push({number : i});
+      v.push(i);//{number : i});
     }
 		
 		var t0 = Ergo.timestamp();
@@ -374,6 +374,6 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'html:li',
 		binding: 'text',
-		dataId: 'number'
+//		dataId: 'number'
 	}
 });
