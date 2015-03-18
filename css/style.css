@@ -856,3 +856,18 @@ ul.list-view li, .list-view-item {
 	right: 0;
 }
 */
+
+
+.custom-panel {
+	padding: 0 8px;	
+}
+
+.custom-panel .panel-title {
+    border-bottom: 1px solid #ccc;
+    color: #bbb;
+    display: block;
+    float: none;
+    font-size: 16px;
+    padding: 12px 0;	
+}
+

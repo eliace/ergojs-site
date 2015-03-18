@@ -83,7 +83,7 @@ var w = $.ergo({
 					onClick: function(e) {
 						this.parent.subtree.open();
 						this.parent.subtree.states.set('opened');
-						e.baseEvent.stopPropagation();
+						e.base.stopPropagation();
 					},
 				},
 				$subtree: {

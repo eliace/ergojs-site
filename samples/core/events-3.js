@@ -10,11 +10,11 @@ var w = $.ergo({
 			$context.alert('Поддержка событий обеспечивается плагином Observable');
 		},
 		// события jQuery определяются через префикс
-		'jquery:mouseenter': function(e, w) {
-			w.el.css('background-color', 'blue');
+		'jquery:mouseenter': function(e) {
+			this.el.css('background-color', 'blue');
 		},
-		'jquery:mouseleave': function(e, w) {
-			w.el.css('background-color', '');
+		'jquery:mouseleave': function(e) {
+			this.el.css('background-color', '');
 		},
 		'ctx:action': function(e) {
 			$context.alert('Событие контекста: ' + e.value);			
@@ -36,7 +36,7 @@ $context.alert('При подписке на события контекста, 
 
 var w2 = $.ergo({
 	etype: 'button',
-	text: 'Нажмим меня',
+	text: 'Нажми меня',
 	onClick: function() {
 		$context.events.fire('action', {value: 'Нажата кнопка'});
 	}
