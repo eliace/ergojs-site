@@ -128,6 +128,7 @@ var w = $.ergo({
 				}
 			},
 			dropdown: {
+				weight: -100,
 				etype: 'dropdown-list',
 				popup: {
 //					at: 'left bottom',

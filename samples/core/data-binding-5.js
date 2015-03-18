@@ -20,8 +20,8 @@ var w = $.ergo({
 			'text': function() { return this.el.val(); }
 		},
 		events: {
-			'jquery:change': function(e, self) {
-				self.opt('value', self.el.val());			
+			'jquery:change': function(e) {
+				this.opt('value', this.el.val());			
 			}			
 		}
 	}, {

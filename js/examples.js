@@ -277,6 +277,9 @@ $(document).ready(function(){
 			}, {
 				title: 'Pagination',
 				name: 'widgets/app/pagination'
+			}, {
+				title: 'Login',
+				name: 'widgets/app/login'
 			}]
 		}, {
 			title: 'Меню',
@@ -333,6 +336,9 @@ $(document).ready(function(){
 			}, {
 				title: "Галерея",
 				name: 'widgets/other/gallery'
+			}, {
+				title: "MVC",
+				name: 'widgets/other/mvc'
 			}, {
 				title: '10000',
 				name: 'widgets/other/10000'

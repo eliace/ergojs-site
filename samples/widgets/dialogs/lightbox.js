@@ -71,9 +71,9 @@ var buttons = $.ergo({
 						delay: 300
 					},
 					events: {
-						'jquery:load': function(e, obj) {
-							var w = obj.el.width();
-							var h = obj.el.height();
+						'jquery:load': function(e) {
+							var w = this.el.width();
+							var h = this.el.height();
 		
 //							$context.alert('size: ['+w+','+h+']');
 							
@@ -107,12 +107,14 @@ var buttons = $.ergo({
 							dialog1.content.components.set('image', img);
 							dialog1.content.render();
 //							img.render();
+
+							var self = this;
 							
 							dialog1.open().then(function(){
 
 								dialog1.resize(w2, h2, 'content').then(function(){
-									obj.el.css({'position': 'relative'/*, 'left': 0*/, 'width': w-dw, 'height': h-dh});
-									obj.el.fadeIn(400);
+									self.el.css({'position': 'relative'/*, 'left': 0*/, 'width': w-dw, 'height': h-dh});
+									self.el.fadeIn(400);
 								});
 								
 							});

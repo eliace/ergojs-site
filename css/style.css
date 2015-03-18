@@ -99,6 +99,14 @@ input[type="checkbox"] {
 */
 
 
+.paper {
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+	background-color: #fff;
+}
+
+
+
+
 .page-content {
 	display: table;
 	width: 100%;

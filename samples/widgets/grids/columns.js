@@ -31,7 +31,7 @@ var w = $.ergo({
 		autoBind: false,
 		state: 'resizable',
 		events: {
-			'jquery:mousemove': function(e, w) {
+			'jquery:mousemove': function(e) {
 //				console.log(e.pageX, e.pageY);
 				var x = e.pageX;
 //				var y = e.pageY;
@@ -98,7 +98,7 @@ var w = $.ergo({
 								this.events.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
 							},
 							onClick: function(e) {
-								e.baseEvent.stopPropagation();
+								e.base.stopPropagation();
 							}
 						},
 						content: {
