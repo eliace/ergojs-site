@@ -1,12 +1,6 @@
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Типы',
-	renderTo: '#sample'
-});
+$context.section('Типы');
 
 
 var w = $.ergo({
@@ -39,13 +33,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Размеры',
-	renderTo: '#sample'
-});
+$context.section('Размеры');
 
 
 var w = $.ergo({
@@ -71,13 +59,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Контурные',
-	renderTo: '#sample'
-});
+$context.section('Контурные');
 
 
 var w = $.ergo({
@@ -111,13 +93,8 @@ var w = $.ergo({
 
 
 
+$context.section('Плоские');
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Плоские',
-	renderTo: '#sample'
-});
 
 
 var w = $.ergo({
@@ -150,13 +127,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Линейные',
-	renderTo: '#sample'
-});
+$context.section('Линейные');
 
 
 var w = $.ergo({
@@ -190,13 +161,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'С иконками',
-	renderTo: '#sample'
-});
+$context.section('С иконками');
 
 
 var w = $.ergo({
@@ -293,13 +258,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Иконки',
-	renderTo: '#sample'
-});
+$context.section('Иконки');
 
 
 var w = $.ergo({
@@ -338,13 +297,8 @@ var w = $.ergo({
 
 
 
+$context.section('Круглые');
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Круглые',
-	renderTo: '#sample'
-});
 
 
 var w = $.ergo({
@@ -428,13 +382,8 @@ var w = $.ergo({
 
 
 
+$context.section('Со списком');
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Со списком',
-	renderTo: '#sample'
-});
 
 
 var w = $.ergo({
@@ -504,13 +453,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Список с кнопкой',
-	renderTo: '#sample'
-});
+$context.section('Список с кнопкой');
 
 
 
@@ -545,13 +488,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Группа кнопок',
-	renderTo: '#sample'
-});
+$context.section('Группа кнопок');
 
 
 var w = $.ergo({
@@ -565,12 +502,7 @@ var w = $.ergo({
 
 
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Переключатели',
-	renderTo: '#sample'
-});
+$context.section('Переключатели');
 
 
 var w = $.ergo({
@@ -589,12 +521,8 @@ var w = $.ergo({
 
 
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Выбор',
-	renderTo: '#sample'
-});
+$context.section('Выбор');
+
 
 
 var w = $.ergo({
@@ -616,13 +544,7 @@ var w = $.ergo({
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Состояния',
-	renderTo: '#sample'
-});
+$context.section('Состояния');
 
 
 var w = $.ergo({

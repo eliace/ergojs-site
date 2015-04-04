@@ -65,7 +65,7 @@ var login2 = $.ergo({
 	
 	etype: 'panel',
 
-	cls: 'paper custom-panel',
+	cls: 'paper widget simple',
 	
 	title: 'Вход в систему',
 	
@@ -75,7 +75,7 @@ var login2 = $.ergo({
 
 		etype: 'html:form',
 		
-		style: {'padding': 16, 'text-align': 'center'},
+		style: {'padding': '16px 8px', 'text-align': 'center'},
 		
 		layout: 'stack',
 		

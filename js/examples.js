@@ -11,8 +11,6 @@ var LOREMIPSUM_3 = 'Praesent dapibus nunc id quam pellentesque sagittis. Nam sce
 var LOREMIPSUM_4 = 'Aliquam erat volutpat. Vivamus eu leo odio. Sed a massa ac sem condimentum rhoncus vel at risus. Integer tincidunt ultricies risus sed luctus. Vestibulum tincidunt dolor a ante consectetur interdum. Sed ut sapien bibendum, congue turpis non, convallis diam. Aliquam mollis, quam non interdum egestas, libero lectus lobortis mauris, vitae tempor nibh diam nec nisi. Sed dolor nulla, molestie nec neque eget, venenatis tristique leo. Phasellus non scelerisque eros, non blandit metus. ';
 var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis vel tellus ligula. Fusce posuere venenatis tellus, vitae tempor lacus pellentesque ac. Proin sit amet pretium lorem. Cras in commodo sem. Proin dolor mi, lacinia nec lectus et, volutpat dapibus arcu. Proin accumsan tortor varius mi feugiat, nec sodales metus lacinia. Duis euismod sollicitudin maximus. Fusce ut lectus libero. Aenean lobortis interdum justo, at fringilla metus ultricies vel. Sed at massa tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam at iaculis nisl. Cras sit amet molestie augue. Donec convallis malesuada sem, nec mollis risus faucibus at. ';
 
-
-$(document).ready(function(){
 	
 	
 	var EXAMPLES = [{
@@ -361,8 +359,26 @@ $(document).ready(function(){
 		children: []
 	}];
 	
-	
-	var w = $.ergo({
+
+
+
+$context = new Ergo.core.Context();
+
+
+//
+// Подключаем данные к контексту
+//
+$context.data('examples', EXAMPLES);
+
+
+//-----------------------------------------------------
+// Страница примеров
+//-----------------------------------------------------
+$context.scope('main', function(ctx) {
+
+
+	var menu = this.widget('menu', {
+
 		etype: 'box',
 		id: 'content-menu',
 		mixins: ['selectable'],
@@ -412,7 +428,9 @@ $(document).ready(function(){
 				}
 			}
 		},
-		data: EXAMPLES,
+
+		data: ctx.data('examples'),
+//		dataId: '@examples',
 		dynamic: true,
 		
 		selector: function(key) {			
@@ -426,8 +444,18 @@ $(document).ready(function(){
 		
 		onSelectionChanged: function(e) {
 			var v = e.selection.data.get();
+
+
+			ctx.sample = {
+				name: v.name,
+				title: v.title,
+				section: e.selection.data.source.source.get('title')
+			};
+
+			ctx.join('sample:show');
+
 //			console.log(v);
-			load_sample(v.name, v.title, e.selection.data.source.source.get('title'));			
+//			load_sample(v.name, v.title, e.selection.data.source.source.get('title'));			
 		}
 		
 /*		
@@ -450,25 +478,32 @@ $(document).ready(function(){
 		}
 */		
 	});
-	
-		
-	w.render('.page-content > aside');
-	
-	
-	$context = new Ergo.core.Object({
-		plugins: [Ergo.Observable]
-	});
-	
-	$context.create_sample = function(title, o, s) {
-		
-		// Ergo.indent_s = '  ';
-// 		
-		// var s = Ergo.pretty_print(o);
-		
-		var smpl = $.ergo({
+
+
+//	menu.bind();
+
+	menu.render('.page-content > aside');
+
+
+});
+
+
+
+
+
+//----------------------------------------------------------------
+// Скоуп загружаемого примера
+//----------------------------------------------------------------
+$context.scope('sample:show', function(ctx) {
+
+	var w;
+
+	if(ctx.sample.name) {
+
+		w = {
 			etype: 'panel',
 			cls: 'sample',
-			title: title,
+			title: ctx.sample.title,
 			$content: {
 				etype: 'tab-panel',
 				$tabbar: {
@@ -480,30 +515,110 @@ $(document).ready(function(){
 						cls: 'sample-tab'
 					},
 					id: 'sample'
-//					$content: o
+	//					$content: o
 				}, {
-					tab: 'Код',
+					tab: 'Javascript',
 					$content: {
 						etype: 'html:pre',
-//						cls: 'sh_javascript'
+	//						cls: 'sh_javascript'
 						$content: {
 							etype: 'html:code',
 							cls: 'javascript',
 						}
 					}
+				}, {
+					tab: 'CSS',
+					$content: {
+						etype: 'html:pre',
+	//						cls: 'sh_javascript'
+						$content: {
+							etype: 'html:code',
+							cls: 'css',
+						}
+					}
 				}],
 				selected: 0
 			}
+		};
+
+
+		$.getScript('samples/'+ctx.sample.name+'.js').success(function(script){
+			
+//			$('pre', $context._sample.el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
+			$('pre code.javascript', ctx.widget('samplePanel').el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
+			
+			$('pre code.javascript', ctx.widget('samplePanel').el).each(function(i, block) {
+		    hljs.highlightBlock(block);
+		  });		
+			
+			
+//			sh_highlightDocument();			
 		});
-		
-		smpl.render('#samples');
-		
-//		smpl.content.tabbar.item(0).states.set('selected');
-		
-		
-		$context._sample = smpl;
-	};
+
+
+		$('#sample-css').remove();
+
+    $.ajax({
+        url:'styles/'+ctx.sample.name+'.css',
+        dataType:"text",
+        success:function(data){
+          $("head").append('<style id="sample-css">' + data + '</style>');
+
+					$('pre code.css', ctx.widget('samplePanel').el).append( Ergo.escapeHtml(data).replace(/\t/g, '  ') );
+					
+					$('pre code.css', ctx.widget('samplePanel').el).each(function(i, block) {
+				    hljs.highlightBlock(block);
+				  });		
+
+        }
+    });
+
+
+	}
+	else {
+
+		w = {
+			etype: 'box',
+			layout: 'column',
+//			render: '#samples',
+			cls: 'under-construct',
+			components: {
+				icon: {
+					etype: 'icon',
+					state: 'fa-wrench fa-3x'
+				},
+				message: {
+					cls: 'message',
+					text: 'Пример все еще находится в разработке. Немножко терпения :)'
+				}
+			}				
+		};
+
+
+	}
+
+
+	w = this.widget('samplePanel', w);
 	
+	w.render('#samples');
+
+
+
+});
+
+
+
+
+
+	
+	
+	
+	// $context = new Ergo.core.Object({
+	// 	plugins: [Ergo.Observable]
+	// });
+	
+
+
 	
 	$context.alert = function(msg, type) {
 		
@@ -531,9 +646,31 @@ $(document).ready(function(){
 		});
 		
 	};
+
+
+
+$context.section = function(s) {
+
+	$.ergo({
+		etype: 'box',
+		renderTo: '#sample',
+		cls: 'demo-section',
+		text: s,
+		$icon: {
+			etype: 'icon',
+			cls: 'fa-arrow-circle-down'
+		},
+		$content: {
+			etype: 'html:h3'
+		}
+	});
+
+};
+
+
 	
 	
-	
+	/*
 	var load_sample = function(name, title, section) {
 		
 		$('#samples').empty();
@@ -591,7 +728,22 @@ $(document).ready(function(){
 		
 	};
 	
+*/
+
+
+
+
+
+
+
+
+
+
 	
+
+$(document).ready(function(){
+
+
 	
 	$( document ).ajaxError(function() {
 		console.log(arguments);
@@ -599,7 +751,7 @@ $(document).ready(function(){
 	
 	
 	$(document).on('scroll', function(){
-		$context.events.fire('scroll');
+		Ergo.context.events.fire('scroll');
 	});
 	
 
@@ -636,6 +788,10 @@ $(document).ready(function(){
 		}
 	});
 	
+
+
+
+	$context.join('main');
 	
 	
 });

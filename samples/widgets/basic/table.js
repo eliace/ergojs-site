@@ -1,11 +1,6 @@
 
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Список',
-	renderTo: '#sample'
-});
+$context.section('Список');
 
 
 var w = $.ergo({
@@ -33,12 +28,9 @@ w.render('#sample');
 
 
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Таблица',
-	renderTo: '#sample'
-});
+
+$context.section('Таблица');
+
 
 
 var w = $.ergo({
@@ -66,13 +58,7 @@ w.render('#sample');
 
 
 
-
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Виджет таблицы',
-	renderTo: '#sample'
-});
+$context.section('Виджет таблицы');
 
 
 var w = $.ergo({

@@ -1,11 +1,6 @@
 
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Кнопки в подвале',
-	renderTo: '#sample'
-});
+$context.section('Кнопки в подвале');
 
 
 
@@ -69,12 +64,9 @@ w.render('#sample');
 
 
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Кнопки в заголовке',
-	renderTo: '#sample'
-});
+
+$context.section('Кнопки в заголовке');
+
 
 
 
@@ -132,7 +124,7 @@ $.ergo({
 								etype: 'icon-button',
 								onClick: function(e) {
 									this.parent.states.toggle('opened');
-									e.baseEvent.stopPropagation();
+									e.base.stopPropagation();
 								}
 							}							
 						},
@@ -171,38 +163,54 @@ $.ergo({
 
 
 
+$context.section('Простые темы оформления');
 
-$.ergo({
-	etype: 'html:h3',
-	cls: 'demo-section',
-	text: 'Темный заголовок',
-	renderTo: '#sample'
-});
+// $.ergo({
+// 	etype: 'html:h3',
+// 	cls: 'demo-section',
+// 	text: 'Простые темы оформления',
+// 	renderTo: '#sample'
+// });
 
 
 
 var w = $.ergo({
-	etype: 'panel',
-	title: 'Демо',
-	cls: 'widget dark',
+	etype: 'box',
+	layout: 'grid',
 	renderTo: '#sample',
-	$footer: {
-		autoRender: true,
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
-				layout: 'bar',
-				defaultItem: {
-					etype: 'button'
-				},
-				items: [{text: 'ОК', state: 'primary'}, 'Отмена']
-			}]
+	defaultItem: {
+		etype: 'panel',
+		$footer: {
+			autoRender: true,
+			$toolbar: {
+				etype: 'tool-bar',
+				items: [{
+					layout: 'bar',
+					defaultItem: {
+						etype: 'button'
+					},
+					items: [{text: 'ОК', state: 'primary'}, 'Отмена']
+				}]
+			}
+		},
+		$content: {
+			cls: 'panel-content',
+			text: LOREMIPSUM
 		}
 	},
-	$content: {
-		cls: 'panel-content',
-		text: LOREMIPSUM
-	}
+	items: [{
+		title: 'Default',
+		cls: 'widget'
+	}, {
+		title: 'Dark',		
+		cls: 'widget dark'
+	}, {
+		title: 'Simple',
+		cls: 'widget simple'
+	}, {
+		title: 'Light',
+		cls: 'widget light'
+	}]
 });
 
 
