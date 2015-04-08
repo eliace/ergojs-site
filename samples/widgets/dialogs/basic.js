@@ -1,9 +1,8 @@
 
 var w = $.ergo({
 	etype: 'panel',
-	cls: 'window',
+	cls: 'window widget simple',
 	mixins: ['window'],
-	state: 'widget',
 	title: 'Dialog',
 	width: 600,
 	height: 300,
@@ -12,25 +11,33 @@ var w = $.ergo({
 		mixins: ['draggable'],
 		$toolbar: {
 			etype: 'tool-bar',
-			$dialogButtons: {
-				layout: 'hbox',
-				defaultItem: {
-					etype: 'icon-button',
-					state: 'small line',
-					onClick: function() {
-						this.events.rise('action', {action: this.opt('text')});
-					},
-					$content: {
-						states: {
-							'settings': 'fa-cog',
-							'move': 'fa-arrows-alt',
-							'expand': 'fa-expand',
-							'close': 'fa-close'
-						}
-					}
-				},
-				items: ['settings', 'move', 'expand', 'close']
-			},
+			items: [{
+				etype: 'icon-button',
+				state: 'small line',
+				icon: 'fa-close',
+				onClick: function() {
+					this.events.rise('closeDialog');
+				}				
+			}],
+			// $dialogButtons: {
+			// 	layout: 'hbox',
+			// 	defaultItem: {
+			// 		etype: 'icon-button',
+			// 		state: 'small line',
+			// 		onClick: function() {
+			// 			this.events.rise(this.opt('text')+'Dialog');
+			// 		},
+			// 		$content: {
+			// 			states: {
+			// 				'settings': 'fa-cog',
+			// 				'move': 'fa-arrows-alt',
+			// 				'expand': 'fa-expand',
+			// 				'close': 'fa-close'
+			// 			}
+			// 		}
+			// 	},
+			// 	items: ['close']//'settings', 'move', 'expand', 'close']
+			// },
 			events: {
 				'jquery:mousedown': function(e) {
 					e.stopPropagation();
@@ -39,17 +46,28 @@ var w = $.ergo({
 		},
 	},
 	
-	onAction: function(e) {
-		
-		if(e.action == 'close') {
-			this.close();
-		}
-		
+
+	onCloseDialog: function() {
+		this.close();
 	},
+
+	// onAction: function(e) {
+		
+	// 	if(e.action == 'close') {
+	// 		this.close();
+	// 	}
+		
+	// },
 	
 	onDrag: function(e) {
 		
-		this.move(e.x - e.dx, e.y - e.dy);
+		var p1 = this.header.el.offset();
+		var p2 = this.el.offset();
+
+		var dx = p2.left - p1.left;
+		var dy = p2.top - p1.top;
+
+		this.move(e.x - e.dx + dx, e.y - e.dy + dy);
 		
 		
 	}

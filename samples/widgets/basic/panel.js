@@ -11,7 +11,7 @@ var w = $.ergo({
 	items: [{
 		etype: 'panel',
 		title: 'Демо',
-		cls: 'widget',
+		cls: 'widget default',
 		$content: {
 			cls: 'panel-content',
 			text: LOREMIPSUM
@@ -32,7 +32,7 @@ var w = $.ergo({
 	}, {
 		etype: 'panel',
 		title: 'Демо',
-		cls: 'widget',
+		cls: 'widget default',
 		$content: {
 			cls: 'panel-content',
 			text: LOREMIPSUM
@@ -77,7 +77,7 @@ $.ergo({
 	items: [{
 		etype: 'panel',
 		title: 'Демо',
-		cls: 'widget',
+		cls: 'widget default',
 		$header: {
 			$toolbar: {
 				etype: 'tool-bar',
@@ -97,7 +97,7 @@ $.ergo({
 	}, {
 		etype: 'panel',
 		title: 'Демо',
-		cls: 'widget',
+		cls: 'widget default',
 		$header: {
 			$title: {
 				state: 'tiny'
@@ -200,7 +200,7 @@ var w = $.ergo({
 	},
 	items: [{
 		title: 'Default',
-		cls: 'widget'
+		cls: 'widget default'
 	}, {
 		title: 'Dark',		
 		cls: 'widget dark'

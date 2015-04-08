@@ -4,7 +4,7 @@ var dialog1 = $.ergo({
 	cls: 'modal widget dark',
 	mixins: ['modal', 'effects'],
 	effects: {
-		show: {type: 'fadeIn', delay: 300}
+		show: {type: 'fadeIn', delay: 400}
 	},
 //	state: 'bordered',
 	title: 'Диалог',
@@ -75,6 +75,10 @@ var dialog1 = $.ergo({
 		if(e.action == 'close' || e.action == 'ok' || e.action == 'cancel')
 			this.close();
 		
+	},
+
+	onClick: function(e) {
+		e.base.stopPropagation();
 	}
 	
 	
@@ -110,7 +114,8 @@ var dialog2 = $.ergo({
 		}
 	},
 	$content: {
-		text: LOREMIPSUM
+		text: LOREMIPSUM,
+		cls: 'panel-content'
 	}
 });
 
