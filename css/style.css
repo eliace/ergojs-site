@@ -826,6 +826,31 @@ ul.list-view li, .list-view-item {
 
 
 
+.bar-right {
+	text-align: right;
+}
+
+.bar-left {
+	text-align: left;
+}
+
+.bar-center {
+	text-align: center;
+}
+
+
+
+
+.fluid-right {
+	float: right;
+}
+
+.fluid-left {
+	float: left;
+}
+
+
+
 
 
 /*
