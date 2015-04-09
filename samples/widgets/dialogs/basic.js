@@ -24,8 +24,10 @@ var Dialog = Ergo.widgets.Panel.extend({
 
 	}
 
-
 });
+
+
+
 
 
 
@@ -34,91 +36,131 @@ var Dialog = Ergo.widgets.Panel.extend({
 
 $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	layout: 'stack',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
-		actions: {
-			'jquery:click': 'openDialog'
+		onClick: function(e) {
+			this.events.rise(this.opt('name'));
 		}
 	},
-	items: ['Диалог 1', 'Диалог 2'],
+	items: [{
+		text: 'Диалог с нижними кнопками',
+		name: 'dialog1'
+	}, {
+		text: 'Диалог с верхними кнопками',
+		name: 'dialog2'
+	}, {
+		text: 'Диалог с иконкой закрытия',
+		name: 'dialog3'
+	}],
 
 
-	onOpenDialog: function(e) {
 
-		var title = e.target.opt('text');
+	onDialog1: function(){
 
-		if( title == 'Диалог 1' ) {
-
-			var dlg = new Dialog({
-				cls: 'simple',
-				title: title,
-				$footer: {
-					autoRender: true,
-					$buttons: {
-						layout: 'bar',
-						cls: 'bar-center',
-						defaultItem: {
-							etype: 'button',
-							onClick: function(e) {
-								this.events.rise(this.opt('name'));
-							}
-						},
-						items: [{
-							state: 'primary',
-							text: 'ОК',
-							name: 'ok'
-						}, {
-							state: 'default',
-							text: 'Отмена',
-							name: 'cancel'
-						}]
-					}
+		var dlg = new Dialog({
+			cls: 'simple',
+			title: title,
+			$footer: {
+				autoRender: true,
+				$buttons: {
+					layout: 'bar',
+					cls: 'bar-center',
+					defaultItem: {
+						etype: 'button',
+						onClick: function(e) {
+							this.events.rise(this.opt('name'));
+						}
+					},
+					items: [{
+						state: 'primary',
+						text: 'ОК',
+						name: 'ok'
+					}, {
+						state: 'default',
+						text: 'Отмена',
+						name: 'cancel'
+					}]
 				}
+			}
 
-			});
+		});
 
-			dlg.open();
+		dlg.open();
 
-		}
-		else if( title == 'Диалог 2' ) {
+	},
 
-			var dlg = new Dialog({
-				cls: 'simple',
-				title: title,
-				$header: {
-					$buttons: {
-						etype: 'tool-bar',
-						cls: 'fluid-right',
-						defaultItem: {
-							etype: 'button',
-							onClick: function(e) {
-								this.events.rise(this.opt('name'));
-							}
-						},
-						items: [{
-							state: 'primary',
-							text: 'ОК',
-							name: 'ok'
-						}, {
-							state: 'default',
-							text: 'Отмена',
-							name: 'cancel'
-						}]
-					}
+
+	onDialog2: function() {
+
+		var dlg = new Dialog({
+			cls: 'simple',
+			title: title,
+			$header: {
+				$buttons: {
+					etype: 'tool-bar',
+					cls: 'fluid-right',
+					defaultItem: {
+						etype: 'button',
+						onClick: function(e) {
+							this.events.rise(this.opt('name'));
+						}
+					},
+					items: [{
+						state: 'primary',
+						text: 'ОК',
+						name: 'ok'
+					}, {
+						state: 'default',
+						text: 'Отмена',
+						name: 'cancel'
+					}]
 				}
+			}
 
-			});
+		});
 
-			dlg.open();
-
-		}
+		dlg.open();
 
 
+	},
+
+
+	onDialog3: function() {
+
+		var dlg = new Dialog({
+			cls: 'simple',
+			title: title,
+			$header: {
+				$buttons: {
+					etype: 'tool-bar',
+					cls: 'fluid-right',
+					defaultItem: {
+						etype: 'icon-button',
+						onClick: function(e) {
+							this.events.rise(this.opt('name'));
+						}
+					},
+					items: [{
+						icon: 'fa-close',
+						state: 'line tiny', // конка должна принципиально иметь размер tiny
+						name: 'cancel'
+					}]
+				}
+			}
+
+		});
+
+		dlg.open();
 
 	}
 
 });
+
+
+
+
+
 
 
