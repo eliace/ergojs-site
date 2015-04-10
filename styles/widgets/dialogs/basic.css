@@ -1,0 +1,53 @@
+
+
+.panel.default > header {
+	background-color: #e6e6e6;
+	border-color: #adadad;
+	color: #333333;
+}
+
+
+.panel.primary > header {
+  background-color: #428BCA;
+  border-color: #357EBD;
+  color: #FFFFFF;
+}
+
+
+.panel.success > header {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+}
+
+.panel.info > header {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  color: #fff;
+}
+
+.panel.warning > header {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  color: #fff;
+}
+
+.panel.danger > header {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  color: #fff;
+}
+
+
+.panel.dark > header {
+}
+
+
+
+.panel.modal > header {
+	border-bottom: 1px solid #ccc;
+}
+
+.panel.modal {
+	border: none;
+}

@@ -30,18 +30,6 @@ var Dialog = Ergo.widgets.Panel.extend({
 	}
 
 
-	// set_action: function(v) {
-	// 		console.log('action');
-	// 	var self = this;
-	// 	var event_name = v.split(':');
-	// 	if(event_name[0] == 'jquery') {
-	// 		this.el.on(event_name[1], function(e){
-	// 			self.events.rise(self.options.name || 'action');
-	// 		});
-	// 	}
-	// }
-
-
 });
 
 
@@ -319,6 +307,70 @@ $.ergo({
 		});
 
 		var dlg = new MyDialogX();
+		dlg.open();
+
+
+	},
+
+
+
+	onDialog7: function() {
+
+		var dlg = new DialogX({
+			cls: 'paper',
+			title: 'Диалог',
+			states: {
+				'default:type': 'default',
+				'primary:type': 'primary',
+				'info:type': 'info',
+				'success:type': 'success',
+				'warning:type': 'warning',
+				'danger:type': 'danger',
+				'dark:type': 'dark'
+			},
+			$content: {
+				text: 'Нажмите на кнопку для смены темы оформления',
+				height: 'auto'
+			},
+			$footer: {
+				autoRender: true,
+				$buttons: {
+					layout: 'bar',
+					cls: 'bar-right',
+					defaultItem: {
+						etype: 'button',
+						onClick: function() {
+							this.events.rise('changeTheme', {theme: this.opt('text')});
+						}
+					},
+					items: [{
+						text: 'default'
+					}, {
+						text: 'primary'
+					}, {
+						text: 'info'
+					}, {
+						text: 'success'
+					}, {
+						text: 'warning'
+					}, {
+						text: 'danger'
+					}, {
+						text: 'dark'
+					}]
+				}
+			},
+
+			onChangeTheme: function(e) {
+
+				this.states.set(e.theme);
+				this.header.buttons.item(0).states.set(e.theme);
+
+			}
+
+
+		});
+
 		dlg.open();
 
 
