@@ -50,7 +50,7 @@ var DialogX = Dialog.extend({
 				},
 				items: [{
 					icon: 'fa-close',
-					state: 'line tiny', // конка должна принципиально иметь размер tiny
+					state: 'contextual', // конка должна принципиально иметь размер tiny
 					name: 'cancel'
 				}]
 			}
@@ -98,6 +98,9 @@ $.ergo({
 	}, {
 		text: 'Типы диалогов',
 		name: 'dialog7'
+	}, {
+		text: 'Анимация',
+		name: 'dialog8'
 	}],
 
 
@@ -189,7 +192,7 @@ $.ergo({
 					},
 					items: [{
 						icon: 'fa-close',
-						state: 'line tiny', // конка должна принципиально иметь размер tiny
+						state: 'contextual', // конка должна принципиально иметь размер tiny
 						name: 'cancel'
 					}]
 				}
@@ -335,8 +338,9 @@ $.ergo({
 			$footer: {
 				autoRender: true,
 				$buttons: {
-					layout: 'bar',
-					cls: 'bar-right',
+					etype: 'tool-bar',
+//					layout: 'bar',
+					cls: 'fluid-right sz-normal',
 					defaultItem: {
 						etype: 'button',
 						onClick: function() {
@@ -373,6 +377,28 @@ $.ergo({
 
 		dlg.open();
 
+
+	},
+
+
+
+	onDialog8: function() {
+
+		var dlg = new DialogX({
+			cls: 'simple animated',
+			title: 'Диалог',
+			$content: {
+				text: 'Сюда будет загружен HTML',
+				height: 'auto'
+			}
+		});
+
+		dlg.show = function() {
+			this.el.show();
+			return $.when( this.states.set('fadeInDown') );
+		};
+
+		dlg.open();
 
 	}
 
