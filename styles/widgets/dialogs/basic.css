@@ -63,17 +63,16 @@
 }
 
 
-.btn.contextual {
-  color: #000;
-  opacity: 0.2;
-  text-shadow: 0 1px 0 #fff;
-  background: none;
-  border: none;
+
+.sz-large .tool-bar > .icon {
+  padding: 10px 0;
 }
 
-.btn.contextual:hover, .btn.contextual:active {
-  color: #000;
-  opacity: 0.5;
-  background: none;
-  box-shadow: none;
+
+
+
+
+
+.anim-600 {
+  animation-duration: 0.6s;
 }

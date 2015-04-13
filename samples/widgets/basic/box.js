@@ -13,3 +13,33 @@ var w2 = $.ergo({
 });
 
 w2.render('#sample');
+
+
+
+w = $.ergo({
+	etype: 'box',
+	layout: 'bar',
+	cls: 'rect',
+	defaultItem: {
+		cls: 'box'
+	},
+	items: [{
+		cls: 'sz-large',
+		text: 'sz-large'
+	}, {
+		cls: 'sz-normal',
+		text: 'sz-normal'
+	}, {
+		cls: 'sz-small',
+		text: 'sz-small'
+	}, {
+		cls: 'sz-tiny',
+		text: 'sz-tiny'
+	}, {
+		text: 'default'
+	}]
+});
+
+w.render('#sample');
+
+

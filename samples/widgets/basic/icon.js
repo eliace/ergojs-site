@@ -31,10 +31,14 @@ var icons = [
 ];
 
 
+$context.section('Простые иконки');
+
+
 $.ergo({
 	etype: 'box',
 	layout: 'bar',
 	renderTo: '#sample',
+	cls: 'box',
 	defaultItem: {
 		etype: 'icon'
 	},
@@ -42,9 +46,13 @@ $.ergo({
 });
 
 
+$context.section('Круглые иконки');
+
+
 $.ergo({
 	etype: 'box',
 	layout: 'bar',
+	cls: 'box',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'icon',
@@ -54,3 +62,30 @@ $.ergo({
 });
 
 
+
+
+$context.section('Контекстные иконки');
+
+
+$.ergo({
+	etype: 'box',
+	renderTo: '#sample',
+	defaultItem: {
+		layout: 'bar',
+		cls: 'box',
+		defaultItem: {
+			etype: 'icon',
+			cls: 'contextual'
+		},
+		items: icons
+	},
+	items: [
+		{cls: 'default'},
+		{cls: 'primary'},
+		{cls: 'info'},
+		{cls: 'success'},
+		{cls: 'warning'},
+		{cls: 'danger'}
+	]
+
+});

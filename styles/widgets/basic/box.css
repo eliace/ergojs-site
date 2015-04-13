@@ -1,3 +1,31 @@
 a {
 	
 }
+
+.rect {
+	background-color: #eee;
+	padding: 8px;
+}
+
+
+.rect > div {
+	background-color: #ccc;
+}
+
+
+
+.box.sz-large {
+	padding: 16px;
+}
+
+.box.sz-normal {
+	padding: 8px;
+}
+
+.box.sz-small {
+	padding: 4px;
+}
+
+.box.sz-tiny {
+	padding: 2px;
+}

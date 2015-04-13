@@ -181,18 +181,20 @@ $.ergo({
 			cls: 'simple',
 			title: 'Диалог',
 			$header: {
+				cls: 'sz-large',
 				$buttons: {
 					etype: 'tool-bar',
 					cls: 'fluid-right',
 					defaultItem: {
-						etype: 'icon-button',
+						etype: 'icon',
+						cls: 'contextual action-icon',
 						onClick: function(e) {
 							this.events.rise(this.opt('name'));
 						}
 					},
 					items: [{
 						icon: 'fa-close',
-						state: 'contextual', // конка должна принципиально иметь размер tiny
+//						state: 'contextual', // конка должна принципиально иметь размер tiny
 						name: 'cancel'
 					}]
 				}
@@ -385,17 +387,31 @@ $.ergo({
 	onDialog8: function() {
 
 		var dlg = new DialogX({
-			cls: 'simple animated',
+			cls: 'simple animated anim-600',
 			title: 'Диалог',
 			$content: {
 				text: 'Сюда будет загружен HTML',
 				height: 'auto'
+			},
+			$overlay: {
+				mixins: ['effects'],
+				effects: {
+					'show': {type: 'fadeIn', delay: 100},
+					'hide': {type: 'fadeOut', delay: 100}
+				}
 			}
 		});
 
 		dlg.show = function() {
 			this.el.show();
 			return $.when( this.states.set('fadeInDown') );
+		};
+
+		dlg.hide = function() {
+			this.states.set('fadeOutUp');
+			var deferred = $.Deferred();
+			setTimeout(function(){ deferred.resolve() }, 400);
+			return deferred;
 		};
 
 		dlg.open();
