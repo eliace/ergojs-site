@@ -2,16 +2,17 @@ a {
 	
 }
 
-.rect {
+.region {
 	background-color: #eee;
-	padding: 8px;
+/*	padding: 8px;*/
 }
 
 
+/*
 .rect > div {
 	background-color: #ccc;
 }
-
+*/
 
 
 .box.sz-large {
@@ -28,4 +29,46 @@ a {
 
 .box.sz-tiny {
 	padding: 2px;
+}
+
+
+
+
+.tools > * {
+	margin-right: 8px;
+}
+
+
+.tools > span, .tools > .link, .tools > .icon {
+  line-height: 1.42857;
+  margin-top: 8px;	
+  margin-bottom: 8px;
+}
+
+
+.tools.sz-large > span, .tools.sz-large > .link, .tools.sz-large > .icon {
+  font-size: 18px;
+  line-height: 1.33;
+  margin-top: 12px;	
+  margin-bottom: 12px;
+}
+
+
+.tools.sz-large > .text-box {
+/*	margin-top: 6px;
+	margin-bottom: 6px;*/
+}
+
+
+.tools.sz-small > span, .tools.sz-small > .link, .tools.sz-small > .icon {
+  font-size: 12px;
+  line-height: 1.5;	
+  margin-top: 7px;	
+  margin-bottom: 7px;
+}
+
+.tools.sz-small .text-box input {
+  font-size: 12px;
+  line-height: 1.5;
+  height: 32px;	
 }

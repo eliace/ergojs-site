@@ -16,10 +16,12 @@ w2.render('#sample');
 
 
 
+
+
 w = $.ergo({
 	etype: 'box',
 	layout: 'bar',
-	cls: 'rect',
+	cls: 'region',
 	defaultItem: {
 		cls: 'box'
 	},
@@ -43,3 +45,36 @@ w = $.ergo({
 w.render('#sample');
 
 
+
+
+$context.section('Панель инструментов');
+
+
+w = $.ergo({
+	etype: 'box',
+	layout: 'stack',
+	renderTo: '#sample',
+	defaultItem: {
+		layout: 'fluid',
+		cls: 'tools region',
+		items: [
+			{etype: 'text', text: 'Text'}, 
+			{etype: 'button', text: 'Button'}, 
+			{etype: 'link', text: 'Link'}, 
+			{etype: 'icon', state: 'fa fa-cog'},
+			{etype: 'text-box', width: 100},
+			{etype: 'select-box', width: 100}
+		]		
+	},
+	items: [{
+	}, {
+		cls: 'sz-large',
+		items: [{}, {state: 'large'}]
+	}, {
+		cls: 'sz-small',
+		items: [{}, {state: 'small'}]
+	}, {
+		cls: 'sz-tiny',
+		items: [{}, {state: 'tiny'}]
+	}]
+});
