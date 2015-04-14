@@ -26,19 +26,17 @@ w = $.ergo({
 		cls: 'box'
 	},
 	items: [{
-		cls: 'sz-large',
-		text: 'sz-large'
+		cls: 'box-large',
+		text: 'box-large'
 	}, {
-		cls: 'sz-normal',
-		text: 'sz-normal'
+		cls: 'box-default',
+		text: 'box-default'
 	}, {
-		cls: 'sz-small',
-		text: 'sz-small'
+		cls: 'box-small',
+		text: 'box-small'
 	}, {
-		cls: 'sz-tiny',
-		text: 'sz-tiny'
-	}, {
-		text: 'default'
+		cls: 'box-tiny',
+		text: 'box-tiny'
 	}]
 });
 
@@ -56,7 +54,7 @@ w = $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 		layout: 'fluid',
-		cls: 'tools region',
+		cls: 'tools region box-default',
 		items: [
 			{etype: 'text', text: 'Text'}, 
 			{etype: 'button', text: 'Button'}, 
@@ -67,9 +65,10 @@ w = $.ergo({
 		]		
 	},
 	items: [{
-	}, {
 		cls: 'sz-large',
 		items: [{}, {state: 'large'}]
+	}, {
+		// default
 	}, {
 		cls: 'sz-small',
 		items: [{}, {state: 'small'}]

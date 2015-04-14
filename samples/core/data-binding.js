@@ -13,7 +13,7 @@ var data = {
 };
 
 
-$context.alert('Иерархическое связывание с данными с использованием простых и составных ключей');
+$context.section('Иерархическое связывание с данными с использованием простых и составных ключей');
 
 
 var w = $.ergo({
@@ -59,3 +59,38 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
+
+
+
+var w = $.ergo({
+	etype: 'box',
+	data: {qty: 1, cost: 2},
+	layout: 'stack',
+	items: [{
+		etype: 'html:text-input',
+		type: 'number',
+		dataId: 'qty'
+	}, {
+		etype: 'html:text-input',
+		type: 'number',
+		dataId: 'cost'
+	}, {
+		$label: {
+			etype: 'html:b',
+			text: 'Total: '
+		},
+		$content: {
+			etype: '&text',
+			binding: function(v) {
+				this.opt('text', '$' + (v.qty * v.cost));
+			}
+		}
+	}]
+
+});
+
+
+w.render('#sample');
+
+

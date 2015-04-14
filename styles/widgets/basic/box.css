@@ -15,19 +15,19 @@ a {
 */
 
 
-.box.sz-large {
+.box-large {
 	padding: 16px;
 }
 
-.box.sz-normal {
+.box-default {
 	padding: 8px;
 }
 
-.box.sz-small {
+.box-small {
 	padding: 4px;
 }
 
-.box.sz-tiny {
+.box-tiny {
 	padding: 2px;
 }
 
@@ -54,9 +54,10 @@ a {
 }
 
 
-.tools.sz-large > .text-box {
-/*	margin-top: 6px;
-	margin-bottom: 6px;*/
+.tools.sz-large > .text-box input {
+  font-size: 18px;
+  line-height: 1.33;
+  height: 46px;
 }
 
 
@@ -71,4 +72,19 @@ a {
   font-size: 12px;
   line-height: 1.5;
   height: 32px;	
+}
+
+
+.tools.sz-tiny > span, .tools.sz-tiny > .link, .tools.sz-tiny > .icon {
+  font-size: 12px;
+  line-height: 1.5; 
+  margin-top: 3px;  
+  margin-bottom: 3px;
+}
+
+
+.tools.sz-tiny .text-box input {
+  font-size: 12px;
+  line-height: 1.5;
+  height: 24px; 
 }
