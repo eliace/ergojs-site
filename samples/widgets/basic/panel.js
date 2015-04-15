@@ -19,8 +19,8 @@ var w = $.ergo({
 //		width: '60%',
 		$footer: {
 			autoRender: true,
-			etype: 'tool-bar',
-			state: 'right',
+			layout: 'hbox',
+			cls: 'align-right box-medium',  // выравниваем элементы + отступ
 			$buttons: {
 				layout: 'bar',
 				defaultItem: {
@@ -40,8 +40,10 @@ var w = $.ergo({
 //		width: '60%',
 		$footer: {
 			autoRender: true,
-			etype: 'tool-bar',
-			state: 'center',
+			layout: 'bar',
+//			etype: 'tool-bar',
+//			state: 'center',
+			cls: 'align-center box-medium',  // выравниваем элементы + отступ
 			$buttons: {
 				layout: 'bar',
 				defaultItem: {
@@ -79,6 +81,7 @@ $.ergo({
 		title: 'Демо',
 		cls: 'widget default',
 		$header: {
+			cls: 'box-medium',
 			$toolbar: {
 				etype: 'tool-bar',
 				items: [{
@@ -100,21 +103,24 @@ $.ergo({
 		cls: 'widget default',
 		$header: {
 			$title: {
-				state: 'tiny'
+				cls: 'tiny'
 			},
 			$toolbar: {
 				etype: 'tool-bar',
+				cls: 'tiny',
 				items: [{
 					etype: 'button-box',
 					defaultItem: {
-						size: 'tiny'
+						cls: 'tool-item'
 					},
+//					cls: 'tools-tiny',
 					items: ['Добавить', 'Удалить', 'Редактировать']
 				}, {
 					layout: 'hbox',
+//					cls: 'tools-tiny',
 					defaultItem: {
 						etype: 'icon-button',
-						state: 'tiny line'
+						state: 'line tool-item'
 					},
 					items: ['fa-chevron-up', {
 						etype: 'dropdown-button',
@@ -134,9 +140,8 @@ $.ergo({
 								// this.parent.states.toggle('opened');
 							// }
 						// },
-						$dropdown: {
-							items: ['Настройки', 'Размер']
-						}
+						$dropdown_items: ['Настройки', 'Размер']
+
 					}, 'fa-close']
 				}]
 			}
@@ -147,8 +152,9 @@ $.ergo({
 		},
 		$footer: {
 			autoRender: true,
-			etype: 'tool-bar',
-			state: 'right',
+//			etype: 'tool-bar',
+			layout: 'hbox',
+			cls: 'align-right box-medium',
 			$buttons: {
 				layout: 'bar',
 				defaultItem: {

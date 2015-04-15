@@ -1,10 +1,15 @@
-a {
-	
-}
 
 .region {
 	background-color: #eee;
-/*	padding: 8px;*/
+	padding: 8px;
+}
+
+.region > * {
+  margin-right: 8px;
+}
+
+.region > .box {
+  background-color: #ccc;
 }
 
 
@@ -15,76 +20,5 @@ a {
 */
 
 
-.box-large {
-	padding: 16px;
-}
-
-.box-default {
-	padding: 8px;
-}
-
-.box-small {
-	padding: 4px;
-}
-
-.box-tiny {
-	padding: 2px;
-}
 
 
-
-
-.tools > * {
-	margin-right: 8px;
-}
-
-
-.tools > span, .tools > .link, .tools > .icon {
-  line-height: 1.42857;
-  margin-top: 8px;	
-  margin-bottom: 8px;
-}
-
-
-.tools.sz-large > span, .tools.sz-large > .link, .tools.sz-large > .icon {
-  font-size: 18px;
-  line-height: 1.33;
-  margin-top: 12px;	
-  margin-bottom: 12px;
-}
-
-
-.tools.sz-large > .text-box input {
-  font-size: 18px;
-  line-height: 1.33;
-  height: 46px;
-}
-
-
-.tools.sz-small > span, .tools.sz-small > .link, .tools.sz-small > .icon {
-  font-size: 12px;
-  line-height: 1.5;	
-  margin-top: 7px;	
-  margin-bottom: 7px;
-}
-
-.tools.sz-small .text-box input {
-  font-size: 12px;
-  line-height: 1.5;
-  height: 32px;	
-}
-
-
-.tools.sz-tiny > span, .tools.sz-tiny > .link, .tools.sz-tiny > .icon {
-  font-size: 12px;
-  line-height: 1.5; 
-  margin-top: 3px;  
-  margin-bottom: 3px;
-}
-
-
-.tools.sz-tiny .text-box input {
-  font-size: 12px;
-  line-height: 1.5;
-  height: 24px; 
-}

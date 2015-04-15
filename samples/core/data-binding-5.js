@@ -1,4 +1,8 @@
 
+$context.section('Простое связывание');
+
+
+
 var w = $.ergo({
 	etype: 'box',
 	
@@ -25,7 +29,15 @@ var w = $.ergo({
 			}			
 		}
 	}, {
-		etype: 'text'
+		etype: 'text',
+		$title: {
+			etype: 'html:b',
+			text: 'Данные: '
+		},
+		$content: {
+			etype: '&text',
+			binding: 'text'
+		}
 	}]
 	
 	
@@ -34,3 +46,42 @@ var w = $.ergo({
 $context.alert('Введенный текст изменяет содержимое источника данных, который обновляет текст другого связанного с ним виджета.');
 
 w.render('#sample');
+
+
+
+$context.section('Уведомление родительских источников данных');
+
+
+var w = $.ergo({
+	etype: 'box',
+	data: {qty: 1, cost: 2},
+	layout: 'form',
+	items: [{
+		etype: 'html:text-input',
+		type: 'number',
+		dataId: 'qty',
+		label: 'Количество'
+	}, {
+		etype: 'html:text-input',
+		type: 'number',
+		dataId: 'cost',
+		label: 'Цена'
+	}, {
+		$label: {
+			etype: 'html:b',
+			text: 'Итог: '
+		},
+		$content: {
+			etype: '&text',
+			binding: function(v) {
+				this.opt('text', '$' + (v.qty * v.cost));
+			}
+		}
+	}]
+
+});
+
+
+w.render('#sample');
+
+

@@ -1,4 +1,23 @@
 
+
+$context.section('Элемент с текстом (text)');
+
+
+var w = $.ergo({
+	etype: 'box',
+	defaultItem: {
+		etype: '&text'
+	},
+	items: ['В этом тексте есть ', {etype: 'text', text: 'особенная строчка', style: {'color': '#ccc'}}, ', которая обернута тегом <span>']
+});
+
+w.render('#sample');
+
+
+
+$context.section('Простой текст (&text)');
+
+
 var w = $.ergo({
 	etype: 'box',
 	components: {

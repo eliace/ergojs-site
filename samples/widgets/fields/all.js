@@ -38,7 +38,7 @@ var w = $.ergo({
 				},
 				onClick: function(e) {
 					this.parent.states.toggle('opened');
-					e.baseEvent.stopPropagation();
+					e.base.stopPropagation();
 				}
 			},
 			dropdown: {
@@ -111,7 +111,7 @@ var w = $.ergo({
 //				etype: 'html:span'
 				onClick: function(e) {
 					this.parent.states.toggle('opened');
-					e.baseEvent.stopPropagation();
+					e.base.stopPropagation();
 				}
 			},
 			addon: {
@@ -124,7 +124,7 @@ var w = $.ergo({
 				},
 				onClick: function(e) {
 					this.parent.states.toggle('opened');
-					e.baseEvent.stopPropagation();
+					e.base.stopPropagation();
 				}
 			},
 			dropdown: {

@@ -16,6 +16,7 @@ w2.render('#sample');
 
 
 
+$context.section('Размеры отступов');
 
 
 w = $.ergo({
@@ -29,8 +30,8 @@ w = $.ergo({
 		cls: 'box-large',
 		text: 'box-large'
 	}, {
-		cls: 'box-default',
-		text: 'box-default'
+		cls: 'box-medium',
+		text: 'box-medium'
 	}, {
 		cls: 'box-small',
 		text: 'box-small'
@@ -45,7 +46,7 @@ w.render('#sample');
 
 
 
-$context.section('Панель инструментов');
+$context.section('Панель инструментов (Fluid)');
 
 
 w = $.ergo({
@@ -54,7 +55,10 @@ w = $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 		layout: 'fluid',
-		cls: 'tools region box-default',
+		cls: 'region box-default',
+		defaultItem: {
+			cls: 'tool-item'
+		},
 		items: [
 			{etype: 'text', text: 'Text'}, 
 			{etype: 'button', text: 'Button'}, 
@@ -65,15 +69,15 @@ w = $.ergo({
 		]		
 	},
 	items: [{
-		cls: 'sz-large',
+		cls: 'large',
 		items: [{}, {state: 'large'}]
 	}, {
 		// default
 	}, {
-		cls: 'sz-small',
+		cls: 'small',
 		items: [{}, {state: 'small'}]
 	}, {
-		cls: 'sz-tiny',
+		cls: 'tiny',
 		items: [{}, {state: 'tiny'}]
 	}]
 });
