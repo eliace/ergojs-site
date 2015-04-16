@@ -3,9 +3,8 @@
 //-----------------------------------------------------
 // Страница примеров
 //-----------------------------------------------------
-$context.scope('main', function(ctx) {
+$context.scope('main', function($scope) {
 
-	var $scope = this;
 
 	var menu = $scope.widget('menu', {
 
@@ -59,7 +58,7 @@ $context.scope('main', function(ctx) {
 			}
 		},
 
-		data: ctx.data('examples'),
+		data: $context.data('examples'),
 //		dataId: '@examples',
 		dynamic: true,
 		
@@ -77,13 +76,13 @@ $context.scope('main', function(ctx) {
 
 
 
-			ctx.data('sample', {
+			$context.data('sample', {
 				name: v.name,
 				title: v.title,
 				section: e.selection.data.source.source.get('title')				
 			});
 
-			ctx.join('sample:show');
+			$context.join('sample:show');
 
 //			console.log(v);
 //			load_sample(v.name, v.title, e.selection.data.source.source.get('title'));			

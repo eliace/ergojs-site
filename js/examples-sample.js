@@ -5,11 +5,9 @@
 //----------------------------------------------------------------
 // Скоуп загружаемого примера
 //----------------------------------------------------------------
-$context.scope('sample:show', function(ctx) {
+$context.scope('sample:show', function($scope) {
 
-	var $scope = this;
-
-	var sample = ctx.data('sample');
+	var sample = $context.data('sample');
 
 	var w;
 
@@ -115,7 +113,6 @@ $context.scope('sample:show', function(ctx) {
 	w = $scope.widget('samplePanel', w);
 	
 	w.render('#samples');
-
 
 
 });

@@ -233,6 +233,9 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				name: 'widgets/trees/checkboxes'
 			}, {
 				title: 'Фильтрация'
+			}, {
+				title: 'Редактирование',
+				name: 'widgets/trees/edit'
 			}]
 		}, {
 			title: 'Диалоги',
