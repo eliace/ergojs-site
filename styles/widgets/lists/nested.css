@@ -1,0 +1,39 @@
+
+.tree-list, .tree-list ul {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+.tree-list ul {
+	display: block;
+}
+
+.tree-list .list-item > span {
+	border-bottom: 1px solid #ccc;
+}
+
+.tree-list .list-item > span img {
+	border-radius: 4px;
+}
+
+
+.tree-list .list-item > span .icon {
+	color: #aaa;
+}
+
+.list-item .email {
+	font-size: 11px;
+	color: #888;
+	display: block;
+}
+
+/*
+.list-item > span:hover .icon {
+	color: #0a80cb;
+}
+*/
+
+.tree-list.hovered li > span:hover {
+	background-color: #fffff0;	
+}

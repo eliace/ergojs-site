@@ -31,6 +31,7 @@ var w = $.ergo({
 			},
 			checker: {
 				etype: 'check',
+				cls: 'before',
 				weight: -20,
 				autoBind: false,
 				onAction: function() {

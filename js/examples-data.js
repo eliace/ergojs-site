@@ -217,6 +217,25 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				name: 'widgets/grids/1500'
 			}]
 		}, {
+			title: 'Списки',
+			icon: 'fa-list',
+			children: [{
+				title: 'Древовидный',
+				name: 'widgets/lists/nested'
+			}, {
+				title: 'Media',
+				name: 'widgets/lists/media'
+			}, {
+				title: "Item List",
+				name: 'widgets/lists/lists'
+			}, {
+				title: "Dynamic List",
+				name: 'widgets/lists/dynamic-list'
+			}, {
+				title: "Detail List",
+				name: 'widgets/lists/detail-list'
+			}]
+		}, {
 			title: 'Деревья',
 			icon: 'fa-sitemap',
 			children: [{
@@ -305,9 +324,6 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				title: 'Tags & Badges',
 				name: 'widgets/other/tags_badges'
 			}, {
-				title: 'Media',
-				name: 'widgets/other/media'
-			}, {
 				title: 'Фильтрация',
 				name: 'widgets/other/filter'
 			}, {
@@ -316,15 +332,6 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 			}, {
 				title: "Drag'n'Drop",
 				name: 'widgets/other/drag_n_drop'
-			}, {
-				title: "Списки",
-				name: 'widgets/other/lists'
-			}, {
-				title: "Dynamic List",
-				name: 'widgets/other/dynamic-list'
-			}, {
-				title: "Detail List",
-				name: 'widgets/other/detail-list'
 			}, {
 				title: "Галерея",
 				name: 'widgets/other/gallery'

@@ -717,7 +717,7 @@ header:after, footer:after, .navigation:after, .tool-bar:after {
 
 
 .tree li > i {
-	padding-right: 5px;
+	margin-right: 5px;
 	cursor: default;
 }
 
@@ -2984,11 +2984,12 @@ table.widget thead {
 
 [layout="form"] > div > label {
 	font-weight: bold;
-	width: 100px;
+/*	width: 100px;*/
 	text-align: left;
 	padding-left: 5px;
 	display: block;
 }
+
 
 
 
@@ -3128,6 +3129,18 @@ table.widget thead {
 	vertical-align: middle;
 }
 
+
+[layout="column"] > *.align-top {
+	vertical-align: top;
+}
+
+[layout="column"] > *.align-middle {
+	vertical-align: middle;
+}
+
+[layout="column"] > *.align-bottom {
+	vertical-align: bottom;
+}
 
 
 
