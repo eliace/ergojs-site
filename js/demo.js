@@ -14,7 +14,7 @@ $(document).ready(function(){
 			$content: {
 				$menu: {
 					etype: 'menu-bar',
-					mixins: ['selectable'],
+					include: 'selectable',
 					defaultItem: {
 						onClick: function() {
 							$context.states.set(this._name);

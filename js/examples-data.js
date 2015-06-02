@@ -4,7 +4,7 @@ var LOREMIPSUM_2 = 'Donec elementum convallis lacus, nec accumsan arcu placerat 
 var LOREMIPSUM_3 = 'Praesent dapibus nunc id quam pellentesque sagittis. Nam scelerisque ut dui in cursus. Morbi fringilla, tellus nec finibus rutrum, ex purus posuere tortor, vitae sodales mi ipsum eu ipsum. Aenean et tristique ex. Vestibulum non tellus id augue dapibus malesuada nec sit amet nisi. Maecenas sed velit vel enim maximus interdum ac nec lectus. In et ante ullamcorper felis sagittis tincidunt eu et magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam vulputate consectetur mauris nec ultricies. Mauris accumsan quam ut dolor porta placerat. Nulla lobortis viverra enim et ornare. Maecenas ullamcorper dignissim odio ut eleifend. Quisque bibendum ornare libero id hendrerit. ';
 var LOREMIPSUM_4 = 'Aliquam erat volutpat. Vivamus eu leo odio. Sed a massa ac sem condimentum rhoncus vel at risus. Integer tincidunt ultricies risus sed luctus. Vestibulum tincidunt dolor a ante consectetur interdum. Sed ut sapien bibendum, congue turpis non, convallis diam. Aliquam mollis, quam non interdum egestas, libero lectus lobortis mauris, vitae tempor nibh diam nec nisi. Sed dolor nulla, molestie nec neque eget, venenatis tristique leo. Phasellus non scelerisque eros, non blandit metus. ';
 var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis vel tellus ligula. Fusce posuere venenatis tellus, vitae tempor lacus pellentesque ac. Proin sit amet pretium lorem. Cras in commodo sem. Proin dolor mi, lacinia nec lectus et, volutpat dapibus arcu. Proin accumsan tortor varius mi feugiat, nec sodales metus lacinia. Duis euismod sollicitudin maximus. Fusce ut lectus libero. Aenean lobortis interdum justo, at fringilla metus ultricies vel. Sed at massa tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam at iaculis nisl. Cras sit amet molestie augue. Donec convallis malesuada sem, nec mollis risus faucibus at. ';
-
+var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi vitae erat quam. Sed purus ex, tristique vel tristique id, bibendum et purus. Nunc commodo ipsum vitae viverra imperdiet. Praesent consequat, nibh vel rhoncus ultrices, mauris nibh efficitur mauris, a efficitur lectus nisl eget mauris. Aliquam tempus pellentesque elit at iaculis. Ut non leo elit. Donec sed egestas ipsum, a fermentum erat. Suspendisse non vulputate felis, eu dapibus nulla. Aliquam magna arcu, dapibus sed fermentum eu, semper quis lectus. Quisque pretium finibus ex. Praesent pretium nulla vel ante commodo, elementum condimentum arcu rutrum. ';
 	
 	
 	var EXAMPLES = [{
@@ -14,34 +14,46 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 			icon: 'fa-cog',
 			children: [{
 				title: 'Параметры (опции)',
-				name: 'core/object'
+				name: 'core/object/options'
 			}, {
 				title: 'Наследование',
-				name: 'core/object-2'
+				name: 'core/object/inheritance'
+			}, {
+				title: 'Перегрузка',
+				name: 'core/object/overrides'
 			}, {
 				title: 'Примеси',
-				name: 'core/object-3'
+				name: 'core/object/mixins'
+			}, {
+				title: 'События',
+				name: 'core/object/events'
 			}, {
 				title: 'Пространства имен',
-				name: 'core/object-4'
+				name: 'core/object/namespaces'
 			}]
 		}, {
 			title: 'Виджет',
 			icon: 'fa-code',
 			children: [{
 				title: 'Параметры (опции)',
-				name: 'core/widget'
+				name: 'core/widget/options'
 			}, {
-				title: 'Иерархия',
-				name: 'core/widget-2'				
+				title: 'Компоненты',
+				name: 'core/widget/items'
 			}, {
-				title: 'HTML',
-				name: 'core/widget-3'
+				title: 'Компоновка',
+				name: 'core/widget/layout'
 			}, {
 				title: 'Отрисовка',
-				name: 'core/widget-rendering'
+				name: 'core/widget/render'
+			}, {
+				title: 'Состояния',
+				name: 'core/widget/states'
+			}, {
+				title: 'Данные',
+				name: 'core/widget/data'
 			}]
-		}, {
+		}/*, {
 			title: 'Элементы и компоненты',
 			icon: 'fa-cubes',
 			children: [{
@@ -115,7 +127,7 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				title: 'Группировка',
 				name: 'core/states-groups'
 			}]
-		}]
+		}*/]
 	}, {
 		title: 'Виджеты',
 		children: [{
@@ -131,11 +143,26 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				title: 'Кнопка',			
 				name: 'widgets/basic/button'
 			}, {
-				title: 'Ссылка',
-				name: 'widgets/basic/link'
+				title: 'Разделитель',
+				name: 'widgets/basic/divider'
 			}, {
 				title: 'Список',
 				name: 'widgets/basic/list'
+			}, {
+				title: 'Заголовок',
+				name: 'widgets/basic/header'
+			}, {
+				title: 'Изображение',
+				name: 'widgets/basic/image'
+			}, {
+				title: 'Метка',
+				name: 'widgets/basic/label'
+			}, {
+				title: 'Загрузчик',
+				name: 'widgets/basic/loader'
+			}, {
+				title: 'Шаги',
+				name: 'widgets/basic/steps'
 			}, {
 				title: 'Панель',
 				name: 'widgets/basic/panel'
@@ -150,64 +177,51 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				name: 'widgets/basic/tree'
 			}]
 		}, {
-			title: 'Поля',
+			title: 'Формы',
 			icon: 'fa-edit',
 			children: [{
-				title: 'Типы полей',
-				name: 'widgets/fields/all'
+				title: 'Input',
+				name: 'widgets/fields/input'
 			}, {
-				title: 'SelectBox',
-				name: 'widgets/fields/select-box'
+				title: 'Select',
+				name: 'widgets/fields/select'
 			}, {
-				title: 'ComboBox',
-				name: 'widgets/fields/combo-box'
+				title: 'Combo',
+				name: 'widgets/fields/combo'
 			}, {
-				title: 'RadioBox',
-				name: 'widgets/fields/radio-box'
+				title: 'Checkbox',
+				name: 'widgets/fields/checkbox'
 			}, {
-				title: 'CheckBox',
-				name: 'widgets/fields/check-box'
+				title: 'Number',
+				name: 'widgets/fields/number'
 			}, {
-				title: 'NumberBox',
-				name: 'widgets/fields/number-box'
+				title: 'Slider',
+				name: 'widgets/fields/slider'
 			}]
 		}, {
 			title: 'Таблицы',
 			icon: 'fa-table',
 			children: [{
-				title: 'Параметры',
+				title: 'Основы',
 				name: 'widgets/grids/basic'
 			}, {
-				title: 'Ajax',
-				name: 'widgets/grids/ajax'
+				title: 'Данные',
+				name: 'widgets/grids/data'
+			}, {
+				title: 'Колонки',
+				name: 'widgets/grids/columns'
 			}, {
 				title: 'Постраничный вывод',
 				name: 'widgets/grids/pagination'
 			}, {
-				title: 'Отключение колонок',
-				name: 'widgets/grids/columns'
-			}, {
-				title: 'Ширина колонок',
-				name: 'widgets/grids/resize'
-			}, {
-				title: 'Меню',
-				name: 'widgets/grids/headers'
-			}, {
 				title: 'Сортировка',
 				name: 'widgets/grids/sort'
-			}, {
-				title: 'Чекбоксы',
-				name: 'widgets/grids/checkboxes'
-			}, {
-				title: 'Фильтрация'
 			}, {
 				title: 'Группировка',
 				name: 'widgets/grids/group'
 			}, {
-				title: 'Редактирование'
-			}, {
 				title: 'Таблица-Список',
-				name: 'widgets/grids/list-grid'
+				name: 'widgets/grids/list'
 			}/*, {
 				title: 'Таблица-Дерево'
 			}, {
@@ -227,27 +241,27 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				name: 'widgets/lists/media'
 			}, {
 				title: "Item List",
-				name: 'widgets/lists/lists'
+				name: 'widgets/lists/itembox'
 			}, {
 				title: "Dynamic List",
-				name: 'widgets/lists/dynamic-list'
+				name: 'widgets/lists/dynamic'
 			}, {
 				title: "Detail List",
-				name: 'widgets/lists/detail-list'
+				name: 'widgets/lists/detail'
 			}]
 		}, {
 			title: 'Деревья',
 			icon: 'fa-sitemap',
 			children: [{
-				title: 'Параметры',
+				title: 'Основы',
 				name: 'widgets/trees/basic'
 			}, {
 				title: 'Ajax',
-				name: 'widgets/trees/ajax'
+				name: 'widgets/trees/data'
 			}, {
-				title: 'Пути',
-				name: 'widgets/trees/paths'
-			}, {
+				title: 'Расширения',
+				name: 'widgets/trees/ext'
+			}/*, {
 				title: 'Чекбоксы',
 				name: 'widgets/trees/checkboxes'
 			}, {
@@ -255,27 +269,27 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 			}, {
 				title: 'Редактирование',
 				name: 'widgets/trees/edit'
-			}]
+			}*/]
 		}, {
 			title: 'Диалоги',
 			icon: 'fa-list-alt',
 			children: [{
-				title: 'Параметры',
+				title: 'Основы',
 				name: 'widgets/dialogs/basic'
 			}, {
+				title: 'Лайтбокс',
+				name: 'widgets/dialogs/lightbox'
+			}/*, {
 				title: 'Модальный диалог',
 				name: 'widgets/dialogs/modal'
 			}, {
 				title: 'Пошаговый диалог',
 				name: 'widgets/dialogs/wizard'
 			}, {
-				title: 'Лайтбокс',
-				name: 'widgets/dialogs/lightbox'
-			}, {
 				title: 'Размеры'
 			}, {
 				title: 'Перемещение'
-			}]
+			}*/]
 		}, {
 			title: 'Приложение',
 			icon: 'fa-rocket',
@@ -289,21 +303,21 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				title: 'Pagination',
 				name: 'widgets/app/pagination'
 			}, {
-				title: 'Login',
-				name: 'widgets/app/login'
+				title: 'Views',
+				name: 'widgets/app/view'
 			}]
 		}, {
 			title: 'Меню',
 			icon: 'fa-bars',
 			children: [{
-				title: 'Навигационное меню',
-				name: 'widgets/menu/nav-menu'
+				title: 'Навигационное',
+				name: 'widgets/menu/nav'
 			}, {
-				title: 'Контекстное меню',
-				name: 'widgets/menu/context-menu'
+				title: 'Контекстное',
+				name: 'widgets/menu/context'
 			}, {
-				title: 'Боковое меню',
-				name: 'widgets/menu/side-menu'
+				title: 'Боковое',
+				name: 'widgets/menu/side'
 			}]			
 		}, {
 			title: 'Другое',
@@ -312,17 +326,11 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				title: 'Оповещения',
 				name: 'widgets/other/alert'
 			}, {
-				title: 'Wizard',
-				name: 'widgets/other/wizard'
-			}, {
 				title: 'Tabs',
 				name: 'widgets/other/tabs'
 			}, {
 				title: 'Growls',
 				name: 'widgets/other/growl'
-			}, {
-				title: 'Tags & Badges',
-				name: 'widgets/other/tags_badges'
 			}, {
 				title: 'Фильтрация',
 				name: 'widgets/other/filter'
@@ -331,17 +339,32 @@ var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis 
 				name: 'widgets/other/sort'
 			}, {
 				title: "Drag'n'Drop",
-				name: 'widgets/other/drag_n_drop'
+				name: 'widgets/other/dragndrop'
 			}, {
 				title: "Галерея",
 				name: 'widgets/other/gallery'
+			}, {
+				title: "Тест",
+				name: 'widgets/other/test'
+			}/*, {
+				title: 'Tags & Badges',
+				name: 'widgets/other/tags_badges'
+			}, {
+				title: 'Wizard',
+				name: 'widgets/other/wizard'
 			}, {
 				title: "MVC",
 				name: 'widgets/other/mvc'
 			}, {
 				title: '10000',
 				name: 'widgets/other/10000'
-			}]
+			}, {
+				title: 'test1',
+				name: 'widgets/other/test1'
+			}, {
+				title: 'test2',
+				name: 'widgets/other/test2'
+			}*/]
 		}]
 	}, {
 		title: 'Компоновки',

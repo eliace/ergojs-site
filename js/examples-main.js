@@ -10,7 +10,7 @@ $context.scope('main', function($scope) {
 
 		etype: 'box',
 		id: 'content-menu',
-		mixins: ['selectable'],
+		include: 'selectable',
 		defaultItem: {
 			layout: 'inherited',
 			autoRender: false,
@@ -62,7 +62,7 @@ $context.scope('main', function($scope) {
 //		dataId: '@examples',
 		dynamic: true,
 		
-		selector: function(key) {			
+		lookup: function(key) {			
 			var result = {};
 			this.items.each(function(item){
 				var w = item.content.find_path(key);
@@ -113,7 +113,6 @@ $context.scope('main', function($scope) {
 //	menu.bind();
 
 	menu.render('.page-content > aside');
-
 
 });
 

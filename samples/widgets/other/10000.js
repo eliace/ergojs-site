@@ -113,17 +113,17 @@ Ergo.defineClass('Ergo.test.Widget', 'Ergo.core.Object', {
 					
 					if(i.indexOf('ctx:') == 0) {
 						// EventBus
-						$context.events.reg(i.substr(4), callback, this);
+						$context.events.on(i.substr(4), callback, this);
 					}
 					else if(i.indexOf('jquery:') == 0) {
 						// jQuery
-//						Ergo.event_bus.reg(i.substring(7), callback, this);
+//						Ergo.event_bus.on(i.substring(7), callback, this);
 						self.el.on(i.substr(7), callback.rcurry(self).bind(this));						
 					}
 					else {
 						// TODO здесь должны добавляться обработчики событий виджета
 //						self.el.on(i, callback.rcurry(self));
-						self.events.reg(i, callback, this);						
+						self.events.on(i, callback, this);						
 					}
 				}
 			}

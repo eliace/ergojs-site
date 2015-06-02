@@ -1,0 +1,96 @@
+
+
+.steps {
+	counter-reset: steps;
+	display: inline-table;
+}
+
+
+
+.step-item {
+	padding: 16px;
+/*	padding-left: 48px;*/
+	position: relative;
+	color: #ddd;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.step-item + .step-item {
+	border-left: 1px solid #ccc;	
+}
+
+
+
+
+.step-item:before {
+	content: counters(steps, ".", decimal);
+	counter-increment: steps;
+	border-radius: 50%;
+	border: 2px solid #ddd;
+	width: 32px;
+	height: 32px;
+/*	display: inline-block;*/
+	display: table-cell;
+	vertical-align: middle;
+	position: static;
+/*	left: 8px;
+	top: 50%;
+	margin-top: -16px;*/
+	text-align: center;
+/*	line-height: 28px;*/
+/*	padding-right: 16px;
+	font-size: 1.5rem;*/
+	font-size: 1.0rem;
+}
+
+
+/*
+.step-item::after {
+	border: 2px solid #ddd;
+  border-radius: 50%;
+  content: "";
+  height: 32px;
+  left: 0;
+  margin-left: 8px;
+  margin-top: -16px;
+  position: absolute;
+  top: 50%;
+  vertical-align: middle;
+  width: 32px;	
+}
+*/
+
+.step-item > * {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 16px;
+}
+
+
+
+
+/*
+.step-item:after {
+	content: "";
+	border-right: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+*/
+
+.step-item.active {
+	color: #444;
+}
+
+.step-item.active:before {
+	border-color: #444;
+}
+
+
+
+.item-title {
+	font-weight: 700;
+	display: block;
+}

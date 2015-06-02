@@ -76,3 +76,7 @@
 .anim-600 {
   animation-duration: 0.6s;
 }
+
+.anim-300 {
+  animation-duration: 0.3s;
+}

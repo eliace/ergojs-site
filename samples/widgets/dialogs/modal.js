@@ -2,7 +2,8 @@
 var dialog1 = $.ergo({
 	etype: 'panel',
 	cls: 'modal widget dark',
-	mixins: ['modal', 'effects'],
+	mixins: ['modal'],
+	include: 'effects',
 	effects: {
 		show: {type: 'fadeIn', delay: 400}
 	},

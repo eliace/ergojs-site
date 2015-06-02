@@ -77,8 +77,8 @@ var w = $.ergo({
 						format: '#{title}'
 					},
 					$caret: {
-						etype: 'caret',
-						state: 'down'
+						etype: 'icon',
+						state: 'caret'
 					},
 					onClick: function(e) {
 						this.parent.subtree.open();
@@ -90,7 +90,8 @@ var w = $.ergo({
 					etype: 'nested-list',
 					dataId: 'children',
 					cls: 'dropdown-menu',
-					mixins: ['popup', 'effects'],
+					mixins: ['popup'],
+					include: 'effects',
 					popup: {
 						at: 'left bottom',
 						exclusive: true
@@ -298,7 +299,7 @@ var w = $.ergo({
 		items: [{
 			etype: 'list',
 			cls: 'nav-menu',
-			mixins: ['selectable'],
+			include: 'selectable',
 			data: data,
 			defaultItem: {
 				$content: {

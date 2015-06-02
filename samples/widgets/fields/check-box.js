@@ -13,7 +13,7 @@ var w = $.ergo({
 
 		layout: 'stack',
 		
-		mixins: ['selectable'],
+		include: 'selectable',
 		
 		$title: {
 			etype: 'html:legend',

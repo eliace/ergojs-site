@@ -11,12 +11,12 @@ var w = $.ergo({
 		
 		layout: 'stack',
 		
+		include: 'selectable',
+		
 		$title: {
 			etype: 'html:legend',
 			text: 'Выбор страны'
 		},
-		
-		mixins: ['selectable'],
 		
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
 	},

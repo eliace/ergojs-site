@@ -1,0 +1,89 @@
+
+
+
+.list.bulleted .list-item:before, ul.list.bulleted li:before {
+  color: rgba(0, 0, 0, 0.8);
+  content: "•";
+  left: auto;
+  margin-left: -16px;
+  opacity: 1;
+  position: absolute;
+  top: auto;
+  vertical-align: top;	
+  line-height: 16px;
+  font-size: 18px;
+}
+
+
+.list .list {
+	padding-left: 16px;
+}
+
+
+
+
+
+
+.list.ordered {
+	counter-reset: ordered;	
+}
+
+
+.list.ordered .list > .list-item:before, ol.list.ordered ol.list > li:before {
+	margin-left: -24px;
+}
+
+
+
+.list.ordered .list-item:before, ol.list.ordered li:before {
+  color: rgba(0, 0, 0, 0.8);
+  content: counters(ordered, ".", decimal) " ";
+  counter-increment: ordered;
+  left: auto;
+  margin-left: -16px;
+  opacity: 0.8;
+  position: absolute;
+  text-align: right;
+  top: auto;
+  vertical-align: middle;
+}
+
+
+/*
+.list > * {
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+*/
+
+
+.link {
+	color: #444;
+}
+
+.link:hover {
+	color: #428bca;
+}
+
+
+
+
+.item-title {
+	font-weight: 700;
+}
+
+.item-description {
+	color: #888;
+	font-size: 0.72rem;
+}
+
+
+
+/*.list.divided > * {
+	border-bottom: 1px solid #ccc;
+}
+*/
+
+.list.hovered > *:hover {
+	background-color: rgba(0,0,0,0.04);
+}

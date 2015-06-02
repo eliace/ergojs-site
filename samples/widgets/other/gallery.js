@@ -25,7 +25,7 @@ var w = $.ergo({
 	
 	$gallery: {
 		
-		mixins: ['selectable'],
+		include: 'selectable',
 		
 		$preview: {
 			cls: 'gallery-preview',
@@ -133,7 +133,7 @@ var w = $.ergo({
 		},
 		
 		
-		selector: function(i) {
+		lookup: function(i) {
 			return this.slider.content.item(i);
 		},
 		

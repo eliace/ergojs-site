@@ -18,6 +18,9 @@ $context.scope('sample:show', function($scope) {
 			cls: 'sample',
 			title: sample.title,
 			$content: {
+				id: 'sample'
+
+/*				
 				etype: 'tab-panel',
 				$tabbar: {
 					state: 'simple'
@@ -51,14 +54,15 @@ $context.scope('sample:show', function($scope) {
 					}
 				}],
 				selected: 0
+*/				
 			}
 		};
 
 
-		$.getScript('samples/'+sample.name+'.js').success(function(script){
+		$.getScript('scripts/'+sample.name+'/all.js').success(function(script){
 			
-//			$('pre', $context._sample.el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
-			$('pre code.javascript', $scope.widget('samplePanel').el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
+
+//			$('pre code.javascript', $scope.widget('samplePanel').el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
 			
 			$('pre code.javascript', $scope.widget('samplePanel').el).each(function(i, block) {
 		    hljs.highlightBlock(block);

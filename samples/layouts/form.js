@@ -46,7 +46,7 @@ $.ergo({
 		layout: 'band',
 		
 		defaultItem: {
-			mixins: ['label']
+			include: 'label'
 		},
 		
 		items: [{

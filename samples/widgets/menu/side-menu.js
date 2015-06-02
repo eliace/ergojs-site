@@ -43,6 +43,7 @@ var w = $.ergo({
 	title: 'Тестовое приложение',
 	$content: {
 		height: 400,
+		include: 'selectable',
 		$sidebox: {
 			etype: 'html:aside',
 			cls: 'side-box',
@@ -85,13 +86,12 @@ var w = $.ergo({
 				{	text: LOREMIPSUM, name: 'tasks_assigned' }
 			]
 		},
-		mixins: ['selectable'],
 		onMenuAction: function(e) {
 //			console.log(e.target.opt('name'));
 			this.selection.set(e.target);//.opt('name'));
 //			this.opt('selected', e.target);
 		},
-		selector: function(key) {
+		lookup: function(key) {
 			return this.sidebox.menu.find_path(key); // в выборку добавляем только элемент меню
 		},
 		onSelectionChanged: function(e) {

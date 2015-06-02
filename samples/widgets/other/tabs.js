@@ -3,7 +3,7 @@
 var w = $.ergo({
 	etype: 'box',
 	cls: 'tab-box',
-	mixins: ['selectable'],
+	include: 'selectable',
 	renderTo: '#sample',
 	components: {
 		tabs: {
@@ -36,7 +36,7 @@ var w = $.ergo({
 		}
 	},
 	
-	selector: function(i) {
+	lookup: function(i) {
 		return this.tabs.item(i);
 	},
 	onSelected: function(e) {
@@ -55,7 +55,7 @@ var w = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	cls: 'tab-box',
-	mixins: ['selectable'],
+	include: 'selectable',
 	renderTo: '#sample',
 	components: {
 		tabs: {
@@ -88,7 +88,7 @@ var w = $.ergo({
 		}
 	},
 	
-	selector: function(i) {
+	lookup: function(i) {
 		return this.tabs.item(i);
 	},
 	onSelected: function(e) {
@@ -108,7 +108,7 @@ var w = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	cls: 'tab-box',
-	mixins: ['selectable'],
+	include: 'selectable',
 	renderTo: '#sample',
 	components: {
 		tabs: {
@@ -141,7 +141,7 @@ var w = $.ergo({
 		}
 	},
 	
-	selector: function(i) {
+	lookup: function(i) {
 		return this.tabs.item(i);
 	},
 	onSelected: function(e) {
@@ -172,7 +172,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'panel',
 		cls: 'widget',
-		mixins: ['selectable'],
+		include: 'selectable',
 		renderTo: '#sample',
 		title: 'Панель с закладками',
 		components: {
@@ -208,7 +208,7 @@ var w = $.ergo({
 			}
 		},
 		
-		selector: function(i) {
+		lookup: function(i) {
 			return this.header.tabbar.item(i);
 		},
 		onSelected: function(e) {

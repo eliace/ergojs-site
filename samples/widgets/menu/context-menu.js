@@ -1,14 +1,5 @@
 
 
-var w = $.ergo({
-	etype: 'box',
-	height: 400,
-	style: {'background-color': '#eee'}
-});
-
-w.render('#sample');
-
-
 
 
 var context_menu = $.ergo({
@@ -43,6 +34,16 @@ var context_menu = $.ergo({
 });
 
 //context_menu.render('body');
+
+
+
+var w = $.ergo({
+	etype: 'box',
+	height: 400,
+	style: {'background-color': '#eee'}
+});
+
+w.render('#sample');
 
 
 w.el.on('contextmenu', function(e) {

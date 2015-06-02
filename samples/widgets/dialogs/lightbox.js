@@ -10,7 +10,8 @@
 var dialog1 = $.ergo({
 	etype: 'panel',
 	cls: 'modal',
-	mixins: ['modal', 'effects'],
+	mixins: ['modal'],
+	include: 'effects',
 	title: 'Лайтбокс',
 	closeOn: 'outerClick',
 	$header: {

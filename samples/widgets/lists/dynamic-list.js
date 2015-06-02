@@ -8,9 +8,9 @@ var w = $.ergo({
 	
 	cls: 'widget default',
 	
-	mixins: ['selectable'],
+	include: 'selectable',
 	
-	selector: function(i) {
+	lookup: function(i) {
 		return this.content.item(i);
 	},
 	
@@ -18,6 +18,7 @@ var w = $.ergo({
 	
 	$toolbar: {
 		etype: 'tool-bar',
+		cls: 'box-medium',
 		weight: -5,
 		items: [{
 			etype: 'button',
@@ -44,8 +45,7 @@ var w = $.ergo({
 			binding: 'text',
 			state: 'danger',
 			hidden: true,
-			
-			mixins: ['effects'],
+			include: 'effects',
 			
 			effects: {
 				show: {type: 'fadeIn', delay: 400},
@@ -81,7 +81,7 @@ var w = $.ergo({
 		defaultItem: {
 //			etype: 'item-box',
 			
-			mixins: ['effects'],
+			include: 'effects',
 			
 			effects: {
 				show: {type: 'fadeIn', delay: 400},

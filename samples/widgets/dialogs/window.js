@@ -1,8 +1,8 @@
 
 var w = $.ergo({
 	etype: 'panel',
+	include: 'window',
 	cls: 'window widget simple',
-	mixins: ['window'],
 	title: 'Dialog',
 	width: 600,
 	height: 300,

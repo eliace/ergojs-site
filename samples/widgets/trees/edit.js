@@ -103,7 +103,7 @@ $.ergo({
 		cls: 'box-medium',
 		$tree: {
 			etype: 'basic-tree',
-			mixins: ['selectable'],
+			include: 'selectable',
 			nestedItem: {
 				$content: {
 					format: '#{title}',
@@ -118,7 +118,7 @@ $.ergo({
 					this.opt('name', v.title);
 				}
 			},
-			selector: function(key) {
+			lookup: function(key) {
 				return this.find_path(key);
 			},
 			onSelectNode: function(e) {

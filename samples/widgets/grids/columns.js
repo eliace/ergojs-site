@@ -78,7 +78,7 @@ var w = $.ergo({
 
 	components: {
 		header: {
-			mixins: ['context-menu'],
+			include: 'context-menu',
 			onContextMenu: function(e) {
 				var columns = this.parent.columns;
 				for(var i = 0; i < columns.size(); i++) {

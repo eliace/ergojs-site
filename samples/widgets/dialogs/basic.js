@@ -3,7 +3,8 @@
 var Dialog = Ergo.widgets.Panel.extend({
 
 	defaults: {
-		mixins: ['modal', 'effects'],
+		mixins: ['modal'],
+		include: 'effects',
 		effects: {
 			show: {type: 'fadeIn', delay: 300}
 		},
@@ -101,6 +102,12 @@ $.ergo({
 	}, {
 		text: 'Анимация',
 		name: 'dialog8'
+	}, {
+		text: 'Анимация',
+		name: 'dialog9'
+	}, {
+		text: 'Анимация',
+		name: 'dialog10'
 	}],
 
 
@@ -387,10 +394,47 @@ $.ergo({
 	onDialog8: function() {
 
 		var dlg = new DialogX({
-			cls: 'simple animated anim-600',
+			cls: 'simple animated anim-300',
 			title: 'Диалог',
 			$content: {
-				text: 'Сюда будет загружен HTML',
+				text: LOREMIPSUM,
+				height: 'auto'
+			},
+			$overlay: {
+				mixins: ['effects'],
+				effects: {
+					'show': {type: 'fadeIn', delay: 100},
+					'hide': {type: 'fadeOut', delay: 100}
+				}
+			}
+		});
+
+		dlg.show = function() {
+			this.el.show();
+			return $.when( this.states.set('fadeInDown') );
+		};
+
+		dlg.hide = function() {
+			this.states.set('fadeOutUp');
+			var deferred = $.Deferred();
+			setTimeout(function(){ deferred.resolve() }, 300);
+			return deferred;
+		};
+
+		dlg.open();
+
+	},
+
+
+
+	onDialog9: function() {
+
+		var dlg = new DialogX({
+			position: 'top',
+			cls: 'simple animated anim-300',
+			title: 'Диалог',
+			$content: {
+				text: LOREMIPSUM_2,
 				height: 'auto'
 			},
 			$overlay: {
@@ -416,7 +460,47 @@ $.ergo({
 
 		dlg.open();
 
+	},
+
+
+
+	onDialog10: function() {
+
+		var dlg = new DialogX({
+			position: 'right',
+			cls: 'simple animated anim-300',
+			title: 'Диалог',
+			$content: {
+				text: LOREMIPSUM_3,
+				height: 'auto'
+			},
+			$overlay: {
+				mixins: ['effects'],
+				effects: {
+					'show': {type: 'fadeIn', delay: 100},
+					'hide': {type: 'fadeOut', delay: 100}
+				}
+			}
+		});
+
+		dlg.show = function() {
+			this.el.show();
+			return $.when( this.states.set('fadeInRight') );
+		};
+
+		dlg.hide = function() {
+			this.states.set('fadeOutRight');
+			var deferred = $.Deferred();
+			setTimeout(function(){ deferred.resolve() }, 400);
+			return deferred;
+		};
+
+		dlg.open();
+
 	}
+
+
+
 
 
 
