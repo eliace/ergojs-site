@@ -36,4 +36,6 @@ $context.section('Круглые');
 //= require icon-circular
 $context.section('Контекстные');
 //= require icon-contextual
+$context.section('Системные');
+//= require icon-builtin
 

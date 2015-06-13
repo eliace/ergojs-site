@@ -8,12 +8,12 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box',
+		cls: 'loader',
 		$icon: {
 			cls: 'spinner medium',
 			$content: {
 				text: 'Загрузка',
-				cls: 'loader-text medium'
+				cls: 'loader-text'
 			}
 
 		},
@@ -34,12 +34,12 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box inverted',
+		cls: 'loader inverted',
 		$icon: {
 			cls: 'spinner medium',
 			$content: {
 				text: 'Загрузка',
-				cls: 'loader-text medium'
+				cls: 'loader-text'
 			}
 
 		},

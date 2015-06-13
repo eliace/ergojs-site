@@ -1,0 +1,22 @@
+
+
+
+
+
+
+/*
+.expandable > .tree {
+	overflow-y: hidden;
+	display: block;
+
+	transition-property: max-height;
+	transition-duration: .5s;
+	transition-timing-function: ease-in-out;
+}
+
+
+.tree.slide-item-hidden {
+	max-height: 0;	
+}
+
+*/

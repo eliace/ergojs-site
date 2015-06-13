@@ -1,22 +1,15 @@
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
-//		cls: 'icon-button',
-		$icon: {
-			etype: 'icon'
-		},
-		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
-		},
+		include: 'icon',
 		cls: 'circular'
-//		round: true
 	},
 	items: [{
-		type: 'default',
+//		type: 'default',
 		icon: 'fa-filter'
 	}, {
 		type: 'basic',
@@ -33,10 +26,7 @@ $.ergo({
 	}, {
 		type: 'danger',
 		icon: 'fa-unlock'
-	}/*, {
-		type: 'tool',
-		icon: 'fa-copy'
-	}*/]
+	}]
 });
 
 
@@ -49,23 +39,16 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
-//		cls: 'icon-button',
-		$icon: {
-			etype: 'icon'
-		},
-		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
-		},
-		cls: 'circular',
-//		round: true,
-		size: 'large'
+		include: 'icon',
+		cls: 'large circular'
+//		size: 'large'
 	},
 	items: [{
-		type: 'default',
+//		type: 'default',
 		icon: 'fa-filter'
 	}, {
 		type: 'basic',
@@ -82,10 +65,7 @@ $.ergo({
 	}, {
 		type: 'danger',
 		icon: 'fa-unlock'
-	}/*, {
-		type: 'tool',
-		icon: 'fa-copy'
-	}*/]
+	}]
 });
 
 

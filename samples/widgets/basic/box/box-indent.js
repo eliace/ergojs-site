@@ -1,8 +1,8 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
 	layout: 'hbox',
+	cls: 'gap',
 	defaultItem: {
 		etype: 'button'
 	},
@@ -20,8 +20,8 @@ $.ergo({
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
 	layout: 'vbox',
+	cls: 'gap',
 	defaultItem: {
 		etype: 'button'
 	},
@@ -32,14 +32,22 @@ w.render('#sample');
 
 
 
+$.ergo({
+	etype: 'html:br',
+	renderTo: '#sample'
+});
+
+
 var w = $.ergo({
 	etype: 'list',
-	cls: 'indented',
+	cls: 'gap bordered',
 	defaultItem: {
-		etype: 'box'
-		cls: 'indented',
+		etype: 'box',
+		cls: 'box gap bordered',
 		defaultItem: {
-			etype: 'button'
+			etype: 'text',
+			text: 'TEXT',
+			cls: 'bordered'
 		},
 		items: [ 'Item1', 'Item2', 'Item3' ]
 	},
@@ -47,3 +55,6 @@ var w = $.ergo({
 });
 
 w.render('#sample');
+
+
+

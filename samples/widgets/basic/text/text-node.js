@@ -7,7 +7,7 @@ var w = $.ergo({
 			cls: 'fa fa-home'
 		},
 		content: {
-			etype: '&text',
+			etype: '.',
 			text: ' Главная '
 		},
 		xicon: {

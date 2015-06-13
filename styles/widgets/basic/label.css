@@ -1,16 +1,5 @@
 
 
-.label {
-  background-color: #e8e8e8;
-  background-image: none;
-  border-radius: 4px;
-  padding: 6px 10px;
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 12px;
-  color: #444;
-}
-
 .label > .before {
 	margin-right: 6px;
 }
@@ -115,20 +104,6 @@
 
 
 
-.box-block {
-	width: 100%;
-}
-
-
-
-
-.rounded {
-  border-radius: 4px;
-}
-
-.circular {
-  border-radius: 1000px;
-}
 
 
 
@@ -150,42 +125,6 @@
 
 
 
-.label.default {
-  background-color: #777777;
-  color: #fff;
-}
-
-.label.primary {
-  background-color: #428BCA;
-  color: #fff;
-}
-
-.label.ribbon.primary {
-  border-color: #3470A0;
-}
-
-
-
-.label.success {
-  background-color: #5CB85C;
-  color: #fff;
-}
-
-.label.info {
-  background-color: #5BC0DE;
-  color: #fff;
-}
-
-.label.warning {
-  background-color: #F0AD4E;
-  color: #fff;
-}
-
-.label.danger {
-  background-color: #D9534F;
-  color: #fff;
-}
-
 
 
 .label.ribbon.left:before {
@@ -206,6 +145,3 @@
 
 
 
-.label.circular {
-  padding: 4px 6px;
-}

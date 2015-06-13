@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',

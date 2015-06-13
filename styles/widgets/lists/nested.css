@@ -1,4 +1,6 @@
 
+
+/*
 .tree-list, .tree-list ul {
 	list-style: none;
 	padding-left: 0;
@@ -28,12 +30,12 @@
 	display: block;
 }
 
-/*
-.list-item > span:hover .icon {
-	color: #0a80cb;
-}
-*/
 
 .tree-list.hovered li > span:hover {
 	background-color: #fffff0;	
 }
+
+*/
+
+
+

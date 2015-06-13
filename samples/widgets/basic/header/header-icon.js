@@ -2,16 +2,16 @@
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded box-large',
+	cls: 'bordered rounded padding-x2',
 	$header: {
-		etype: 'html:h2',
+		etype: 'html:h3',
 		cls: 'header',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-plug'
 		},
 		$content: {
-			etype: '&text',
+			etype: '.',
 			text: 'Плагины'
 		}
 	},
@@ -26,9 +26,9 @@ w.render('#sample');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded box-large',
+	cls: 'bordered rounded padding-x2',
 	$header: {
-		etype: 'html:h2',
+		etype: 'html:h3',
 		cls: 'header',
 		$icon: {
 			etype: 'icon',
@@ -38,7 +38,7 @@ w = $.ergo({
 			etype: 'text',
 			text: 'Настройки',
 			$content: {
-				etype: '&text',
+				etype: '.',
 			},
 			$subheader: {
 				etype: 'text',

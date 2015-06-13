@@ -2,7 +2,8 @@
 
 var w = $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	cls: 'items gap',
+//	layout: 'bar',
 	defaultItem: {
 		etype: 'label',
 		cls: 'circular'
@@ -31,19 +32,26 @@ var w = $.ergo({
 w.render('#sample');
 
 
+$.ergo({etype: 'html:br', renderTo: '#sample'});
+
+
 var w = $.ergo({
 	etype: 'box',
-	layout: 'bar',
-	style: {'margin-top': 16},
+//	layout: 'bar',
+	cls: 'items gap',
+//	style: {'margin-top': 16},
 	defaultItem: {
 		etype: 'label',
 		cls: 'circular'
 	},
 	items: [{
-		text: '10',
+		text: '1',
 		cls: 'default'
 	}, {
-		text: '20',
+		text: '-3',
+		cls: 'basic'
+	}, {
+		text: '2',
 		cls: 'primary'
 	}, {
 		text: '30',
@@ -52,10 +60,10 @@ var w = $.ergo({
 		text: '40',
 		cls: 'info'
 	}, {
-		text: '50',
+		text: '500',
 		cls: 'warning'
 	}, {
-		text: '60',
+		text: '600',
 		cls: 'danger'
 	}]
 });

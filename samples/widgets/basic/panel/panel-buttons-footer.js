@@ -1,61 +1,87 @@
 
 
+var panel1 = $.ergo({
+	etype: 'panel',
+	title: 'Header',
+	cls: 'padded',
+// 	$header: {
+// //		cls: 'no-padding',
+// 		$content: {
+// 			cls: 'header small'
+// 		}
+// 	},
+	$content: {
+//			cls: 'panel-content',
+		text: LOREMIPSUM
+	},
+//		width: '60%',
+	$footer: {
+//			autoRender: true,
+		layout: 'hbox',
+		cls: 'item-align-right',
+		$buttons: {
+			etype: 'box',
+			cls: 'box items gap',
+			defaultItem: {
+				etype: 'button'
+			},
+			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+		}
+	}			
+});
+
+
+
+var panel2 = $.ergo({
+	etype: 'panel',
+	title: 'Header',
+	cls: 'padded',
+	// $header: {
+	// 	cls: 'box border-bottom'
+	// },
+	$content: {
+//			cls: 'panel-content',
+		text: LOREMIPSUM
+	},
+//		width: '60%',
+	$footer: {
+//			autoRender: true,
+//			layout: 'bar',
+//			etype: 'tool-bar',
+//			state: 'center',
+		layout: 'hbox',
+		cls: 'item-align-center gap',
+		$buttons: {
+			etype: 'box',
+//			layout: 'hbox',
+			cls: 'items gap',				
+			defaultItem: {
+				etype: 'button'
+			},
+			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+		},
+		$icons: {
+			etype: 'box',
+//			layout: 'hbox',
+			cls: 'items gap',				
+			defaultItem: {
+				etype: 'icon-button'
+			},
+			items: ['fa-globe', 'fa-cogs']			
+		}
+	}			
+});
+
+
+
+
+
 var w = $.ergo({
 	etype: 'box',
 	layout: 'grid',
+//	cls: 'box item-padding',
 //	pattern: [6, 6],
-	items: [{
-		etype: 'panel',
-		title: 'Демо',
-		cls: 'widget default',
-		$content: {
-			cls: 'panel-content',
-			text: LOREMIPSUM
-		},
-//		width: '60%',
-		$footer: {
-			autoRender: true,
-			layout: 'hbox',
-			cls: 'align-right box-medium',  // выравниваем элементы + отступ
-			$buttons: {
-				layout: 'bar',
-				defaultItem: {
-					etype: 'button'
-				},
-				items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
-			}
-		}		
-	}, {
-		etype: 'panel',
-		title: 'Демо',
-		cls: 'widget default',
-		$content: {
-			cls: 'panel-content',
-			text: LOREMIPSUM
-		},
-//		width: '60%',
-		$footer: {
-			autoRender: true,
-			layout: 'bar',
-//			etype: 'tool-bar',
-//			state: 'center',
-			cls: 'align-center box-medium',  // выравниваем элементы + отступ
-			$buttons: {
-				layout: 'bar',
-				defaultItem: {
-					etype: 'button'
-				},
-				items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
-			},
-			$icons: {
-				layout: 'bar',
-				defaultItem: {
-					etype: 'icon-button'
-				},
-				items: [{icon: 'fa-globe'}, {icon: 'fa-cogs'}]			
-			}
-		}		
-	}]
+	items: [ panel1, panel2 ]
 });
 
 w.render('#sample');

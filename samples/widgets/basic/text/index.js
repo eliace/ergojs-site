@@ -1,5 +1,5 @@
 
-$context.section('Элемент с текстом (text)');
+$context.section('Элемент с текстом');
 //= require text-span
-$context.section('Простой текст (&text)');
+$context.section('Внутренний текст');
 //= require text-node

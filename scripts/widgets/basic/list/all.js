@@ -1,255 +1,6 @@
 
 
-$context.section('Простой список');
-$context.section_begin('list-basic');
-$context.section_end('list-basic');
-
-var w = $.ergo({
-	etype: 'list',
-	items: ['Африка', 'Азия', 'Европа', 'Австралия']
-});
-
-w.render('#sample');
-
-
-
-//$context.section('С буллитами');
-// require list-bullets
-//$context.section('С номерами');
-// require list-numbers
-
-$context.section('С иконкой');
-$context.section_begin('list-icons');
-$context.section_end('list-icons');
-
-
-var w = $.ergo({
-	etype: 'box',
-	layout: 'grid',
-	style: {'margin-top': 16},
-
-	defaultItem: {
-		etype: 'list',
-		cls: 'indented',
-//		layout: 'stack',
-		items: [{
-			text: 'Волков А.Н.',
-			description: 'Java-разработчик'
-		}, {
-			text: 'Зайцев И.Д.',
-			description: 'Руководитель группы'
-		}, {
-			text: 'Медведев К.Г.',
-			description: 'Веб-разработчик'
-		}, {
-			text: 'Лисицина О.Е.',
-			description: 'Дизайнер'
-		}]
-	},
-
-
-	items: [{
-		// простой список
-		defaultItem: {
-			$icon: {
-				etype: 'icon',
-				cls: 'fa-user before'
-			},
-			$content: {
-				etype: '&text'
-			}
-		}
-	}, {
-		// список с описанием
-		defaultItem: {
-			layout: 'hbox',
-			$icon: {
-				etype: 'icon',
-				cls: 'fa-user before'
-			},
-			$content: {
-				etype: 'box',
-				layout: 'vbox',
-				$content: {
-					etype: '&text',
-				},
-				$description: {
-					etype: 'text',
-					cls: 'item-description'
-				}
-			},
-			set: {
-				'description': function(v) { this.content.description.opt('text', v); }
-			}
-		}
-	}, {
-		// список со ссылкой
-		defaultItem: {
-			layout: 'hbox',
-			$icon: {
-				etype: 'icon',
-				cls: 'fa-user before'
-			},
-			$content: {
-				etype: 'box',
-				layout: 'vbox',
-				$content: {
-					etype: 'link',
-					cls: 'item-title'
-				},
-				$description: {
-					etype: 'text'
-				}
-			},
-			set: {
-				'description': function(v) { this.content.description.opt('text', v); }
-			}
-		}
-	}]
-
-
-});
-
-
-
-// var w = $.ergo({
-// });
-
-
-// c.items.add(c);
-
-// w.render();//'#sample');
-
-
-
-// var w = $.ergo({
-// });
-
-w.render('#sample');
-
-
-
-$context.section('С изображением');
-$context.section_begin('list-images');
-$context.section_end('list-images');
-
-var w = $.ergo({
-	etype: 'list',
-//	layout: 'stack',
-	cls: 'indented',
-//	style: {'margin-top': 16},
-	defaultItem: {
-		layout: 'hbox',
-		$image: {
-			etype: 'html:img',
-			cls: 'circular before',
-			width: 48
-		},
-		$content: {
-			etype: 'box',
-			layout: 'vbox',
-			$content: {
-				etype: 'link',
-				cls: 'item-title'
-			},
-			$description: {
-				etype: 'text'
-			}
-		},
-		set: {
-			'description': function(v) { this.content.description.opt('text', v); },
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
-		}
-	},
-	items: [{
-		text: 'Волков А.Н.',
-		description: 'Java-разработчик',
-		avatar: '001'
-	}, {
-		text: 'Зайцев И.Д.',
-		description: 'Руководитель группы',
-		avatar: '002'
-	}, {
-		text: 'Медведев К.Г.',
-		description: 'Веб-разработчик',
-		avatar: '004'
-	}, {
-		text: 'Лисицина О.Е.',
-		description: 'Дизайнер',
-		avatar: '003'
-	}]
-});
-
-w.render('#sample');
-
-
-$context.section('С плавающим элементом');
-$context.section_begin('list-floats');
-$context.section_end('list-floats');
-
-var w = $.ergo({
-	etype: 'list',
-//	layout: 'stack',
-	style: {'margin-top': 16},
-	width: 600,
-	cls: 'divided padded',
-	defaultItem: {
-		layout: 'hbox',
-		cls: 'box-medium',
-		$image: {
-			etype: 'html:img',
-			cls: 'circular before',
-			width: 48
-		},
-		$content: {
-			etype: 'box',
-			layout: 'vbox',
-			$content: {
-				etype: '&text'
-			},
-			$description: {
-				etype: 'text',
-				cls: 'item-description'
-			}
-		},
-		$button: {
-			etype: 'button',
-			text: 'Добавить',
-			cls: 'fluid-right basic'
-		},
-		set: {
-			'description': function(v) { this.content.description.opt('text', v); },
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
-		}
-	},
-	items: [{
-		text: 'Волков А.Н.',
-		description: 'Java-разработчик',
-		avatar: '001'
-	}, {
-		text: 'Зайцев И.Д.',
-		description: 'Руководитель группы',
-		avatar: '002'
-	}, {
-		text: 'Медведев К.Г.',
-		description: 'Веб-разработчик',
-		avatar: '004'
-	}, {
-		text: 'Лисицина О.Е.',
-		description: 'Дизайнер',
-		avatar: '003'
-	}]
-});
-
-w.render('#sample');
-
-
-$context.section('С активной иконкой');
-$context.section_begin('list-remove');
-$context.section_end('list-remove');
-
-
-var items = [{
+var ITEMS = [{
 	text: 'Волков А.Н.',
 	description: 'Java-разработчик',
 	avatar: '001'
@@ -269,22 +20,101 @@ var items = [{
 
 
 
+var data = new Ergo.data.Collection({
+	provider: new Ergo.data.AjaxProvider('data/mock-15.json')
+});
 
+
+
+
+$context.section('Простой список');
+$context.section_begin('list-basic');
+$context.section_end('list-basic');
+
+var w = $.ergo({
+	etype: 'list',
+	items: ['Африка', 'Азия', 'Европа', 'Австралия']
+});
+
+w.render('#sample');
+
+
+
+//$context.section('С буллитами');
+// require list-bullets
+//$context.section('С номерами');
+// require list-numbers
+
+//$context.section('С иконкой');
+// require list-icons
+//$context.section('С изображением');
+// require list-images
+$context.section('С плавающим элементом');
+$context.section_begin('list-floats');
+$context.section_end('list-floats');
 
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
 	style: {'margin-top': 16},
-	width: 600,
+//	width: 600,
+	cls: 'divided padded',
+	defaultItem: {
+		layout: 'hbox',
+		cls: 'box-medium',
+		$image: {
+			etype: 'html:img',
+			cls: 'circular before',
+			width: 40
+		},
+		$content: {
+			etype: 'box',
+			layout: 'vbox',
+			$content: {
+				etype: '&text'
+			},
+			$description: {
+				etype: 'text',
+				cls: 'description'
+			}
+		},
+		$button: {
+			etype: 'label',
+			text: 'online',
+			cls: 'fluid-right success small'
+		},
+		set: {
+			'description': function(v) { this.content.description.opt('text', v); },
+			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+		}
+	},
+	items: ITEMS
+});
+
+w.render('#sample');
+
+
+$context.section('С боковой иконкой');
+$context.section_begin('list-stick');
+$context.section_end('list-stick');
+
+
+
+
+
+
+var w = $.ergo({
+	etype: 'list',
+//	layout: 'stack',
 	cls: 'divided padded',
 	defaultItem: {
 		layout: 'hbox',
 		include: 'xicon',
-		cls: 'item icon',
+		cls: 'item side-icon right',
 		$image: {
 			etype: 'html:img',
 			cls: 'circular before',
-			width: 48
+			width: 40
 		},
 		$content: {
 			etype: 'box',
@@ -295,39 +125,163 @@ var w = $.ergo({
 			},
 			$description: {
 				etype: 'html:small',
-				cls: 'item-description'
+				cls: 'description'
 			}
 		},
 		$xicon: {
-			cls: 'contextual action fa-remove'
+			cls: 'right contextual action fa-remove'
+		},
+		set: {
+			'description': function(v) { this.$content.$description.opt('text', v); },
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+		}
+	},
+	items: ITEMS
+});
+
+w.render('#sample');
+
+
+
+
+
+var w = $.ergo({
+	etype: 'list',
+//	layout: 'stack',
+	cls: 'divided padded',
+	defaultItem: {
+		layout: 'hbox',
+		include: 'icon',
+		cls: 'item side-icon left',
+		$image: {
+			etype: 'html:img',
+			cls: 'circular before',
+			width: 40
+		},
+		$content: {
+			etype: 'box',
+			layout: 'vbox',
+			cls: 'content',
+			$content: {
+				etype: '&text'
+			},
+			$description: {
+				etype: 'html:small',
+				cls: 'description'
+			}
+		},
+		$icon: {
+			cls: 'left contextual action fa-remove',
+			weight: -10
+		},
+		set: {
+			'description': function(v) { this.$content.$description.opt('text', v); },
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+		}
+	},
+	items: ITEMS
+});
+
+w.render('#sample');
+
+
+
+
+
+$context.section('С активной иконкой');
+$context.section_begin('list-action');
+$context.section_end('list-action');
+
+
+
+
+
+var w = $.ergo({
+	etype: 'list',
+//	layout: 'stack',
+	cls: 'divided padded',
+	defaultItem: {
+		layout: 'hbox',
+		include: 'icon',
+		cls: 'item',
+		$icon: {
+			cls: 'contextual action fa-angle-right fa-2x'
+		},
+		$image: {
+			etype: 'html:img',
+			cls: 'circular before',
+			width: 40
+		},
+		$content: {
+			etype: 'box',
+			layout: 'vbox',
+//			cls: 'content',
+			$content: {
+				etype: '&text'
+			},
+			$description: {
+				etype: 'html:small',
+				cls: 'description'
+			}
 		},
 		set: {
 			'description': function(v) { this.content.description.opt('text', v); },
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
-	items: items
+	items: ITEMS
 });
 
 w.render('#sample');
 
 
-$context.section('Выделение');
+
+
+
+$context.section('Hovered');
 $context.section_begin('list-hover');
 $context.section_end('list-hover');
 
 var w = $.ergo({
 	etype: 'list',
-	style: {'margin-top': 16},
-	width: 600,
-	cls: 'hovered',
+	cls: 'hovered padded',
 	defaultItem: {
 		layout: 'hbox',
-		cls: 'box',
+		cls: 'item box padding',
 		$image: {
 			etype: 'html:img',
 			cls: 'circular before',
-			width: 48
+			width: 40
+		},
+		$content: {
+			etype: '&text'
+		},
+		set: {
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+		}
+	},
+	items: ITEMS
+});
+
+w.render('#sample');
+
+
+
+$context.section('Striped');
+$context.section_begin('list-striped');
+$context.section_end('list-striped');
+
+
+var w = $.ergo({
+	etype: 'list',
+	cls: 'striped padded',
+	defaultItem: {
+		layout: 'hbox',
+		cls: 'item box padding',
+		$image: {
+			etype: 'html:img',
+			cls: 'circular before',
+			width: 40
 		},
 		$content: {
 			etype: '&text'
@@ -336,24 +290,60 @@ var w = $.ergo({
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
-	items: [{
-		text: 'Волков А.Н.',
-		description: 'Java-разработчик',
-		avatar: '001'
-	}, {
-		text: 'Зайцев И.Д.',
-		description: 'Руководитель группы',
-		avatar: '002'
-	}, {
-		text: 'Медведев К.Г.',
-		description: 'Веб-разработчик',
-		avatar: '004'
-	}, {
-		text: 'Лисицина О.Е.',
-		description: 'Дизайнер',
-		avatar: '003'
-	}]
+	items: ITEMS
 });
+
+w.render('#sample');
+
+
+
+$context.section('Selected');
+$context.section_begin('list-select');
+$context.section_end('list-select');
+
+
+var w = $.ergo({
+	etype: 'list',
+	include: 'selectable',
+	cls: 'divided',
+	defaultItem: {
+		layout: 'hbox',
+		cls: 'item padding',
+		$image: {
+			etype: 'html:img',
+			cls: 'circular before',
+			width: 40
+		},
+		$content: {
+			etype: 'box',
+			layout: 'vbox',
+			$content: {
+				etype: '.'
+			},
+			$description: {
+				etype: 'html:small',
+				cls: 'description'
+			}
+		},
+		set: {
+			'description': function(v) { this.$content.$description.opt('text', v); },
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+		},
+		onClick: function() {
+			this.events.rise('select');
+		}
+	},
+	set: {
+		'index': function(v) {
+			this.selection.set(v);
+		}
+	},
+	items: ITEMS
+});
+
+
+w.opt('index', 1);
+
 
 w.render('#sample');
 
@@ -362,3 +352,4 @@ w.render('#sample');
 
 
 
+data.fetch();

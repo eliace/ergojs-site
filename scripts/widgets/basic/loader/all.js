@@ -12,12 +12,12 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box',
+		cls: 'loader',
 		$icon: {
 			cls: 'spinner medium',
 			$content: {
 				text: 'Загрузка',
-				cls: 'loader-text medium'
+				cls: 'loader-text'
 			}
 
 		},
@@ -38,12 +38,12 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box inverted',
+		cls: 'loader inverted',
 		$icon: {
 			cls: 'spinner medium',
 			$content: {
 				text: 'Загрузка',
-				cls: 'loader-text medium'
+				cls: 'loader-text'
 			}
 
 		},
@@ -67,12 +67,12 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box',
+		cls: 'loader',
 		$icon: {
 			cls: 'timer medium',
 			$content: {
 				text: 'Загрузка',
-				cls: 'loader-text medium'
+				cls: 'loader-text'
 			}
 
 		},
@@ -93,12 +93,12 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box inverted',
+		cls: 'loader inverted',
 		$icon: {
 			cls: 'timer medium',
 			$content: {
 				text: 'Загрузка',
-				cls: 'loader-text medium'
+				cls: 'loader-text'
 			}
 
 		},
@@ -121,7 +121,7 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box',
+		cls: 'loader inverted',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-spin fa-spinner fa-3x medium'

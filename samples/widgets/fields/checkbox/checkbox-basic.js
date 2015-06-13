@@ -13,7 +13,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'html:fieldset',
 
-		layout: 'stack',
+		layout: 'vbox',
 		
 		include: 'selectable',
 		
@@ -32,6 +32,8 @@ var w = $.ergo({
 	
 	items: [{
 		
+		cls: 'item-indent',
+
 		multiselect: true,
 
 		defaultItem: {
@@ -41,7 +43,7 @@ var w = $.ergo({
 				cls: 'before'
 			},
 			$content: {
-				etype: '&text',
+				etype: '.',
 				weight: 10
 			},
 			

@@ -98,9 +98,10 @@ $context.section_end('label-pointer');
 
 var w = $.ergo({
 	etype: 'html:form',
-	width: 800,
+//	width: 800,
+	cls: 'gap-x2 divided',
 	layout: {
-		etype: 'stack',
+		etype: 'vbox',
 		wrapper: function(item) {
 			var w = $('<div/>');
 			w.append(item.el);
@@ -115,42 +116,42 @@ var w = $.ergo({
 		}
 	},
 	items: [{
-		etype: 'text-box',
+		etype: 'input',
 		placeholder: 'Фамилия',
-		cls: 'box-block',
+		cls: 'block',
 		$label: {
 			etype: 'label',
 			cls: 'pointing-above',
 			text: 'Введите значение'
 		}
-	}, {
+	}/*, {
 		etype: 'box',
 		cls: 'divider horizontal'
-	}, {
-		etype: 'text-box',
+	}*/, {
+		etype: 'input',
 		placeholder: 'Имя',
-		cls: 'box-block',
+		cls: 'block',
 		$label: {
 			etype: 'label',
 			cls: 'pointing-below',
 			text: 'Введите значение'
 		}
-	}, {
+	}/*, {
 		etype: 'box',
 		cls: 'divider horizontal'
-	}, {
-		etype: 'text-box',
+	}*/, {
+		etype: 'input',
 		placeholder: 'Отчество',
 		$label: {
 			etype: 'label',
 			cls: 'pointing-left',
 			text: 'Введите значение'
 		}
-	}, {
+	}/*, {
 		etype: 'box',
 		cls: 'divider horizontal'
-	}, {
-		etype: 'text-box',
+	}*/, {
+		etype: 'input',
 		placeholder: 'Место рождения',
 		$label: {
 			etype: 'label',
@@ -171,8 +172,8 @@ $context.section_end('label-ribbon');
 var w = $.ergo({
 	etype: 'box',
 	width: 600,
-	cls: 'bordered rounded paper box-large',
-	style: {'margin-top': 16},
+	cls: 'bordered rounded paper padding-x2',
+//	style: {'margin-top': 16},
 	$ribbon: {
 		etype: 'label',
 		cls: 'ribbon left',
@@ -231,11 +232,14 @@ $context.section_end('label-color');
 
 var w = $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	cls: 'items gap',
+//	layout: 'bar',
 	defaultItem: 'label',
 	items: [{
 		text: 'default',
-		cls: 'default'
+	}, {
+		text: 'basic',
+		cls: 'basic'
 	}, {
 		text: 'primary',
 		cls: 'primary'
@@ -265,7 +269,8 @@ $context.section_end('label-circular');
 
 var w = $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	cls: 'items gap',
+//	layout: 'bar',
 	defaultItem: {
 		etype: 'label',
 		cls: 'circular'
@@ -294,19 +299,26 @@ var w = $.ergo({
 w.render('#sample');
 
 
+$.ergo({etype: 'html:br', renderTo: '#sample'});
+
+
 var w = $.ergo({
 	etype: 'box',
-	layout: 'bar',
-	style: {'margin-top': 16},
+//	layout: 'bar',
+	cls: 'items gap',
+//	style: {'margin-top': 16},
 	defaultItem: {
 		etype: 'label',
 		cls: 'circular'
 	},
 	items: [{
-		text: '10',
+		text: '1',
 		cls: 'default'
 	}, {
-		text: '20',
+		text: '-3',
+		cls: 'basic'
+	}, {
+		text: '2',
 		cls: 'primary'
 	}, {
 		text: '30',
@@ -315,10 +327,10 @@ var w = $.ergo({
 		text: '40',
 		cls: 'info'
 	}, {
-		text: '50',
+		text: '500',
 		cls: 'warning'
 	}, {
-		text: '60',
+		text: '600',
 		cls: 'danger'
 	}]
 });

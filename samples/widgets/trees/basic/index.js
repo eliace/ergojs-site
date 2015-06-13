@@ -91,9 +91,20 @@ var data = [{
 
 
 
+var USERS = new Ergo.data.Collection({
+	provider: new Ergo.data.AjaxProvider('data/tree-users.json')
+});
 
-$context.section('Создание');
+
+
+
+$context.section('Базовое дерево');
 //= require basic-create
+$context.section('Иконка');
+//= require basic-icon
+$context.section('Переключатель');
+//= require basic-toggler
+$context.section('Checkboxes');
+//= require basic-checkboxes
 
-
-
+USERS.fetch();

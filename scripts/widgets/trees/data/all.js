@@ -5,7 +5,7 @@ $context.section_begin('data-ajax');
 $context.section_end('data-ajax');
 
 // создаем провайдера тестовых данных дерева
-TreeAjaxProvider = {
+treeAjaxProvider = {
 	url: 'data/tree',
 	find_all: function(source, query) {
 		var id = query.id || 0;
@@ -18,7 +18,7 @@ TreeAjaxProvider = {
 
 
 // создаем источник данных
-var data = new Ergo.data.NodeList({provider: TreeAjaxProvider});
+var data = new Ergo.data.NodeList({provider: treeAjaxProvider});
 
 
 
@@ -30,28 +30,34 @@ var w = $.ergo({
 			if(this.data.opt('branch')) this.states.set('expandable');
 //			this.icon.states.set(v.type);
 		},
-		components: {
-			content: {
-				$icon: {
-					etype: 'icon',
-					weight: -10,
-					states: {
-						// настраиваем FontAwesome-иконки для состояний
-						'drive': 'fa-hdd-o',
-						'folder': 'fa-folder-o',
-						'clip': 'fa-film'
-					},
-					dataId: 'type'
-					// binding: function(v) {
-						// this.states.set(v);
-					// }
+		$content: {
+			$icon: {
+				etype: 'icon',
+				cls: 'before',
+				weight: -10,
+				states: {
+					// настраиваем FontAwesome-иконки для состояний
+					'drive:type': 'fa-hdd-o',
+					'folder:type': 'fa-folder-o',
+					'clip:type': 'fa-film',
+					'loading': 'spinner'
 				},
-				$content: {
-					etype: '&text',
-					dataId: 'title'					
-				},
-				binding: false
+				dataId: 'type'
+				// binding: function(v) {
+					// this.states.set(v);
+				// }
 			},
+			$content: {
+				etype: '&text',
+				dataId: 'title'					
+			},
+			binding: false
+		},
+		onFetch: function() {
+			this.$content.$icon.states.set('loading');
+		},
+		onFetched: function() {
+			this.$content.$icon.states.unset('loading');
 		}
 	}
 });

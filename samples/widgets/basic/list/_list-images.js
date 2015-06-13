@@ -16,7 +16,7 @@ var w = $.ergo({
 			layout: 'vbox',
 			$content: {
 				etype: 'link',
-				cls: 'item-title'
+				cls: 'title'
 			},
 			$description: {
 				etype: 'text'
@@ -27,23 +27,7 @@ var w = $.ergo({
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
-	items: [{
-		text: 'Волков А.Н.',
-		description: 'Java-разработчик',
-		avatar: '001'
-	}, {
-		text: 'Зайцев И.Д.',
-		description: 'Руководитель группы',
-		avatar: '002'
-	}, {
-		text: 'Медведев К.Г.',
-		description: 'Веб-разработчик',
-		avatar: '004'
-	}, {
-		text: 'Лисицина О.Е.',
-		description: 'Дизайнер',
-		avatar: '003'
-	}]
+	items: ITEMS
 });
 
 w.render('#sample');

@@ -1,7 +1,9 @@
 
 var w = $.ergo({
 	etype: 'box',
-	layout: 'stack',
+	layout: 'vbox',
+	cls: 'gap',
+//	layout: 'stack',
 	defaultItem: {
 		etype: 'html:img',
 		src: 'img/galleries/space/planet_fantasy_art-wallpaper-1366x768.jpg'

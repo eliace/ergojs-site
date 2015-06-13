@@ -3,8 +3,8 @@
 var w = $.ergo({
 	etype: 'box',
 	width: 600,
-	cls: 'bordered rounded paper box-large',
-	style: {'margin-top': 16},
+	cls: 'bordered rounded paper padding-x2',
+//	style: {'margin-top': 16},
 	$ribbon: {
 		etype: 'label',
 		cls: 'ribbon left',

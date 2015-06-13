@@ -1,9 +1,9 @@
 
 var w = $.ergo({
-	etype: 'nested-list',
+	etype: 'tree',
 	data: tree_data,
 	include: 'selectable',  // примесь для работы с выборкой
-	cls: 'nested-list',
+	cls: 'demo-tree',
 	nestedItem: {
 		$content: {
 			etype: 'link',

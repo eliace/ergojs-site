@@ -3,10 +3,10 @@
 var input1 = $.ergo({
 	etype: 'input',
 	include: 'xicon',
-	cls: 'icon',
+	cls: 'icon right',
 	xicon: 'spinner',
 	placeholder: 'Search...',
-	width: 180
+//	width: 180
 });
 
 
@@ -16,7 +16,7 @@ var input2 = $.ergo({
 	cls: 'icon left',
 	icon: 'spinner',
 	placeholder: 'Search...',
-	width: 180
+//	width: 180
 });
 
 
@@ -25,7 +25,8 @@ var input2 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	layout: 'stack',
+	cls: 'indented',
+	layout: 'rows',
 	renderTo: '#sample',
 	items: [ input1, input2 ]
 });

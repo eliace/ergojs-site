@@ -3,19 +3,19 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
-//		cls: 'icon-button',
-		$icon: {
-			etype: 'icon'
-		},
+		include: 'icon',
+		// $icon: {
+		// 	etype: 'icon'
+		// },
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
-		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
-		}
+		// set: {
+		// 	'icon': function(v) { this.icon.opt('icon', v); }
+		// }
 	},
 	items: [{
 		icon: 'fa-arrow-left',

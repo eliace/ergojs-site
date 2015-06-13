@@ -35,7 +35,7 @@ w = $.ergo({
 			'-ТЕКСТ',
 			LOREMIPSUM_3,
 			{
-				layout: 'column',
+				layout: 'columns',
 				itemFactory: CustomFactory,
 				items: [
 					LOREMIPSUM_4,
@@ -44,7 +44,7 @@ w = $.ergo({
 				]
 			},
 			{
-				layout: 'column',
+				layout: 'columns',
 				itemFactory: CustomFactory,
 				items: [
 					LOREMIPSUM,

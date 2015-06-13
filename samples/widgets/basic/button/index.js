@@ -9,6 +9,10 @@ $context.section('Контурные');
 //= require button-outline
 $context.section('Прозрачные');
 //= require button-transparent
+$context.section('Flat');
+//= require button-flat
+$context.section('Rised');
+//= require button-rised
 $context.section('С иконками');
 //= require button-with-icon
 $context.section('Иконка');

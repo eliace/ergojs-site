@@ -2,7 +2,7 @@
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'box tiny bordered indented',
+	cls: 'border padding items gap',
 	include: 'label',
 	label: 'Tiny',
 	defaultItem: {
@@ -15,7 +15,7 @@ var box1 = $.ergo({
 
 var box2 = $.ergo({
 	etype: 'box',
-	cls: 'box small bordered indented',
+	cls: 'border padding items gap',
 	include: 'label',
 	label: 'Small',
 	defaultItem: {
@@ -30,7 +30,7 @@ var box3 = $.ergo({
 	etype: 'box',
 	include: 'label',
 	label: 'Default',
-	cls: 'box bordered indented',
+	cls: 'border padding items gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -43,7 +43,7 @@ var box4 = $.ergo({
 	etype: 'box',
 	include: 'label',
 	label: 'Large',
-	cls: 'box large bordered indented',
+	cls: 'border padding items gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -56,7 +56,7 @@ var box5 = $.ergo({
 	etype: 'box',
 	include: 'label',
 	label: 'Huge',
-	cls: 'box huge bordered indented',
+	cls: 'border padding items gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -71,7 +71,7 @@ var box5 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'indented',
+	cls: 'gap',
 	items: [ box1, box2, box3, box4, box5 ]
 });
 

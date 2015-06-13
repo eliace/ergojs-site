@@ -8,7 +8,7 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$loader: {
-		cls: 'loader-box',
+		cls: 'loader inverted',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-spin fa-spinner fa-3x medium'

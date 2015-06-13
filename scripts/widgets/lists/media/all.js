@@ -40,10 +40,10 @@ var w = $.ergo({
 	dynamic: true,
 
 	defaultItem: {
-		layout: 'column',
+		layout: 'columns',
 		$icon: {
 			etype: 'html:img',
-			cls: 'rounded align-middle',
+			cls: 'circular align-middle',
 			width: 64,
 			binding: function(v) {
 				this.opt('src', 'img/avatars/00'+v.id+'.jpg');
@@ -51,6 +51,7 @@ var w = $.ergo({
 //			src: 'img/avatars/001.jpg'
 		},
 		$content: {
+			etype: 'text',
 			$title: {
 				etype: 'html:h4',
 //				text: 'Media heading'

@@ -6,7 +6,7 @@ $context.section_end('button-type');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'		
@@ -46,7 +46,7 @@ $context.section_end('button-color');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'		
@@ -89,7 +89,7 @@ $context.section_end('button-size');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'
@@ -115,7 +115,7 @@ $context.section_end('button-outline');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -148,7 +148,7 @@ $context.section_end('button-transparent');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -177,6 +177,72 @@ var w = $.ergo({
 
 
 
+$context.section('Flat');
+$context.section_begin('button-flat');
+$context.section_end('button-flat');
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: 'items gap',
+	renderTo: '#sample',
+	defaultItem: {
+		etype: 'button',
+		cls: 'flat'
+//		outline: true
+	},
+	items: [{
+		text: 'Default'
+	}, {
+		text: 'Basic', type: 'basic'
+	}, {
+		text: 'Primary', type: 'primary'
+	}, {
+		text: 'Info', type: 'info'
+	}, {
+		text: 'Success', type: 'success'
+	}, {
+		text: 'Warning', type: 'warning'
+	}, {
+		text: 'Danger',	type: 'danger'
+	}]
+});
+
+
+$context.section('Rised');
+$context.section_begin('button-rised');
+$context.section_end('button-rised');
+
+
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: 'items gap',
+	renderTo: '#sample',
+	defaultItem: {
+		etype: 'button',
+		cls: 'rised'
+//		outline: true
+	},
+	items: [{
+		text: 'Default'
+	}, {
+		text: 'Basic', type: 'basic'
+	}, {
+		text: 'Primary', type: 'primary'
+	}, {
+		text: 'Info', type: 'info'
+	}, {
+		text: 'Success', type: 'success'
+	}, {
+		text: 'Warning', type: 'warning'
+	}, {
+		text: 'Danger',	type: 'danger'
+	}]
+});
+
+
 $context.section('С иконками');
 $context.section_begin('button-with-icon');
 $context.section_end('button-with-icon');
@@ -184,7 +250,7 @@ $context.section_end('button-with-icon');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {
@@ -193,7 +259,7 @@ var w = $.ergo({
 			cls: 'before'
 		},
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		set: {
 			'icon': function(v) { this.icon.opt('icon', v); }
@@ -240,7 +306,7 @@ $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {
@@ -249,7 +315,7 @@ var w = $.ergo({
 			cls: 'after'
 		},
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		set: {
 			'icon': function(v) { this.icon.opt('icon', v); }
@@ -293,7 +359,7 @@ $context.section_end('button-icon');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'icon-button',
@@ -306,7 +372,7 @@ var w = $.ergo({
 		// }
 	},
 	items: [{
-		type: 'default',
+//		type: 'default',
 		icon: 'fa-filter'
 	}, {
 		type: 'basic',
@@ -338,19 +404,19 @@ $context.section_end('button-icon-text');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
-//		cls: 'icon-button',
-		$icon: {
-			etype: 'icon'
-		},
+		include: 'icon',
+		// $icon: {
+		// 	etype: 'icon'
+		// },
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
-		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
-		}
+		// set: {
+		// 	'icon': function(v) { this.icon.opt('icon', v); }
+		// }
 	},
 	items: [{
 		icon: 'fa-arrow-left',
@@ -376,22 +442,15 @@ $context.section_end('button-circular');
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
-//		cls: 'icon-button',
-		$icon: {
-			etype: 'icon'
-		},
-		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
-		},
+		include: 'icon',
 		cls: 'circular'
-//		round: true
 	},
 	items: [{
-		type: 'default',
+//		type: 'default',
 		icon: 'fa-filter'
 	}, {
 		type: 'basic',
@@ -408,10 +467,7 @@ $.ergo({
 	}, {
 		type: 'danger',
 		icon: 'fa-unlock'
-	}/*, {
-		type: 'tool',
-		icon: 'fa-copy'
-	}*/]
+	}]
 });
 
 
@@ -424,23 +480,16 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
-//		cls: 'icon-button',
-		$icon: {
-			etype: 'icon'
-		},
-		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
-		},
-		cls: 'circular',
-//		round: true,
-		size: 'large'
+		include: 'icon',
+		cls: 'large circular'
+//		size: 'large'
 	},
 	items: [{
-		type: 'default',
+//		type: 'default',
 		icon: 'fa-filter'
 	}, {
 		type: 'basic',
@@ -457,10 +506,7 @@ $.ergo({
 	}, {
 		type: 'danger',
 		icon: 'fa-unlock'
-	}/*, {
-		type: 'tool',
-		icon: 'fa-copy'
-	}*/]
+	}]
 });
 
 
@@ -498,7 +544,7 @@ $context.section_end('button-dropdown');
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
@@ -506,7 +552,7 @@ $.ergo({
 	},
 	items: [{
 		text: 'Default',
-		type: 'default'
+//		type: 'default'
 	}, {
 		text: 'Basic',
 		type: 'basic'
@@ -522,10 +568,7 @@ $.ergo({
 	}, {
 		text: 'Danger',
 		type: 'danger'
-	}/*, {
-		text: 'Tool',
-		type: 'tool'
-	}*/]
+	}]
 });
 
 
@@ -537,7 +580,7 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
@@ -551,7 +594,7 @@ $.ergo({
 	},
 	items: [{
 		text: 'Default',
-		type: 'default'
+//		type: 'default'
 	}, {
 		text: 'Basic',
 		type: 'basic'
@@ -567,10 +610,7 @@ $.ergo({
 	}, {
 		text: 'Danger',
 		type: 'danger'
-	}/*, {
-		text: 'Tool',
-		type: 'tool'
-	}*/]
+	}]
 });
 
 
@@ -580,7 +620,7 @@ $context.section_end('button-split');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'split-button',
@@ -661,7 +701,7 @@ $context.section_end('button-state');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	items: [{
 		etype: 'button',

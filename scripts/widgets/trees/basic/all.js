@@ -91,12 +91,79 @@ var data = [{
 
 
 
+var USERS = new Ergo.data.Collection({
+	provider: new Ergo.data.AjaxProvider('data/tree-users.json')
+});
 
-$context.section('Создание');
+
+
+
+$context.section('Базовое дерево');
 $context.section_begin('basic-create');
 $context.section_end('basic-create');
 
 
+
+var w = $.ergo({
+	etype: 'basic-tree',
+	data: data,
+	nestedItem: {
+		$content: {
+			dataId: 'title'
+		},
+		binding: function(v) {
+			if(v.type != 'cities') this.states.set('expandable');
+		}
+	}
+	
+});
+
+w.render('#sample');
+
+
+
+//		layout: 'hbox',
+//		cls: 'item box',
+// 		transitions: {
+// 			'* > expanded': function() {
+
+// 				var item = this;
+
+// 				if(!item.$subtree.states.is('slide-item-hidden')) return;
+
+// 				item.$subtree.states.unset('slide-item-hidden');
+// 				item.$subtree.el.css('max-height', 'none');
+// 				var h = item.$subtree.el.outerHeight();
+// 				item.$subtree.el.css('max-height', 0);
+// 				setTimeout(function() {
+// 					item.$subtree.el.css('max-height', h);
+// 				}, 1);
+
+// 				// var deferred = new $.Deferred();
+
+// 				// item.$subtree.el.one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function() {
+// 				// 	deferred.resolve();
+// 				// });
+				
+// 				item.$subtree.states.set('opened');
+
+// //				return deferred.promise();
+// 			},
+// 			'expanded > *': function() {
+
+// 				var item = this;
+// 				item.$subtree.el.css('max-height', 0);
+// 				item.$subtree.states.set('slide-item-hidden');
+
+
+// 				this.$subtree.states.unset('opened'); 
+// 			}
+// 		},
+
+
+
+
+/*
 var w = $.ergo({
 	etype: 'box',
 	layout: {
@@ -173,7 +240,162 @@ var w = $.ergo({
 
 w.render('#sample');
 
+*/
+
+$context.section('Иконка');
+$context.section_begin('basic-icon');
+$context.section_end('basic-icon');
+
+
+var w = $.ergo({
+	etype: 'basic-tree',
+	data: data,
+	nestedItem: {
+		$content: {
+			$icon: {
+				etype: 'icon',
+				cls: 'before',
+				weight: -10,
+				states: {
+					// отображение состояния на класс иконки
+					'cardinals': 'fa-globe',
+					'countries': 'fa-flag',
+					'cities': 'fa-building-o'
+				},
+				dataId: 'type'
+			},
+			$content: {
+				etype: '.',
+				dataId: 'title'
+			}
+		},
+		binding: function(v) {
+			if(v.type != 'cities') this.states.set('expandable');
+		}
+	}
+	
+});
+
+w.render('#sample');
+
+$context.section('Переключатель');
+$context.section_begin('basic-toggler');
+$context.section_end('basic-toggler');
+
+
+var w = $.ergo({
+	etype: 'basic-tree',
+	data: USERS,
+//	cls: 'items-indent',
+	nestedItem: {
+		cls: 'margin-top',
+		$toggler: {
+			cls: 'fa-2x before',
+			states: {
+				'caret:c': 'fa-angle-right',
+				'opened:c': 'fa-angle-down'
+			}
+		},
+		$image: {
+			etype: 'html:img',
+			cls: 'rounded before',
+			binding: 'src',
+			format: function(v) {
+				var s = v.id;
+				if(v.id < 10) s = '0'+s;
+				if(v.id < 100) s = '0'+s;
+				return 'demo/blog/img/avatars/'+s+'.jpg';
+			},
+			width: 40,
+			weight: -10
+		},
+		$content: {
+			etype: 'box',
+			$content: {
+				$content: {
+					etype: '.',
+					dataId: 'full_name'
+				},
+				$email: {
+					etype: 'text',
+					cls: 'description',
+					dataId: 'email'
+				}
+			}
+		},
+		binding: function(v) {
+			if(v.children) this.states.set('expandable');
+		}
+	}
+	
+});
+
+
+w.render('#sample');
+
+
+$context.section('Checkboxes');
+$context.section_begin('basic-checkboxes');
+$context.section_end('basic-checkboxes');
+
+// создаем провайдера тестовых данных дерева
+TreeAjaxProvider = {
+	url: 'data/tree',
+	find_all: function(source, query) {
+		var id = query.id || 0;
+		return $.ajax(this.url+'/'+id+'.json', {
+			data: query,
+			dataType: 'json'
+		});
+	}
+};
+
+
+// создаем источник данных
+var data = new Ergo.data.NodeList({provider: TreeAjaxProvider});
 
 
 
+var w = $.ergo({
+	etype: 'basic-tree',
+	data: data,
+	nestedItem: {
+		binding: function(v) {
+			if(this.data.opt('branch')) this.states.set('expandable');
+			this.$icon.states.set(v.type);
+		},
+		$content: {
+			dataId: 'title'
+		},
+		$checkbox: {
+			etype: 'check',
+			cls: 'before',
+			weight: -20,
+			autoBind: false,
+			onAction: function() {
+//					this.events.
+			}
+		},
+		$icon: {
+			etype: 'icon',
+			cls: 'before',
+			weight: -10,
+			states: {
+				// настраиваем FontAwesome-иконки для состояний
+				'drive': 'fa-hdd-o',
+				'folder': 'fa-folder-o',
+				'clip': 'fa-film'
+			}
+		}
+	}
+});
 
+
+w.render('#sample');
+
+
+data.fetch();
+
+
+
+USERS.fetch();

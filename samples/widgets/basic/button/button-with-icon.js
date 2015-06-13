@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {
@@ -11,7 +11,7 @@ var w = $.ergo({
 			cls: 'before'
 		},
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		set: {
 			'icon': function(v) { this.icon.opt('icon', v); }
@@ -58,7 +58,7 @@ $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {
@@ -67,7 +67,7 @@ var w = $.ergo({
 			cls: 'after'
 		},
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		set: {
 			'icon': function(v) { this.icon.opt('icon', v); }

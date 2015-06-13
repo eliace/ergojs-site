@@ -38,7 +38,7 @@ $.ergo({
 	etype: 'box',
 //	layout: 'hbox',
 	renderTo: '#sample',
-	cls: 'block indented',
+	cls: 'block items gap',
 	defaultItem: {
 		etype: 'icon'
 	},
@@ -52,7 +52,7 @@ $context.section_end('icon-circular');
 
 $.ergo({
 	etype: 'box',
-	cls: 'block indented',
+	cls: 'block items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'icon',
@@ -71,7 +71,7 @@ $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 //		layout: 'bar',
-		cls: 'box indented',
+		cls: 'items gap padding',
 		defaultItem: {
 			etype: 'icon',
 			cls: 'contextual'
@@ -79,15 +79,43 @@ $.ergo({
 		items: icons
 	},
 	items: [
-		{cls: 'basic'},
-		{cls: 'primary'},
-		{cls: 'info'},
-		{cls: 'success'},
-		{cls: 'warning'},
-		{cls: 'danger'}
+		{cls: 'bg-basic'},
+		{cls: 'bg-primary'},
+		{cls: 'bg-info'},
+		{cls: 'bg-success'},
+		{cls: 'bg-warning'},
+		{cls: 'bg-danger'}
 	]
 
 });
 
+
+$context.section('Системные');
+$context.section_begin('icon-builtin');
+$context.section_end('icon-builtin');
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: 'block items gap',
+	defaultItem: {
+		etype: 'icon'
+	},
+	items: [
+		'caret', 
+		'caret up', 
+		'caret left', 
+		'caret right', 
+		'caret nw', 
+		'caret ne', 
+		'caret se', 
+		'caret sw', 
+		'close',
+		'spinner'
+	]
+});
+
+
+w.render('#sample');
 
 

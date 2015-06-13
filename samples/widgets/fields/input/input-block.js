@@ -17,7 +17,7 @@ var input2 = $.ergo({
 		etype: 'label',
 		cls: 'button action',
 		text: 'Search',
-		state: 'default'
+		state: 'basic'
 	}
 });
 
@@ -28,11 +28,7 @@ var input2 = $.ergo({
 $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	layout: {
-		etype: 'stack',
-		wrapper: function(item) {
-			return $('<div/>').append(item.el);
-		}
-	},
+	cls: 'indented',
+	layout: 'rows',
 	items: [ input1, input2 ]
 });

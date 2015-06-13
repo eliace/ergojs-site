@@ -57,7 +57,7 @@ $context.section_begin = function(block) {
 			},
 			$codeToggle: {
 				etype: 'icon',
-				cls: 'contextual fa-code pull-right action-icon',
+				cls: 'contextual fa-code pull-right action',
 				onClick: function() {
 					this.events.rise('toggleExpand');
 				}

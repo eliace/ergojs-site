@@ -3,7 +3,7 @@ var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
 	style: {'margin-top': 16},
-	width: 600,
+//	width: 600,
 	cls: 'divided padded',
 	defaultItem: {
 		layout: 'hbox',
@@ -11,7 +11,7 @@ var w = $.ergo({
 		$image: {
 			etype: 'html:img',
 			cls: 'circular before',
-			width: 48
+			width: 40
 		},
 		$content: {
 			etype: 'box',
@@ -21,36 +21,20 @@ var w = $.ergo({
 			},
 			$description: {
 				etype: 'text',
-				cls: 'item-description'
+				cls: 'description'
 			}
 		},
 		$button: {
-			etype: 'button',
-			text: 'Добавить',
-			cls: 'fluid-right basic'
+			etype: 'label',
+			text: 'online',
+			cls: 'fluid-right success small'
 		},
 		set: {
 			'description': function(v) { this.content.description.opt('text', v); },
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
-	items: [{
-		text: 'Волков А.Н.',
-		description: 'Java-разработчик',
-		avatar: '001'
-	}, {
-		text: 'Зайцев И.Д.',
-		description: 'Руководитель группы',
-		avatar: '002'
-	}, {
-		text: 'Медведев К.Г.',
-		description: 'Веб-разработчик',
-		avatar: '004'
-	}, {
-		text: 'Лисицина О.Е.',
-		description: 'Дизайнер',
-		avatar: '003'
-	}]
+	items: ITEMS
 });
 
 w.render('#sample');

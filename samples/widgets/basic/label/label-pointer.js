@@ -1,9 +1,10 @@
 
 var w = $.ergo({
 	etype: 'html:form',
-	width: 800,
+//	width: 800,
+	cls: 'gap-x2 divided',
 	layout: {
-		etype: 'stack',
+		etype: 'vbox',
 		wrapper: function(item) {
 			var w = $('<div/>');
 			w.append(item.el);
@@ -18,42 +19,42 @@ var w = $.ergo({
 		}
 	},
 	items: [{
-		etype: 'text-box',
+		etype: 'input',
 		placeholder: 'Фамилия',
-		cls: 'box-block',
+		cls: 'block',
 		$label: {
 			etype: 'label',
 			cls: 'pointing-above',
 			text: 'Введите значение'
 		}
-	}, {
+	}/*, {
 		etype: 'box',
 		cls: 'divider horizontal'
-	}, {
-		etype: 'text-box',
+	}*/, {
+		etype: 'input',
 		placeholder: 'Имя',
-		cls: 'box-block',
+		cls: 'block',
 		$label: {
 			etype: 'label',
 			cls: 'pointing-below',
 			text: 'Введите значение'
 		}
-	}, {
+	}/*, {
 		etype: 'box',
 		cls: 'divider horizontal'
-	}, {
-		etype: 'text-box',
+	}*/, {
+		etype: 'input',
 		placeholder: 'Отчество',
 		$label: {
 			etype: 'label',
 			cls: 'pointing-left',
 			text: 'Введите значение'
 		}
-	}, {
+	}/*, {
 		etype: 'box',
 		cls: 'divider horizontal'
-	}, {
-		etype: 'text-box',
+	}*/, {
+		etype: 'input',
 		placeholder: 'Место рождения',
 		$label: {
 			etype: 'label',

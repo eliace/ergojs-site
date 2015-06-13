@@ -21,7 +21,7 @@ var input2 = $.ergo({
 		etype: 'label',
 		include: 'icon',
 		icon: 'fa-calendar',
-		cls: 'action'
+		cls: 'basic action contextual'
 	}
 });
 
@@ -88,7 +88,7 @@ var input6 = $.ergo({
 	$action: {
 		etype: 'button',
 		text: 'Search',
-		state: 'default',
+		state: 'basic',
 		wrapper: {
 			etype: 'box'
 		}
@@ -125,12 +125,8 @@ var input7 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	layout: {
-		etype: 'stack',
-		wrapper: function(item) {
-			return $('<div/>').append(item.el);
-		}
-	},
+	cls: 'indented',
+	layout: 'rows',
 	renderTo: '#sample',
 	items: [ input1, input2, input3, input4, input5, input6, input7 ]
 });

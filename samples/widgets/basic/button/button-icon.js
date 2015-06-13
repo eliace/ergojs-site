@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
+	cls: 'items gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'icon-button',
@@ -15,7 +15,7 @@ var w = $.ergo({
 		// }
 	},
 	items: [{
-		type: 'default',
+//		type: 'default',
 		icon: 'fa-filter'
 	}, {
 		type: 'basic',

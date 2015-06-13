@@ -21,21 +21,21 @@ $context.section_end('input-states');
 
 var input1 = $.ergo({
 	etype: 'input',
-	width: 200,
+//	width: 200,
 	placeholder: 'Search...',
 	state: 'focus'
 });
 
 var input2 = $.ergo({
 	etype: 'input',
-	width: 200,
+//	width: 200,
 	placeholder: 'Search...',
 	state: 'disabled'
 });
 
 var input3 = $.ergo({
 	etype: 'input',
-	width: 200,
+//	width: 200,
 	placeholder: 'Search...',
 	state: 'danger'
 });
@@ -45,7 +45,8 @@ var input3 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	layout: 'stack',
+	cls: 'indented',
+	layout: 'rows',
 	renderTo: '#sample',
 	items: [ input1, input2, input3 ]
 });
@@ -59,9 +60,9 @@ $context.section_end('input-icon');
 
 var input1 = $.ergo({
 	etype: 'input',
-	cls: 'icon',
+	cls: 'icon right',
 	placeholder: 'Search...',
-	width: 180,
+//	width: 180,
 	$icon: {
 		etype: 'icon',
 		cls: 'fa-search'
@@ -76,7 +77,7 @@ var input2 = $.ergo({
 	cls: 'icon right',
 	xicon: 'fa-search',
 	placeholder: 'Search...',
-	width: 180
+//	width: 180
 });
 
 
@@ -86,7 +87,7 @@ var input3 = $.ergo({
 	cls: 'icon left',
 	icon: 'fa-folder-open',
 	placeholder: 'Search...',
-	width: 180
+//	width: 180
 });
 
 
@@ -94,7 +95,8 @@ var input3 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	layout: 'stack',
+	cls: 'indented',
+	layout: 'rows',
 	renderTo: '#sample',
 	items: [ input1, input2, input3 ]
 });
@@ -106,10 +108,10 @@ $context.section_end('input-loader');
 var input1 = $.ergo({
 	etype: 'input',
 	include: 'xicon',
-	cls: 'icon',
+	cls: 'icon right',
 	xicon: 'spinner',
 	placeholder: 'Search...',
-	width: 180
+//	width: 180
 });
 
 
@@ -119,7 +121,7 @@ var input2 = $.ergo({
 	cls: 'icon left',
 	icon: 'spinner',
 	placeholder: 'Search...',
-	width: 180
+//	width: 180
 });
 
 
@@ -128,7 +130,8 @@ var input2 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	layout: 'stack',
+	cls: 'indented',
+	layout: 'rows',
 	renderTo: '#sample',
 	items: [ input1, input2 ]
 });
@@ -142,7 +145,8 @@ var input1 = $.ergo({
 	cls: 'group',
 	$label: {
 		etype: 'label',
-		text: '.com'
+		text: '.com',
+		cls: 'basic'
 	}
 });
 
@@ -154,6 +158,7 @@ var input2 = $.ergo({
 	$label: {
 		etype: 'label',
 		text: '+7',
+		cls: 'basic',
 		weight: -10
 	}
 });
@@ -165,12 +170,14 @@ var input2 = $.ergo({
 $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	layout: {
-		etype: 'stack',
-		wrapper: function(item) {
-			return $('<div/>').append(item.el);
-		}
-	},
+	layout: 'rows',
+	cls: 'indented',
+	// layout: {
+	// 	etype: 'vbox',
+	// 	wrapper: function(item) {
+	// 		return $('<div/>').append(item.el);
+	// 	}
+	// },
 	items: [ input1, input2 ]
 });
 $context.section('Действия');
@@ -199,7 +206,7 @@ var input2 = $.ergo({
 		etype: 'label',
 		include: 'icon',
 		icon: 'fa-calendar',
-		cls: 'action'
+		cls: 'basic action contextual'
 	}
 });
 
@@ -266,7 +273,7 @@ var input6 = $.ergo({
 	$action: {
 		etype: 'button',
 		text: 'Search',
-		state: 'default',
+		state: 'basic',
 		wrapper: {
 			etype: 'box'
 		}
@@ -303,12 +310,8 @@ var input7 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	layout: {
-		etype: 'stack',
-		wrapper: function(item) {
-			return $('<div/>').append(item.el);
-		}
-	},
+	cls: 'indented',
+	layout: 'rows',
 	renderTo: '#sample',
 	items: [ input1, input2, input3, input4, input5, input6, input7 ]
 });
@@ -334,7 +337,7 @@ var input2 = $.ergo({
 		etype: 'label',
 		cls: 'button action',
 		text: 'Search',
-		state: 'default'
+		state: 'basic'
 	}
 });
 
@@ -345,12 +348,8 @@ var input2 = $.ergo({
 $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	layout: {
-		etype: 'stack',
-		wrapper: function(item) {
-			return $('<div/>').append(item.el);
-		}
-	},
+	cls: 'indented',
+	layout: 'rows',
 	items: [ input1, input2 ]
 });
 

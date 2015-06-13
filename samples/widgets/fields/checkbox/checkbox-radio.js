@@ -11,7 +11,7 @@ var w = $.ergo({
 
 		etype: 'html:fieldset',
 		
-		layout: 'stack',
+		layout: 'vbox',
 		
 		include: 'selectable',
 		
@@ -26,13 +26,16 @@ var w = $.ergo({
 	
 	items: [{
 		
+		cls: 'item-indent',
+
 		defaultItem: {
 			etype: 'html:label',
 			$radio: {
-				etype: 'radio',				
+				etype: 'radio',
+				cls: 'before'
 			},
 			$content: {
-				etype: '&text'
+				etype: '.'
 			},
 			
 			states: {
@@ -69,7 +72,7 @@ var w = $.ergo({
 				}
 			},
 			$content: {
-				etype: '&text'
+				etype: '.'
 			},
 
 			states: {

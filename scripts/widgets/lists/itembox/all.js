@@ -6,244 +6,205 @@ var data = new Ergo.data.Collection({
 
 
 
-$context.section('Item Box (fluid layout)');
-$context.section_begin('itembox-fluid');
-$context.section_end('itembox-fluid');
+$context.section('Fluid', 'Выравнивание только по верхнему краю. Можно привязывать элементы к разным сторонам');
+$context.section_begin('string-fluid');
+$context.section_end('string-fluid');
 
 
 var w = $.ergo({
-	etype: 'panel',
-	cls: 'widget',
-	title: 'Item Box (fluid layout)',
-	renderTo: '#sample',
-	
-	width: 700,
-	
-	$content: {
-		cls: 'list-box',
-		dynamic: true,
-		height: 300,
-		style: {
-			'overflow-y': 'auto'
-		},
-		data: data,
-		defaultItem: {
-			etype: 'item-box',
-			layout: 'fluid',
-			items: [{
-				etype: 'check',
-				autoBind: false,
-				style: {
-					'margin-right': 8
-				}
-			}, {
-				binding: 'text',
-				dataId: 'full_name',
-				width: 140
-			}, {
-				etype: 'link',
-				binding: 'text',
-				dataId: 'email',
-				width: 160,
-				style: {
-					'text-overflow': 'ellipsis',
-					'overflow': 'hidden'
-				},
-				$icon: {
-					etype: 'icon',
-					icon: 'fa-envelope',
-					style: {
-						'display': 'inline',
-						'margin-right': 4
-					}
-				},
-				$content: {
-					etype: '&text'
-				}
-			}, {
-				binding: 'text',
-				dataId: 'country'
-			}],
-			$after: {
-				etype: 'icon-button',
-				icon: 'fa-close',
-				cls: 'remove-btn',
-				state: 'line tool primary tiny',
-				binding: false,
-				autoRender: true
+	etype: 'list',
+	dynamic: true,
+	height: 300,
+	style: {
+		'overflow-y': 'auto'
+	},
+	cls: 'box bordered items-padding',
+	data: data,
+	defaultItem: {
+		etype: 'box',
+		html: '<li/>',
+
+		layout: 'fluid',  // ITEM LAYOUT
+
+		cls: 'box items-indent',
+		binding: false,
+		items: [{
+			etype: 'check',
+			autoBind: false,
+			// style: {
+			// 	'margin-right': 8
+			// }
+		}, {
+			binding: 'text',
+			dataId: 'full_name',
+			width: 140
+		}, {
+			etype: 'link',
+			binding: 'text',
+			dataId: 'email',
+			width: 160,
+			style: {
+				'text-overflow': 'ellipsis',
+				'overflow': 'hidden',
+				'white-space': 'nowrap'
+			},
+			$icon: {
+				etype: 'icon',
+				cls: 'before fa-envelope'
+			},
+			$content: {
+				etype: '.'
 			}
+		}, {
+			binding: 'text',
+			dataId: 'country'
+		}],
+		$after: {
+			etype: 'icon',
+			cls: 'fluid-right contextual action fa-close',
+			binding: false,
+			weight: 10
 		}
 	}
 	
-	
 });
 
-$context.section('Item Box (hbox layout)');
-$context.section_begin('itembox-hbox');
-$context.section_end('itembox-hbox');
+
+w.render('#sample');
+
+$context.section('HBox', 'Выравнивание произвольное. К разным сторонам элементы не привязываются');
+$context.section_begin('string-hbox');
+$context.section_end('string-hbox');
 
 
 var w = $.ergo({
-	etype: 'panel',
-	cls: 'widget',
-	title: 'Item Box (hbox layout)',
-	renderTo: '#sample',
-	
-	width: 700,
-	
-	$content: {
-		cls: 'list-box',
-		dynamic: true,
-		height: 300,
-		style: {
-			'overflow-y': 'auto'
-		},
-		data: data,
-		defaultItem: {
-			layout: 'hbox',
-			etype: 'item-box',
-			items: [{
-				etype: 'check',
-				autoBind: false,
-				style: {
-					'margin-right': 8
-				}
-			}, {
-				binding: 'text',
-				dataId: 'full_name',
-				width: 140
-			}, {
-				etype: 'link',
-				binding: 'text',
-				dataId: 'email',
-				width: 160,
-				style: {
-					'text-overflow': 'ellipsis',
-					'overflow': 'hidden'
-				},
-				$icon: {
-					etype: 'icon',
-					icon: 'fa-envelope',
-					style: {
-						'display': 'inline',
-						'margin-right': 4
-					}
-				},
-				$content: {
-					etype: '&text'
-				}
-			}, {
-				binding: 'text',
-				dataId: 'country'
-			}],
-			$after: {
-				etype: 'icon-button',
-				icon: 'fa-close',
-				cls: 'remove-btn',
-				state: 'line tool primary tiny',
-				binding: false,
-				autoRender: true
+	etype: 'list',
+	dynamic: true,
+	height: 300,
+	style: {
+		'overflow-y': 'auto'
+	},
+	cls: 'box bordered items-padding',
+	data: data,
+	defaultItem: {
+		etype: 'box',
+		html: '<li/>',
+
+		layout: 'hbox',  // ITEM LAYOUT
+
+		cls: 'box has-stick right items-indent',
+		binding: false,
+		items: [{
+			etype: 'check',
+			autoBind: false,
+			// style: {
+			// 	'margin-right': 8
+			// }
+		}, {
+			binding: 'text',
+			dataId: 'full_name',
+			width: 140
+		}, {
+			etype: 'link',
+			binding: 'text',
+			dataId: 'email',
+			width: 160,
+			style: {
+				'text-overflow': 'ellipsis',
+				'overflow': 'hidden',
+				'white-space': 'nowrap'
+			},
+			$icon: {
+				etype: 'icon',
+				cls: 'before fa-envelope'
+			},
+			$content: {
+				etype: '.'
 			}
+		}, {
+			binding: 'text',
+			dataId: 'country'
+		}],
+		$after: {
+			etype: 'icon',
+			cls: 'stick right contextual action fa-close',
+			binding: false,
+			weight: 10
 		}
 	}
 	
-	
 });
 
-$context.section('Item Box (stack layout)');
-$context.section_begin('itembox-stack');
-$context.section_end('itembox-stack');
+
+
+w.render('#sample');
+
+$context.section('Flex', 'Выравнивание произвольное. К разным сторонам элементы не привязываются, но можно растянуть их на всю ширину контейнера');
+$context.section_begin('string-flex');
+$context.section_end('string-flex');
 
 
 var w = $.ergo({
-	etype: 'panel',
-	cls: 'widget',
-	title: 'Item Box (stack layout)',
-	renderTo: '#sample',
-	
-	width: 500,
-	
-	$content: {
-		cls: 'list-box',
-		dynamic: true,
-		height: 300,
-		style: {
-			'overflow-y': 'auto'
-		},
-		data: data,
-		defaultItem: {
-			layout: 'stack',
-			etype: 'item-box',
-			items: [{
-				cls: 'check',
-				$content: {
-					etype: 'html:i',
-					cls: 'fa'
-				},
-				// etype: 'check',
-				// autoBind: false,
-				style: {
-					'margin-right': 8,
-					'float': 'left'
-				},
-				states: {
-					'checked': function(on) {
-						this.content.states.toggle('fa-check', on);
-					}
-				},
-				onClick: function() {
-					this.states.toggle('checked');
-				}
-			}, {
-				binding: 'text',
-				dataId: 'full_name',
-			}, {
-				etype: 'link',
-				binding: 'text',
-				dataId: 'email',
-				style: {
-					'text-overflow': 'ellipsis',
-					'overflow': 'hidden'
-				},
-				$icon: {
-					etype: 'icon',
-					icon: 'fa-envelope',
-					style: {
-						'display': 'inline',
-						'margin-right': 4
-					}
-				},
-				$content: {
-					etype: '&text'
-				}
-			}, {
-				binding: 'text',
-				dataId: 'country'
-			}],
-			$after: {
-				etype: 'icon-button',
-				icon: 'fa-close',
-				cls: 'remove-btn',
-				state: 'line tool primary tiny',
-				binding: false,
-				autoRender: true
+	etype: 'list',
+	dynamic: true,
+	height: 300,
+	style: {
+		'overflow-y': 'auto'
+	},
+	cls: 'box bordered items-padding',
+	data: data,
+	defaultItem: {
+		etype: 'box',
+		html: '<li/>',
 
-				// state: 'warning',
-				// autoRender: true,
-				// cls: 'icon-box',				
-				
-				// $content: {
-				// 	etype: 'icon',
-				// 	icon: 'fa-bar-chart',
-				// 	binding: false
-				// }
+		layout: 'flex',  // ITEM LAYOUT
+
+		cls: 'box items-indent items-middle',
+		binding: false,
+		items: [{
+			etype: 'check',
+			autoBind: false,
+			// style: {
+			// 	'margin-right': 8
+			// }
+		}, {
+			binding: 'text',
+			dataId: 'full_name',
+			width: 140
+		}, {
+			etype: 'link',
+			binding: 'text',
+			dataId: 'email',
+			width: 160,
+			style: {
+				'text-overflow': 'ellipsis',
+				'overflow': 'hidden',
+				'white-space': 'nowrap'
+			},
+			$icon: {
+				etype: 'icon',
+				cls: 'before fa-envelope'
+			},
+			$content: {
+				etype: '.'
 			}
+		}, {
+			binding: 'text',
+			dataId: 'country'
+		}],
+		$after: {
+			etype: 'icon',
+			style: {'flex-grow': 2},
+			cls: 'contextual action fa-close text-right',
+			binding: false,
+			weight: 10
 		}
 	}
 	
-	
 });
 
+
+w.render('#sample');
 
 
 

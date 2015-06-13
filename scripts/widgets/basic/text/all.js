@@ -1,12 +1,12 @@
 
-$context.section('Элемент с текстом (text)');
+$context.section('Элемент с текстом');
 $context.section_begin('text-span');
 $context.section_end('text-span');
 
 var w = $.ergo({
 	etype: 'box',
 	defaultItem: {
-		etype: '&text'
+		etype: '.'
 	},
 	items: ['В этом тексте есть ', {etype: 'text', text: 'особенная строчка', style: {'font-weight': 'bold'}}, ', которая обернута тегом <span>']
 });
@@ -14,7 +14,7 @@ var w = $.ergo({
 w.render('#sample');
 
 
-$context.section('Простой текст (&text)');
+$context.section('Внутренний текст');
 $context.section_begin('text-node');
 $context.section_end('text-node');
 
@@ -26,7 +26,7 @@ var w = $.ergo({
 			cls: 'fa fa-home'
 		},
 		content: {
-			etype: '&text',
+			etype: '.',
 			text: ' Главная '
 		},
 		xicon: {

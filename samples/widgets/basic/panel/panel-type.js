@@ -1,40 +1,61 @@
 
 var w = $.ergo({
 	etype: 'box',
-	layout: 'grid',
-	renderTo: '#sample',
+	// layout: 'grid',
+	// pattern: [4, 4, 4],
+//	renderTo: '#sample',
+//	cls: 'list',
+	
+	layout: {
+		etype: 'tiles',
+		size: 4
+	},
+	// layout: 'tiles',
+	// cls: 'four',
 	defaultItem: {
 		etype: 'panel',
-		$footer: {
-			autoRender: true,
-			$toolbar: {
-				etype: 'tool-bar',
-				items: [{
-					layout: 'bar',
-					defaultItem: {
-						etype: 'button'
-					},
-					items: [{text: 'ОК', state: 'primary'}, 'Отмена']
-				}]
-			}
-		},
+//		width: 187,
+		cls: 'bordered divided padded margin',
+		// $footer: {
+		// 	autoRender: true,
+		// 	$toolbar: {
+		// 		etype: 'tool-bar',
+		// 		items: [{
+		// 			layout: 'bar',
+		// 			defaultItem: {
+		// 				etype: 'button'
+		// 			},
+		// 			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
+		// 		}]
+		// 	}
+		// },
 		$content: {
-			cls: 'panel-content',
-			text: LOREMIPSUM
+//			cls: 'panel-content',
+			text: LOREMIPSUM.substr(0, 200)
 		}
 	},
 	items: [{
 		title: 'Default',
-		cls: 'widget default'
 	}, {
-		title: 'Dark',		
-		cls: 'widget dark'
+		title: 'Basic',		
+		cls: 'basic'
 	}, {
-		title: 'Simple',
-		cls: 'widget simple'
+		title: 'Primary',		
+		cls: 'primary'
 	}, {
-		title: 'Light',
-		cls: 'widget light'
+		title: 'Success',
+		cls: 'success'
+	}, {
+		title: 'Info',
+		cls: 'info'
+	}, {
+		title: 'Warning',
+		cls: 'warning'
+	}, {
+		title: 'Danger',
+		cls: 'danger'
 	}]
 });
 
+
+w.render('#sample');

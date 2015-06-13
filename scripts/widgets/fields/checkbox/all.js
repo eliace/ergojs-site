@@ -18,7 +18,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'html:fieldset',
 
-		layout: 'stack',
+		layout: 'vbox',
 		
 		include: 'selectable',
 		
@@ -37,6 +37,8 @@ var w = $.ergo({
 	
 	items: [{
 		
+		cls: 'item-indent',
+
 		multiselect: true,
 
 		defaultItem: {
@@ -46,7 +48,7 @@ var w = $.ergo({
 				cls: 'before'
 			},
 			$content: {
-				etype: '&text',
+				etype: '.',
 				weight: 10
 			},
 			
@@ -109,7 +111,7 @@ var w = $.ergo({
 
 		etype: 'html:fieldset',
 		
-		layout: 'stack',
+		layout: 'vbox',
 		
 		include: 'selectable',
 		
@@ -124,13 +126,16 @@ var w = $.ergo({
 	
 	items: [{
 		
+		cls: 'item-indent',
+
 		defaultItem: {
 			etype: 'html:label',
 			$radio: {
-				etype: 'radio',				
+				etype: 'radio',
+				cls: 'before'
 			},
 			$content: {
-				etype: '&text'
+				etype: '.'
 			},
 			
 			states: {
@@ -167,7 +172,7 @@ var w = $.ergo({
 				}
 			},
 			$content: {
-				etype: '&text'
+				etype: '.'
 			},
 
 			states: {

@@ -146,11 +146,11 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Разделитель',
 				name: 'widgets/basic/divider'
 			}, {
-				title: 'Список',
-				name: 'widgets/basic/list'
-			}, {
 				title: 'Заголовок',
 				name: 'widgets/basic/header'
+			}, {
+				title: 'Элемент',
+				name: 'widgets/basic/item'
 			}, {
 				title: 'Изображение',
 				name: 'widgets/basic/image'
@@ -164,17 +164,62 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Шаги',
 				name: 'widgets/basic/steps'
 			}, {
-				title: 'Панель',
-				name: 'widgets/basic/panel'
-			}, {
-				title: 'Таблица',
-				name: 'widgets/basic/table'
-			}, {
 				title: 'Текст',
 				name: 'widgets/basic/text'
+			}]
+		}, {
+			title: 'Списки',
+			icon: 'fa-list',
+			children: [{
+				title: 'Основы',
+				name: 'widgets/basic/list'
 			}, {
-				title: 'Дерево',
-				name: 'widgets/basic/tree'
+				title: "Компоновки",
+				name: 'widgets/lists/layout'
+			}, {
+				title: 'Вложенные',
+				name: 'widgets/lists/nested'
+			}, {
+				title: "Dynamic List",
+				name: 'widgets/lists/dynamic'
+			}, {
+				title: "Detail List",
+				name: 'widgets/lists/detail'
+			}]
+		}, {
+			title: 'Деревья',
+			icon: 'fa-sitemap',
+			children: [{
+				title: 'Основы',
+				name: 'widgets/trees/basic'
+//				name: 'widgets/trees/basic'
+			}, {
+				title: 'Компоновки',
+				name: 'widgets/trees/layout'
+			}, {
+				title: 'Функции',
+				name: 'widgets/trees/op'
+			}, {
+				title: 'Ajax',
+				name: 'widgets/trees/data'
+			}/*, {
+				title: 'Расширения',
+				name: 'widgets/trees/ext'
+			}, {
+				title: 'Чекбоксы',
+				name: 'widgets/trees/checkboxes'
+			}, {
+				title: 'Фильтрация'
+			}, {
+				title: 'Редактирование',
+				name: 'widgets/trees/edit'
+			}*/]
+		}, {
+			title: 'Панели',
+			icon: 'fa-columns',
+			children: [{
+				title: 'Простые',
+				name: 'widgets/basic/panel'
 			}]
 		}, {
 			title: 'Формы',
@@ -203,6 +248,9 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			icon: 'fa-table',
 			children: [{
 				title: 'Основы',
+				name: 'widgets/basic/table'
+			}, {
+				title: 'Грид',
 				name: 'widgets/grids/basic'
 			}, {
 				title: 'Данные',
@@ -230,46 +278,6 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: '1500 строк',
 				name: 'widgets/grids/1500'
 			}]
-		}, {
-			title: 'Списки',
-			icon: 'fa-list',
-			children: [{
-				title: 'Древовидный',
-				name: 'widgets/lists/nested'
-			}, {
-				title: 'Media',
-				name: 'widgets/lists/media'
-			}, {
-				title: "Item List",
-				name: 'widgets/lists/itembox'
-			}, {
-				title: "Dynamic List",
-				name: 'widgets/lists/dynamic'
-			}, {
-				title: "Detail List",
-				name: 'widgets/lists/detail'
-			}]
-		}, {
-			title: 'Деревья',
-			icon: 'fa-sitemap',
-			children: [{
-				title: 'Основы',
-				name: 'widgets/trees/basic'
-			}, {
-				title: 'Ajax',
-				name: 'widgets/trees/data'
-			}, {
-				title: 'Расширения',
-				name: 'widgets/trees/ext'
-			}/*, {
-				title: 'Чекбоксы',
-				name: 'widgets/trees/checkboxes'
-			}, {
-				title: 'Фильтрация'
-			}, {
-				title: 'Редактирование',
-				name: 'widgets/trees/edit'
-			}*/]
 		}, {
 			title: 'Диалоги',
 			icon: 'fa-list-alt',

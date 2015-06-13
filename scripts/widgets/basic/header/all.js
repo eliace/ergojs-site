@@ -27,7 +27,7 @@ $context.section_begin('header-image');
 $context.section_end('header-image');
 
 w = $.ergo({
-	etype: 'html:h2',
+	etype: 'html:h3',
 	cls: 'header',
 	$image: {
 		etype: 'html:img',
@@ -35,10 +35,10 @@ w = $.ergo({
 		cls: 'circular'
 	},
 	$content: {
-		etype: '&text',
+		etype: '.',
 		text: 'Волкова Е.И.'
 	},
-	style: {'margin-bottom': 24} //FIXME
+//	style: {'margin-bottom': 24} //FIXME
 }); 
 
 w.render('#sample');
@@ -46,7 +46,7 @@ w.render('#sample');
 
 
 w = $.ergo({
-	etype: 'html:h2',
+	etype: 'html:h3',
 	cls: 'header',
 	$image: {
 		etype: 'html:img',
@@ -78,16 +78,16 @@ $context.section_end('header-icon');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded box-large',
+	cls: 'bordered rounded padding-x2',
 	$header: {
-		etype: 'html:h2',
+		etype: 'html:h3',
 		cls: 'header',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-plug'
 		},
 		$content: {
-			etype: '&text',
+			etype: '.',
 			text: 'Плагины'
 		}
 	},
@@ -102,9 +102,9 @@ w.render('#sample');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded box-large',
+	cls: 'bordered rounded padding-x2',
 	$header: {
-		etype: 'html:h2',
+		etype: 'html:h3',
 		cls: 'header',
 		$icon: {
 			etype: 'icon',
@@ -114,7 +114,7 @@ w = $.ergo({
 			etype: 'text',
 			text: 'Настройки',
 			$content: {
-				etype: '&text',
+				etype: '.',
 			},
 			$subheader: {
 				etype: 'text',
@@ -137,10 +137,10 @@ w = $.ergo({
 	etype: 'box',
 	width: 800,
 	$header: {
-		etype: 'html:h2',
+		etype: 'html:h4',
 		cls: 'header divided',
 		$content: {
-			etype: '&text',
+			etype: '.',
 			text: 'Заголовок'
 		}
 	},

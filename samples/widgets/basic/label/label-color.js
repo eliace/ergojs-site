@@ -1,11 +1,14 @@
 
 var w = $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	cls: 'items gap',
+//	layout: 'bar',
 	defaultItem: 'label',
 	items: [{
 		text: 'default',
-		cls: 'default'
+	}, {
+		text: 'basic',
+		cls: 'basic'
 	}, {
 		text: 'primary',
 		cls: 'primary'

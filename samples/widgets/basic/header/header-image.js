@@ -1,6 +1,6 @@
 
 w = $.ergo({
-	etype: 'html:h2',
+	etype: 'html:h3',
 	cls: 'header',
 	$image: {
 		etype: 'html:img',
@@ -8,10 +8,10 @@ w = $.ergo({
 		cls: 'circular'
 	},
 	$content: {
-		etype: '&text',
+		etype: '.',
 		text: 'Волкова Е.И.'
 	},
-	style: {'margin-bottom': 24} //FIXME
+//	style: {'margin-bottom': 24} //FIXME
 }); 
 
 w.render('#sample');
@@ -19,7 +19,7 @@ w.render('#sample');
 
 
 w = $.ergo({
-	etype: 'html:h2',
+	etype: 'html:h3',
 	cls: 'header',
 	$image: {
 		etype: 'html:img',

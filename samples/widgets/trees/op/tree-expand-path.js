@@ -4,7 +4,7 @@ Ergo.alias('includes:expand-path', {
 
 	overrides: {
 
-		expand_path: function(path) {
+		expand_path: function(path, effects) {
 
 			var path_a = path.split(':');
 
@@ -19,8 +19,10 @@ Ergo.alias('includes:expand-path', {
 				});
 
 				if(found) {
+					if(effects === false) found.$subtree._no_effects = true;
 					found.states.set('expanded');
-					found.subtree.expand_path(path_a.join(':'));
+					found.$subtree.expand_path(path_a.join(':'));
+					if(effects === false) delete found.$subtree._no_effects;
 				}
 
 			}
@@ -34,7 +36,7 @@ Ergo.alias('includes:expand-path', {
 
 
 var w = $.ergo({
-	etype: 'nested-list',
+	etype: 'tree',
 	data: tree_data,
 	include: 'expand-path',	
 	nestedItem: {
@@ -56,6 +58,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-w.expand_path('Азия:Китай');
-w.expand_path('Европа:Германия:Мюнхен');
+w.expand_path('Азия:Китай', false);
+w.expand_path('Европа:Германия:Мюнхен', false);
 

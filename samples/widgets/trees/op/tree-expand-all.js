@@ -1,6 +1,6 @@
 
 var w = $.ergo({
-	etype: 'nested-list',
+	etype: 'tree',
 	data: tree_data,
 	nestedItem: {
 		$content: {

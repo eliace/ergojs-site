@@ -64,4 +64,7 @@ $context.section('Создание');
 //= require nav-basic
 $context.section('Выбор элемента');
 //= require nav-select
+$context.section('Mobile');
+//= require nav-mobile
+
 

@@ -3,10 +3,10 @@ w = $.ergo({
 	etype: 'box',
 	width: 800,
 	$header: {
-		etype: 'html:h2',
+		etype: 'html:h4',
 		cls: 'header divided',
 		$content: {
-			etype: '&text',
+			etype: '.',
 			text: 'Заголовок'
 		}
 	},

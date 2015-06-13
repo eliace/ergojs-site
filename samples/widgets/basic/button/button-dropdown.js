@@ -1,7 +1,7 @@
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
@@ -9,7 +9,7 @@ $.ergo({
 	},
 	items: [{
 		text: 'Default',
-		type: 'default'
+//		type: 'default'
 	}, {
 		text: 'Basic',
 		type: 'basic'
@@ -25,10 +25,7 @@ $.ergo({
 	}, {
 		text: 'Danger',
 		type: 'danger'
-	}/*, {
-		text: 'Tool',
-		type: 'tool'
-	}*/]
+	}]
 });
 
 
@@ -40,7 +37,7 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
+	cls: 'items gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
@@ -54,7 +51,7 @@ $.ergo({
 	},
 	items: [{
 		text: 'Default',
-		type: 'default'
+//		type: 'default'
 	}, {
 		text: 'Basic',
 		type: 'basic'
@@ -70,9 +67,6 @@ $.ergo({
 	}, {
 		text: 'Danger',
 		type: 'danger'
-	}/*, {
-		text: 'Tool',
-		type: 'tool'
-	}*/]
+	}]
 });
 
