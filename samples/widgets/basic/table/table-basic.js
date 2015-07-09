@@ -1,7 +1,7 @@
 
 var w = $.ergo({
 	etype: 'table',
-	cls: 'table-view hovered striped',
+	cls: 'table',
 	columns: [{
 		header: 'Наименование'
 	}, {

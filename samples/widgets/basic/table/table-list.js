@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'table',
 //	cls: 'demo-table',
-	cls: 'list-view cell-large',
+	cls: 'table list-view',
 	columns: [{
 		header: 'Наименование'
 	}, {

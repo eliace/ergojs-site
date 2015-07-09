@@ -215,11 +215,20 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				name: 'widgets/trees/edit'
 			}*/]
 		}, {
-			title: 'Панели',
+			title: 'Контейнеры',
 			icon: 'fa-columns',
 			children: [{
-				title: 'Простые',
-				name: 'widgets/basic/panel'
+				title: 'Панель',
+				name: 'widgets/containers/panel'
+			}, {
+				title: 'Набор полей',
+				name: 'widgets/containers/fieldset'
+			}, {
+				title: 'Закладки',
+				name: 'widgets/containers/tabs'
+			}, {
+				title: 'Аккордеон',
+				name: 'widgets/containers/accordion'
 			}]
 		}, {
 			title: 'Формы',
@@ -258,10 +267,10 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			}, {
 				title: 'Колонки',
 				name: 'widgets/grids/columns'
-			}, {
+			}/*, {
 				title: 'Постраничный вывод',
 				name: 'widgets/grids/pagination'
-			}, {
+			}*/, {
 				title: 'Сортировка',
 				name: 'widgets/grids/sort'
 			}, {
@@ -299,11 +308,14 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Перемещение'
 			}*/]
 		}, {
-			title: 'Приложение',
+			title: 'Навигация',
 			icon: 'fa-rocket',
 			children: [{
-				title: 'Навигация',
+				title: 'Заголовок',
 				name: 'widgets/app/navigation'
+			}, {
+				title: 'Меню',
+				name: 'widgets/app/menu'
 			}, {
 				title: 'Breadcrumbs',
 				name: 'widgets/app/breadcrumbs'
@@ -333,6 +345,9 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			children: [{
 				title: 'Оповещения',
 				name: 'widgets/other/alert'
+			}, {
+				title: 'Dropdown',
+				name: 'widgets/other/dropdown'
 			}, {
 				title: 'Tabs',
 				name: 'widgets/other/tabs'
@@ -388,7 +403,10 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 		}]
 	}, {
 		title: 'Примеси',
-		children: []
+		children: [{
+			title: 'Popup',
+			name: 'mixins/popup'
+		}]
 	}];
 	
 

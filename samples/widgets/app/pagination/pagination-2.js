@@ -2,19 +2,19 @@
 
 var w2 = $.ergo({
 	etype: 'panel',
-	cls: 'widget',
+	cls: 'box bordered divided padded',
 	title: 'Pagination',
 	renderTo: '#sample',
 	data: new PageCollection(),
 	$header: {
-		$title: {
-			state: 'tiny'
-		},
+		// $title: {
+		// 	state: 'tiny'
+		// },
 		$toolbar: {
-			etype: 'tool-bar',
+			etype: 'box',
 			items: [{
 				etype: 'grid-pagination',
-				state: 'tiny'
+//				state: 'tiny'
 			}]			
 		}		
 	},
@@ -23,9 +23,8 @@ var w2 = $.ergo({
 		text: LOREMIPSUM
 	},
 	$footer: {
-		autoRender: true,
 		$toolbar: {
-			etype: 'tool-bar',
+			etype: 'box',
 			items: [{
 				etype: 'grid-pagination'
 			}]

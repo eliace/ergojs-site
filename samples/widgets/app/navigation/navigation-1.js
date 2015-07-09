@@ -1,10 +1,72 @@
 
 var w = $.ergo({
-	etype: 'navigation',
-	title: 'Title',
+	etype: 'html:nav',
+	layout: 'fluid',
+	cls: 'navigation box',
 
-	$content: {
+	$header: {
+		etype: 'html:h4',
+		text: 'Заголовок',
+		style: {'padding': '14px 1rem', 'margin-right': 10, 'color': '#bbb'}
+	},
 
+//	$content: {
+//		etype: 'box',
+
+//		cls: 'float-left',
+
+	$menu: {
+		etype: 'menu',
+		cls: 'box',
+		include: 'selectable',
+		defaultItem: {
+			onClick: function() {
+				this.events.rise('select');
+			}
+		},
+		items: ['Главная', 'Товары', 'Организации'],
+		set: {
+			'index': function(v) {
+				this.selection.set(v);
+			}
+		}
+	},
+
+
+	$tools: {
+		etype: 'box',
+		layout: 'hbox',
+		cls: 'align-right',
+  	items: [{
+  		style: {'padding': '7px 1rem'},
+  		$content: {
+	  		etype: 'input',
+	  		placeholder: 'Поиск...',
+	  		cls: 'icon right',
+	  		$icon: {
+	  			etype: 'icon',
+	  			cls: 'fa-search'
+	  		}
+	  	}
+  	}/*{
+  		etype: 'link',
+  		cls: 'item',
+  		style: {'padding': '8px 1rem'},
+  		$image: {
+	  		etype: 'html:img',
+	  		cls: 'circular before',
+				src: 'img/Lil_cr.png',
+	  		width: 32
+	  	},
+	  	$content: {
+	  		etype: '.',
+	  		text: 'Пользователь'
+	  	}
+  	}*/]		
+	}
+
+
+/*
 		components: {
 			menu: {
 				etype: 'menu-bar',
@@ -86,9 +148,13 @@ var w = $.ergo({
 					}
 				}]
 			}				
-		}		
-	}
+		}	
+*/			
+//	}
 });
 
 
 w.render('#sample');
+
+
+w.$menu.opt('index', 0);

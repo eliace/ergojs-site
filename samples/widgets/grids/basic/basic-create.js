@@ -1,7 +1,7 @@
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table box grid single-line celled',
 	height: 300,
 	
 	column: {

@@ -8,7 +8,7 @@ $context = new Ergo.core.Context();
 
 $context.alert = function(msg, type) {
 	
-	type = type || 'info';
+	type = type || 'primary';
 	
 	// var titles = {
 		// info: 'Информация! ',
@@ -32,6 +32,18 @@ $context.alert = function(msg, type) {
 	});
 	
 };
+
+
+
+
+$context.split = function() {
+	$.ergo({
+		etype: 'html:br',
+		renderTo: '#sample'
+	});
+};
+
+
 
 
 

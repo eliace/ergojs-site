@@ -15,13 +15,13 @@ var w = $.ergo({
 	},
 	items: [{
 		text: 'Африка',
-		$subtree_items: ['Египет', 'Марокко', 'Кения', 'Ангола']
+		$sub_items: ['Египет', 'Марокко', 'Кения', 'Ангола']
 	}, {
 		text: 'Азия',
-		$subtree_items: ['Китай', 'Индия', 'Иран', 'Индонезия', 'Ливия', 'Непал']
+		$sub_items: ['Китай', 'Индия', 'Иран', 'Индонезия', 'Ливия', 'Непал']
 	}, {
 		text: 'Европа',
-		$subtree_items: ['Великобритания', 'Германия', 'Италия']
+		$sub_items: ['Великобритания', 'Германия', 'Италия']
 	}]
 });
 
@@ -110,7 +110,7 @@ var w = $.ergo({
 		// Указываем состояние раскрытия.
 		// Но поддерево не отобразится, поскольку оно еще пусто
 		state: 'expanded',	
-		$subtree: {
+		$sub: {
 			hidden: false  // принудительно меняем видимость пустого поддерева
 		}
 	}
@@ -143,10 +143,10 @@ Ergo.alias('includes:expand-path', {
 				});
 
 				if(found) {
-					if(effects === false) found.$subtree._no_effects = true;
+					if(effects === false) found.$sub._no_effects = true;
 					found.states.set('expanded');
-					found.$subtree.expand_path(path_a.join(':'));
-					if(effects === false) delete found.$subtree._no_effects;
+					found.$sub.expand_path(path_a.join(':'));
+					if(effects === false) delete found.$sub._no_effects;
 				}
 
 			}
@@ -174,7 +174,7 @@ var w = $.ergo({
 		binding: function(v) {
 			this.opt('name', v.text);
 		},
-		$subtree: {
+		$sub: {
 			include: 'expand-path'
 		}
 	}

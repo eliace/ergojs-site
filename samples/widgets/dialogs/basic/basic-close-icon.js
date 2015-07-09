@@ -1,22 +1,21 @@
 
 var dlg = new Dialog({
-	cls: 'simple',
+	cls: 'simple center padded',
 	title: 'Диалог',
 	$header: {
-		cls: 'sz-large',
+		layout: 'fluid',
 		$buttons: {
-			etype: 'tool-bar',
-			cls: 'fluid-right',
+			etype: 'box',
+			cls: 'align-right tools',
 			defaultItem: {
 				etype: 'icon',
-				cls: 'contextual action-icon',
+				cls: 'contextual action',
 				onClick: function(e) {
 					this.events.rise(this.opt('name'));
 				}
 			},
 			items: [{
-				icon: 'fa-close',
-//						state: 'contextual', // конка должна принципиально иметь размер tiny
+				cls: 'close',
 				name: 'cancel'
 			}]
 		}

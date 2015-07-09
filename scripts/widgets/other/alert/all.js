@@ -8,14 +8,19 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'alert',
 		$icon: {
-			cls: 'fa round'
+			cls: 'circular'
 		}
 	},
 	items: [{
+		icon: 'fa-cog',
+		title: 'Заголовок',
+		text: 'Текст сообщения',
+		state: 'basic'
+	}, {
 		icon: 'fa-info',
 		title: 'Информация!',
 		text: 'Полезная информация',
-		state: 'info'
+		state: 'primary'
 	}, {
 		icon: 'fa-check',
 		title: 'Готово!',
@@ -46,9 +51,13 @@ var w = $.ergo({
 		etype: 'simple-alert',
 	},
 	items: [{
+		title: 'Заголовок!',
+		text: 'Текстовое сообщение',
+		state: 'basic'
+	}, {
 		title: 'Информация!',
 		text: 'Полезная информация',
-		state: 'info'
+		state: 'primary'
 	}, {
 		title: 'Готово!',
 		text: 'Процесс завершен',

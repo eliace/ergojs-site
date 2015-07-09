@@ -1,11 +1,14 @@
 
 $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
-		$dropdown_items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
+		$dropdown: {
+			cls: '__hover',
+			items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
+		}
 	},
 	items: [{
 		text: 'Default',
@@ -37,15 +40,17 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
-		$content: {
-			state: 'dropup'
-		},
+		drop: 'up',
+		// $content: {
+		// 	state: 'dropup'
+		// },
 		$dropdown: {
-			state: 'dropup',
+//			state: 'dropup',
+			cls: '__hover',
 			items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
 		}
 	},

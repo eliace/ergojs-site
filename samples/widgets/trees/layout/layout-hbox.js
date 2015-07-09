@@ -35,7 +35,7 @@ var w = $.ergo({
 				dataId: 'email'
 			}			
 		},
-		$subtree: {
+		$sub: {
 			hidden: false,
 //			autoRender: 'not-empty',
 			style: {'padding-left': 20},

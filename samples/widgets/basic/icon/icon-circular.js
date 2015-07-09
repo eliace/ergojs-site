@@ -1,7 +1,7 @@
 
 $.ergo({
 	etype: 'box',
-	cls: 'block items gap',
+	cls: 'block items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'icon',

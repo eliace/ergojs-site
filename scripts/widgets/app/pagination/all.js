@@ -33,20 +33,21 @@ $context.section_end('pagination-1');
 
 var w = $.ergo({
 	etype: 'panel',
-	cls: 'widget',
+	cls: 'box bordered padded divided',
 	title: 'Pagination',
 	renderTo: '#sample',
 	data: data,
 	$header: {
-		$title: {
-			state: 'tiny'
+		layout: 'fluid',
+		$content: {
+			etype: 'html:h4'
 		},
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
+		$tools: {
+			etype: 'box',
+			cls: 'right',
+			$pagination: {
 				etype: 'pagination',
-				state: 'tiny'
-			}]			
+			}
 		}
 	},
 	$content: {
@@ -54,27 +55,18 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$footer: {
-		autoRender: true,
-
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
-				etype: 'pagination'
-			}]
+		layout: 'fluid',
+		$pagination: {
+			etype: 'pagination'
 		},
-		
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
-				etype: 'pagination'
-			}, {
-				layout: 'bar',
-				cls: 'pull-right',
-				defaultItem: {
-					etype: 'button'
-				},
-				items: ['ОК', 'Отмена']
-			}]
+		$buttons: {
+			etype: 'box',
+			layout: 'hbox',
+			cls: 'right __gap',
+			defaultItem: {
+				etype: 'button'
+			},
+			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
 		}
 		
 	},
@@ -102,19 +94,19 @@ $context.section_end('pagination-2');
 
 var w2 = $.ergo({
 	etype: 'panel',
-	cls: 'widget',
+	cls: 'box bordered divided padded',
 	title: 'Pagination',
 	renderTo: '#sample',
 	data: new PageCollection(),
 	$header: {
-		$title: {
-			state: 'tiny'
-		},
+		// $title: {
+		// 	state: 'tiny'
+		// },
 		$toolbar: {
-			etype: 'tool-bar',
+			etype: 'box',
 			items: [{
 				etype: 'grid-pagination',
-				state: 'tiny'
+//				state: 'tiny'
 			}]			
 		}		
 	},
@@ -123,9 +115,8 @@ var w2 = $.ergo({
 		text: LOREMIPSUM
 	},
 	$footer: {
-		autoRender: true,
 		$toolbar: {
-			etype: 'tool-bar',
+			etype: 'box',
 			items: [{
 				etype: 'grid-pagination'
 			}]

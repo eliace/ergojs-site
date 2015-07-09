@@ -1,18 +1,17 @@
 
 w = $.ergo({
 	etype: 'html:nav',
-	style: {'margin-top': 32, 'width': '100%', 'border-bottom': '1px solid #e7e7e7'},
-	layout: 'column',
+	cls: 'navigation underlined',
+//	style: {'margin-top': 32, 'width': '100%'},
+	layout: 'columns',
 	$header: {
-		etype: 'box',
+		etype: 'html:h4',
+		text: 'Система контроля',
+		cls: 'nav-title',
+		style: {'white-space': 'nowrap', 'margin': 0, 'padding': '14px 1rem', 'color': '#bbb'},
 		wrapper: {
 			width: '1%'
 		},
-		$content: {
-			etype: 'link',
-			text: 'Система контроля',
-			cls: 'nav-title'
-		}
 	},
 	$content: {
 		etype: 'box',
@@ -25,7 +24,7 @@ w = $.ergo({
 		}
 	},
 	$user: {
-		etype: 'menu-bar',
+		etype: 'menu',
 		cls: 'user',
 		state: 'right',
 		width: 100,
@@ -33,19 +32,27 @@ w = $.ergo({
 			width: '1%'
 		},
 		items: [{
-			cls: 'username',
+			etype: 'text',
+			cls: 'username text action',
+			include: 'dropdown',
 			text: 'Username',
-			etype: 'dropdown-box',
+      state: 'to-left',
+			onClick: function(e) {
+				this.states.set('opened');
+				e.stop();
+			},
 			$dropdown: {
 				etype: 'dropdown-menu',
-				popup: {
-					at: 'right bottom',
-					my: 'right top'
-				},
-				items: ['Профиль', '|', 'Выход']							
+				cls: '__hover',
+				// popup: {
+				// 	at: 'right bottom',
+				// 	my: 'right top'
+				// },
+				items: ['Профиль', 'Выход']							
 			},
-			$content_$caret: {
-				cls: 'after'
+			$caret: {
+				etype: 'icon',
+				cls: 'caret after'
 			}
 		}]
 	}						

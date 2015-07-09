@@ -99,7 +99,7 @@ $context.section_end('label-pointer');
 var w = $.ergo({
 	etype: 'html:form',
 //	width: 800,
-	cls: 'gap-x2 divided',
+	cls: '__gap-x2 divided',
 	layout: {
 		etype: 'vbox',
 		wrapper: function(item) {
@@ -232,7 +232,7 @@ $context.section_end('label-color');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 //	layout: 'bar',
 	defaultItem: 'label',
 	items: [{
@@ -269,7 +269,7 @@ $context.section_end('label-circular');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 //	layout: 'bar',
 	defaultItem: {
 		etype: 'label',
@@ -305,7 +305,7 @@ $.ergo({etype: 'html:br', renderTo: '#sample'});
 var w = $.ergo({
 	etype: 'box',
 //	layout: 'bar',
-	cls: 'items gap',
+	cls: 'items __gap',
 //	style: {'margin-top': 16},
 	defaultItem: {
 		etype: 'label',

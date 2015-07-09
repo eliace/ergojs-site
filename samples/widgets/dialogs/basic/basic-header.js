@@ -1,16 +1,16 @@
 
 
 var dlg = new DialogX({
-	cls: 'simple',
+	cls: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Нажмите на кнопку для смены заголовка'
 	},
 	$footer: {
-		autoRender: true,
 		$buttons: {
-			layout: 'bar',
-			cls: 'bar-right',
+			etype: 'box',
+			layout: 'hbox',
+			cls: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {

@@ -58,13 +58,16 @@ var data = new Ergo.data.Collection({provider: {
 		for(var i = 0; i < n; i++) {
 			var v = {};
 			a.push(v);
+
 			v.id = i+1;
 			v.gender = g.randomGender();
 			v.avatar = g.appconstant.avatars[v.gender];
 			v.first_name = g.randomName(10);
 			v.last_name = g.randomName(10);
+			v.middle_name = g.randomName(10);
 			v.age = g.randomAge();
 			v.url = g.randomUrl();
+			v.email = g.randomName(8)+'@'+g.randomName(6)+'.'+g.randomName(2);
 		}
 
 		return $.when(a);
@@ -82,47 +85,62 @@ $.ergo({
 	etype: 'box',
 	layout: 'bar',
 	renderTo: '#sample',
+	defaultItem: {
+		onClick: function() {
+			this.events.rise('run');
+		}
+	},
 	items: [{
 		etype: 'button',
 		cls: 'primary',
 		text: 'Reset',
-		onClick: function() {
-			n = 0;
-			data.fetch();
-		}		
+		cycles: 0
 	}, {
 		etype: 'button',
 		cls: 'warning',
 		text: '500',
-		onClick: function() {
-			n = 300;
-			data.fetch();
-		}
+		cycles: 500
 	}, {
 		etype: 'button',
 		cls: 'success',
 		text: '1000',
-		onClick: function() {
-			n = 1000;
-			data.fetch();
-		}
+		cycles: 1000
+	}, {
+		etype: 'button',
+		cls: 'teal',
+		text: '1500',
+		cycles: 1500
 	}, {
 		etype: 'button',
 		cls: 'danger',
 		text: '2000',
-		onClick: function() {
-			n = 2000;
-			data.fetch();
-		}
-	}]
+		cycles: 2000
+	}],
+	$result: {
+		etype: 'text',
+		cls: 'text red float-right',
+		weight: 10,
+		format: function(v) { return 'Итог: ' + v + ' с.' }
+	},
+	onRun: function(e) {
+		var t0 = Ergo.timestamp();
+
+		n = e.target.opt('cycles');
+		data.fetch();
+
+		var t1 = Ergo.timestamp();
+
+		this.$result.opt('text', (t1 - t0)/1000.0);		
+	}
 });
 
 
 
 var w = $.ergo({
-	etype: 'table-grid',
-	cls: 'list-view cell-small',
-	height: 400,
+	etype: 'table',
+	cls: 'table grid single-line',
+//	height: 400,
+	width: 1200,
 	column: {
 		components: {
 			content: {
@@ -132,16 +150,18 @@ var w = $.ergo({
 		},
 		autoBind: false
 	},
-	$content: {
-		autoHeight: false
-	},
+	// $content: {
+	// 	autoHeight: false
+	// },
 	columns: [{
 		header: '#',
 		dataId: 'id',
-		binding: 'text'
+		binding: 'text',
+		width: 40
 	}, {
 		header: 'Avatar',
 		dataId: 'avatar',
+		width: 60,
 		$content: {
 			etype: 'html:img',
 			binding: 'src',
@@ -157,14 +177,20 @@ var w = $.ergo({
 		dataId: 'last_name',
 		binding: 'text'
 	}, {
+		header: 'Middle Name',
+		dataId: 'middle_name',
+		binding: 'text'
+	}, {
 		header: 'Age',
 		dataId: 'age',
-		binding: 'text'
+		binding: 'text',
+		width: 40
 	}, {
 		header: 'Gender',
 		dataId: 'gender',
-		binding: 'text'
-	}, {
+		binding: 'text',
+		width: 60
+	}/*, {
 		header: 'Profile',
 		$content: {
 			etype: 'html:a',
@@ -179,9 +205,97 @@ var w = $.ergo({
 		}
 //		dataId: 'profile',
 //		binding: 'text'
+	}*/, {
+		header: 'Home page',
+		dataId: 'url',
+		binding: 'text'
+	}, {
+		header: 'Email',
+		dataId: 'email',
+		binding: 'text'
 	}],
 	data: data
 });
 
 
 w.render('#sample');
+
+$context.section('10000');
+$context.section_begin('test-10000');
+$context.section_end('test-10000');
+
+$.ergo({
+	etype: 'box',
+	layout: 'bar',
+	renderTo: '#sample',
+	defaultItem: {
+		onClick: function() {
+			this.events.rise('run');
+		}
+	},
+	items: [{
+		etype: 'button',
+		cls: 'primary',
+		text: 'Reset',
+		cycles: 0
+	}, {
+		etype: 'button',
+		cls: 'warning',
+		text: 'Render'
+	}, {
+		etype: 'button',
+		cls: 'success',
+		text: 'Binding'
+	}],
+	$result: {
+		etype: 'text',
+		cls: 'text red float-right',
+		weight: 10,
+		format: function(v) { return 'Итог: ' + v + ' сек.' }
+	},
+	onRun: function(e) {
+		var t0 = Ergo.timestamp();
+
+		var test = e.target.opt('text');
+
+		if(test == 'Reset') {
+			box.items.apply_all('_destroy');
+		}
+		else if(test == 'Render') {
+
+			for(var i = 0; i < 10000; i++) {
+				box.items.add({text: ''+i});
+			}
+
+			box.render();
+
+		}
+		else if(test == 'Binding') {
+
+			var v = [];
+
+			for(var i = 0; i < 10000; i++) {
+				v.push(i);
+			}
+
+			box.bind(v);
+
+		}
+
+		var t1 = Ergo.timestamp();
+
+		this.$result.opt('value', (t1 - t0)/1000.0);		
+	}
+});
+
+
+
+var box = $.ergo({
+	etype: 'box',
+	dynamic: true,
+	defaultItem: {
+		binding: 'text'
+	}
+});
+
+box.render('#sample');

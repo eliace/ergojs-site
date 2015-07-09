@@ -1,6 +1,6 @@
 
 var dlg = new DialogX({
-	cls: 'simple',
+	cls: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Сюда будет загружен HTML',
@@ -15,7 +15,7 @@ dlg.load = function() {
 
 	setTimeout(function() {
 		d.content.el.load('data/info.html', function(){
-			d.resize();
+//			d.resize();
 		});
 	}, 1500);
 

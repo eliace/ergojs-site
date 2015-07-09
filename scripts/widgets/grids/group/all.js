@@ -56,7 +56,7 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider, parser: functio
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table grid box single-line celled',
 	height: 400,
 	column: {
 		components: {
@@ -142,8 +142,8 @@ var w = $.ergo({
 		dataId: 'ip_address',
 		binding: 'text'
 	}],
-	mixins: ['loader'],
-	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
+	// mixins: ['loader'],
+	// $loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
 	data: data
 });
 

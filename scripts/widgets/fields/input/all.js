@@ -45,8 +45,8 @@ var input3 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
 	layout: 'rows',
+	cls: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3 ]
 });
@@ -95,8 +95,8 @@ var input3 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
 	layout: 'rows',
+	cls: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3 ]
 });
@@ -130,8 +130,8 @@ var input2 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
 	layout: 'rows',
+	cls: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2 ]
 });
@@ -171,7 +171,7 @@ $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
 	layout: 'rows',
-	cls: 'indented',
+	cls: '__gap',
 	// layout: {
 	// 	etype: 'vbox',
 	// 	wrapper: function(item) {
@@ -288,14 +288,14 @@ var input7 = $.ergo({
 //	width: 180,
 	$action: {
 		etype: 'button',
-		include: 'icon',
-		icon: 'fa-search',
+		include: 'xicon',
+		xicon: 'fa-search',
 		text: 'Search',
 		state: 'primary',
 		wrapper: {
 			etype: 'box'
 		},
-		$icon: {
+		$xicon: {
 			cls: 'after'
 		}
 	}
@@ -310,8 +310,8 @@ var input7 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
 	layout: 'rows',
+	cls: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3, input4, input5, input6, input7 ]
 });
@@ -348,8 +348,23 @@ var input2 = $.ergo({
 $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
 	layout: 'rows',
+	cls: '__gap',
 	items: [ input1, input2 ]
 });
+$context.section('Многострочный');
+$context.section_begin('input-multiline');
+$context.section_end('input-multiline');
+
+
+var input1 = $.ergo({
+	etype: 'input',
+	placeholder: 'Search...',
+//	multiline: true,
+	$content: {
+		etype: 'html:textarea'
+	},
+	renderTo: '#sample'
+});
+
 

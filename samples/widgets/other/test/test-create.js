@@ -3,47 +3,62 @@ $.ergo({
 	etype: 'box',
 	layout: 'bar',
 	renderTo: '#sample',
+	defaultItem: {
+		onClick: function() {
+			this.events.rise('run');
+		}
+	},
 	items: [{
 		etype: 'button',
 		cls: 'primary',
 		text: 'Reset',
-		onClick: function() {
-			n = 0;
-			data.fetch();
-		}		
+		cycles: 0
 	}, {
 		etype: 'button',
 		cls: 'warning',
 		text: '500',
-		onClick: function() {
-			n = 300;
-			data.fetch();
-		}
+		cycles: 500
 	}, {
 		etype: 'button',
 		cls: 'success',
 		text: '1000',
-		onClick: function() {
-			n = 1000;
-			data.fetch();
-		}
+		cycles: 1000
+	}, {
+		etype: 'button',
+		cls: 'teal',
+		text: '1500',
+		cycles: 1500
 	}, {
 		etype: 'button',
 		cls: 'danger',
 		text: '2000',
-		onClick: function() {
-			n = 2000;
-			data.fetch();
-		}
-	}]
+		cycles: 2000
+	}],
+	$result: {
+		etype: 'text',
+		cls: 'text red float-right',
+		weight: 10,
+		format: function(v) { return 'Итог: ' + v + ' с.' }
+	},
+	onRun: function(e) {
+		var t0 = Ergo.timestamp();
+
+		n = e.target.opt('cycles');
+		data.fetch();
+
+		var t1 = Ergo.timestamp();
+
+		this.$result.opt('text', (t1 - t0)/1000.0);		
+	}
 });
 
 
 
 var w = $.ergo({
-	etype: 'table-grid',
-	cls: 'list-view cell-small',
-	height: 400,
+	etype: 'table',
+	cls: 'table grid single-line',
+//	height: 400,
+	width: 1200,
 	column: {
 		components: {
 			content: {
@@ -53,16 +68,18 @@ var w = $.ergo({
 		},
 		autoBind: false
 	},
-	$content: {
-		autoHeight: false
-	},
+	// $content: {
+	// 	autoHeight: false
+	// },
 	columns: [{
 		header: '#',
 		dataId: 'id',
-		binding: 'text'
+		binding: 'text',
+		width: 40
 	}, {
 		header: 'Avatar',
 		dataId: 'avatar',
+		width: 60,
 		$content: {
 			etype: 'html:img',
 			binding: 'src',
@@ -78,14 +95,20 @@ var w = $.ergo({
 		dataId: 'last_name',
 		binding: 'text'
 	}, {
+		header: 'Middle Name',
+		dataId: 'middle_name',
+		binding: 'text'
+	}, {
 		header: 'Age',
 		dataId: 'age',
-		binding: 'text'
+		binding: 'text',
+		width: 40
 	}, {
 		header: 'Gender',
 		dataId: 'gender',
-		binding: 'text'
-	}, {
+		binding: 'text',
+		width: 60
+	}/*, {
 		header: 'Profile',
 		$content: {
 			etype: 'html:a',
@@ -100,6 +123,14 @@ var w = $.ergo({
 		}
 //		dataId: 'profile',
 //		binding: 'text'
+	}*/, {
+		header: 'Home page',
+		dataId: 'url',
+		binding: 'text'
+	}, {
+		header: 'Email',
+		dataId: 'email',
+		binding: 'text'
 	}],
 	data: data
 });

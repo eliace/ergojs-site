@@ -26,7 +26,7 @@ var w = $.ergo({
 
 		layout: 'fluid',  // ITEM LAYOUT
 
-		cls: 'items gap padding',
+		cls: 'items __gap padding',
 		binding: false,
 		items: [{
 			etype: 'check',
@@ -92,7 +92,7 @@ var w = $.ergo({
 
 		layout: 'hbox',  // ITEM LAYOUT
 
-		cls: 'items gap padding side-icon right',
+		cls: '__gap padding has-icon at-right',
 		binding: false,
 		items: [{
 			etype: 'check',
@@ -159,7 +159,7 @@ var w = $.ergo({
 
 		layout: 'flex',  // ITEM LAYOUT
 
-		cls: 'items gap padding',
+		cls: 'items __gap padding',
 		binding: false,
 		items: [{
 			etype: 'check',

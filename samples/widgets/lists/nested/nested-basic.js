@@ -37,7 +37,7 @@ var w = $.ergo({
 				}
 			}
 		},
-		$subtree: {
+		$sub: {
 			hidden: false,
 			cls: 'list nested hovered divide',
 			// "Магия"" происходит тут

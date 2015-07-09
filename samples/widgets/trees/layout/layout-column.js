@@ -38,7 +38,7 @@ var w = $.ergo({
 				dataId: 'email'
 			}			
 		},
-		$subtree: {
+		$sub: {
 			hidden: false,
 			col: 'content',
 			cls: 'tree'// items-indent'

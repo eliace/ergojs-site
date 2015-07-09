@@ -58,13 +58,16 @@ var data = new Ergo.data.Collection({provider: {
 		for(var i = 0; i < n; i++) {
 			var v = {};
 			a.push(v);
+
 			v.id = i+1;
 			v.gender = g.randomGender();
 			v.avatar = g.appconstant.avatars[v.gender];
 			v.first_name = g.randomName(10);
 			v.last_name = g.randomName(10);
+			v.middle_name = g.randomName(10);
 			v.age = g.randomAge();
 			v.url = g.randomUrl();
+			v.email = g.randomName(8)+'@'+g.randomName(6)+'.'+g.randomName(2);
 		}
 
 		return $.when(a);
@@ -76,3 +79,5 @@ var data = new Ergo.data.Collection({provider: {
 
 $context.section('Создание таблицы');
 //= require test-create
+$context.section('10000');
+//= require test-10000

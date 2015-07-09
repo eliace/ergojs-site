@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items gap',
+	cls: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {
@@ -58,7 +58,7 @@ $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items gap',
+	cls: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {

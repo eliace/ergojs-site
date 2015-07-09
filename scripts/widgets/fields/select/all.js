@@ -1,6 +1,20 @@
 
 
-$context.section('Выпадающий список');
+$context.section('Простой список');
+$context.section_begin('select-basic');
+$context.section_end('select-basic');
+
+
+var w = $.ergo({
+	etype: 'select',
+	text: 'Варианты...',
+	state: 'placeholder',
+	$dropdown_items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+});
+
+
+w.render('#sample');
+$context.section('Связывание с данными');
 $context.section_begin('select-dropdown');
 $context.section_end('select-dropdown');
 
@@ -26,82 +40,105 @@ var data2 = {
 
 
 
+var select1 = $.ergo({
+	etype: 'select',
+
+	$dropdown: {
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+	},	
+
+	value: 1		
+});
 
 
-
-var w = $.ergo({
-	etype: 'box',
-	layout: 'stack',
-	renderTo: '#sample',
+var select2 = $.ergo({
+	etype: 'select',
 	
-	items: [{
-		etype: 'select-box',
-		
-		width: 160,
-			
-		$dropdown: {
-			items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
-		},
-		
-		value: 1		
-	}, {
-		etype: 'select-box',
-		
-		width: 160,
-			
-		$dropdown: {
-			defaultItem: {
-				get: {
-					'name': function() {
-						return this.opt('text');
-					}
-				}
-			},
-			items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
-		},
-		
-		value: 'Австралия'		
-	}, {
-		etype: 'select-box',
-		
-		width: 160,
-		
-		$dropdown: {
-			data: data,
-			dataId: 'countries'
-		},
-		
-		data: data,
-		
-		dataId: 'country'
-		
-	}, {
-		etype: 'select-box',
-		
-		width: 160,
-		
-		$dropdown: {
-			data: data2,
-			dataId: 'countries',
-			defaultItem: {
-				binding: function(v) {
-					this.opt('text', v.name);
-					this.opt('name', v.iso);
-				},
-				get: {
-					'name': function() {
-						return this.options.name; //this.data.get('iso');
-					}
+	$dropdown: {
+		defaultItem: {
+			get: {
+				'name': function() {
+					return this.opt('text');
 				}
 			}
 		},
-		
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+	},
+	
+	value: 'Австралия'	
+});
+
+
+
+var select3 = $.ergo({
+	etype: 'select',
+	
+	$dropdown: {
+		data: data,
+		dataId: 'countries'
+	},
+	
+	data: data,	
+	dataId: 'country'
+});
+
+
+
+var select4 = $.ergo({
+	etype: 'select',
+	
+	$dropdown: {
 		data: data2,
-		dataId: 'country'		
-	}]
+		dataId: 'countries',
+		defaultItem: {
+			binding: function(v) {
+				this.opt('text', v.name);
+				this.opt('name', v.iso);
+			}
+		}
+	},
+	
+	data: data2,
+	dataId: 'country'		
+
 });
 
 
 
 
+
+var w = $.ergo({
+	etype: 'box',
+	layout: 'rows',
+	cls: '__gap',
+	items: [ select1, select2, select3, select4 ]
+});
+
+w.render('#sample');
+
+
+
+
+
+
+
+$context.section('С полем ввода');
+$context.section_begin('select-input');
+$context.section_end('select-input');
+
+
+var w = $.ergo({
+	etype: 'select',
+
+	$content: {
+		etype: 'html:input',
+		placeholder: 'Сторона света',
+	},
+
+	$dropdown_items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+
+});
+
+
+w.render('#sample');
 

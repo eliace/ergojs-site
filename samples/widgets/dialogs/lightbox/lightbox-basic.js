@@ -2,19 +2,20 @@
 
 var dialog1 = $.ergo({
 	etype: 'panel',
-	cls: 'modal',
+	cls: 'modal padded center inverted',
 	include: 'modal effects',
 	title: 'Лайтбокс',
 	closeOn: 'outerClick',
 	$header: {
+		layout: 'fluid',
 		$toolbar: {
-			etype: 'tool-bar',
-			cls: 'right',
+			etype: 'box',
+			cls: 'align-right tools',
 			defaultItem: {
-				etype: 'icon-button',
-				state: 'tool flat'
+				etype: 'icon',
+				cls: 'contextual action'
 			},
-			items: [{icon: 'fa-close'}]
+			items: [{icon: 'close'}]
 		}
 	},
 	$content: {
@@ -52,6 +53,8 @@ var buttons = $.ergo({
 		onClick: function() {
 			dialog1.render();//'body');
 //			dialog1.open().then(function(){
+
+			dialog1.$content.opt({width: 200, height: 200});
 				
 				var img = $.ergo({
 					etype: 'html:img',
@@ -92,8 +95,8 @@ var buttons = $.ergo({
 							}
 							
 							
-							var dw = dialog1.content.el.outerWidth() - dialog1.content.el.width();
-							var dh = dialog1.content.el.outerHeight() - dialog1.content.el.height();
+							var dw = dialog1.$content.el.outerWidth() - dialog1.$content.el.width();
+							var dh = dialog1.$content.el.outerHeight() - dialog1.$content.el.height();
 							
 //							console.log(a, b);
 							
@@ -102,12 +105,21 @@ var buttons = $.ergo({
 //							img.render();
 
 							var self = this;
-							
+
 							dialog1.open().then(function(){
 
-								dialog1.resize(w2, h2, 'content').then(function(){
+//						  	dialog1.$content.el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+						  	dialog1.$content.el.one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd otransitionend transitionend', function() {
+						  		console.log('end');
 									self.el.css({'position': 'relative'/*, 'left': 0*/, 'width': w-dw, 'height': h-dh});
 									self.el.fadeIn(400);
+						  	});
+							
+
+								dialog1.resize(w2, h2, 'content')
+								.then(function(){
+
+
 								});
 								
 							});

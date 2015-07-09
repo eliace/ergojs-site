@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'html:form',
 //	width: 800,
-	cls: 'gap-x2 divided',
+	cls: '__gap-x2 divided',
 	layout: {
 		etype: 'vbox',
 		wrapper: function(item) {

@@ -61,7 +61,7 @@ $.ergo({
 						}
 					}
 				},
-				$subtree: {
+				$sub: {
 					hidden: false,
 					// Магия происходит тут
 					events: {

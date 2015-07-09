@@ -1,13 +1,13 @@
 
 
 var dlg = new Dialog({
-	cls: 'simple',
+	cls: 'simple padded center',
 	title: 'Диалог',
 	$footer: {
-		autoRender: true,
 		$buttons: {
-			layout: 'bar',
-			cls: 'bar-center',
+			etype: 'box',
+			layout: 'hbox',
+			cls: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {

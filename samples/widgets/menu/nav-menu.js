@@ -73,7 +73,7 @@ var w = $.ergo({
 				$content: {
 					etype: 'link',
 					$content: {
-						etype: '&text',
+						etype: '.',
 						format: '#{title}'
 					},
 					$caret: {
@@ -86,7 +86,7 @@ var w = $.ergo({
 						e.base.stopPropagation();
 					},
 				},
-				$subtree: {
+				$sub: {
 					etype: 'nested-list',
 					dataId: 'children',
 					cls: 'dropdown-menu',
@@ -122,13 +122,13 @@ var w = $.ergo({
 									
 									this.parent.parent.items.each(function(item){
 										if( item != current && item.states.is('opened') ) {
-											item.subtree.close();
+											item.$sub.close();
 											item.states.unset('opened');
 										}
 									});
 									
 									if(this.parent.states.is('has-subtree') & !this.parent.states.is('opened')) {
-										this.parent.subtree.open();
+										this.parent.$sub.open();
 										this.parent.states.set('opened');
 									}
 									

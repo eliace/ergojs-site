@@ -23,59 +23,24 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('Item gap (compact)', 'Задается расстояние между элементами. Используется для элементов с существующим отступом или границей');
-$context.section_begin('box-indent');
-$context.section_end('box-indent');
+$context.section('Item gap', 'Задается расстояние между элементами. Используется для элементов с существующим отступом или границей');
+$context.section_begin('box-gap');
+$context.section_end('box-gap');
 
-var w = $.ergo({
-	etype: 'box',
-	layout: 'hbox',
-	cls: 'gap',
-	defaultItem: {
-		etype: 'button'
-	},
-	items: [ 'Item1', 'Item2', 'Item3' ]
-});
-
-w.render('#sample');
-
-
-$.ergo({
-	etype: 'html:br',
-	renderTo: '#sample'
-});
 
 
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'gap',
-	defaultItem: {
-		etype: 'button'
-	},
-	items: [ 'Item1', 'Item2', 'Item3' ]
-});
-
-w.render('#sample');
-
-
-
-$.ergo({
-	etype: 'html:br',
-	renderTo: '#sample'
-});
-
-
-var w = $.ergo({
-	etype: 'list',
-	cls: 'gap bordered',
+	cls: 'border __gap',
 	defaultItem: {
 		etype: 'box',
-		cls: 'box gap bordered',
+		layout: 'hbox',
+		cls: 'border __gap',
 		defaultItem: {
 			etype: 'text',
 			text: 'TEXT',
-			cls: 'bordered'
+			cls: 'border'
 		},
 		items: [ 'Item1', 'Item2', 'Item3' ]
 	},
@@ -87,9 +52,9 @@ w.render('#sample');
 
 
 
-$context.section('Item indent (relax)', 'Задается отступ до границы. Используется для элементов, у которых нет отступа или границы');
-$context.section_begin('box-padding');
-$context.section_end('box-padding');
+$context.section('Item indent', 'Задается отступ до границы. Используется для элементов, у которых нет отступа или границы');
+$context.section_begin('box-indent');
+$context.section_end('box-indent');
 
 
 
@@ -103,15 +68,15 @@ $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'indent bordered',
+	cls: 'border __indent',
 	defaultItem: {
 		etype: 'box',
 		layout: 'hbox',
-		cls: 'indent bordered',
+		cls: 'border __indent',
 		defaultItem: {
 			etype: 'text',
 			text: 'TEXT',
-			cls: 'bordered'
+			cls: 'border'
 		},
 		items: [ 'Item1', 'Item2', 'Item3' ]
 	},
@@ -128,7 +93,7 @@ $context.section_end('box-size');
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'border padding items gap',
+	cls: 'items border padding __gap',
 	include: 'label',
 	label: 'Tiny',
 	defaultItem: {
@@ -141,7 +106,7 @@ var box1 = $.ergo({
 
 var box2 = $.ergo({
 	etype: 'box',
-	cls: 'border padding items gap',
+	cls: 'items border padding __gap',
 	include: 'label',
 	label: 'Small',
 	defaultItem: {
@@ -156,7 +121,7 @@ var box3 = $.ergo({
 	etype: 'box',
 	include: 'label',
 	label: 'Default',
-	cls: 'border padding items gap',
+	cls: 'items border padding __gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -169,7 +134,7 @@ var box4 = $.ergo({
 	etype: 'box',
 	include: 'label',
 	label: 'Large',
-	cls: 'border padding items gap',
+	cls: 'items border padding __gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -182,7 +147,7 @@ var box5 = $.ergo({
 	etype: 'box',
 	include: 'label',
 	label: 'Huge',
-	cls: 'border padding items gap',
+	cls: 'items border padding __gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -197,7 +162,7 @@ var box5 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'gap',
+	cls: '__gap',
 	items: [ box1, box2, box3, box4, box5 ]
 });
 

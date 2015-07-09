@@ -15,7 +15,7 @@ var w = $.ergo({
 
 		layout: 'hbox',  // ITEM LAYOUT
 
-		cls: 'items gap padding side-icon right',
+		cls: '__gap padding has-icon at-right',
 		binding: false,
 		items: [{
 			etype: 'check',

@@ -15,7 +15,7 @@ var w = $.ergo({
 
 		layout: 'flex',  // ITEM LAYOUT
 
-		cls: 'items gap padding',
+		cls: 'items __gap padding',
 		binding: false,
 		items: [{
 			etype: 'check',

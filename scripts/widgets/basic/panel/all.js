@@ -36,7 +36,7 @@ var panel1 = $.ergo({
 //		cls: 'no-padding',
 		$content: {
 			etype: 'html:h5',
-			cls: 'header',
+			cls: 'header box',
 			$icon: {
 				etype: 'icon',
 				cls: 'fa-cogs',
@@ -70,7 +70,7 @@ var panel2 = $.ergo({
 	cls: 'padded',
 	$header: {
 		$content: {
-			cls: 'header large'
+			cls: 'header box large'
 		}
 	},
 	$content: {
@@ -83,7 +83,7 @@ var panel2 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'list x4-indented',
+	cls: 'list __indent-x4',
 //	layout: 'grid',
 	renderTo: '#sample',
 	items: [ panel1, panel2 ]
@@ -115,10 +115,10 @@ var panel1 = $.ergo({
 	$footer: {
 //			autoRender: true,
 		layout: 'hbox',
-		cls: 'item-align-right',
+		cls: '__right',
 		$buttons: {
 			etype: 'box',
-			cls: 'box items gap',
+			cls: 'items __gap',
 			defaultItem: {
 				etype: 'button'
 			},
@@ -147,11 +147,11 @@ var panel2 = $.ergo({
 //			etype: 'tool-bar',
 //			state: 'center',
 		layout: 'hbox',
-		cls: 'item-align-center gap',
+		cls: '__center __gap',
 		$buttons: {
 			etype: 'box',
 //			layout: 'hbox',
-			cls: 'items gap',				
+			cls: 'items __gap',				
 			defaultItem: {
 				etype: 'button'
 			},
@@ -160,7 +160,7 @@ var panel2 = $.ergo({
 		$icons: {
 			etype: 'box',
 //			layout: 'hbox',
-			cls: 'items gap',				
+			cls: 'items __gap',				
 			defaultItem: {
 				etype: 'icon-button'
 			},
@@ -205,7 +205,7 @@ var panel1 = $.ergo({
 			items: [{
 //				layout: 'bar',
 				layout: 'hbox',
-				cls: 'gap',
+				cls: '__gap',
 				defaultItem: {
 					etype: 'button'
 				},
@@ -231,12 +231,12 @@ var panel2 = $.ergo({
 		$toolbar: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: 'align-right gap',
+			cls: 'align-right __gap',
 			items: [{
 //				etype: 'button-box',
 				etype: 'box',
 				layout: 'hbox',
-				cls: 'gap',
+				cls: '__gap',
 				defaultItem: {
 					etype: 'button'
 //					cls: 'tool-item'
@@ -246,7 +246,7 @@ var panel2 = $.ergo({
 			}, {
 				etype: 'box',
 				layout: 'hbox',
-				cls: 'gap',
+				cls: '__gap',
 //					cls: 'tools-tiny',
 				defaultItem: {
 					etype: 'icon-button'
@@ -282,7 +282,7 @@ var panel2 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'list gap-x4',
+	cls: 'list __gap-x4',
 //	layout: 'grid',
 	renderTo: '#sample',
 	items: [ panel1, panel2 ]

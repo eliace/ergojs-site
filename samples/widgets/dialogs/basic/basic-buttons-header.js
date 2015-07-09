@@ -1,11 +1,14 @@
 
 var dlg = new Dialog({
-	cls: 'simple',
+	cls: 'simple padded center',
 	title: 'Диалог',
 	$header: {
+		layout: 'fluid',
+		cls: 'padding',
 		$buttons: {
-			etype: 'tool-bar',
-			cls: 'fluid-right',
+			etype: 'box',
+			layout: 'hbox',
+			cls: 'align-right __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {

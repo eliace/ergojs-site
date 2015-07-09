@@ -1,20 +1,21 @@
 
 var w = $.ergo({
 	etype: 'panel',
-	cls: 'widget',
+	cls: 'box bordered padded divided',
 	title: 'Pagination',
 	renderTo: '#sample',
 	data: data,
 	$header: {
-		$title: {
-			state: 'tiny'
+		layout: 'fluid',
+		$content: {
+			etype: 'html:h4'
 		},
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
+		$tools: {
+			etype: 'box',
+			cls: 'right',
+			$pagination: {
 				etype: 'pagination',
-				state: 'tiny'
-			}]			
+			}
 		}
 	},
 	$content: {
@@ -22,27 +23,18 @@ var w = $.ergo({
 		text: LOREMIPSUM
 	},
 	$footer: {
-		autoRender: true,
-
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
-				etype: 'pagination'
-			}]
+		layout: 'fluid',
+		$pagination: {
+			etype: 'pagination'
 		},
-		
-		$toolbar: {
-			etype: 'tool-bar',
-			items: [{
-				etype: 'pagination'
-			}, {
-				layout: 'bar',
-				cls: 'pull-right',
-				defaultItem: {
-					etype: 'button'
-				},
-				items: ['ОК', 'Отмена']
-			}]
+		$buttons: {
+			etype: 'box',
+			layout: 'hbox',
+			cls: 'right __gap',
+			defaultItem: {
+				etype: 'button'
+			},
+			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
 		}
 		
 	},

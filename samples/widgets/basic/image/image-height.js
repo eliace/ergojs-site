@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'gap',
+	cls: '__gap',
 //	layout: 'stack',
 	defaultItem: {
 		etype: 'html:img',

@@ -118,7 +118,7 @@ var data = new SortableCollection({
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table grid box single-line celled',
 	height: 400,
 	column: {
 		components: {
@@ -185,8 +185,8 @@ var w = $.ergo({
 		dataId: 'Created At',
 		binding: 'text'
 	}],
-	mixins: ['loader'],
-	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
+//	mixins: ['loader'],
+//	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
 	data: data,
 	onSort: function(e) {
 		console.log(e);

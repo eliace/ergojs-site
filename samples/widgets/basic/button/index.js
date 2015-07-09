@@ -19,6 +19,8 @@ $context.section('Иконка');
 //= require button-icon
 $context.section('Иконка с текстом');
 //= require button-icon-text
+$context.section('Боковая иконка');
+//= require button-icon-side
 $context.section('Круглые');
 //= require button-circular
 $context.section('Группа кнопок');

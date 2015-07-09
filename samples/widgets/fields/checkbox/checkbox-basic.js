@@ -2,8 +2,55 @@
 
 
 
+var w = $.ergo({
+//	etype: 'html:fieldset',
+	etype: 'box',
+
+	layout: 'vbox',
+	
+	include: 'selectable',
+	
+	multiselect: true,
+
+	cls: '__gap',
+
+	// $title: {
+	// 	etype: 'html:legend',
+	// 	text: 'Выбор страны'
+	// },
+	
+	defaultItem: {
+		etype: 'html:label',
+		$check: {
+			etype: 'check',
+			cls: 'before',
+			weight: -10
+		},
+		$content: {
+			etype: '.'
+		},
+		
+		states: {
+			'selected': function(on) {
+				this.check.opt('value', on);
+			}
+		},
+		
+		onClick: function() {
+			this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
+		}		
+	},
+
+	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
+
+});
 
 
+w.render('#sample');
+
+
+
+/*
 
 var w = $.ergo({
 	etype: 'box',
@@ -32,7 +79,7 @@ var w = $.ergo({
 	
 	items: [{
 		
-		cls: 'item-indent',
+		cls: '__gap',
 
 		multiselect: true,
 
@@ -74,7 +121,7 @@ var w = $.ergo({
 				cls: 'before'
 			},
 			$content: {
-				etype: '&text'
+				etype: '.'
 			}
 		},
 		
@@ -85,7 +132,7 @@ var w = $.ergo({
 	
 });
 
-
+*/
 
 
 

@@ -28,7 +28,7 @@ $context.section_end('header-image');
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'header',
+	cls: 'header box',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/003.jpg',
@@ -47,7 +47,7 @@ w.render('#sample');
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'header',
+	cls: 'header box',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/002.jpg',
@@ -57,7 +57,7 @@ w = $.ergo({
 		etype: 'text',
 		text: 'Лисицын А.Н.',
 		$content: {
-			etype: '&text',
+			etype: '.',
 		},
 		$subtitle: {
 			etype: 'text',
@@ -81,7 +81,7 @@ w = $.ergo({
 	cls: 'bordered rounded padding-x2',
 	$header: {
 		etype: 'html:h3',
-		cls: 'header',
+		cls: 'header box',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-plug'
@@ -105,7 +105,7 @@ w = $.ergo({
 	cls: 'bordered rounded padding-x2',
 	$header: {
 		etype: 'html:h3',
-		cls: 'header',
+		cls: 'header box',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-cogs'

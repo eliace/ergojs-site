@@ -7,7 +7,7 @@ $context.section_end('image-width');
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'gap',
+	cls: '__gap',
 //	layout: 'stack',
 	defaultItem: {
 		etype: 'html:img',
@@ -33,7 +33,7 @@ $context.section_end('image-height');
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'gap',
+	cls: '__gap',
 //	layout: 'stack',
 	defaultItem: {
 		etype: 'html:img',

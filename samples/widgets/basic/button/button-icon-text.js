@@ -3,7 +3,7 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items gap',
+	cls: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		include: 'icon',

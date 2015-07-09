@@ -3,10 +3,12 @@
 var MyDialogX = DialogX.extend({
 
 	defaults: {
-		cls: 'simple',
+		cls: 'simple center padded',
 		title: 'Диалог',
 		$content: {
 			height: 'auto',
+			layout: 'hbox',
+			cls: '__center',
 			$button: {
 				etype: 'button',
 				type: 'primary',

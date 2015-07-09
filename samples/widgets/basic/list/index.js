@@ -42,7 +42,7 @@ $context.section('Простой список');
 $context.section('С плавающим элементом');
 //= require list-floats
 $context.section('С боковой иконкой');
-//= require list-stick
+//= require list-side
 $context.section('С активной иконкой');
 //= require list-action
 $context.section('Hovered');

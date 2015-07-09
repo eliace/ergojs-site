@@ -7,14 +7,14 @@ var Dialog = Ergo.widgets.Panel.extend({
 		effects: {
 			show: {type: 'fadeIn', delay: 300}
 		},
-		cls: 'modal widget',
+		cls: 'modal paper',
 		renderTo: 'body',
 		destroyOnClose: true,
 		closeOn: 'outerClick',
-		width: 600,
+		width: 700,
 //		height: 300,
 		$content: {
-			cls: 'panel-content',
+//			cls: 'panel-content',
 			height: 100
 //			autoHeight: true
 		},
@@ -39,18 +39,19 @@ var DialogX = Dialog.extend({
 	defaults: {
 		
 		$header: {
+			layout: 'fluid',
 			$buttons: {
-				etype: 'tool-bar',
-				cls: 'fluid-right',
+				etype: 'box',
+				cls: 'align-right tools',
 				defaultItem: {
-					etype: 'icon-button',
+					etype: 'icon',
 					onClick: function(e) {
 						this.events.rise(this.options.name || 'action');
 					}
 				},
 				items: [{
-					icon: 'fa-close',
-					state: 'contextual', // конка должна принципиально иметь размер tiny
+					icon: 'close',
+					state: 'contextual action',
 					name: 'cancel'
 				}]
 			}
@@ -72,13 +73,13 @@ $context.section_end('basic-buttons-footer');
 
 
 var dlg = new Dialog({
-	cls: 'simple',
+	cls: 'simple padded center',
 	title: 'Диалог',
 	$footer: {
-		autoRender: true,
 		$buttons: {
-			layout: 'bar',
-			cls: 'bar-center',
+			etype: 'box',
+			layout: 'hbox',
+			cls: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -118,12 +119,15 @@ $context.section_begin('basic-buttons-header');
 $context.section_end('basic-buttons-header');
 
 var dlg = new Dialog({
-	cls: 'simple',
+	cls: 'simple padded center',
 	title: 'Диалог',
 	$header: {
+		layout: 'fluid',
+		cls: 'padding',
 		$buttons: {
-			etype: 'tool-bar',
-			cls: 'fluid-right',
+			etype: 'box',
+			layout: 'hbox',
+			cls: 'align-right __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -160,23 +164,22 @@ $context.section_begin('basic-close-icon');
 $context.section_end('basic-close-icon');
 
 var dlg = new Dialog({
-	cls: 'simple',
+	cls: 'simple center padded',
 	title: 'Диалог',
 	$header: {
-		cls: 'sz-large',
+		layout: 'fluid',
 		$buttons: {
-			etype: 'tool-bar',
-			cls: 'fluid-right',
+			etype: 'box',
+			cls: 'align-right tools',
 			defaultItem: {
 				etype: 'icon',
-				cls: 'contextual action-icon',
+				cls: 'contextual action',
 				onClick: function(e) {
 					this.events.rise(this.opt('name'));
 				}
 			},
 			items: [{
-				icon: 'fa-close',
-//						state: 'contextual', // конка должна принципиально иметь размер tiny
+				cls: 'close',
 				name: 'cancel'
 			}]
 		}
@@ -201,16 +204,16 @@ $context.section_end('basic-header');
 
 
 var dlg = new DialogX({
-	cls: 'simple',
+	cls: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Нажмите на кнопку для смены заголовка'
 	},
 	$footer: {
-		autoRender: true,
 		$buttons: {
-			layout: 'bar',
-			cls: 'bar-right',
+			etype: 'box',
+			layout: 'hbox',
+			cls: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -244,7 +247,7 @@ $context.section_begin('basic-html');
 $context.section_end('basic-html');
 
 var dlg = new DialogX({
-	cls: 'simple',
+	cls: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Сюда будет загружен HTML',
@@ -259,7 +262,7 @@ dlg.load = function() {
 
 	setTimeout(function() {
 		d.content.el.load('data/info.html', function(){
-			d.resize();
+//			d.resize();
 		});
 	}, 1500);
 
@@ -286,10 +289,12 @@ $context.section_end('basic-multiple');
 var MyDialogX = DialogX.extend({
 
 	defaults: {
-		cls: 'simple',
+		cls: 'simple center padded',
 		title: 'Диалог',
 		$content: {
 			height: 'auto',
+			layout: 'hbox',
+			cls: '__center',
 			$button: {
 				etype: 'button',
 				type: 'primary',
@@ -329,10 +334,11 @@ $context.section_end('basic-type');
 
 
 var dlg = new DialogX({
-	cls: 'paper',
+	cls: 'paper center padded',
 	title: 'Диалог',
 	states: {
-		'default:type': 'default',
+		'default:type': '',
+		'basic:type': 'basic',
 		'primary:type': 'primary',
 		'info:type': 'info',
 		'success:type': 'success',
@@ -345,11 +351,11 @@ var dlg = new DialogX({
 		height: 'auto'
 	},
 	$footer: {
-		autoRender: true,
 		$buttons: {
-			etype: 'tool-bar',
-//					layout: 'bar',
-			cls: 'fluid-right sz-normal',
+			etype: 'box',
+			layout: 'hbox',
+//			cls: 'fluid-right sz-normal',
+			cls: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function() {
@@ -377,7 +383,6 @@ var dlg = new DialogX({
 	onChangeTheme: function(e) {
 
 		this.states.set(e.theme);
-		this.header.buttons.item(0).states.set(e.theme);
 
 	}
 

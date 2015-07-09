@@ -1,10 +1,11 @@
 
 
 var dlg = new DialogX({
-	cls: 'paper',
+	cls: 'paper center padded',
 	title: 'Диалог',
 	states: {
-		'default:type': 'default',
+		'default:type': '',
+		'basic:type': 'basic',
 		'primary:type': 'primary',
 		'info:type': 'info',
 		'success:type': 'success',
@@ -17,11 +18,11 @@ var dlg = new DialogX({
 		height: 'auto'
 	},
 	$footer: {
-		autoRender: true,
 		$buttons: {
-			etype: 'tool-bar',
-//					layout: 'bar',
-			cls: 'fluid-right sz-normal',
+			etype: 'box',
+			layout: 'hbox',
+//			cls: 'fluid-right sz-normal',
+			cls: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function() {
@@ -49,7 +50,6 @@ var dlg = new DialogX({
 	onChangeTheme: function(e) {
 
 		this.states.set(e.theme);
-		this.header.buttons.item(0).states.set(e.theme);
 
 	}
 

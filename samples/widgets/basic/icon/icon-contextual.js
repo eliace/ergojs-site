@@ -4,7 +4,7 @@ $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 //		layout: 'bar',
-		cls: 'items gap padding',
+		cls: 'items __gap padding',
 		defaultItem: {
 			etype: 'icon',
 			cls: 'contextual'

@@ -6,7 +6,7 @@ $context.section_end('button-type');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'		
@@ -46,7 +46,7 @@ $context.section_end('button-color');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'		
@@ -89,7 +89,7 @@ $context.section_end('button-size');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'
@@ -115,7 +115,7 @@ $context.section_end('button-outline');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -148,7 +148,7 @@ $context.section_end('button-transparent');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -184,7 +184,7 @@ $context.section_end('button-flat');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -218,7 +218,7 @@ $context.section_end('button-rised');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -250,7 +250,7 @@ $context.section_end('button-with-icon');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items gap',
+	cls: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {
@@ -306,7 +306,7 @@ $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items gap',
+	cls: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		$icon: {
@@ -359,7 +359,7 @@ $context.section_end('button-icon');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items gap',
+	cls: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		cls: 'icon-button',
@@ -404,7 +404,7 @@ $context.section_end('button-icon-text');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items gap',
+	cls: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		include: 'icon',
@@ -436,13 +436,65 @@ var w = $.ergo({
 });
 
 
+$context.section('Боковая иконка');
+$context.section_begin('button-icon-side');
+$context.section_end('button-icon-side');
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: 'items __gap',
+	defaultItem: {
+		etype: 'button',
+		cls: 'has-icon at-right',
+		$icon: {
+			etype: 'icon',
+			weight: 10,
+			cls: 'right'
+		},
+		$content: {
+			etype: '.'
+		},
+		set: {
+			'icon': function(v) { this.icon.opt('icon', v); }
+		}
+	},
+	items: [{
+		text: 'Default',
+		icon: 'fa-filter'
+	}, {
+		text: 'Basic',
+		type: 'basic',
+		icon: 'fa-edit'
+	}, {
+		text: 'Primary',
+		type: 'primary',
+		icon: 'fa-upload'
+	}, {
+		text: 'Success',
+		type: 'success',
+		icon: 'fa-check'
+	}, {
+		text: 'Warning',
+		type: 'warning',
+		icon: 'fa-warning'
+	}, {
+		text: 'Danger',
+		type: 'danger',
+		icon: 'fa-unlock'
+	}]
+});
+
+
+w.render('#sample');
+
 $context.section('Круглые');
 $context.section_begin('button-circular');
 $context.section_end('button-circular');
 
 $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -480,7 +532,7 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
@@ -544,11 +596,14 @@ $context.section_end('button-dropdown');
 
 $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
-		$dropdown_items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
+		$dropdown: {
+			cls: '__hover',
+			items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
+		}
 	},
 	items: [{
 		text: 'Default',
@@ -580,15 +635,17 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
-		$content: {
-			state: 'dropup'
-		},
+		drop: 'up',
+		// $content: {
+		// 	state: 'dropup'
+		// },
 		$dropdown: {
-			state: 'dropup',
+//			state: 'dropup',
+			cls: '__hover',
 			items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
 		}
 	},
@@ -620,7 +677,7 @@ $context.section_end('button-split');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'split-button',
@@ -701,7 +758,7 @@ $context.section_end('button-state');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 	renderTo: '#sample',
 	items: [{
 		etype: 'button',

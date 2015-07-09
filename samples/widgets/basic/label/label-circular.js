@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items gap',
+	cls: 'items __gap',
 //	layout: 'bar',
 	defaultItem: {
 		etype: 'label',
@@ -38,7 +38,7 @@ $.ergo({etype: 'html:br', renderTo: '#sample'});
 var w = $.ergo({
 	etype: 'box',
 //	layout: 'bar',
-	cls: 'items gap',
+	cls: 'items __gap',
 //	style: {'margin-top': 16},
 	defaultItem: {
 		etype: 'label',

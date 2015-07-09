@@ -7,14 +7,14 @@ var Dialog = Ergo.widgets.Panel.extend({
 		effects: {
 			show: {type: 'fadeIn', delay: 300}
 		},
-		cls: 'modal widget',
+		cls: 'modal paper',
 		renderTo: 'body',
 		destroyOnClose: true,
 		closeOn: 'outerClick',
-		width: 600,
+		width: 700,
 //		height: 300,
 		$content: {
-			cls: 'panel-content',
+//			cls: 'panel-content',
 			height: 100
 //			autoHeight: true
 		},
@@ -39,18 +39,19 @@ var DialogX = Dialog.extend({
 	defaults: {
 		
 		$header: {
+			layout: 'fluid',
 			$buttons: {
-				etype: 'tool-bar',
-				cls: 'fluid-right',
+				etype: 'box',
+				cls: 'align-right tools',
 				defaultItem: {
-					etype: 'icon-button',
+					etype: 'icon',
 					onClick: function(e) {
 						this.events.rise(this.options.name || 'action');
 					}
 				},
 				items: [{
-					icon: 'fa-close',
-					state: 'contextual', // конка должна принципиально иметь размер tiny
+					icon: 'close',
+					state: 'contextual action',
 					name: 'cancel'
 				}]
 			}

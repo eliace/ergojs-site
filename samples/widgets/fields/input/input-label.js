@@ -31,7 +31,7 @@ $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
 	layout: 'rows',
-	cls: 'indented',
+	cls: '__gap',
 	// layout: {
 	// 	etype: 'vbox',
 	// 	wrapper: function(item) {

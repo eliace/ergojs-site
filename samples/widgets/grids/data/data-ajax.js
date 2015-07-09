@@ -18,7 +18,7 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider, url: 'data/grid
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table grid box single-line celled',
 	height: 400,
 	column: {
 		components: {

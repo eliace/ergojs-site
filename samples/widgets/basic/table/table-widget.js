@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'table',
-	cls: 'table-view widget hovered cell-small bordered',
+	cls: 'table box celled',
 	columns: [{
 		header: 'Наименование'
 	}, {

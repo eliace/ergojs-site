@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'block items gap',
+	cls: 'block items __gap',
 	defaultItem: {
 		etype: 'icon'
 	},

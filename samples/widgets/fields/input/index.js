@@ -14,4 +14,6 @@ $context.section('Действия');
 //= require input-action
 $context.section('На всю ширину');
 //= require input-block
+$context.section('Многострочный');
+//= require input-multiline
 

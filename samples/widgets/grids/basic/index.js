@@ -216,7 +216,10 @@ var data = [
     "Country": "Iceland",
     "Email": "Americo@serena.name",
     "Created At": "2001-02-19T15:49:07.538Z"
-  },
+  }
+];
+
+/*  
   {
     "User Id": 31,
     "Full Name": "Mr. Lee Bauch",
@@ -701,7 +704,7 @@ var data = [
     "Created At": "2005-06-03T16:34:06.745Z"
   }
 ];
-
+*/
 
 
 

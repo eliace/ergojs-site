@@ -28,7 +28,7 @@ var input2 = $.ergo({
 $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'indented',
 	layout: 'rows',
+	cls: '__gap',
 	items: [ input1, input2 ]
 });

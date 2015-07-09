@@ -216,7 +216,10 @@ var data = [
     "Country": "Iceland",
     "Email": "Americo@serena.name",
     "Created At": "2001-02-19T15:49:07.538Z"
-  },
+  }
+];
+
+/*  
   {
     "User Id": 31,
     "Full Name": "Mr. Lee Bauch",
@@ -701,7 +704,7 @@ var data = [
     "Created At": "2005-06-03T16:34:06.745Z"
   }
 ];
-
+*/
 
 
 
@@ -711,7 +714,7 @@ $context.section_end('basic-create');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table box grid single-line celled',
 	height: 300,
 	
 	column: {
@@ -764,7 +767,7 @@ $context.section_end('basic-checkboxes');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table box grid single-line celled',
 	height: 300,
 	column: {
 		components: {
@@ -850,8 +853,8 @@ var w = $.ergo({
 		dataId: 'Created At',
 		binding: 'text'
 	}],
-	mixins: ['loader'],
-	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
+	// mixins: ['loader'],
+	// $loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
 	data: data,
 	onCheckAll: function(e) {
 		this.rows().each(function(row) {

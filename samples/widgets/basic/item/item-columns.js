@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'indent',
+	cls: '__indent',
 	defaultItem: {
 		etype: 'item',
 		layout: {

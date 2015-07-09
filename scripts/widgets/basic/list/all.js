@@ -95,8 +95,8 @@ w.render('#sample');
 
 
 $context.section('С боковой иконкой');
-$context.section_begin('list-stick');
-$context.section_end('list-stick');
+$context.section_begin('list-side');
+$context.section_end('list-side');
 
 
 
@@ -110,11 +110,12 @@ var w = $.ergo({
 	defaultItem: {
 		layout: 'hbox',
 		include: 'xicon',
-		cls: 'item side-icon right',
+		cls: 'item has-icon at-right',
 		$image: {
 			etype: 'html:img',
 			cls: 'circular before',
-			width: 40
+			width: 40,
+			weight: -10
 		},
 		$content: {
 			etype: 'box',
@@ -152,18 +153,19 @@ var w = $.ergo({
 	defaultItem: {
 		layout: 'hbox',
 		include: 'icon',
-		cls: 'item side-icon left',
+		cls: 'item has-icon at-left',
 		$image: {
 			etype: 'html:img',
 			cls: 'circular before',
-			width: 40
+			width: 40,
+			weight: -10
 		},
 		$content: {
 			etype: 'box',
 			layout: 'vbox',
 			cls: 'content',
 			$content: {
-				etype: '&text'
+				etype: '.'
 			},
 			$description: {
 				etype: 'html:small',
@@ -172,7 +174,7 @@ var w = $.ergo({
 		},
 		$icon: {
 			cls: 'left contextual action fa-remove',
-			weight: -10
+			weight: -20
 		},
 		set: {
 			'description': function(v) { this.$content.$description.opt('text', v); },
@@ -199,7 +201,7 @@ $context.section_end('list-action');
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
-	cls: 'divided padded',
+	cls: '__divide __indent',
 	defaultItem: {
 		layout: 'hbox',
 		include: 'icon',
@@ -210,14 +212,15 @@ var w = $.ergo({
 		$image: {
 			etype: 'html:img',
 			cls: 'circular before',
-			width: 40
+			width: 40,
+			weight: -10
 		},
 		$content: {
 			etype: 'box',
 			layout: 'vbox',
 //			cls: 'content',
 			$content: {
-				etype: '&text'
+				etype: '.'
 			},
 			$description: {
 				etype: 'html:small',

@@ -6,7 +6,7 @@
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
-	cls: 'divided padded',
+	cls: '__divide __indent',
 	defaultItem: {
 		layout: 'hbox',
 		include: 'icon',
@@ -17,14 +17,15 @@ var w = $.ergo({
 		$image: {
 			etype: 'html:img',
 			cls: 'circular before',
-			width: 40
+			width: 40,
+			weight: -10
 		},
 		$content: {
 			etype: 'box',
 			layout: 'vbox',
 //			cls: 'content',
 			$content: {
-				etype: '&text'
+				etype: '.'
 			},
 			$description: {
 				etype: 'html:small',

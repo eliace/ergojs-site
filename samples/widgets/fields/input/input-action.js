@@ -103,14 +103,14 @@ var input7 = $.ergo({
 //	width: 180,
 	$action: {
 		etype: 'button',
-		include: 'icon',
-		icon: 'fa-search',
+		include: 'xicon',
+		xicon: 'fa-search',
 		text: 'Search',
 		state: 'primary',
 		wrapper: {
 			etype: 'box'
 		},
-		$icon: {
+		$xicon: {
 			cls: 'after'
 		}
 	}
@@ -125,8 +125,8 @@ var input7 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'indented',
 	layout: 'rows',
+	cls: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3, input4, input5, input6, input7 ]
 });

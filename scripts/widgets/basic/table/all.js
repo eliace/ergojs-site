@@ -1,39 +1,11 @@
 
-$context.section('Список');
-$context.section_begin('table-list');
-$context.section_end('table-list');
-
-var w = $.ergo({
-	etype: 'table',
-//	cls: 'demo-table',
-	cls: 'list-view cell-large',
-	columns: [{
-		header: 'Наименование'
-	}, {
-		header: 'Площадь, км²'
-	}, {
-		header: 'Население, чел.'
-	}, {
-		header: 'Кол-во государств'
-	}],
-	rows: [['Африка', '30,221,532', '1,032,532,974 (2011)', '55'], 
-				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'], 
-				 ['Европа', '10,180,000', '739,165,030', '50'], 
-				 ['Австралия и Океания', '8,520,000', '33,800,000', '14'],
-				 ['Америка', '42,549,000', '953,700,000', '35+23'],
-				 ['Антарктида', '14,107,000', '-', '-']]
-});
-
-w.render('#sample');
-
-
 $context.section('Таблица');
 $context.section_begin('table-basic');
 $context.section_end('table-basic');
 
 var w = $.ergo({
 	etype: 'table',
-	cls: 'table-view hovered striped',
+	cls: 'table',
 	columns: [{
 		header: 'Наименование'
 	}, {
@@ -61,7 +33,7 @@ $context.section_end('table-widget');
 
 var w = $.ergo({
 	etype: 'table',
-	cls: 'table-view widget hovered cell-small bordered',
+	cls: 'table box celled',
 	columns: [{
 		header: 'Наименование'
 	}, {
@@ -81,6 +53,119 @@ var w = $.ergo({
 
 w.render('#sample');
 
+
+
+$context.section('Список');
+$context.section_begin('table-list');
+$context.section_end('table-list');
+
+var w = $.ergo({
+	etype: 'table',
+//	cls: 'demo-table',
+	cls: 'table list-view',
+	columns: [{
+		header: 'Наименование'
+	}, {
+		header: 'Площадь, км²'
+	}, {
+		header: 'Население, чел.'
+	}, {
+		header: 'Кол-во государств'
+	}],
+	rows: [['Африка', '30,221,532', '1,032,532,974 (2011)', '55'], 
+				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'], 
+				 ['Европа', '10,180,000', '739,165,030', '50'], 
+				 ['Австралия и Океания', '8,520,000', '33,800,000', '14'],
+				 ['Америка', '42,549,000', '953,700,000', '35+23'],
+				 ['Антарктида', '14,107,000', '-', '-']]
+});
+
+w.render('#sample');
+
+
+$context.section('Striped');
+$context.section_begin('table-striped');
+$context.section_end('table-striped');
+
+
+var w = $.ergo({
+	etype: 'table',
+	cls: 'table striped',
+	columns: [{
+		header: 'Наименование'
+	}, {
+		header: 'Площадь, км²'
+	}, {
+		header: 'Население, чел.'
+	}, {
+		header: 'Кол-во государств'
+	}],
+	rows: [['Африка', '30,221,532', '1,032,532,974 (2011)', '55'], 
+				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'], 
+				 ['Европа', '10,180,000', '739,165,030', '50'], 
+				 ['Австралия и Океания', '8,520,000', '33,800,000', '14'],
+				 ['Америка', '42,549,000', '953,700,000', '35+23'],
+				 ['Антарктида', '14,107,000', '-', '-']]
+});
+
+w.render('#sample');
+
+
+$context.section('Hovered');
+$context.section_begin('table-hovered');
+$context.section_end('table-hovered');
+
+
+var w = $.ergo({
+	etype: 'table',
+	cls: 'table hovered',
+	columns: [{
+		header: 'Наименование'
+	}, {
+		header: 'Площадь, км²'
+	}, {
+		header: 'Население, чел.'
+	}, {
+		header: 'Кол-во государств'
+	}],
+	rows: [['Африка', '30,221,532', '1,032,532,974 (2011)', '55'], 
+				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'], 
+				 ['Европа', '10,180,000', '739,165,030', '50'], 
+				 ['Австралия и Океания', '8,520,000', '33,800,000', '14'],
+				 ['Америка', '42,549,000', '953,700,000', '35+23'],
+				 ['Антарктида', '14,107,000', '-', '-']]
+});
+
+w.render('#sample');
+
+
+$context.section('Fluid');
+$context.section_begin('table-fluid');
+$context.section_end('table-fluid');
+
+
+var w = $.ergo({
+	etype: 'table',
+	cls: 'table box fluid',
+	columns: [{
+		header: 'Наименование'
+	}, {
+		header: 'Площадь, км²'
+	}, {
+		header: 'Население, чел.'
+	}, {
+		header: 'Кол-во государств'
+	}],
+	rows: [['Африка', '30,221,532', '1,032,532,974 (2011)', '55'], 
+				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'], 
+				 ['Европа', '10,180,000', '739,165,030', '50']
+//				 ['Австралия и Океания', '8,520,000', '33,800,000', '14'],
+//				 ['Америка', '42,549,000', '953,700,000', '35+23'],
+//				 ['Антарктида', '14,107,000', '-', '-']
+				]
+});
+
+w.render('#sample');
 
 
 

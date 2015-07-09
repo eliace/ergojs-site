@@ -4,6 +4,58 @@
 
 var w = $.ergo({
 	etype: 'box',
+
+	layout: 'vbox',
+	
+	include: 'selectable',
+	
+//	multiselect: true,
+
+	cls: '__gap',
+
+	defaultItem: {
+		etype: 'html:label',
+		$check: {
+			etype: 'radio',
+			cls: 'before',
+			weight: -10
+		},
+		$content: {
+			etype: '.'
+		},
+		
+		states: {
+			'selected': function(on) {
+				this.check.opt('value', on);
+			}
+		},
+		
+		onClick: function() {
+			this.events.rise('select');				
+		}		
+	},
+
+	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
+
+
+	binding: function(v) {
+		this.opt('selected', v);
+	},
+	
+	value: 1	
+
+});
+
+
+w.render('#sample');
+
+
+
+
+/*
+
+var w = $.ergo({
+	etype: 'box',
 	layout: 'grid',
 	renderTo: '#sample',
 	
@@ -26,7 +78,7 @@ var w = $.ergo({
 	
 	items: [{
 		
-		cls: 'item-indent',
+		cls: '__gap',
 
 		defaultItem: {
 			etype: 'html:label',
@@ -104,3 +156,4 @@ var w = $.ergo({
 	
 	
 });
+*/

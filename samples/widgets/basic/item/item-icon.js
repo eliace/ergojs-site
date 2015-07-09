@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'gap',
+	cls: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$icon: {

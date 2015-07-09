@@ -38,4 +38,6 @@ $context.section('Контекстные');
 //= require icon-contextual
 $context.section('Системные');
 //= require icon-builtin
+$context.section('Боковые');
+//= require icon-side
 

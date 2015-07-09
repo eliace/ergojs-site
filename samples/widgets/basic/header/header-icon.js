@@ -5,7 +5,7 @@ w = $.ergo({
 	cls: 'bordered rounded padding-x2',
 	$header: {
 		etype: 'html:h3',
-		cls: 'header',
+		cls: 'header box',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-plug'
@@ -29,7 +29,7 @@ w = $.ergo({
 	cls: 'bordered rounded padding-x2',
 	$header: {
 		etype: 'html:h3',
-		cls: 'header',
+		cls: 'header box',
 		$icon: {
 			etype: 'icon',
 			cls: 'fa-cogs'

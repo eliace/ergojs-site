@@ -3,7 +3,7 @@ $.ergo({
 	etype: 'box',
 //	layout: 'hbox',
 	renderTo: '#sample',
-	cls: 'block items gap',
+	cls: 'block items __gap',
 	defaultItem: {
 		etype: 'icon'
 	},

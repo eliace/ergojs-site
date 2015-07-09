@@ -23,7 +23,7 @@ $context.section_end('columns-resize');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table grid box single-line celled',
 	height: 300,
 	column: {
 		components: {
@@ -207,7 +207,7 @@ $context.section_end('columns-menu');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table grid box single-line celled',
 	height: 300,
 	column: {
 		cls: 'menu-header',
@@ -264,8 +264,8 @@ var w = $.ergo({
 		dataId: 'Created At',
 		binding: 'text'
 	}],
-	mixins: ['loader'],
-	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
+//	mixins: ['loader'],
+//	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
 	data: data
 });
 
@@ -278,7 +278,7 @@ $context.section_end('columns-hide');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'widget',
+	cls: 'table grid box single-line celled',
 	height: 300,
 	column: {
 		components: {

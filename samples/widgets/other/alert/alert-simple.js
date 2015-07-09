@@ -5,9 +5,13 @@ var w = $.ergo({
 		etype: 'simple-alert',
 	},
 	items: [{
+		title: 'Заголовок!',
+		text: 'Текстовое сообщение',
+		state: 'basic'
+	}, {
 		title: 'Информация!',
 		text: 'Полезная информация',
-		state: 'info'
+		state: 'primary'
 	}, {
 		title: 'Готово!',
 		text: 'Процесс завершен',

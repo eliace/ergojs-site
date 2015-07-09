@@ -35,7 +35,7 @@ $context.section_end('item-text');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'gap',
+	cls: '__gap',
 	defaultItem: {
 		etype: 'item'
 	},
@@ -52,7 +52,7 @@ $context.section_end('item-icon');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'gap',
+	cls: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$icon: {
@@ -74,7 +74,7 @@ $context.section_end('item-image');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'gap',
+	cls: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
@@ -100,7 +100,7 @@ $context.section_end('item-desc');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'gap',
+	cls: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
@@ -136,7 +136,7 @@ $context.section_end('item-title');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'gap',
+	cls: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
@@ -172,7 +172,7 @@ $context.section_end('item-columns');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'indent',
+	cls: '__indent',
 	defaultItem: {
 		etype: 'item',
 		layout: {
