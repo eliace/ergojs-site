@@ -30,13 +30,10 @@ $.ergo({
 		etype: 'tool-bar',
 		$form: {
 			$filter: {
-				etype: 'text-box',
-				width: 200,
+				etype: 'input',
+				include: 'icon:at-right',
+				icon: 'fa-search',
 				autoBind: false,
-				$addon: {
-					etype: 'icon',
-					cls: 'fa-search addon'
-				}
 			}			
 		}
 	},

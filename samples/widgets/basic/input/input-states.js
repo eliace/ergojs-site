@@ -22,6 +22,21 @@ var input3 = $.ergo({
 	state: 'danger'
 });
 
+var input4 = $.ergo({
+	etype: 'input',
+//	width: 200,
+	placeholder: 'Search...',
+	state: 'underlined'
+});
+
+var input5 = $.ergo({
+	etype: 'input',
+	include: 'icon:at-right',
+	icon: 'fa-search',
+	text: 'Search...',
+	state: 'transparent'
+});
+
 
 
 
@@ -30,7 +45,7 @@ $.ergo({
 	layout: 'rows',
 	cls: '__gap',
 	renderTo: '#sample',
-	items: [ input1, input2, input3 ]
+	items: [ input1, input2, input3, input4, input5 ]
 });
 
 

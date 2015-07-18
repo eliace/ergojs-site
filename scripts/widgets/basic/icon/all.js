@@ -1,5 +1,5 @@
 
-var icons = [
+var ICONS = [
 'fa-adjust',
 'fa-anchor',
 'fa-archive',
@@ -13,7 +13,6 @@ var icons = [
 'fa-ban',
 'fa-bank',
 'fa-bar-chart',
-'fa-bar-chart-o',
 'fa-barcode',
 'fa-bars',
 'fa-beer',
@@ -24,10 +23,41 @@ var icons = [
 'fa-bicycle',
 'fa-binoculars',
 'fa-birthday-cake',
-'fa-bolt'
+'fa-bolt',
 //'fa-bomb',
-//'fa-book'
+'fa-book'
 ];
+
+
+
+var COLORS = [
+	'red',
+	'pink',
+	'purple',
+	'deep-purple',
+	'indigo',
+	'blue',
+	'light-blue',
+	'cyan',
+	'teal',
+	'green',
+	'light-green',
+	'lime',
+	'yellow',
+	'amber',
+	'orange',
+	'deep-orange',
+	'brown',
+	'grey',
+	'blue-grey',
+
+	'black',
+	''
+];
+
+
+//var SIZES = ['tiny', 'small', 'medium', 'large', 'huge', 'giant'];
+
 
 
 $context.section('Простые иконки');
@@ -42,7 +72,7 @@ $.ergo({
 	defaultItem: {
 		etype: 'icon'
 	},
-	items: icons
+	items: ICONS
 });
 
 
@@ -58,7 +88,7 @@ $.ergo({
 		etype: 'icon',
 		cls: 'circular'
 	},
-	items: icons
+	items: ICONS
 });
 
 
@@ -76,7 +106,7 @@ $.ergo({
 			etype: 'icon',
 			cls: 'contextual'
 		},
-		items: icons
+		items: ICONS
 	},
 	items: [
 		{cls: 'bg-basic'},
@@ -177,4 +207,133 @@ var w = $.ergo({
 
 
 w.render('#sample');
+$context.section('Цвет');
+$context.section_begin('icon-color');
+$context.section_end('icon-color');
+
+var colored_icons = [];
+
+COLORS.forEach(function(c, i) {
+	colored_icons.push({icon: ICONS[i], cls: COLORS[i]});
+});
+
+
+
+var box1 = $.ergo({
+	etype: 'box',
+	cls: 'items __gap',
+	defaultItem: {
+		etype: 'icon'
+	},
+	items: colored_icons
+});
+
+
+var box2 = $.ergo({
+	etype: 'box',
+	cls: 'items __gap',
+	defaultItem: {
+		etype: 'icon',
+		cls: 'circular'
+	},
+	items: colored_icons
+});
+
+
+var box3 = $.ergo({
+	etype: 'box',
+	cls: 'items __gap',
+	defaultItem: {
+		etype: 'icon',
+		cls: 'circular inverted'
+	},
+	items: colored_icons
+});
+
+
+
+var w = $.ergo({
+	etype: 'box',
+//	layout: 'vbox',
+	cls: 'box vertical __gap',
+	items: [ box1, box2, box3 ]
+});
+
+
+w.render('#sample');
+$context.section('Размер');
+$context.section_begin('icon-size');
+$context.section_end('icon-size');
+
+
+
+var box1 = $.ergo({
+	etype: 'box',
+	cls: 'items __gap',
+	defaultItem: {
+		etype: 'icon',
+		cls: 'fa-book'
+	},
+	items: [
+		{cls: 'tiny'},
+		{cls: 'small'},
+		{cls: 'medium'},
+		{cls: 'large'},
+		{cls: 'huge'},
+		{cls: 'giant'}
+	]
+});
+
+
+box1.render('#sample');
+$context.section('Метка');
+$context.section_begin('icon-label');
+$context.section_end('icon-label');
+
+
+var colored_icons = [];
+
+COLORS.forEach(function(c, i) {
+	colored_icons.push({icon: ICONS[i], cls: COLORS[i]});
+});
+
+
+
+var box1 = $.ergo({
+	etype: 'box',
+	cls: 'items __gap',
+	defaultItem: {
+		etype: 'icon',
+		cls: 'label'
+	},
+	items: colored_icons
+});
+
+
+box1.render('#sample');
+$context.section('Кнопка');
+$context.section_begin('icon-button');
+$context.section_end('icon-button');
+
+
+var colored_icons = [];
+
+COLORS.forEach(function(c, i) {
+	colored_icons.push({icon: ICONS[i], cls: COLORS[i]});
+});
+
+
+
+var box1 = $.ergo({
+	etype: 'box',
+	cls: 'items __gap',
+	defaultItem: {
+		etype: 'icon',
+		cls: 'button'
+	},
+	items: colored_icons
+});
+
+
+box1.render('#sample');
 

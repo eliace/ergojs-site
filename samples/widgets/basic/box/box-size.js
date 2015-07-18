@@ -2,9 +2,9 @@
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items border padding __gap',
+	cls: 'items border __gap box',
 	include: 'label',
-	label: 'Tiny',
+	label: 'No',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -15,9 +15,9 @@ var box1 = $.ergo({
 
 var box2 = $.ergo({
 	etype: 'box',
-	cls: 'items border padding __gap',
+	cls: 'items border __gap box padding lite',
 	include: 'label',
-	label: 'Small',
+	label: 'Lite',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -29,8 +29,8 @@ var box2 = $.ergo({
 var box3 = $.ergo({
 	etype: 'box',
 	include: 'label',
-	label: 'Default',
-	cls: 'items border padding __gap',
+	label: 'Normal',
+	cls: 'items border __gap box padding normal',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -42,8 +42,8 @@ var box3 = $.ergo({
 var box4 = $.ergo({
 	etype: 'box',
 	include: 'label',
-	label: 'Large',
-	cls: 'items border padding __gap',
+	label: 'Heavy',
+	cls: 'items border __gap box padding heavy',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -55,8 +55,8 @@ var box4 = $.ergo({
 var box5 = $.ergo({
 	etype: 'box',
 	include: 'label',
-	label: 'Huge',
-	cls: 'items border padding __gap',
+	label: 'Massive',
+	cls: 'items border __gap box padding massive',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'

@@ -52,6 +52,12 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			}, {
 				title: 'Данные',
 				name: 'core/widget/data'
+			}, {
+				title: 'Фильтрация',
+				name: 'core/widget/filter'
+			}, {
+				title: 'Сортировка',
+				name: 'core/widget/sort'
 			}]
 		}/*, {
 			title: 'Элементы и компоненты',
@@ -143,6 +149,15 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Кнопка',			
 				name: 'widgets/basic/button'
 			}, {
+				title: 'Input',
+				name: 'widgets/basic/input'
+			}, {
+				title: 'Select',
+				name: 'widgets/basic/select'
+			}, {
+				title: 'Dropdown',
+				name: 'widgets/basic/dropdown'
+			}, {
 				title: 'Разделитель',
 				name: 'widgets/basic/divider'
 			}, {
@@ -166,14 +181,23 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			}, {
 				title: 'Текст',
 				name: 'widgets/basic/text'
+			}, {
+				title: 'Checkbox',
+				name: 'widgets/fields/checkbox'
+			}, {
+				title: 'Список',
+				name: 'widgets/basic/list'
+			}, {
+				title: 'Дерево',
+				name: 'widgets/basic/tree'
+			}, {
+				title: 'Таблица',
+				name: 'widgets/basic/table'
 			}]
 		}, {
 			title: 'Списки',
 			icon: 'fa-list',
 			children: [{
-				title: 'Основы',
-				name: 'widgets/basic/list'
-			}, {
 				title: "Компоновки",
 				name: 'widgets/lists/layout'
 			}, {
@@ -190,10 +214,6 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			title: 'Деревья',
 			icon: 'fa-sitemap',
 			children: [{
-				title: 'Основы',
-				name: 'widgets/trees/basic'
-//				name: 'widgets/trees/basic'
-			}, {
 				title: 'Компоновки',
 				name: 'widgets/trees/layout'
 			}, {
@@ -221,6 +241,9 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Панель',
 				name: 'widgets/containers/panel'
 			}, {
+				title: 'Форма',
+				name: 'widgets/containers/form'
+			}, {
 				title: 'Набор полей',
 				name: 'widgets/containers/fieldset'
 			}, {
@@ -234,17 +257,8 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			title: 'Формы',
 			icon: 'fa-edit',
 			children: [{
-				title: 'Input',
-				name: 'widgets/fields/input'
-			}, {
-				title: 'Select',
-				name: 'widgets/fields/select'
-			}, {
 				title: 'Combo',
 				name: 'widgets/fields/combo'
-			}, {
-				title: 'Checkbox',
-				name: 'widgets/fields/checkbox'
 			}, {
 				title: 'Number',
 				name: 'widgets/fields/number'
@@ -256,9 +270,6 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			title: 'Таблицы',
 			icon: 'fa-table',
 			children: [{
-				title: 'Основы',
-				name: 'widgets/basic/table'
-			}, {
 				title: 'Грид',
 				name: 'widgets/grids/basic'
 			}, {
@@ -311,7 +322,7 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			title: 'Навигация',
 			icon: 'fa-rocket',
 			children: [{
-				title: 'Заголовок',
+				title: 'Navbar/Sidebar',
 				name: 'widgets/app/navigation'
 			}, {
 				title: 'Меню',
@@ -322,11 +333,8 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			}, {
 				title: 'Pagination',
 				name: 'widgets/app/pagination'
-			}, {
-				title: 'Views',
-				name: 'widgets/app/view'
 			}]
-		}, {
+		}/*, {
 			title: 'Меню',
 			icon: 'fa-bars',
 			children: [{
@@ -339,15 +347,15 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Боковое',
 				name: 'widgets/menu/side'
 			}]			
-		}, {
+		}*/, {
 			title: 'Другое',
 			icon: 'fa-cogs',
 			children: [{
 				title: 'Оповещения',
 				name: 'widgets/other/alert'
 			}, {
-				title: 'Dropdown',
-				name: 'widgets/other/dropdown'
+				title: 'Cards',
+				name: 'widgets/other/cards'
 			}, {
 				title: 'Tabs',
 				name: 'widgets/other/tabs'
@@ -355,19 +363,13 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Growls',
 				name: 'widgets/other/growl'
 			}, {
-				title: 'Фильтрация',
-				name: 'widgets/other/filter'
-			}, {
-				title: 'Сортировка',
-				name: 'widgets/other/sort'
-			}, {
 				title: "Drag'n'Drop",
 				name: 'widgets/other/dragndrop'
 			}, {
 				title: "Галерея",
 				name: 'widgets/other/gallery'
 			}, {
-				title: "Тест",
+				title: "Perf Tests",
 				name: 'widgets/other/test'
 			}/*, {
 				title: 'Tags & Badges',

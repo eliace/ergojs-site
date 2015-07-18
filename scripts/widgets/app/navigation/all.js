@@ -320,6 +320,9 @@ var box = $.ergo({
 			defaultItem: {
 				$content: {
 					include: 'before-icon',
+					$content: {
+						etype: '.'
+					},
 					$label: {
 						etype: 'label',
 						cls: 'small teal float-right',

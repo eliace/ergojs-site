@@ -8,7 +8,10 @@ var data3 = new Ergo.data.Collection({
 
 // сортировка по полю
 var sort_values = function(sort, sort_field, a, b) {
-	
+
+	a = a[1];
+	b = b[1];
+
 	if(sort == 'asc') {
 		a = a[sort_field];
 		b = b[sort_field];				
@@ -76,13 +79,21 @@ $.ergo({
 	
 	onChangeValue: function(e) {
 		
-		var v = this.data.get();
-		
+		var sorter = sort_values.curry(e.value, 'full_name');
+
 		if(e.value) {
-			v.sort( sort_values.curry(e.value, 'full_name') );
+			this.$content.opt('dynamicSorter', sorter);
+			this.$content._rebind();
 		}
+
+
+		// var v = this.data.get();
 		
-		this.data.events.fire('value:changed');
+		// if(e.value) {
+		// 	v.sort( sort_values.curry(e.value, 'full_name') );
+		// }
+		
+		// this.data.events.fire('value:changed');
 		
 	}		
 

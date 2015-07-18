@@ -9,7 +9,7 @@ $.ergo({
 			etype: 'icon',
 			cls: 'contextual'
 		},
-		items: icons
+		items: ICONS
 	},
 	items: [
 		{cls: 'bg-basic'},

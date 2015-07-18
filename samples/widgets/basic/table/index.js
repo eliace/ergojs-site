@@ -11,4 +11,6 @@ $context.section('Hovered');
 //= require table-hovered
 $context.section('Fluid');
 //= require table-fluid
+$context.section('Loader');
+//= require table-loader
 

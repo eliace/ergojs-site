@@ -93,9 +93,9 @@ $context.section_end('box-size');
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items border padding __gap',
+	cls: 'items border __gap box',
 	include: 'label',
-	label: 'Tiny',
+	label: 'No',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -106,9 +106,9 @@ var box1 = $.ergo({
 
 var box2 = $.ergo({
 	etype: 'box',
-	cls: 'items border padding __gap',
+	cls: 'items border __gap box padding lite',
 	include: 'label',
-	label: 'Small',
+	label: 'Lite',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -120,8 +120,8 @@ var box2 = $.ergo({
 var box3 = $.ergo({
 	etype: 'box',
 	include: 'label',
-	label: 'Default',
-	cls: 'items border padding __gap',
+	label: 'Normal',
+	cls: 'items border __gap box padding normal',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -133,8 +133,8 @@ var box3 = $.ergo({
 var box4 = $.ergo({
 	etype: 'box',
 	include: 'label',
-	label: 'Large',
-	cls: 'items border padding __gap',
+	label: 'Heavy',
+	cls: 'items border __gap box padding heavy',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -146,8 +146,8 @@ var box4 = $.ergo({
 var box5 = $.ergo({
 	etype: 'box',
 	include: 'label',
-	label: 'Huge',
-	cls: 'items border padding __gap',
+	label: 'Massive',
+	cls: 'items border __gap box padding massive',
 	defaultItem: {
 		etype: 'button',
 		cls: 'basic'
@@ -170,6 +170,49 @@ var w = $.ergo({
 w.render('#sample');
 
 
+$context.section('Цвета');
+$context.section_begin('box-color');
+$context.section_end('box-color');
+
+
+
+var box = $.ergo({
+	etype: 'box',
+	layout: 'hbox',
+	defaultItem: {
+		cls: 'lite padding box',
+//		width: 80
+	},
+	items: [
+		{cls: 'red', text: 'red'},
+		{cls: 'pink', text: 'pink'},
+		{cls: 'purple', text: 'purple'},
+		{cls: 'deep-purple', text: 'deep-purple'},
+		{cls: 'indigo', text: 'indigo'},
+		{cls: 'blue', text: 'blue'},
+		{cls: 'light-blue', text: 'light-blue'},
+		{cls: 'cyan', text: 'cyan'},
+		{cls: 'teal', text: 'teal'},
+		{cls: 'green', text: 'green'},
+		{cls: 'light-green', text: 'light-green'},
+		{cls: 'lime', text: 'lime'},
+		{cls: 'yellow', text: 'yellow'},
+		{cls: 'amber', text: 'amber'},
+		{cls: 'orange', text: 'orange'},
+		{cls: 'deep-orange', text: 'deep-orange'},
+		{cls: 'brown', text: 'brown'},
+		{text: 'default'},
+		{cls: 'grey', text: 'grey'},
+		{cls: 'blue-grey', text: 'blue-grey'},
+		{cls: 'black', text: 'black'}
+	]
+});
+
+
+box.render('#sample');
+
+
 
 //$context.section('Панель инструментов', 'Выравнивание элементов за счет отступов');
 // require box-fluid
+

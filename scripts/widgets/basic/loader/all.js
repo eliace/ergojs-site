@@ -6,7 +6,7 @@ $context.section_end('loader-spinner');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'box-large loadable',
+	cls: 'box-large loadable loading',
 	width: 600,
 	$content: {
 		text: LOREMIPSUM
@@ -31,7 +31,7 @@ w.render('#sample');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'box-large loadable',
+	cls: 'box-large loadable loading',
 	width: 600,
 	style: {'margin-top': 32},
 	$content: {
@@ -60,7 +60,7 @@ $context.section_end('loader-timer');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'box-large loadable',
+	cls: 'box-large loadable loading',
 	width: 600,
 	style: {'margin-top': 32},
 	$content: {
@@ -86,7 +86,7 @@ w.render('#sample');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'box-large loadable',
+	cls: 'box-large loadable loading',
 	width: 600,
 	style: {'margin-top': 32},
 	$content: {
@@ -114,7 +114,7 @@ $context.section_end('loader-fa');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'box-large loadable',
+	cls: 'box-large loadable loading',
 	width: 600,
 	style: {'margin-top': 32},
 	$content: {

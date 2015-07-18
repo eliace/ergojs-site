@@ -2,13 +2,13 @@
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding-x2',
-	$header: {
+	cls: 'bordered rounded padding',
+	$title: {
 		etype: 'html:h3',
-		cls: 'header box',
+		cls: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-plug'
+			cls: 'fa-plug before'
 		},
 		$content: {
 			etype: '.',
@@ -26,13 +26,13 @@ w.render('#sample');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding-x2',
+	cls: 'bordered rounded padding',
 	$header: {
 		etype: 'html:h3',
-		cls: 'header box',
+		cls: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-cogs'
+			cls: 'fa-cogs medium before'
 		},
 		$content: {
 			etype: 'text',
@@ -41,8 +41,8 @@ w = $.ergo({
 				etype: '.',
 			},
 			$subheader: {
-				etype: 'text',
-				cls: 'sub-header',
+				etype: 'title',
+				cls: 'sub',
 				text: 'Управление системными параметрами, пользователями и пр.'
 			}
 		}

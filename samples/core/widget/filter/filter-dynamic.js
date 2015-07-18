@@ -19,13 +19,10 @@ $.ergo({
 		etype: 'tool-bar',
 		$form: {
 			$filter: {
-				etype: 'text-box',
-				width: 200,
+				etype: 'input',
+				include: 'icon:at-right',
+				icon: 'fa-search',
 				autoBind: false,
-				$addon: {
-					etype: 'icon',
-					cls: 'fa-search addon'
-				}
 			}			
 		}
 	},
@@ -52,7 +49,7 @@ $.ergo({
 		var filter = prop_text_filter.bind(this, e.text, 'full_name');
 
 		this.content.opt('dynamicFilter', filter);
-		this.data.events.fire('value:changed'); //FIXME
+		this.content._rebind();
 		
 	}		
 

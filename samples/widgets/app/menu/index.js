@@ -1,12 +1,5 @@
 
 
-
-
-
-
-
-
-
 $context.section('Basic');
 //= require menu-basic
 $context.section('Underlined');
@@ -22,7 +15,9 @@ $context.section('Submenu');
 $context.section('Context');
 //= require menu-context
 $context.section('Vertical');
-//= require menu-side
+//= require menu-vertical
+$context.section('Vertical icons');
+//= require menu-vertical-icons
 $context.section('Group');
 //= require menu-groups
 $context.section('Nested');

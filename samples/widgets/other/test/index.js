@@ -1,7 +1,8 @@
 
 var n = 0;
 
-var data = new Ergo.data.Collection({provider: {
+
+var provider = {
 
 	generator: {
 
@@ -73,11 +74,19 @@ var data = new Ergo.data.Collection({provider: {
 		return $.when(a);
 	}
 
-}});
+};
 
 
 
-$context.section('Создание таблицы');
+
+var data1wb = new Ergo.data.Collection({provider: provider});
+var data2wb = new Ergo.data.Collection({provider: provider});
+
+
+
+$context.section('Таблица (One-way binding)');
 //= require test-create
+$context.section('Таблица (Two-way binding)');
+//= require test-2wb
 $context.section('10000');
 //= require test-10000

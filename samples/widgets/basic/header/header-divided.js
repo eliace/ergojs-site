@@ -4,7 +4,7 @@ w = $.ergo({
 	width: 800,
 	$header: {
 		etype: 'html:h4',
-		cls: 'header divided',
+		cls: 'title underlined',
 		$content: {
 			etype: '.',
 			text: 'Заголовок'

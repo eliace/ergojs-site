@@ -7,6 +7,6 @@ $.ergo({
 	defaultItem: {
 		etype: 'icon'
 	},
-	items: icons
+	items: ICONS
 });
 

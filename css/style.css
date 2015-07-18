@@ -864,34 +864,6 @@ span.tool-item, .tool-item.link, .tool-item.icon {
 
 
 
-.divider.horizontal {
-	padding: 8px 0;
-	position: relative;
-}
-
-.divider.horizontal:before {
-  border-top: 1px solid #ccc;
-  content: "";
-  width: 100%;
-  top: 50%;
-	position: absolute;
-}
-
-
-
-.divider.vertical {
-	padding: 0 8px;
-	position: relative;
-}
-
-.divider.vertical:before {
-	border-top: none;
-  border-left: 1px solid #ccc;
-  content: "";
-  height: 100%;
-  top: 0;
-	position: absolute;
-}
 
 
 

@@ -1,11 +1,11 @@
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'header box',
+	cls: 'title',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/003.jpg',
-		cls: 'circular'
+		cls: 'image circular small before'
 	},
 	$content: {
 		etype: '.',
@@ -20,21 +20,21 @@ w.render('#sample');
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'header box',
+	cls: 'title',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/002.jpg',
-		cls: 'circular'
+		cls: 'image circular small before'
 	},
-	$title: {
+	$content: {
 		etype: 'text',
 		text: 'Лисицын А.Н.',
 		$content: {
 			etype: '.',
 		},
 		$subtitle: {
-			etype: 'text',
-			cls: 'sub-header',
+			etype: 'title',
+			cls: 'sub',
 			text: 'Ведущий веб-разработчик'
 		}
 	}

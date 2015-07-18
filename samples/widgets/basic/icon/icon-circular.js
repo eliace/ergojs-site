@@ -7,6 +7,6 @@ $.ergo({
 		etype: 'icon',
 		cls: 'circular'
 	},
-	items: icons
+	items: ICONS
 });
 

@@ -11,5 +11,3 @@ $context.section('Сортировка связывания');
 //= require sort-values
 
 
-
-

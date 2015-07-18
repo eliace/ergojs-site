@@ -1,4 +1,47 @@
 
+$context.section('Basic');
+$context.section_begin('header-basic');
+$context.section_end('header-basic');
+
+
+var w = $.ergo({
+	etype: 'title',
+	text: 'Заголовок'
+});
+
+
+w.render('#sample');
+
+$context.section('Размер');
+$context.section_begin('header-size');
+$context.section_end('header-size');
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: 'list __gap',
+	defaultItem: {
+		etype: 'title'
+	},
+	items: [
+		{cls: 'giant', text: 'Giant'},
+//		LOREMIPSUM,
+		{cls: 'huge', text: 'Huge'},
+//		LOREMIPSUM_2,
+		{cls: 'large', text: 'Large'},
+//		LOREMIPSUM_3,
+		{text: 'Default'},
+//		LOREMIPSUM_4,
+		{cls: 'small', text: 'Small'},
+//		LOREMIPSUM_5,
+		{cls: 'tiny', text: 'Tiny'},
+//		LOREMIPSUM_6
+	]
+});
+
+
+w.render('#sample');
+
 $context.section('Стандартные заголовки h1-h5');
 $context.section_begin('header-h1h5');
 $context.section_end('header-h1h5');
@@ -28,11 +71,11 @@ $context.section_end('header-image');
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'header box',
+	cls: 'title',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/003.jpg',
-		cls: 'circular'
+		cls: 'image circular small before'
 	},
 	$content: {
 		etype: '.',
@@ -47,21 +90,21 @@ w.render('#sample');
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'header box',
+	cls: 'title',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/002.jpg',
-		cls: 'circular'
+		cls: 'image circular small before'
 	},
-	$title: {
+	$content: {
 		etype: 'text',
 		text: 'Лисицын А.Н.',
 		$content: {
 			etype: '.',
 		},
 		$subtitle: {
-			etype: 'text',
-			cls: 'sub-header',
+			etype: 'title',
+			cls: 'sub',
 			text: 'Ведущий веб-разработчик'
 		}
 	}
@@ -78,13 +121,13 @@ $context.section_end('header-icon');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding-x2',
-	$header: {
+	cls: 'bordered rounded padding',
+	$title: {
 		etype: 'html:h3',
-		cls: 'header box',
+		cls: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-plug'
+			cls: 'fa-plug before'
 		},
 		$content: {
 			etype: '.',
@@ -102,13 +145,13 @@ w.render('#sample');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding-x2',
+	cls: 'bordered rounded padding',
 	$header: {
 		etype: 'html:h3',
-		cls: 'header box',
+		cls: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-cogs'
+			cls: 'fa-cogs medium before'
 		},
 		$content: {
 			etype: 'text',
@@ -117,8 +160,8 @@ w = $.ergo({
 				etype: '.',
 			},
 			$subheader: {
-				etype: 'text',
-				cls: 'sub-header',
+				etype: 'title',
+				cls: 'sub',
 				text: 'Управление системными параметрами, пользователями и пр.'
 			}
 		}
@@ -138,7 +181,7 @@ w = $.ergo({
 	width: 800,
 	$header: {
 		etype: 'html:h4',
-		cls: 'header divided',
+		cls: 'title underlined',
 		$content: {
 			etype: '.',
 			text: 'Заголовок'
@@ -149,6 +192,45 @@ w = $.ergo({
 
 w.render('#sample');
 
+
+$context.section('Цвет');
+$context.section_begin('header-color');
+$context.section_end('header-color');
+
+var title1 = $.ergo({
+	etype: 'title',
+	text: 'Green',
+	cls: 'large underlined green'
+});
+
+var title2 = $.ergo({
+	etype: 'title',
+	text: 'Blue',
+	cls: 'large underlined blue'
+});
+
+var title3 = $.ergo({
+	etype: 'title',
+	text: 'Teal',
+	cls: 'large weak underlined teal'
+});
+
+var title4 = $.ergo({
+	etype: 'title',
+	text: 'Orange',
+	cls: 'large weak underlined orange'
+});
+
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: 'block',
+	items: [ title1, LOREMIPSUM, title2, LOREMIPSUM_2, title3, LOREMIPSUM_3, title4, LOREMIPSUM_4 ]
+});
+
+
+w.render('#sample');
 
 $context.section('Отключенный');
 $context.section_begin('header-disabled');

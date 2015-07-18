@@ -7,6 +7,9 @@ $context.section('Item indent', 'Задается отступ до границ
 //= require box-indent
 $context.section('Отступы', 'Задается расстояние от всех границ');
 //= require box-size
+$context.section('Цвета');
+//= require box-color
 
 //$context.section('Панель инструментов', 'Выравнивание элементов за счет отступов');
 // require box-fluid
+

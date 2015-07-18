@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'box-large loadable',
+	cls: 'box-large loadable loading',
 	width: 600,
 	style: {'margin-top': 32},
 	$content: {
@@ -28,7 +28,7 @@ w.render('#sample');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'box-large loadable',
+	cls: 'box-large loadable loading',
 	width: 600,
 	style: {'margin-top': 32},
 	$content: {

@@ -4,33 +4,33 @@ var w = $.ergo({
 	cls: 'table grid box single-line celled',
 	height: 300,
 	column: {
-		cls: 'menu-header',
-		components: {
-			content: {
-				etype: 'link',
-				cls: 'column-text',
+//		cls: 'menu-header',
+		$content: {
+			etype: 'link',
+			cls: 'column-text',
+		},
+		$menu: {
+			etype: 'box',
+			include: 'dropdown',
+			cls: 'float-right',
+			$icon: {
+				etype: 'icon',
+				cls: 'fa-bars contextual action',
+				weight: -100
 			},
-			menu: {
-				etype: 'dropdown-box',
-				cls: 'column-dropdown',
-				$content: {
-					components: {
-						caret: {
-							etype: 'icon',
-							state: 'fa-angle-down'						
-						}
-					}
-				},
-				$dropdown: {
-					etype: 'dropdown-menu',
-					renderTo: 'body',
-					popup: {
-						behaviour: 'global'
-					},
-					items: ['По возрастанию', 'По убыванию']
+			$dropdown: {
+				etype: 'dropdown-menu',
+				cls: 'global',
+				renderTo: 'body',
+				items: ['По возрастанию', 'По убыванию'],
+				popup: {
+					behaviour: 'global'
 				}
+			},
+			onClick: function(e) {
+				this.states.toggle('opened');
+				e.stop();
 			}
-			
 		},
 		autoBind: false
 	},

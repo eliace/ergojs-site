@@ -1,7 +1,8 @@
 
 $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	layout: 'hbox',
+	cls: '__gap',
 	renderTo: '#sample',
 	defaultItem: {
 		onClick: function() {

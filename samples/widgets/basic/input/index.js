@@ -4,6 +4,8 @@ $context.section('Поле ввода');
 //= require input-basic
 $context.section('Состояния');
 //= require input-states
+$context.section('Размер');
+//= require input-size
 $context.section('Иконка');
 //= require input-icon
 $context.section('Загрузчик');

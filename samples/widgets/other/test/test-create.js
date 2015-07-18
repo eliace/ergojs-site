@@ -1,7 +1,8 @@
 
 $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	layout: 'hbox',
+	cls: '__gap',
 	renderTo: '#sample',
 	defaultItem: {
 		onClick: function() {
@@ -44,7 +45,7 @@ $.ergo({
 		var t0 = Ergo.timestamp();
 
 		n = e.target.opt('cycles');
-		data.fetch();
+		data1wb.fetch();
 
 		var t1 = Ergo.timestamp();
 
@@ -73,39 +74,46 @@ var w = $.ergo({
 	// },
 	columns: [{
 		header: '#',
-		dataId: 'id',
+//		dataId: 'id',
+		format: '#{id}',
 		binding: 'text',
 		width: 40
 	}, {
 		header: 'Avatar',
-		dataId: 'avatar',
 		width: 60,
 		$content: {
 			etype: 'html:img',
+			format: '#{avatar}',
+//			dataId: 'avatar',
 			binding: 'src',
 			cls: 'rounded',
 			width: 40
 		}
 	}, {
 		header: 'First Name',
-		dataId: 'first_name',
+//		dataId: 'first_name',
+		format: '#{first_name}',
 		binding: 'text'
 	}, {
 		header: 'Last Name',
-		dataId: 'last_name',
+//		dataId: 'last_name',
+		format: '#{last_name}',
 		binding: 'text'
 	}, {
 		header: 'Middle Name',
-		dataId: 'middle_name',
+//		dataId: 'middle_name',
+		format: '#{middle_name}',
 		binding: 'text'
 	}, {
 		header: 'Age',
-		dataId: 'age',
+//		dataId: 'age',
+		format: '#{age}',
 		binding: 'text',
 		width: 40
 	}, {
 		header: 'Gender',
-		dataId: 'gender',
+//		dataId: 'gender',
+		format: '#{gender}',
 		binding: 'text',
 		width: 60
 	}/*, {
@@ -125,14 +133,16 @@ var w = $.ergo({
 //		binding: 'text'
 	}*/, {
 		header: 'Home page',
-		dataId: 'url',
+//		dataId: 'url',
+		format: '#{url}',
 		binding: 'text'
 	}, {
 		header: 'Email',
-		dataId: 'email',
+//		dataId: 'email',
+		format: '#{email}',
 		binding: 'text'
 	}],
-	data: data
+	data: data1wb
 });
 
 

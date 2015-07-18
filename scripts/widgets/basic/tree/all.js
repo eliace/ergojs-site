@@ -1,258 +1,401 @@
 
-$context.section('Вложенный список');
-$context.section_begin('tree-nested');
-$context.section_end('tree-nested');
+var data = [{
+		title: 'Африка',
+		type: 'cardinals',
+		children: [{
+			title: 'Египет',
+			iso: 'EG',
+			type: 'countries'
+		}, {
+			title: 'Марокко',
+			iso: 'MA',
+			type: 'countries'			
+		}, {
+			title: 'Кения',
+			iso: 'KE',
+			type: 'countries'						
+		}, {
+			title: 'Ангола',
+			iso: 'AO',
+			type: 'countries'						
+		}]
+	}, {
+		title: 'Азия',
+		type: 'cardinals',
+		children: [{
+			title: 'Китай',
+			type: 'countries'						
+		}, {
+			title: 'Индия',
+			type: 'countries'						
+		}, {
+			title: 'Иран',
+			type: 'countries'						
+		}, {
+			title: 'Индонезия',
+			type: 'countries'						
+		}, {
+			title: 'Ливия',
+			type: 'countries'						
+		}, {
+			title: 'Непал',
+			type: 'countries'						
+		}]
+	}, {
+		title: 'Европа',
+		type: 'cardinals',
+		children: [{
+			title: 'Великобритания',
+			iso: 'GB',
+			type: 'countries',
+			children: [{
+				title: 'Лондон',
+				type: 'cities'
+			}, {
+				title: 'Бирмингем',
+				type: 'cities'
+			}, {
+				title: 'Глазго',
+				type: 'cities'
+			}]
+		}, {
+			title: 'Германия',
+			iso: 'DE',
+			type: 'countries',
+			children: [{
+				title: 'Берлин',
+				type: 'cities'
+			}, {
+				title: 'Гамбург',
+				type: 'cities'
+			}, {
+				title: 'Мюнхен',
+				type: 'cities'
+			}]
+		}, {
+			title: 'Италия',
+			iso: 'IT',
+			type: 'countries',
+			children: [{
+				title: 'Рим',
+				type: 'cities'
+			}, {
+				title: 'Милан',
+				type: 'cities'
+			}, {
+				title: 'Неаполь',
+				type: 'cities'
+			}]
+		}]
+}];
+
+
+
+var USERS = new Ergo.data.Collection({
+	provider: new Ergo.data.AjaxProvider('data/tree-users.json')
+});
+
+
+
+
+$context.section('Базовое дерево');
+$context.section_begin('basic-create');
+$context.section_end('basic-create');
+
+
 
 var w = $.ergo({
-	etype: 'nested-list',
+	etype: 'basic-tree',
+	data: data,
 	nestedItem: {
 		$content: {
-			etype: 'link',
-			onClick: function() {
-				this.parent.states.toggle('expanded');
-			}
+			dataId: 'title'
+		},
+		binding: function(v) {
+			if(v.type != 'cities') this.states.set('expandable');
 		}
+	}
+	
+});
+
+w.render('#sample');
+
+
+
+//		layout: 'hbox',
+//		cls: 'item box',
+// 		transitions: {
+// 			'* > expanded': function() {
+
+// 				var item = this;
+
+// 				if(!item.$subtree.states.is('slide-item-hidden')) return;
+
+// 				item.$subtree.states.unset('slide-item-hidden');
+// 				item.$subtree.el.css('max-height', 'none');
+// 				var h = item.$subtree.el.outerHeight();
+// 				item.$subtree.el.css('max-height', 0);
+// 				setTimeout(function() {
+// 					item.$subtree.el.css('max-height', h);
+// 				}, 1);
+
+// 				// var deferred = new $.Deferred();
+
+// 				// item.$subtree.el.one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function() {
+// 				// 	deferred.resolve();
+// 				// });
+				
+// 				item.$subtree.states.set('opened');
+
+// //				return deferred.promise();
+// 			},
+// 			'expanded > *': function() {
+
+// 				var item = this;
+// 				item.$subtree.el.css('max-height', 0);
+// 				item.$subtree.states.set('slide-item-hidden');
+
+
+// 				this.$subtree.states.unset('opened'); 
+// 			}
+// 		},
+
+
+
+
+/*
+var w = $.ergo({
+	etype: 'box',
+	layout: {
+		etype: 'grid',
+		pattern: [6, 6]
 	},
 	items: [{
-		text: 'Африка',
-		$subtree_items: ['Египет', 'Марокко', 'Кения', 'Ангола']
+		etype: 'basic-tree',
+		data: data,
+		nestedItem: {
+			components: {
+				content: {
+					dataId: 'title'
+				}
+			},
+			binding: function(v) {
+				if(v.type != 'cities') this.states.set('expandable');
+			}
+		}
+		
 	}, {
-		text: 'Азия',
-		$subtree_items: ['Китай', 'Индия', 'Иран', 'Индонезия', 'Ливия', 'Непал']
-	}, {
-		text: 'Европа',
-		$subtree_items: ['Великобритания', 'Германия', 'Италия']
+		etype: 'basic-tree',
+		data: data,
+		nestedItem: {
+			components: {
+				// checker: {
+					// etype: 'check',
+					// weight: -20,
+					// autoBind: false
+				// },
+				content: {
+					$content: {
+						etype: '&text',
+						dataId: 'title'
+					},
+					$icon: {
+						etype: 'icon',
+						weight: -10,
+						states: {
+							// отображение состояния на класс иконки
+							'cardinals': 'fa-globe',
+							'countries': 'fa-flag',
+							'cities': 'fa-building-o'
+						}
+					},
+					binding: false
+				},
+				description: {
+					// выведем дополнительную информацию
+					etype: 'text',
+					weight: 10,
+					cls: 'desc',
+					dataId: 'iso',
+					format: function(v) { return v ? '('+v+')' : ''; }
+				},
+				// subtree: {
+					// effects: {
+						// easing: 'easeOutQuad'
+					// }
+				// }
+			},
+			binding: function(v) {
+				// узлы с типом cities не должны раскрываться,
+				// для них не будет устанавливаться состояние expandable, которое отображает toggler  
+				if(v.type != 'cities') 
+					this.states.set('expandable');
+				// устанавливаем состояние иконки
+				this.content.icon.states.set(v.type);
+			}
+		}
+		
 	}]
 });
 
 w.render('#sample');
 
+*/
 
-$context.section('Вложенный список + динамические данные');
-$context.section_begin('tree-dynamic');
-$context.section_end('tree-dynamic');
-
-var tree_data = [{
-	text: 'Африка',
-	children: [
-		{text: 'Египет'},
-		{text: 'Марокко'},
-		{text: 'Кения'},
-		{text: 'Ангола'}
-	]
-}, {
-	text: 'Азия',
-	children: [
-		{text: 'Китай'},
-		{text: 'Индия'},
-		{text: 'Иран'},
-		{text: 'Индонезия'},
-		{text: 'Ливия'},
-		{text: 'Непал'}
-	]
-}, {
-	text: 'Европа',
-	children: [
-		{
-			text: 'Великобритания',
-			children: [
-				{text: 'Лондон'},
-				{text: 'Дублин'},
-				{text: 'Ливерпуль'},
-				{text: 'Бирмингем'}
-			]
-		},
-		{
-			text: 'Германия',
-			children: [
-				{text: 'Берлин'},
-				{text: 'Мюнхен'},
-				{text: 'Гамбург'}
-			]
-		},
-		{text: 'Италия'}
-	]
-}]
+$context.section('Иконка');
+$context.section_begin('basic-icon');
+$context.section_end('basic-icon');
 
 
 var w = $.ergo({
-	etype: 'nested-list',
-	data: tree_data,
+	etype: 'basic-tree',
+	data: data,
 	nestedItem: {
 		$content: {
-			etype: 'link',
-			onClick: function() {
-				this.parent.states.toggle('expanded');
+			$icon: {
+				etype: 'icon',
+				cls: 'before',
+				weight: -10,
+				states: {
+					// отображение состояния на класс иконки
+					'cardinals': 'fa-globe',
+					'countries': 'fa-flag',
+					'cities': 'fa-building-o'
+				},
+				dataId: 'type'
 			},
-			format: '#{text}'
-		}
-	}
-});
-
-w.render('#sample');
-
-
-$context.section('Открытие всех вложений');
-$context.section_begin('tree-expand-all');
-$context.section_end('tree-expand-all');
-
-var w = $.ergo({
-	etype: 'nested-list',
-	data: tree_data,
-	nestedItem: {
-		$content: {
-			etype: 'link',
-			onClick: function() {
-				this.parent.states.toggle('expanded');
-			},
-			format: '#{text}'
-		},
-		// Указываем состояние раскрытия.
-		// Но поддерево не отобразится, поскольку оно еще пусто
-		state: 'expanded',	
-		$subtree: {
-			hidden: false  // принудительно меняем видимость пустого поддерева
-		}
-	}
-});
-
-w.render('#sample');
-
-
-$context.section('Открытие пути');
-$context.section_begin('tree-expand-path');
-$context.section_end('tree-expand-path');
-
-// создаем примесь
-Ergo.alias('includes:expand-path', {
-
-	overrides: {
-
-		expand_path: function(path) {
-
-			var path_a = path.split(':');
-
-			if(path_a.length > 1) {
-
-				var found = null;
-				var item_name = path_a.shift();
-
-				this.items.each(function(item) {
-					if(item._name == item_name)
-						found = item;
-				});
-
-				if(found) {
-					found.states.set('expanded');
-					found.subtree.expand_path(path_a.join(':'));
-				}
-
+			$content: {
+				etype: '.',
+				dataId: 'title'
 			}
-
-		}
-
-	}
-
-});
-
-
-
-var w = $.ergo({
-	etype: 'nested-list',
-	data: tree_data,
-	include: 'expand-path',	
-	nestedItem: {
-		$content: {
-			etype: 'link',
-			onClick: function() {
-				this.parent.states.toggle('expanded');
-			},
-			format: '#{text}'
 		},
 		binding: function(v) {
-			this.opt('name', v.text);
-		},
-		$subtree: {
-			include: 'expand-path'
+			if(v.type != 'cities') this.states.set('expandable');
 		}
 	}
+	
 });
 
 w.render('#sample');
 
-w.expand_path('Азия:Китай');
-w.expand_path('Европа:Германия:Мюнхен');
+$context.section('Переключатель');
+$context.section_begin('basic-toggler');
+$context.section_end('basic-toggler');
 
-
-$context.section('Выбор элемента вложенного списка');
-$context.section_begin('tree-select');
-$context.section_end('tree-select');
 
 var w = $.ergo({
-	etype: 'nested-list',
-	data: tree_data,
-	include: 'selectable',  // примесь для работы с выборкой
-	cls: 'nested-list',
+	etype: 'basic-tree',
+	data: USERS,
+//	cls: 'items-indent',
 	nestedItem: {
-		$content: {
-			etype: 'link',
-			onClick: function() {
-				this.parent.states.toggle('expanded');
-				this.events.rise('nodeSelected', {key: this.parent.path()});
+		cls: 'margin-top',
+		$toggler: {
+			cls: 'fa-2x before',
+			states: {
+				'caret:c': 'fa-angle-right',
+				'opened:c': 'fa-angle-down'
+			}
+		},
+		$image: {
+			etype: 'html:img',
+			cls: 'rounded before',
+			binding: 'src',
+			format: function(v) {
+				var s = v.id;
+				if(v.id < 10) s = '0'+s;
+				if(v.id < 100) s = '0'+s;
+				return 'demo/blog/img/avatars/'+s+'.jpg';
 			},
-			format: '#{text}'
+			width: 40,
+			weight: -10
+		},
+		$content: {
+			etype: 'box',
+			$content: {
+				$content: {
+					etype: '.',
+					dataId: 'full_name'
+				},
+				$email: {
+					etype: 'text',
+					cls: 'description',
+					dataId: 'email'
+				}
+			}
 		},
 		binding: function(v) {
-			this.opt('name', v.text);
-		}
-	},
-	lookup: function(v) {
-		return this.find_path(v);
-	},
-	onNodeSelected: function(e) {
-		this.opt('index', e.key);
-	},
-	set: {
-		'index': function(v) {
-			this.selection.set(v);
+			if(v.children) this.states.set('expandable');
 		}
 	}
+	
 });
 
-// устанавливаем выбранное значение
-w.opt('index', 'Азия');
 
 w.render('#sample');
 
 
-$context.section('Эксклюзивное отображение пути');
-$context.section_begin('tree-exclusive');
-$context.section_end('tree-exclusive');
+$context.section('Checkboxes');
+$context.section_begin('basic-checkboxes');
+$context.section_end('basic-checkboxes');
+
+// создаем провайдера тестовых данных дерева
+TreeAjaxProvider = {
+	url: 'data/tree',
+	find_all: function(source, query) {
+		var id = query.id || 0;
+		return $.ajax(this.url+'/'+id+'.json', {
+			data: query,
+			dataType: 'json'
+		});
+	}
+};
+
+
+// создаем источник данных
+var data = new Ergo.data.NodeList({provider: TreeAjaxProvider});
+
 
 
 var w = $.ergo({
-	etype: 'nested-list',
-	data: tree_data,
+	etype: 'basic-tree',
+	data: data,
 	nestedItem: {
-		$content: {
-			etype: 'link',
-			onClick: function() {
-				this.parent.states.toggle('expanded');
-				this.events.rise('nodeExpanded');
-			},
-			format: '#{text}'
+		binding: function(v) {
+			if(this.data.opt('branch')) this.states.set('expandable');
+			this.$icon.states.set(v.type);
 		},
-		onNodeExpanded: function() {
-			// схлапываем соседние узлы
-      this.parent.items.each(function(item) {
-        if(item != this && item.states.is('expanded'))
-          item.states.unset('expanded');
-      }.bind(this));
-
+		$content: {
+			dataId: 'title'
+		},
+		$checkbox: {
+			etype: 'check',
+			cls: 'before',
+			weight: -20,
+			autoBind: false,
+			onAction: function() {
+//					this.events.
+			}
+		},
+		$icon: {
+			etype: 'icon',
+			cls: 'before',
+			weight: -10,
+			states: {
+				// настраиваем FontAwesome-иконки для состояний
+				'drive': 'fa-hdd-o',
+				'folder': 'fa-folder-o',
+				'clip': 'fa-film'
+			}
 		}
 	}
 });
 
+
 w.render('#sample');
 
 
+data.fetch();
+
+
+
+USERS.fetch();

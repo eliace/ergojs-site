@@ -53,6 +53,46 @@ $.ergo({
 
 
 
+$context.section('Размер');
+$context.section_begin('input-size');
+$context.section_end('input-size');
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: '__gap',
+	renderTo: '#sample',
+	layout: 'rows',
+	defaultItem: {
+		etype: 'input',
+		cls: 'icon right',
+		$icon: {
+			etype: 'icon',
+			cls: 'fa-search'
+		}		
+	},
+	items: [{
+		placeholder: 'Giant',
+		state: 'giant'
+	}, {
+		placeholder: 'Huge',
+		state: 'huge'
+	}, {
+		placeholder: 'Large',
+		state: 'large'
+	}, {
+		placeholder: 'Default',
+		state: 'medium'
+	}, {
+		placeholder: 'Small',
+		state: 'small'
+	}, {
+		placeholder: 'Tiny',
+		state: 'tiny'
+	}]
+});
+
+
 $context.section('Иконка');
 $context.section_begin('input-icon');
 $context.section_end('input-icon');
@@ -324,7 +364,7 @@ $context.section_end('input-block');
 var input1 = $.ergo({
 	etype: 'input',
 	include: 'xicon',
-	cls: 'icon right block',
+	cls: 'icon right fluid',
 	xicon: 'fa-search',
 	placeholder: 'Search...'
 });
@@ -332,7 +372,7 @@ var input1 = $.ergo({
 
 var input2 = $.ergo({
 	etype: 'input',
-	cls: 'group block',
+	cls: 'group fluid',
 	$action: {
 		etype: 'label',
 		cls: 'button action',

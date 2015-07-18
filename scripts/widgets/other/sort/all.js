@@ -14,7 +14,10 @@ var data = new Ergo.data.Collection({provider: ajaxProvider});
 
 // сортировка по опции
 var sort_opts = function(sort, sort_opt, a, b) {
-	
+
+	a = a[1];
+	b = b[1];
+
 	if(sort == 'asc') {
 		a = a.opt(sort_opt);
 		b = b.opt(sort_opt);				
@@ -86,25 +89,32 @@ var w = $.ergo({
 		
 		
 		if( sort ) {
+
+			var sorter = sort_opts.bind(this, sort, 'text');
+
+			this.content.opt('sorter', sorter);
+			this.content._rerender();
+
+
 			
-			var items = [];
-			this.content.items.each(function(item) {
-				items.push(item);
-			});
+			// var items = [];
+			// this.content.items.each(function(item) {
+			// 	items.push(item);
+			// });
 			
-			items.sort( sort_opts.bind(this, sort, 'text') );
+			// items.sort( sort_opts.bind(this, sort, 'text') );
 				
 			
-			for(var i = 0; i < items.length; i++) {
-				this.content.items.remove( items[i] );
-			}
+			// for(var i = 0; i < items.length; i++) {
+			// 	this.content.items.remove( items[i] );
+			// }
 
-			for(var i = 0; i < items.length; i++) {
-				this.content.items.add( items[i], i );
-			}
+			// for(var i = 0; i < items.length; i++) {
+			// 	this.content.items.add( items[i], i );
+			// }
 
 			
-			this.content.render();
+			// this.content.render();
 			
 		}
 		
@@ -255,7 +265,10 @@ var data3 = new Ergo.data.Collection({
 
 // сортировка по полю
 var sort_values = function(sort, sort_field, a, b) {
-	
+
+	a = a[1];
+	b = b[1];
+
 	if(sort == 'asc') {
 		a = a[sort_field];
 		b = b[sort_field];				
@@ -323,13 +336,21 @@ $.ergo({
 	
 	onChangeValue: function(e) {
 		
-		var v = this.data.get();
-		
+		var sorter = sort_values.curry(e.value, 'full_name');
+
 		if(e.value) {
-			v.sort( sort_values.curry(e.value, 'full_name') );
+			this.$content.opt('dynamicSorter', sorter);
+			this.$content._rebind();
 		}
+
+
+		// var v = this.data.get();
 		
-		this.data.events.fire('value:changed');
+		// if(e.value) {
+		// 	v.sort( sort_values.curry(e.value, 'full_name') );
+		// }
+		
+		// this.data.events.fire('value:changed');
 		
 	}		
 

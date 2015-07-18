@@ -54,37 +54,38 @@ var w = $.ergo({
 	},
 	columns: [{
 		header: 'ID',
-		dataId: 'User Id',
+//		dataId: 'User Id',
+		format: '#{User Id}',
 		binding: 'text',
 		width: 60
 	}, {
 		header: 'Full Name',
-		dataId: 'Full Name',
+//		dataId: 'Full Name',
+		format: '#{Full Name}',
 		binding: 'text',
 	}, {
 		header: 'Country',
-		dataId: 'Country',
+//		dataId: 'Country',
+		format: '#{Country}',
 		binding: 'text'
 	}, {
 		header: 'Email',
-		dataId: 'Email',
+//		dataId: 'Email',
+		format: '#{Email}',
 		binding: 'text'
 	}, {
 		header: 'Created At',
-		dataId: 'Created At',
+//		dataId: 'Created At',
+		format: '#{Created At}',
 		binding: 'text'
 	}],
 	// mixins: ['loader'],
 	// $loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
 	data: data,
-	components: {
-		footer: {
-			$toolbar: {
-				etype: 'tool-bar',
-				items: [{
-					etype: 'grid-pagination',
-				}]
-			}
+	$footer: {
+		cls: 'padding',
+		$pagination: {
+			etype: 'grid-pagination'
 		}
 	},
 	onChangeDataIndex: function(e) {
@@ -97,7 +98,6 @@ var w = $.ergo({
 			
 			this.data.fetch();
 			
-//			this.footer.item(0).opt('index', v);
 		}
 	}
 });
@@ -107,3 +107,4 @@ w.render('#sample');
 
 
 w.opt('index', 1);
+

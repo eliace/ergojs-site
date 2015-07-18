@@ -95,10 +95,17 @@ var w = $.ergo({
 		etype: 'button'
 	},
 	items: [{
+		text: 'Giant',
+		size: 'giant'
+	}, {
+		text: 'Huge',
+		size: 'huge'
+	}, {
 		text: 'Large',
 		size: 'large'
 	}, {
 		text: 'Default',
+		size: 'medium'
 	}, {
 		text: 'Small',
 		size: 'small'
@@ -712,7 +719,7 @@ $context.section_end('button-fit');
 var w = $.ergo({
 	etype: 'button',
 	cls: 'block primary',
-	text: 'Fit block button',
+	text: 'Fluid button',
 });
 
 w.render('#sample');
