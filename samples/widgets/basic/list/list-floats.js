@@ -6,31 +6,14 @@ var w = $.ergo({
 //	width: 600,
 	cls: 'divided padded',
 	defaultItem: {
-		layout: 'hbox',
-		cls: 'box-medium',
-		$image: {
-			etype: 'html:img',
-			cls: 'circular before',
-			width: 40
-		},
-		$content: {
-			etype: 'box',
-			layout: 'vbox',
-			$content: {
-				etype: '&text'
-			},
-			$description: {
-				etype: 'text',
-				cls: 'description'
-			}
-		},
+		etype: 'chips',
 		$button: {
 			etype: 'label',
 			text: 'online',
-			cls: 'fluid-right success small'
+			cls: 'float-right success small'
 		},
 		set: {
-			'description': function(v) { this.content.description.opt('text', v); },
+//			'description': function(v) { this.content.description.opt('text', v); },
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},

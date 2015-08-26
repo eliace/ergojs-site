@@ -35,7 +35,16 @@ $.ergo({
 		var test = e.target.opt('text');
 
 		if(test == 'Reset') {
-			box.items.apply_all('_destroy');
+			// while( !box.items.is_empty() )
+			// 	box.items.first()._destroy();
+			while( !box.children.is_empty() )
+				box.children.first()._destroy();
+			// box.children.each(function(item) {
+			// 	console.log('item');
+			// });
+
+//			box.items.apply_all('_destroy');
+			box.children.apply_all('unrender');
 		}
 		else if(test == 'Render') {
 

@@ -11,6 +11,8 @@ $context.section('С иконкой');
 //= require header-icon
 $context.section('С разделителем');
 //= require header-divided
+$context.section('Эмфаза');
+//= require header-emphasis
 $context.section('Цвет');
 //= require header-color
 $context.section('Отключенный');

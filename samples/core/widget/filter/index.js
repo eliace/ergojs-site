@@ -12,7 +12,7 @@ ajaxProvider = {
 
 
 
-$context.section('Метод #1', 'Видимость определяется вызовом методов render/unrender, структура и данные списка при этом не меняются');
+$context.section('Метод #1', 'Видимость определяется renderFilter, структура и данные списка при этом не меняются');
 //= require filter-render
 $context.section('Метод #2', 'Видимость определяется dynamicFilter, изменяется структура, но не данные');
 //= require filter-dynamic

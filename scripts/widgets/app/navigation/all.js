@@ -298,6 +298,35 @@ w = $.ergo({
 w.render('#sample');
 
 
+$context.section('Панель с иконками');
+$context.section_begin('nav-actions');
+$context.section_end('nav-actions');
+
+w = $.ergo({
+	etype: 'html:nav',
+	cls: 'navigation underlined has-icon at-left at-right padding medium',
+	layout: 'fluid',
+	$icon: {
+		etype: 'icon',
+		cls: 'fa-chevron-left contextual left'
+	},
+	$xicon: {
+		etype: 'icon',
+		weight: 100,
+		cls: 'fa-bars contextual right'
+	},
+	$content: {
+		etype: 'box',
+		$clock: {
+			text: '10:00',
+			cls: 'nav-clock'
+		},
+	}
+});
+
+w.render('#sample');
+
+
 $context.section('Боковая панель');
 $context.section_begin('nav-side');
 $context.section_end('nav-side');

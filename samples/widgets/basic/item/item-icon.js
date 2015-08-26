@@ -7,7 +7,7 @@ var w = $.ergo({
 		etype: 'item',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-envelope before',
+			cls: 'fa-envelope before medium circular basic',
 			weight: -10
 		}
 	},

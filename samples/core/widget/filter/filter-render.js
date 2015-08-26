@@ -15,16 +15,11 @@ var text_filter = function(s, item) {
 $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	$toolbar: {
-		etype: 'tool-bar',
-		$form: {
-			$filter: {
-				etype: 'input',
-				include: 'icon:at-right',
-				icon: 'fa-search',
-				autoBind: false,
-			}			
-		}
+	$filter: {
+		etype: 'input',
+		include: 'icon:at-right',
+		icon: 'fa-search',
+		autoBind: false,
 	},
 	$content: {
 		etype: 'list',
@@ -32,7 +27,7 @@ $.ergo({
 		style: {'overflow': 'auto'},
 		defaultItem: {
 			binding: 'text',
-			dataId: 'full_name'
+			format: '#{full_name}'
 		}
 	},
 
@@ -44,12 +39,9 @@ $.ergo({
 		
 		// Метод №1
 
-		var filter = text_filter.bind(this, e.text);
+		var criteria = text_filter.bind(this, e.text);
 
-		this.content.opt('filter', filter);
-		this.content._rerender();
-
-//		this.content.filter( criteria, 'value' );
+		this.$content.filter( 'render', criteria );
 
 	}		
 

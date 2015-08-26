@@ -25,6 +25,13 @@ var w = $.ergo({
 	$gallery: {
 		
 		include: 'selectable',
+
+		selection: {
+			lookup: function(i) {
+				return this.$slider.$content.item(i);
+			}
+		},
+
 		
 		$preview: {
 			cls: 'gallery-preview',
@@ -129,11 +136,6 @@ var w = $.ergo({
 			
 			
 			
-		},
-		
-		
-		lookup: function(i) {
-			return this.slider.content.item(i);
 		},
 		
 		onChangeImage: function(e) {

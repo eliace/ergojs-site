@@ -90,7 +90,6 @@ var panel2 = $.ergo({
 
 
 
-
 $.ergo({
 	etype: 'box',
 	cls: 'list __gap-x4',

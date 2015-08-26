@@ -28,15 +28,19 @@ var w = $.ergo({
 		},
 		$content: {
 			etype: 'box',
-			$content: {
+			$content: {				
 				$content: {
 					etype: '.',
-					dataId: 'full_name'
+					format: '#{full_name}',
+					binding: 'text'
+
+//					dataId: 'full_name'
 				},
 				$email: {
 					etype: 'text',
 					cls: 'description',
-					dataId: 'email'
+					format: '#{email}'
+//					dataId: 'email'
 				}
 			}
 		},

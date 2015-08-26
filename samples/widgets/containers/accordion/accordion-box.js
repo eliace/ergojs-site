@@ -7,7 +7,7 @@ var acc = $.ergo({
 		include: 'expandable exclusive-expand',
 		$title: {
 			etype: 'box',
-			cls: 'title action toggle box padding',
+			cls: 'title action toggle box padding small',
 			weight: -10,
 			$caret: {
 				etype: 'icon',

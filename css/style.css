@@ -111,6 +111,32 @@ body > div {
 
 
 
+
+
+
+.slidable {
+	position: relative;
+	overflow: hidden;
+}
+
+
+.list.slide {
+	top: 0;
+	transition: left 0.25s ease-in-out 0s;
+	left: 0;
+	width: 100%;
+}
+
+
+.list.slide.off {
+	left: 100%;
+}
+
+
+
+
+
+
 /*
 #content-menu {
 	list-style-type: none;

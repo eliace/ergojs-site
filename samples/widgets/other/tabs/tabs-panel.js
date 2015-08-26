@@ -41,8 +41,10 @@ var w = $.ergo({
 			}
 		},
 		
-		lookup: function(i) {
-			return this.header.tabbar.item(i);
+		selection: {
+			lookup: function(i) {
+				return this.header.tabbar.item(i);
+			}
 		},
 		onSelected: function(e) {
 			this.content.opt('active', e.key);

@@ -84,7 +84,7 @@ var w = $.ergo({
 
 			var sorter = sort_opts.bind(this, sort, 'text');
 
-			this.content.opt('sorter', sorter);
+			this.content.opt('renderSorter', sorter);
 			this.content._rerender();
 
 

@@ -18,4 +18,6 @@ $context.section('На всю ширину');
 //= require input-block
 $context.section('Многострочный');
 //= require input-multiline
+$context.section('С подсказкой');
+//= require input-select
 

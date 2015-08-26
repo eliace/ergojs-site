@@ -43,9 +43,10 @@ var w = $.ergo({
 		},
 		defaultItem: {
 			cls: 'item',
-			onClick: function() {
-				this.events.rise('close');
-			}
+			onClick: 'action:close'
+			// onClick: function() {
+			// 	this.events.rise('close');
+			// }
 		},
 		items: ['Испания', 'Германия', 'Франция', 'Италия', 'Великобритания', 'Греция']
 	}

@@ -1,7 +1,7 @@
 
 
 // сортировка по полю
-var sort_values = function(sort, sort_field, a, b) {
+var sort_data = function(sort, sort_field, a, b) {
 	
 	if(sort == 'asc') {
 		a = a[sort_field];
@@ -29,7 +29,7 @@ var data2 = new Ergo.data.Collection({
 		var q = this.options.query;
 		
 		if(q.sort) {
-			v.sort( sort_values.bind(this, q.sort, q.sort_field) );
+			v.sort( sort_data.bind(this, q.sort, q.sort_field) );
 		}
 		
 		return v;
@@ -76,7 +76,7 @@ $.ergo({
 //					etype: 'inline',
 				autoRender: true,
 				binding: 'text',
-				cls: 'tag warning',
+				cls: 'label small warning',
 				dataId: 'country'
 			}
 			

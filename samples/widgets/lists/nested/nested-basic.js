@@ -26,14 +26,15 @@ var w = $.ergo({
 			},
 			// текстовое содержимое элемента списка
 			$content: {
+				binding: 'text',
+				format: '#{full_name}',
 				$content: {
-					etype: '.',
-					dataId: 'full_name'
+					etype: '.'
 				},
 				$email: {
 					etype: 'text',
 					cls: 'description',
-					dataId: 'email'
+					format: '#{email}'
 				}
 			}
 		},

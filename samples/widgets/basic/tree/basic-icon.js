@@ -5,6 +5,7 @@ var w = $.ergo({
 	data: data,
 	nestedItem: {
 		$content: {
+			format: '#{title}',
 			$icon: {
 				etype: 'icon',
 				cls: 'before',
@@ -19,7 +20,7 @@ var w = $.ergo({
 			},
 			$content: {
 				etype: '.',
-				dataId: 'title'
+//				dataId: 'title'
 			}
 		},
 		binding: function(v) {

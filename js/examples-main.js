@@ -5,6 +5,8 @@
 //-----------------------------------------------------
 $context.scope('main', function($scope) {
 
+	var data = $context.data('examples');
+
 
 	var menu = $scope.widget('menu', {
 
@@ -25,8 +27,9 @@ $context.scope('main', function($scope) {
 					nestedItem: {
 						$content: {
 //							etype: 'link',
-//							format: '#{title}',
-							$content_dataId: 'title',
+							format: '#{title}',
+							binding: 'text',
+//							$content_dataId: 'title',
 							$icon_dataId: 'icon'
 							// onClick: function() {
 								// this.parent.states.toggle('expanded');
@@ -58,23 +61,23 @@ $context.scope('main', function($scope) {
 			}
 		},
 
-		data: $context.data('examples'),
+		data: data,
 //		dataId: '@examples',
 		dynamic: true,
-		
-		lookup: function(key) {			
-			var result = {};
-			this.items.each(function(item){
-				var w = item.content.find_path(key);
-				if(w) result.found = w;
-			});
-			return result.found;
+
+		selection: {
+			lookup: function(key) {			
+				var result = {};
+				this.items.each(function(item){
+					var w = item.content.find_path(key);
+					if(w) result.found = w;
+				});
+				return result.found;
+			}
 		},
 		
 		onSelectionChanged: function(e) {
 			var v = e.selection.data.get();
-
-
 
 			$context.data('sample', {
 				name: v.name,

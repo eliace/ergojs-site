@@ -57,7 +57,7 @@ var w = $.ergo({
 		etype: 'item',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-envelope before',
+			cls: 'fa-envelope before medium circular basic',
 			weight: -10
 		}
 	},
@@ -78,9 +78,9 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'item',
 		$image: {
-			etype: 'html:img',
-			cls: 'image circular before',
-			width: 48,
+			etype: 'image',
+			cls: 'circular small before',
+//			width: 48,
 			weight: -10
 		},
 		set: {

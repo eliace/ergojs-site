@@ -68,14 +68,16 @@ var menu = $.ergo({
 		{	text: 'Mail', $content_icon: 'fa-envelope',	$submenu_items: ['Inbox', 'Sent', 'Trash'], expandable: true }, 
 		{	text: 'Tasks', $content_icon: 'fa-tasks'	}
 	],
-	lookup: function(v) {
-		var found = null;
-		this.items.each(function(item) {
-			var f = item.$submenu.item(v);
-			if(f)
-				found = f;
-		});
-		return found;
+	selection: {
+		lookup: function(v) {
+			var found = null;
+			this.items.each(function(item) {
+				var f = item.$submenu.item(v);
+				if(f)
+					found = f;
+			});
+			return found;
+		}
 	},
 	set: {
 		'index': function(v) {

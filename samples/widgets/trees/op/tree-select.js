@@ -17,8 +17,10 @@ var w = $.ergo({
 			this.opt('name', v.text);
 		}
 	},
-	lookup: function(v) {
-		return this.find_path(v);
+	selection: {
+		lookup: function(v) {
+			return this.find_path(v);
+		}
 	},
 	onNodeSelected: function(e) {
 		this.opt('index', e.key);

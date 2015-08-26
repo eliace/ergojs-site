@@ -6,9 +6,9 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'item',
 		$image: {
-			etype: 'html:img',
-			cls: 'image circular before',
-			width: 48,
+			etype: 'image',
+			cls: 'circular small before',
+//			width: 48,
 			weight: -10
 		},
 		set: {

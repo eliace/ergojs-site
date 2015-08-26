@@ -52,14 +52,16 @@ var menu = $.ergo({
 			{	text: 'Tasks'	}
 		]
 	}],
-	lookup: function(v) {
-		var found = null;
-		this.items.each(function(item) {
-			var f = item.item(v);
-			if(f)
-				found = f;
-		});
-		return found;
+	selection: {
+		lookup: function(v) {
+			var found = null;
+			this.items.each(function(item) {
+				var f = item.item(v);
+				if(f)
+					found = f;
+			});
+			return found;
+		}
 	},
 	set: {
 		'index': function(v) {

@@ -252,6 +252,7 @@ var w = $.ergo({
 	data: data,
 	nestedItem: {
 		$content: {
+			format: '#{title}',
 			$icon: {
 				etype: 'icon',
 				cls: 'before',
@@ -266,7 +267,7 @@ var w = $.ergo({
 			},
 			$content: {
 				etype: '.',
-				dataId: 'title'
+//				dataId: 'title'
 			}
 		},
 		binding: function(v) {
@@ -311,15 +312,19 @@ var w = $.ergo({
 		},
 		$content: {
 			etype: 'box',
-			$content: {
+			$content: {				
 				$content: {
 					etype: '.',
-					dataId: 'full_name'
+					format: '#{full_name}',
+					binding: 'text'
+
+//					dataId: 'full_name'
 				},
 				$email: {
 					etype: 'text',
 					cls: 'description',
-					dataId: 'email'
+					format: '#{email}'
+//					dataId: 'email'
 				}
 			}
 		},

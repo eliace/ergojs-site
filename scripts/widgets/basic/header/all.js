@@ -176,19 +176,55 @@ $context.section('С разделителем');
 $context.section_begin('header-divided');
 $context.section_end('header-divided');
 
-w = $.ergo({
+// w = $.ergo({
+// 	etype: 'box',
+// 	width: 800,
+// 	$header: {
+// 		etype: 'html:h4',
+// 		cls: 'title underlined',
+// 		$content: {
+// 			etype: '.',
+// 			text: 'Заголовок'
+// 		}
+// 	},
+// 	$content: LOREMIPSUM
+// });
+
+
+
+var w = $.ergo({
 	etype: 'box',
-	width: 800,
-	$header: {
-		etype: 'html:h4',
-		cls: 'title underlined',
-		$content: {
-			etype: '.',
-			text: 'Заголовок'
-		}
+	items: [{
+		etype: 'title',
+		text: 'Заголовок',
+		cls: 'divided'		
 	},
-	$content: LOREMIPSUM
-}); 
+	LOREMIPSUM]
+});
+
+
+w.render('#sample');
+
+
+$context.section('Эмфаза');
+$context.section_begin('header-emphasis');
+$context.section_end('header-emphasis');
+
+
+var w = $.ergo({
+	etype: 'box',
+	cls: 'block',
+	items: [
+		{ text: 'Заголовок', etype: 'title',	cls: 'underlined strong' },
+		LOREMIPSUM,
+		{ text: 'Заголовок', etype: 'title',	cls: 'underlined' },
+		LOREMIPSUM_2,
+		{ text: 'Заголовок', etype: 'title',	cls: 'underlined weak' },
+		LOREMIPSUM_3
+	]
+})
+
+
 
 w.render('#sample');
 

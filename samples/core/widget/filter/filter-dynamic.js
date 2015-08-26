@@ -46,10 +46,12 @@ $.ergo({
 		// 	return v && (v.full_name.indexOf(e.text) > -1);
 		// });
 
-		var filter = prop_text_filter.bind(this, e.text, 'full_name');
+		var criteria = prop_text_filter.bind(this, e.text, 'full_name');
 
-		this.content.opt('dynamicFilter', filter);
-		this.content._rebind();
+		this.$content.filter( 'compose', criteria );
+
+		// this.content.opt('dynamicFilter', filter);
+		// this.content._rebind();
 		
 	}		
 

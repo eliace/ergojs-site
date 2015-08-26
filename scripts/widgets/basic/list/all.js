@@ -60,31 +60,14 @@ var w = $.ergo({
 //	width: 600,
 	cls: 'divided padded',
 	defaultItem: {
-		layout: 'hbox',
-		cls: 'box-medium',
-		$image: {
-			etype: 'html:img',
-			cls: 'circular before',
-			width: 40
-		},
-		$content: {
-			etype: 'box',
-			layout: 'vbox',
-			$content: {
-				etype: '&text'
-			},
-			$description: {
-				etype: 'text',
-				cls: 'description'
-			}
-		},
+		etype: 'chips',
 		$button: {
 			etype: 'label',
 			text: 'online',
-			cls: 'fluid-right success small'
+			cls: 'float-right success small'
 		},
 		set: {
-			'description': function(v) { this.content.description.opt('text', v); },
+//			'description': function(v) { this.content.description.opt('text', v); },
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
@@ -108,33 +91,13 @@ var w = $.ergo({
 //	layout: 'stack',
 	cls: 'divided padded',
 	defaultItem: {
-		layout: 'hbox',
-		include: 'xicon',
-		cls: 'item has-icon at-right',
-		$image: {
-			etype: 'html:img',
-			cls: 'circular before',
-			width: 40,
-			weight: -10
-		},
-		$content: {
-			etype: 'box',
-			layout: 'vbox',
-			cls: 'content',
-			$content: {
-				etype: '&text'
-			},
-			$description: {
-				etype: 'html:small',
-				cls: 'description'
-			}
-		},
-		$xicon: {
-			cls: 'right contextual action fa-remove'
+		etype: 'chips',
+		include: 'icon:at-right',
+		$icon: {
+			cls: 'contextual action fa-remove'
 		},
 		set: {
-			'description': function(v) { this.$content.$description.opt('text', v); },
-			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.opt('img', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS
@@ -148,37 +111,16 @@ w.render('#sample');
 
 var w = $.ergo({
 	etype: 'list',
-//	layout: 'stack',
 	cls: 'divided padded',
 	defaultItem: {
-		layout: 'hbox',
-		include: 'icon',
-		cls: 'item has-icon at-left',
-		$image: {
-			etype: 'html:img',
-			cls: 'circular before',
-			width: 40,
-			weight: -10
-		},
-		$content: {
-			etype: 'box',
-			layout: 'vbox',
-			cls: 'content',
-			$content: {
-				etype: '.'
-			},
-			$description: {
-				etype: 'html:small',
-				cls: 'description'
-			}
-		},
+		etype: 'chips',
+		include: 'icon:at-left',
 		$icon: {
-			cls: 'left contextual action fa-remove',
+			cls: 'contextual action fa-remove',
 			weight: -20
 		},
 		set: {
-			'description': function(v) { this.$content.$description.opt('text', v); },
-			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.opt('img', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS
@@ -203,32 +145,33 @@ var w = $.ergo({
 //	layout: 'stack',
 	cls: '__divide __indent',
 	defaultItem: {
-		layout: 'hbox',
+		etype: 'chips',
+//		layout: 'hbox',
 		include: 'icon',
-		cls: 'item',
+//		cls: 'item',
 		$icon: {
-			cls: 'contextual action fa-angle-right fa-2x'
+			cls: 'contextual action fa-volume-up medium before'
 		},
-		$image: {
-			etype: 'html:img',
-			cls: 'circular before',
-			width: 40,
-			weight: -10
-		},
-		$content: {
-			etype: 'box',
-			layout: 'vbox',
-//			cls: 'content',
-			$content: {
-				etype: '.'
-			},
-			$description: {
-				etype: 'html:small',
-				cls: 'description'
-			}
-		},
+// 		$image: {
+// 			etype: 'html:img',
+// 			cls: 'circular before',
+// 			width: 40,
+// 			weight: -10
+// 		},
+// 		$content: {
+// 			etype: 'box',
+// 			layout: 'vbox',
+// //			cls: 'content',
+// 			$content: {
+// 				etype: '.'
+// 			},
+// 			$description: {
+// 				etype: 'html:small',
+// 				cls: 'description'
+// 			}
+//		},
 		set: {
-			'description': function(v) { this.content.description.opt('text', v); },
+//			'description': function(v) { this.content.description.opt('text', v); },
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},

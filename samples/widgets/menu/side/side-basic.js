@@ -7,6 +7,13 @@ var w = $.ergo({
 	$content: {
 		height: 400,
 		include: 'selectable',
+
+		selection: {
+			lookup: function(key) {
+				return this.$sidebox.$menu.find_path(key); // в выборку добавляем только элемент меню
+			}
+		},
+
 		$sidebox: {
 			etype: 'html:aside',
 			cls: 'side-box',
@@ -53,9 +60,6 @@ var w = $.ergo({
 //			console.log(e.target.opt('name'));
 			this.selection.set(e.target);//.opt('name'));
 //			this.opt('selected', e.target);
-		},
-		lookup: function(key) {
-			return this.sidebox.menu.find_path(key); // в выборку добавляем только элемент меню
 		},
 		onSelectionChanged: function(e) {
 			this.content.opt('active', {_name: this.selection.get().path().split(':').join('_')});

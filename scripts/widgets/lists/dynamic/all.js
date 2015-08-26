@@ -14,11 +14,13 @@ var w = $.ergo({
 	
 	include: 'selectable',
 	
-	lookup: function(i) {
-		return this.content.item(i);
+	selection: {
+		multiselect: true,
+		lookup: function(i) {
+			return this.content.item(i);
+		}
 	},
 	
-	multiselect: true,
 	
 	$toolbar: {
 		etype: 'tool-bar',
