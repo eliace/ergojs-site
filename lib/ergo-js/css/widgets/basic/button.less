@@ -1,0 +1,401 @@
+
+.button {
+  -moz-user-select: none;
+  background-image: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;//1.42857;
+  font-size: 1rem;
+  margin-bottom: 0;
+  padding: 8px 14px;
+  padding: 0.5714em 1em;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+ 	outline: 0 none;
+
+ 	.bordered;
+ 	.rounded;
+
+ 	&:hover:not(:disabled):not(.opened) {
+ 		background-color: darken(@white, 5%);
+ 	}
+
+}
+
+
+
+.button:active:not(:disabled):not(.opened), .button.active, .button.selected {
+  background-image: none;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+  outline: 0 none;
+  background-color: darken(@white, 8%);
+}
+
+
+
+
+
+
+.button-type(@color; @text: #fff) {
+  background-color: desaturate(@color, 8%);
+  border-color: @color;
+  color: @text;
+  &:hover:not(:disabled):not(.opened) {
+    background-color: darken(@color, 5%);
+    border-color: darken(@color, 5%);
+  }
+  &:active:not(:disabled):not(.opened), &.active, &.selected {
+    background-color: darken(@color, 8%);
+  }
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+
+
+
+//------------------------------------------------
+// TYPES
+//------------------------------------------------
+
+
+.button.basic, .basic > .button {
+  .button-type(@basic, @text-color);
+}
+
+.button.primary, .primary > .button {
+  .button-type(@primary);
+}
+
+.button.success, .success > .button {
+  .button-type(@success);
+}
+
+.button.info, .info > .button {
+  .button-type(@info);
+}
+
+.button.warning, .warning > .button {
+  .button-type(@warning);
+}
+
+.button.danger, .danger > .button {
+  .button-type(@danger);
+}
+
+
+
+//------------------------------------------------
+// COLORS
+//------------------------------------------------
+
+.button.red { .button-type(@red); }
+.button.pink { .button-type(@pink); }
+.button.purple { .button-type(@purple); }
+.button.deep-purple { .button-type(@deep-purple); }
+.button.indigo { .button-type(@indigo); }
+.button.blue { .button-type(@blue); }
+.button.light-blue { .button-type(@light-blue); }
+.button.teal { .button-type(@teal); }
+.button.cyan { .button-type(@cyan); }
+.button.green { .button-type(@green); }
+.button.light-green { .button-type(@light-green); }
+.button.lime { .button-type(@lime); }
+.button.yellow { .button-type(@yellow); }
+.button.amber { .button-type(@amber); }
+.button.orange { .button-type(@orange); }
+.button.deep-orange { .button-type(@deep-orange); }
+.button.brown { .button-type(@brown); }
+.button.grey { .button-type(@grey); }
+.button.blue-grey { .button-type(@blue-grey); }
+.button.black { .button-type(@black); }
+//.button.blue { .button-type(@blue); }
+
+
+
+
+//------------------------------------------------
+// SIZES
+//------------------------------------------------
+
+.button.tiny { font-size: 0.7143rem; }
+.button.small { font-size: 0.8571rem; }
+.button.medium { font-size: 1rem; }
+.button.large { font-size: 1.286rem; }
+.button.huge { font-size: 1.571rem; }
+.button.giant { font-size: 2rem; }
+
+
+
+
+
+
+//------------------------------------------------
+// OUTLINED
+//------------------------------------------------
+
+.button_outlined(@color; @text: #fff) {
+  color: darken(@color, 5%);
+  &:hover {
+    color: @text;
+    background-color: darken(@color, 5%);
+  }
+}
+
+
+.button.outlined {
+
+  background-color: transparent;  
+  &:hover {
+    background-color: darken(@white, 5%);
+  }  
+
+  &.basic { .button_outlined(@basic, @text-color); }
+  &.primary { .button_outlined(@primary); }
+  &.success { .button_outlined(@success); }
+  &.warning { .button_outlined(@warning); }
+  &.danger { .button_outlined(@danger); }
+
+}
+
+
+
+//------------------------------------------------
+// TRANSPARENT
+//------------------------------------------------
+
+.button_transparent(@color) {
+  &:hover:not(:disabled):not(.opened) {
+    color: darken(@color, 5%);
+    border-color: darken(@color, 5%);
+    background-color: transparent;
+  }
+}
+
+
+
+.transparent {
+
+  &.button, > .button {
+    color: darken(@border-color, 10%);
+    border-color: @border-color;
+    background-color: transparent;
+    &:hover:not(:disabled):not(.opened) {
+      color: @text-color;// darken(@border-color, 15%);
+      border-color: darken(@border-color, 15%);
+      background-color: transparent;
+    }
+  }
+
+  &.basic {
+    &.button, > .button { .button_transparent(@basic); }
+  }
+  &.primary {
+    &.button, > .button { .button_transparent(@primary); }
+  }
+  &.success {
+    &.button, > .button { .button_transparent(@success); }
+  }
+  &.warning {
+    &.button, > .button { .button_transparent(@warning); }
+  }
+  &.danger {
+    &.button, > .button { .button_transparent(@danger); }
+  }
+
+}
+
+
+/*
+.transparent.basic.button, .transparent > .button {
+
+  &.basic { .button_transparent(@basic); }
+  &.primary { .button_transparent(@primary); }
+  &.success { .button_transparent(@success); }
+  &.warning { .button_transparent(@warning); }
+  &.danger { .button_transparent(@danger); }  
+
+}
+*/
+
+
+//------------------------------------------------
+// CIRCULAR
+//------------------------------------------------
+
+.button.circular {
+  width: 2.571em;//36px;
+  height: 2.571em;//36px;
+  padding: 0.5714em;  //?
+}
+
+
+
+
+//
+// FLAT
+//
+
+.button_flat(@color) {
+//  color: lighten(@color, 10%);
+  color: @color;
+  border-radius: 0;
+  &:hover:not(:disabled):not(.opened) {
+    color: @color;
+    background-color: rgba(0,0,0,0.03);
+    box-shadow: none;
+  }
+  &:active {
+    color: darken(@color, 10%);
+//    box-shadow: none;
+//    text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  }
+  &:disabled {
+    color: fade(@color, 40%);
+    cursor: default;
+  }  
+}
+
+
+
+.button.flat {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+
+  .button_flat(@text-color);
+
+  &.basic { .button_flat(@basic); }
+  &.primary { .button_flat(@primary); }
+  &.info { .button_flat(@info); }
+  &.success { .button_flat(@success); }
+  &.warning { .button_flat(@warning); }
+  &.danger { .button_flat(@danger); }
+
+  &.red { .button_flat(@red); }
+  &.amber { .button_flat(@amber); }
+  &.deep-orange { .button_flat(@deep-orange); }
+
+}
+
+
+
+
+
+//
+// RISED
+//
+
+.button.rised {
+  box-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+  &:active {
+//    box-shadow: -1px 0px 2px rgba(0,0,0,0.3);
+  }
+}
+
+
+
+//
+// INACTIVE
+//
+.button.inactive:not(.selected) {
+  background-color: #eee;
+  border-color: #eee;
+  color: #666; 
+
+  &:hover:not(:disabled):not(.opened) {
+    background-color: #e8e8e8;
+    border-color: #e8e8e8;
+  }
+}
+
+
+
+
+
+
+
+//
+// GROUP
+//
+
+
+[layout="hbox"].group > .button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+[layout="hbox"].group > .button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
+
+[layout="hbox"].group > .button:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+
+[layout="vbox"].group > .button:first-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+[layout="vbox"].group > .button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
+
+[layout="vbox"].group > .button:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+
+
+
+.icon-button {
+  padding: 0.5714rem;
+  width: 2.571rem;
+}
+
+
+
+
+
+
+.button.has-icon {
+
+  > .icon.right, > .icon.left {
+    background-color: rgba(0,0,0,0.07);
+  }
+
+  &.at-right {
+    padding-right: 2.286em + 1em;
+  }
+
+  &.at-left {
+    padding-left: 2.286em + 1em;
+  }
+
+}
+
+
+
+
+
+
+
+

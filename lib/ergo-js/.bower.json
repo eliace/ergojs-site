@@ -1,0 +1,33 @@
+{
+  "name": "ergo-js",
+  "homepage": "http://ergojs.com",
+  "authors": [
+    "Kodanyov Yuriy <eliace@mail.ru>"
+  ],
+  "description": "ui framework",
+  "keywords": [
+    "javascript",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  },
+  "_release": "19745f4195",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "19745f41957f96f2162b11ca0af62fa97fa8b730"
+  },
+  "_source": "git://github.com/eliace/ergo-js.git",
+  "_target": "develop",
+  "_originalSource": "ergo-js",
+  "_direct": true
+}

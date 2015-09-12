@@ -253,7 +253,7 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Аккордеон',
 				name: 'widgets/containers/accordion'
 			}]
-		}, {
+		}/*, {
 			title: 'Формы',
 			icon: 'fa-edit',
 			children: [{
@@ -266,7 +266,7 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Slider',
 				name: 'widgets/fields/slider'
 			}]
-		}, {
+		}*/, {
 			title: 'Таблицы',
 			icon: 'fa-table',
 			children: [{

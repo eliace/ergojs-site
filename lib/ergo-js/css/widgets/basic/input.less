@@ -1,0 +1,411 @@
+
+
+
+
+
+.input {
+	position: relative;
+	display: inline-block;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.075) inset;
+
+
+
+
+
+	> input, > textarea {
+		line-height: 1.42857;//20px;
+		padding: 0.4286em 0.5714em;
+		border-radius: @border-radius;
+		color: #444;
+		background: none;
+		transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+		font-size: inherit;
+
+		width: 100%;
+
+	//	height: 34px; // ?
+
+		.bordered;
+
+		&:focus {
+			.focused;
+		}
+
+		&:disabled {
+			color: @disabled-color;
+		}
+
+	}
+
+
+
+
+	&.flat {
+		box-shadow: none;//0 2px 2px rgba(0, 0, 0, 0.075) inset;		
+		> input, > textarea {
+//			padding-bottom: 0.4286em - (0.1429em - 0.05em);
+			box-shadow: none;
+			border-right: none;
+			border-left: none;
+			border-top-color: transparent !important;
+			border-bottom-width: 0.07143em;
+			border-bottom-style: solid;
+//			border-bottom: 0.05em solid @border-color;
+			border-radius: 0;
+		}
+ 		> input:focus:not(:disabled), > textarea:focus:not(:disabled) {
+ 			border-bottom-width: 0.1429em;
+ 			padding-bottom: 0.4286em - 0.07143em;
+
+// //			border-bottom: 1px solid darken(@border-color, 10%);
+ 		}
+
+ 		&.disabled > input, &.disabled > textarea {
+ 			border-top-color: transparent !important;
+ 		}
+
+	}
+
+
+	&.transparent {
+		box-shadow: none;
+		> input {
+			border-color: transparent;
+		}
+		> input:focus {
+			box-shadow: none;
+		}		
+	}
+
+
+	&.amber {
+ 		> input:focus:not(:disabled), > textarea:focus:not(:disabled) {
+ 			border-color: @amber;
+ 		}
+	}
+
+
+}
+
+
+
+
+
+.input.has-icon {
+
+	> .icon {
+		position: absolute;
+		right: 0;
+		width: 2.286em;
+		line-height: 1.42857;//20px;
+		height: 100%;
+		text-align: center;
+		pointer-events: none;
+	//	cursor: default;
+//		color: rgba(0,0,0,0.3);
+		transition: opacity 0.15s ease-in-out 0s;
+		opacity: 0.5;
+		top: 0;
+
+
+		&:before, &:after {
+			position: absolute;
+			top: 50%;
+			line-height: 1;
+			margin-top: -0.5em;//-10px;
+			width: 100%;
+			left: 0;
+		}
+
+		&.action {
+			pointer-events: auto;			
+		}
+
+		&.spinner:after, &.spinner:before {
+			width: 16px;
+			height: 16px;
+			top: 50%;
+			margin-top: -8px;
+			left: 50%;	
+			margin-left: -8px;			
+		}
+
+	}
+
+
+	// > input:focus	~ .icon {
+	// 	opacity: 1;
+	// }
+
+	> input:disabled	~ .icon {
+		opacity: 0.15;
+	}
+
+
+
+	&.at-left {
+
+		padding-left: 0;
+
+		> input {	
+			padding-left: 2.286em; 
+		}
+		> .icon.left {
+			left: 0;
+			right: auto;			
+		}
+	}
+
+
+	&.at-right {
+
+		padding-right: 0;
+
+		> input {
+			padding-right: 2.286em;
+		}
+		> .icon.right {
+			left: auto;
+			right: 0;			
+		}
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+.input.icon > .icon, .input.icon.left > .icon, .input.icon.right > .icon, 
+.input.icon > .spinner, .input.icon.left > .spinner, .input.icon.right > .spinner {
+	position: absolute;
+	right: 0;
+	width: 2.286em;
+	line-height: 1.42857;//20px;
+	height: 100%;
+	text-align: center;
+	pointer-events: none;
+//	cursor: default;
+//	color: @text-color;
+	top: 0;
+/*	opacity: 0.5;*/
+}
+
+
+.input.icon > .icon {
+	&:before, &:after {
+		position: absolute;
+		top: 50%;
+		line-height: 1;
+		margin-top: -0.5em;//-10px;
+		width: 100%;
+		left: 0;
+	}
+}
+
+
+/*.input.icon > input,*/ .input.icon.right > input {
+	padding-right: 2.286em;
+}
+
+
+.input.icon.left > input {
+	padding-left: 2.286em;
+}
+
+.input.icon.left > .icon {
+	left: 0;
+	right: auto;
+}
+
+
+
+
+.input.icon > .spinner:before, .input.icon > .spinner:after {
+	width: 16px;
+	height: 16px;
+	top: 50%;
+	margin-top: -8px;
+	left: 50%;	
+	margin-left: -8px;
+}
+
+
+// FIXME
+.input.icon > .icon.action {
+	pointer-events: auto;
+}
+
+
+
+
+
+//--------------------------------------------------
+// LAYOUTS
+//--------------------------------------------------
+
+
+[layout="stack"] > .input > input {
+	width: 100%;
+}
+
+
+
+
+//--------------------------------------------------
+// BLOCK
+//--------------------------------------------------
+
+
+.input.block, .input.fluid {
+	display: block;
+}
+
+.input.block > input, .input.block > textarea, .input.fluid > input, .input.fluid > textarea {
+	width: 100%;
+}
+
+
+
+
+
+//--------------------------------------------------
+// STATES
+//--------------------------------------------------
+
+
+.input.focus > input, .input.focus > textarea {
+	.focused;
+}
+
+
+.input.disabled > input, .input.disabled > textarea {
+	border-color: #ddd;
+	&::-moz-placeholder {
+		color: #ddd;
+	}
+}
+
+
+/*
+
+.input.danger > input, .input.danger > textarea {
+	border-color: @border-color-danger;
+	&:focus {
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px @shadow-color-danger;
+		border-color: @border-color-danger-focus;
+	}
+}
+*/
+
+
+
+
+//------------------------------------------------
+// SIZES
+//------------------------------------------------
+
+.input.tiny { font-size: 0.7143rem; }
+.input.small { font-size: 0.8571rem; }
+.input.medium { font-size: 1rem; }
+.input.large { font-size: 1.286rem; }
+.input.huge { font-size: 1.571rem; }
+.input.giant { font-size: 2rem; }
+
+
+
+//--------------------------------------------------
+// INPUT GROUP
+//--------------------------------------------------
+
+
+
+.input.group {
+	display: inline-table;
+}
+
+.input.group > * {
+	display: table-cell;
+	vertical-align: middle;
+	.rounded;
+}
+
+.input.group > *:first-child {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+
+.input.group > *:not(:first-child),
+.input.group > *:not(:first-child) > .button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: none;
+}
+
+.input.group > *:not(:last-child) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+
+
+// .input.group > *:not(input) {
+// 	width: 1%;
+// }
+
+
+
+
+[layout="stack"] > .input.group {
+	display: table;
+	width: 100%;
+}
+
+[layout="stack"] > .input.group > input {
+	width: 100%;
+}
+
+[layout="stack"] > .input.group > *:not(input) {
+	width: 1%;
+}
+
+
+
+.input.group.block > input, .input.group.fluid > input {
+	width: 100%;
+}
+
+.input.group.block > *:not(input), .input.group.fluid > *:not(input) {
+	width: 1%;
+}
+
+
+
+
+
+
+
+
+.input.group > .label {
+	padding: 6px 8px;
+}
+
+.input.group > * > .button {
+	height: 34px;
+}
+
+
+
+
+
+
+
+
+
+

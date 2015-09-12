@@ -1,0 +1,52 @@
+
+.item > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.item .description {
+	color: #888;
+	font-size: 0.8em;
+	display: block;
+}
+
+.item .title {
+	margin: 0;
+	display: block;
+}
+
+
+.item.group {
+	display: table;
+	> * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+
+.item.group.block > .content {
+	width: 100%;
+}
+
+.item.group.block > *:not(.content) {
+	width: 1%;
+}
+
+
+.item.selected {
+	.description {
+		color: #f0f0f0;
+	}
+}
+
+
+
+
+
+
+// .items.hovered > .item:hover {
+// 	background-color: #f5f5f5;
+// }
+
+

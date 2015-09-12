@@ -2,15 +2,18 @@
 
 var form = $.ergo({
 	etype: 'box',
-	cls: 'block border rounded padding heavy',
+	as: 'block border rounded padding heavy',
 
 	items: [{
 		etype: 'title',
 		text: 'Person',
-		cls: 'large divided'		
+		as: 'large divided'		
 	}, {
-		layout: 'hform',
-		cls: 'inline',
+		layout: 'vform',
+		defaultItem: {
+			as: 'fluid'
+		},
+//		cls: 'inline',
 		items: [{
 			etype: 'input',
 			label: 'First Name'
@@ -22,9 +25,12 @@ var form = $.ergo({
 			label: 'Middle Name'
 		}]		
 	}, {
-		layout: 'hform',
-		cls: 'inline',
+		layout: 'vform',
+//		cls: 'inline',
 		pattern: [4, 8],
+		defaultItem: {
+			as: 'fluid'
+		},
 		items: [{
 			etype: 'input',
 			include: 'icon:at-right',

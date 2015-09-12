@@ -99,11 +99,13 @@ var w2 = $.ergo({
 	renderTo: '#sample',
 	data: new PageCollection(),
 	$header: {
+		layout: 'float',
 		// $title: {
 		// 	state: 'tiny'
 		// },
-		$toolbar: {
+		$tools: {
 			etype: 'box',
+			as: 'right',
 			items: [{
 				etype: 'grid-pagination',
 //				state: 'tiny'
@@ -138,5 +140,6 @@ var w2 = $.ergo({
 
 
 w2.opt('index', 12);
+
 
 

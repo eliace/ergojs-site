@@ -1,0 +1,87 @@
+
+@import "ergojs-variables.less";
+
+/* DEFAULTS */
+
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+
+*:focus {
+  outline: 0;
+}
+
+input {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+button {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+textarea {
+  margin: 0;
+}
+
+
+// ul {
+//  padding-left: 0;
+//  > li > ul {
+//   padding-left: 20px;
+//  }
+// }
+
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.714rem; }
+h3 { font-size: 1.286rem; }
+h4 { font-size: 1.143rem; }
+h5 { font-size: 1rem; }
+
+
+
+
+
+
+
+/* CLEARFIX */
+
+.clearfix:before, .clearfix:after, [layout="fluid"]:after, [layout="fluid"]:before, [layout="float"]:after, [layout="float"]:before {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after, [layout="fluid"]:after, [layout="float"]:after {
+  clear: both;
+}
+
+
+
+
+// .to-rem(@pxValue) {
+//   @remValue: (@pxValue / 14);
+//   font-size: ~"@{pxValue}px"; 
+//   font-size: ~"@{remValue}rem";
+// }

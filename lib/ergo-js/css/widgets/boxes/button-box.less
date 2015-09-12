@@ -1,0 +1,71 @@
+
+
+.button-box, .buttons {
+  display: inline-block;
+}
+
+.button-box > *, .buttons > * {
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------
+// GROUP
+//----------------------------------------------------
+
+
+.button-box.group, .buttons.group {
+
+  > .button:first-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  > .button:not(:first-of-type) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+
+  > .button:not(:last-of-type) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+
+}
+
+
+
+
+
+
+//----------------------------------------------------
+// DROPDOWN
+//----------------------------------------------------
+
+.button-box.dropdown {
+  position: relative;
+}
+
+
+
+//----------------------------------------------------
+// SPLIT
+//----------------------------------------------------
+
+
+.button-box.split > .dropdown-toggle {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+
+
