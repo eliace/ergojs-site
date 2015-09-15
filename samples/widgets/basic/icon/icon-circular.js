@@ -1,12 +1,12 @@
 
-$.ergo({
+var w = $.ergo({
 	etype: 'box',
-	cls: 'block items __gap',
-	renderTo: '#sample',
+	as: 'block items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'circular'
+		as: 'circular'
 	},
 	items: ICONS
 });
 
+w.render('#sample');

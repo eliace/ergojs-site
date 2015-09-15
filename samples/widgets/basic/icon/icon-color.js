@@ -9,7 +9,7 @@ COLORS.forEach(function(c, i) {
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon'
 	},
@@ -19,10 +19,10 @@ var box1 = $.ergo({
 
 var box2 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'circular'
+		as: 'circular'
 	},
 	items: colored_icons
 });
@@ -30,10 +30,10 @@ var box2 = $.ergo({
 
 var box3 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'circular inverted'
+		as: 'circular inverted'
 	},
 	items: colored_icons
 });
@@ -43,7 +43,7 @@ var box3 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 //	layout: 'vbox',
-	cls: 'box vertical __gap',
+	as: 'box vertical __gap',
 	items: [ box1, box2, box3 ]
 });
 

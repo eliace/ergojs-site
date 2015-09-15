@@ -1,59 +1,4 @@
 
-var ICONS = [
-'fa-adjust',
-'fa-anchor',
-'fa-archive',
-'fa-area-chart',
-'fa-arrows',
-'fa-arrows-h',
-'fa-arrows-v',
-'fa-asterisk',
-'fa-at',
-'fa-automobile',
-'fa-ban',
-'fa-bank',
-'fa-bar-chart',
-'fa-barcode',
-'fa-bars',
-'fa-beer',
-'fa-bell',
-'fa-bell-o',
-'fa-bell-slash',
-'fa-bell-slash-o',
-'fa-bicycle',
-'fa-binoculars',
-'fa-birthday-cake',
-'fa-bolt',
-//'fa-bomb',
-'fa-book'
-];
-
-
-
-var COLORS = [
-	'red',
-	'pink',
-	'purple',
-	'deep-purple',
-	'indigo',
-	'blue',
-	'light-blue',
-	'cyan',
-	'teal',
-	'green',
-	'light-green',
-	'lime',
-	'yellow',
-	'amber',
-	'orange',
-	'deep-orange',
-	'brown',
-	'grey',
-	'blue-grey',
-
-	'black',
-	''
-];
 
 
 //var SIZES = ['tiny', 'small', 'medium', 'large', 'huge', 'giant'];
@@ -80,17 +25,17 @@ $context.section('Круглые');
 $context.section_begin('icon-circular');
 $context.section_end('icon-circular');
 
-$.ergo({
+var w = $.ergo({
 	etype: 'box',
-	cls: 'block items __gap',
-	renderTo: '#sample',
+	as: 'block items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'circular'
+		as: 'circular'
 	},
 	items: ICONS
 });
 
+w.render('#sample');
 
 $context.section('Контекстные');
 $context.section_begin('icon-contextual');
@@ -221,7 +166,7 @@ COLORS.forEach(function(c, i) {
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon'
 	},
@@ -231,10 +176,10 @@ var box1 = $.ergo({
 
 var box2 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'circular'
+		as: 'circular'
 	},
 	items: colored_icons
 });
@@ -242,10 +187,10 @@ var box2 = $.ergo({
 
 var box3 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'circular inverted'
+		as: 'circular inverted'
 	},
 	items: colored_icons
 });
@@ -255,12 +200,13 @@ var box3 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 //	layout: 'vbox',
-	cls: 'box vertical __gap',
+	as: 'box vertical __gap',
 	items: [ box1, box2, box3 ]
 });
 
 
 w.render('#sample');
+
 $context.section('Размер');
 $context.section_begin('icon-size');
 $context.section_end('icon-size');
@@ -336,4 +282,3 @@ var box1 = $.ergo({
 
 
 box1.render('#sample');
-

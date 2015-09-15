@@ -1,4 +1,5 @@
 
+Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
 
 
 

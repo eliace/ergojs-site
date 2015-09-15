@@ -1,8 +1,5 @@
 
 
-Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
-
-
 
 $context = new Ergo.core.Context();
 
@@ -190,14 +187,14 @@ $context.section_begin = function(block) {
 						}, {
 							name: 'html',
 							etype: 'html:textarea',
-							value: '<script src="http://ergojs.com/lib/ergojs-core.js" type="text/javascript"></script>\n<script src="http://ergojs.com/lib/ergojs-widgets-all.js" type="text/javascript"></script>\n<div id="sample" class="padding"></div>'
+							value: '<script src="http://ergojs.com/lib/ergojs-core.js" type="text/javascript"></script>\n<script src="http://ergojs.com/lib/ergojs-widgets-all.js" type="text/javascript"></script>\n<script>Ergo.widgets.Icon.prototype.defaults.cls = "icon fa fa-fw";</script>\n<div id="sample" class="padding"></div>'
 						}, {
 							name: 'js',
 							etype: 'html:textarea',
 							value: js
 						}, {
 							name: 'resources',
-							value: 'http://ergojs.com/js/examples-data.js,http://ergojs.com/lib/ergojs.css,https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+							value: 'http://ergojs.com/js/examples-context.js,http://ergojs.com/js/examples-data.js,http://ergojs.com/lib/ergojs.css,https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
 						}]
 					});
 
