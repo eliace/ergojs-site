@@ -1,6 +1,6 @@
 
 html {
-	font-size: 14px;	
+	font-size: 14px;
 	height: 100%;
 }
 
@@ -62,7 +62,7 @@ body > div {
   background-color: #ffd54f;
   color: #444444;
   margin: 5px auto;
-  padding: 20px;	
+  padding: 20px;
 }
 
 .under-construct .message {
@@ -149,8 +149,8 @@ body > div {
 #content-menu ul {
 	list-style-type: none;
 	margin: 0;
-	padding-left: 0px;			
-}		
+	padding-left: 0px;
+}
 
 #content-menu li {
 	padding: 0;
@@ -168,7 +168,7 @@ body > div {
 }
 
 #content-menu > ul > li > ul > li a {
-	padding-left: 40px;	
+	padding-left: 40px;
 }
 
 
@@ -241,7 +241,7 @@ pre {
 
 .sample {
   display: inline-block;
-  width: 100%;	
+  width: 100%;
 	padding: 20px;
 }
 
@@ -292,7 +292,7 @@ pre {
 
 .panel > header > .panel-title {
 	display: table-cell;
-	width: 1%;	
+	width: 1%;
 	vertical-align: middle;
 }
 */
@@ -406,7 +406,7 @@ th.resizable:after {
   right: 0;
   top: 0;
   width: 4px;
-  background-color: #bbb;	
+  background-color: #bbb;
 }
 */
 
@@ -414,7 +414,7 @@ th.resizable:after {
 
 /*
 .column-dropdown:not(.opened) {
-	display: none;	
+	display: none;
 }
 
 .column-dropdown {
@@ -479,7 +479,7 @@ ul.step-list > li {
   background-color: #FFFFFF;
   border-radius: 12px;
   color: #BBBBBB;
-	counter-increment: idx;	
+	counter-increment: idx;
   content: counter(idx);
   display: inline-block;
   font-weight: bold;
@@ -538,7 +538,7 @@ ul.step-list > li > span {
   width: 200px;
   background-color: #eee;
 	padding: 10px 0;
-  
+
 }
 
 
@@ -572,7 +572,7 @@ ul.step-list > li > span {
 .grid-pagination > .btn {
   height: 28px;
   padding: 0;
-  width: 28px;	
+  width: 28px;
 }
 
 .grid-pagination > input {
@@ -605,7 +605,7 @@ ul.step-list > li > span {
 table.grid-view td {
 	color: #444;
   border-bottom: 1px solid #ddd;
-  padding: 8px;	
+  padding: 8px;
 }
 
 table.grid-view th {
@@ -613,13 +613,13 @@ table.grid-view th {
   font-weight: bold;
 	padding: 8px;
   text-align: left;
-  
+
 }
 */
 
 /*
 table.grid-view thead {
-	background-color: #eee;  	
+	background-color: #eee;
 }
 */
 
@@ -630,7 +630,7 @@ table.grid-view thead {
 .table-view td {
 	color: #444;
   border-bottom: 1px solid #ddd;
-  padding: 8px;	
+  padding: 8px;
 }
 
 .table-view th {
@@ -638,7 +638,7 @@ table.grid-view thead {
   font-weight: bold;
 	padding: 8px;
   text-align: left;
-  
+
 }
 */
 
@@ -675,7 +675,7 @@ ul.list-view li, .list-view-item {
 
 
 .item-box {
-	position: relative;	
+	position: relative;
 }
 
 .item-box > .before {
@@ -782,7 +782,7 @@ ul.list-view li, .list-view-item {
 
 
 .custom-panel {
-	padding: 0 8px;	
+	padding: 0 8px;
 }
 
 .custom-panel .panel-title {
@@ -791,7 +791,7 @@ ul.list-view li, .list-view-item {
     display: block;
     float: none;
     font-size: 16px;
-    padding: 12px 0;	
+    padding: 12px 0;
 }
 
 
@@ -836,7 +836,7 @@ span.tool-item, .tool-item.link, .tool-item.icon {
 .large span.tool-item, .large .link.tool-item, .large .icon.tool-item {
   font-size: 18px;
   line-height: 1.33;
-  margin-top: 12px;	
+  margin-top: 12px;
   margin-bottom: 12px;
 }
 
@@ -850,22 +850,22 @@ span.tool-item, .tool-item.link, .tool-item.icon {
 
 .small span.tool-item, .small .link.tool-item, .small .icon.tool-item {
   font-size: 12px;
-  line-height: 1.5;	
-  margin-top: 7px;	
+  line-height: 1.5;
+  margin-top: 7px;
   margin-bottom: 7px;
 }
 
 .small .text-box.tool-item input {
   font-size: 12px;
   line-height: 1.5;
-  height: 32px;	
+  height: 32px;
 }
 
 
 .tiny span.tool-item, .tiny .link.tool-item, .tiny .icon.tool-item {
   font-size: 12px;
-  line-height: 1.5; 
-  margin-top: 3px;  
+  line-height: 1.5;
+  margin-top: 3px;
   margin-bottom: 3px;
 }
 
@@ -881,7 +881,7 @@ span.tool-item, .tool-item.link, .tool-item.icon {
 .tiny .text-box.tool-item input {
   font-size: 12px;
   line-height: 1.5;
-  height: 24px; 
+  height: 24px;
 }
 
 
@@ -998,4 +998,8 @@ span.tool-item, .tool-item.link, .tool-item.icon {
 }
 .code-tabs > div {
     padding: 4px 8px;
+}
+
+.code-tabs > div:hover {
+	color: #fff;
 }
