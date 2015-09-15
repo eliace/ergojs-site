@@ -33,7 +33,7 @@ $context.scope('main', function($scope) {
 							$icon_dataId: 'icon'
 							// onClick: function() {
 								// this.parent.states.toggle('expanded');
-// 								
+//
 								// var v = this.data.get();
 								// if(!v.children) {
 									// load_sample(v.name, v.title, this.data.source.source.get('title'));
@@ -51,12 +51,12 @@ $context.scope('main', function($scope) {
 							});
 						}
 					},
-					
+
 					onMenuAction: function(e) {
 //						console.log(e.target.path());
 						this.events.rise('select', {key: e.target.path()});
 					}
-					
+
 				}
 			}
 		},
@@ -66,7 +66,7 @@ $context.scope('main', function($scope) {
 		dynamic: true,
 
 		selection: {
-			lookup: function(key) {			
+			lookup: function(key) {
 				var result = {};
 				this.items.each(function(item){
 					var w = item.content.find_path(key);
@@ -75,23 +75,23 @@ $context.scope('main', function($scope) {
 				return result.found;
 			}
 		},
-		
+
 		onSelectionChanged: function(e) {
 			var v = e.selection.data.get();
 
 			$context.data('sample', {
 				name: v.name,
 				title: v.title,
-				section: e.selection.data.source.source.get('title')				
+				section: e.selection.data.source.source.get('title')
 			});
 
-			$context.join('sample:show');
+			$context.join('main.sample:show');
 
 //			console.log(v);
-//			load_sample(v.name, v.title, e.selection.data.source.source.get('title'));			
+//			load_sample(v.name, v.title, e.selection.data.source.source.get('title'));
 		}
-		
-/*		
+
+/*
 		etype: 'tree',
 		id: 'content-menu',
 		data: EXAMPLES,
@@ -101,7 +101,7 @@ $context.scope('main', function($scope) {
 				format: '#{title}',
 				onClick: function() {
 					this.parent.states.toggle('expanded');
-					
+
 					var v = this.data.get();
 					if(v.name) {
 						load_sample(v.name, v.title);
@@ -109,7 +109,7 @@ $context.scope('main', function($scope) {
 				}
 			}
 		}
-*/		
+*/
 	});
 
 
@@ -118,4 +118,3 @@ $context.scope('main', function($scope) {
 	menu.render('.page-content > aside');
 
 });
-

@@ -5,8 +5,8 @@ var LOREMIPSUM_3 = 'Praesent dapibus nunc id quam pellentesque sagittis. Nam sce
 var LOREMIPSUM_4 = 'Aliquam erat volutpat. Vivamus eu leo odio. Sed a massa ac sem condimentum rhoncus vel at risus. Integer tincidunt ultricies risus sed luctus. Vestibulum tincidunt dolor a ante consectetur interdum. Sed ut sapien bibendum, congue turpis non, convallis diam. Aliquam mollis, quam non interdum egestas, libero lectus lobortis mauris, vitae tempor nibh diam nec nisi. Sed dolor nulla, molestie nec neque eget, venenatis tristique leo. Phasellus non scelerisque eros, non blandit metus. ';
 var LOREMIPSUM_5 = 'Suspendisse et sem ac enim semper dapibus sed a risus. Duis vel tellus ligula. Fusce posuere venenatis tellus, vitae tempor lacus pellentesque ac. Proin sit amet pretium lorem. Cras in commodo sem. Proin dolor mi, lacinia nec lectus et, volutpat dapibus arcu. Proin accumsan tortor varius mi feugiat, nec sodales metus lacinia. Duis euismod sollicitudin maximus. Fusce ut lectus libero. Aenean lobortis interdum justo, at fringilla metus ultricies vel. Sed at massa tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam at iaculis nisl. Cras sit amet molestie augue. Donec convallis malesuada sem, nec mollis risus faucibus at. ';
 var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi vitae erat quam. Sed purus ex, tristique vel tristique id, bibendum et purus. Nunc commodo ipsum vitae viverra imperdiet. Praesent consequat, nibh vel rhoncus ultrices, mauris nibh efficitur mauris, a efficitur lectus nisl eget mauris. Aliquam tempus pellentesque elit at iaculis. Ut non leo elit. Donec sed egestas ipsum, a fermentum erat. Suspendisse non vulputate felis, eu dapibus nulla. Aliquam magna arcu, dapibus sed fermentum eu, semper quis lectus. Quisque pretium finibus ex. Praesent pretium nulla vel ante commodo, elementum condimentum arcu rutrum. ';
-	
-	
+
+
 	var EXAMPLES = [{
 		title: 'Ядро',
 		children: [{
@@ -143,10 +143,10 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Бокс',
 				name: 'widgets/basic/box'
 			}, {
-				title: 'Иконка',			
+				title: 'Иконка',
 				name: 'widgets/basic/icon'
 			}, {
-				title: 'Кнопка',			
+				title: 'Кнопка',
 				name: 'widgets/basic/button'
 			}, {
 				title: 'Input',
@@ -346,7 +346,7 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			}, {
 				title: 'Боковое',
 				name: 'widgets/menu/side'
-			}]			
+			}]
 		}*/, {
 			title: 'Другое',
 			icon: 'fa-cogs',
@@ -410,10 +410,68 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			name: 'mixins/popup'
 		}]
 	}];
-	
 
 
 
+
+
+
+
+var ICONS = [
+	'fa-adjust',
+	'fa-anchor',
+	'fa-archive',
+	'fa-area-chart',
+	'fa-arrows',
+	'fa-arrows-h',
+	'fa-arrows-v',
+	'fa-asterisk',
+	'fa-at',
+	'fa-automobile',
+	'fa-ban',
+	'fa-bank',
+	'fa-bar-chart',
+	'fa-barcode',
+	'fa-bars',
+	'fa-beer',
+	'fa-bell',
+	'fa-bell-o',
+	'fa-bell-slash',
+	'fa-bell-slash-o',
+	'fa-bicycle',
+	'fa-binoculars',
+	'fa-birthday-cake',
+	'fa-bolt',
+	//'fa-bomb',
+	'fa-book'
+];
+
+
+
+var COLORS = [
+	'red',
+	'pink',
+	'purple',
+	'deep-purple',
+	'indigo',
+	'blue',
+	'light-blue',
+	'cyan',
+	'teal',
+	'green',
+	'light-green',
+	'lime',
+	'yellow',
+	'amber',
+	'orange',
+	'deep-orange',
+	'brown',
+	'grey',
+	'blue-grey',
+
+	'black',
+	''
+];
 
 
 
@@ -626,5 +684,3 @@ var COUNTRIES = [
 'Zambia',
 'Zimbabwe'
 ]
-
-

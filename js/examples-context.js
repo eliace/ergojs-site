@@ -6,10 +6,12 @@ $context = new Ergo.core.Context();
 
 
 
+
+
 $context.alert = function(msg, type) {
-	
+
 	type = type || 'primary';
-	
+
 	// var titles = {
 		// info: 'Информация! ',
 		// success: 'Успех! '
@@ -18,7 +20,7 @@ $context.alert = function(msg, type) {
 		info: 'fa-info',
 		success: 'fa-check'
 	};
-	
+
 	$.ergo({
 		renderTo: '#sample',
 		etype: 'simple-alert',
@@ -30,7 +32,7 @@ $context.alert = function(msg, type) {
 		text: msg,
 		state: type
 	});
-	
+
 };
 
 
@@ -73,6 +75,13 @@ $context.section_begin = function(block) {
 				onClick: function() {
 					this.events.rise('toggleExpand');
 				}
+			},
+			$jsfiddle: {
+				etype: 'icon',
+				as: 'contextual fa-jsfiddle pull-right action',
+				onClick: function() {
+					this.events.rise('jsFiddle');
+				}
 			}
 		},
 		$description: {
@@ -108,13 +117,13 @@ $context.section_begin = function(block) {
 			        dataType:"text",
 			        success:function(data){
 
-							
+
 							$('pre code.javascript', codePanel.el).append( Ergo.escapeHtml(data).replace(/\t/g, '  ') );
-							
+
 							$('pre code.javascript', codePanel.el).each(function(i, blk) {
 						    hljs.highlightBlock(blk);
-						  });		
-												
+						  });
+
 		//					section.codePanel.show();
 							codePanel.states.unset('hidden');
 							codePanel.states.set('fadeIn');
@@ -126,7 +135,7 @@ $context.section_begin = function(block) {
 			  }
 			  else {
 					codePanel.states.unset('hidden');
-					codePanel.states.set('fadeIn');			  	
+					codePanel.states.set('fadeIn');
 			  }
 
 		  }
@@ -142,7 +151,89 @@ $context.section_begin = function(block) {
 		  }
 
 
+		},
+
+
+		onJsFiddle: function(e) {
+
+			var sample = $context.data('sample');
+
+			var path = (block) ? sample.name+'/'+block+'.js' : sample.name+'.js';
+
+			$.ajax({
+				url:'samples/'+path,
+				dataType:"text",
+				async: false,
+				success:function(data){
+
+					console.log(data);
+
+					var js = data;// Ergo.escapeHtml(data).replace(/\t/g, '  ');
+
+					var form = $.ergo({
+						etype: 'html:form',
+						action: 'http://jsfiddle.net/api/post/jquery/2.1.3/',
+						defaultItem: {
+							etype: 'html:input',
+							hidden: true
+						},
+//						id: 'jsfiddle-form',
+						items: [{
+							name: 'title',
+							value: sample.name
+						}, {
+							name: 'wrap',
+							value: 'd'
+						}, {
+							name: 'html',
+							etype: 'html:textarea',
+							value: '<script src="http://ergojs.com/lib/ergojs-core.js" type="text/javascript"></script>\n<script src="http://ergojs.com/lib/ergojs-widgets-all.js" type="text/javascript"></script>\n<div id="sample" class="padding"></div>'
+						}, {
+							name: 'js',
+							etype: 'html:textarea',
+							value: js
+						}, {
+							name: 'resources',
+							value: 'http://ergojs.com/js/examples-data.js,http://ergojs.com/lib/ergojs.css'
+						}]
+					});
+
+					form.render('body');
+
+					form.el.attr('target', '_blank');
+					//
+					// window.open('http://jsfiddle.net', 'TheWindow');
+
+					form.el.submit();
+
+//					form._destroy();
+
+/*
+					$.ajax({
+						url: 'http://jsfiddle.net/api/post/jquery/2.1.3/',
+						type: 'post',
+						data: {
+							wrap: 'd',
+							title: sample.name,
+							dtd: 'html 4',
+							resources: 'http://ergojs.com/lib/ergojs-core.js',
+							js: js,
+							panel_css: 0,
+							panel_html:	0,
+							panel_js: 0
+						},
+						success: function(data) {
+							console.log(data)
+						}
+					});
+*/
+				}
+			});
+
+//			e.stop();
 		}
+
+
 	});
 
 };
@@ -182,4 +273,3 @@ $context.section = function(title, desc) {
 	};
 
 };
-
