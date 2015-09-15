@@ -1,5 +1,8 @@
 
 
+Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
+
+
 
 $context = new Ergo.core.Context();
 
@@ -194,7 +197,7 @@ $context.section_begin = function(block) {
 							value: js
 						}, {
 							name: 'resources',
-							value: 'http://ergojs.com/js/examples-data.js,http://ergojs.com/lib/ergojs.css'
+							value: 'http://ergojs.com/js/examples-data.js,http://ergojs.com/lib/ergojs.css,https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
 						}]
 					});
 
