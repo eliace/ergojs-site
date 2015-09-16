@@ -7,13 +7,13 @@ $context.section_end('navigation-title');
 var nav = $.ergo({
 	etype: 'html:nav',
 	layout: 'fluid',
-	cls: 'navigation underlined',
+	as: 'navigation underlined',
   $header: {
     etype: 'html:h3',
-    cls: 'header box',
+    as: 'title box',
     $icon: {
       etype: 'icon',
-      cls: 'fa-cogs'
+      as: 'fa-cogs'
     },
     $content: {
       etype: 'text',
@@ -23,7 +23,7 @@ var nav = $.ergo({
       },
       $subheader: {
         etype: 'text',
-        cls: 'sub-header',
+        as: 'sub title',
         text: 'Демонстрационное приложение ErgoJS'
       }
     }
@@ -31,18 +31,18 @@ var nav = $.ergo({
   $tools: {
   	etype: 'box',
   	layout: 'hbox',
-  	cls: 'align-right tools __gap',
+  	as: 'align-right tools __gap',
     style: {'padding': '0.5714rem 0'},
   	items: [{
   		etype: 'html:img',
-  		cls: 'circular',
+  		as: 'circular',
 			src: 'img/Lil_cr.png',
   		width: 32
   	}, {
   		etype: 'text',
   		include: 'dropdown',
-  		cls: 'text action',
-      state: 'to-left',
+  		as: 'text action +to-left',
+//      state: 'to-left',
       style: {'padding': '11px 0'},
   		$content: {
   			etype: '.',
@@ -50,11 +50,11 @@ var nav = $.ergo({
   		},
   		$caret: {
   			etype: 'icon',
-  			cls: 'caret'
+  			as: 'caret'
   		},
   		$dropdown: {
         etype: 'dropdown-menu',
-  			cls: '__hover',
+  			as: '__hover',
   			items: ['Профиль', 'Выход']
   		},
   		onClick: function(e) {
@@ -68,7 +68,6 @@ var nav = $.ergo({
 
 nav.render('#sample');
 
-
 $context.section('Панель навигации');
 $context.section_begin('navigation-1');
 $context.section_end('navigation-1');
@@ -76,7 +75,7 @@ $context.section_end('navigation-1');
 var w = $.ergo({
 	etype: 'html:nav',
 	layout: 'fluid',
-	cls: 'navigation box',
+	as: 'navigation box',
 
 	$header: {
 		etype: 'html:h4',
@@ -91,12 +90,10 @@ var w = $.ergo({
 
 	$menu: {
 		etype: 'menu',
-		cls: 'box',
+		as: 'box',
 		include: 'selectable',
 		defaultItem: {
-			onClick: function() {
-				this.events.rise('select');
-			}
+			onClick: 'action:select'
 		},
 		items: ['Главная', 'Товары', 'Организации'],
 		set: {
@@ -110,16 +107,16 @@ var w = $.ergo({
 	$tools: {
 		etype: 'box',
 		layout: 'hbox',
-		cls: 'align-right',
+		as: 'align-right',
   	items: [{
   		style: {'padding': '7px 1rem'},
   		$content: {
 	  		etype: 'input',
 	  		placeholder: 'Поиск...',
-	  		cls: 'icon right',
+	  		as: 'icon right',
 	  		$icon: {
 	  			etype: 'icon',
-	  			cls: 'fa-search'
+	  			as: 'fa-search'
 	  		}
 	  	}
   	}/*{
@@ -136,7 +133,7 @@ var w = $.ergo({
 	  		etype: '.',
 	  		text: 'Пользователь'
 	  	}
-  	}*/]		
+  	}*/]
 	}
 
 
@@ -145,8 +142,8 @@ var w = $.ergo({
 			menu: {
 				etype: 'menu-bar',
 				items: [
-					'Mailboxes', 
-					'Domains', 
+					'Mailboxes',
+					'Domains',
 				{
 					etype: 'dropdown-box',
 					text: 'Dropdown',
@@ -206,7 +203,7 @@ var w = $.ergo({
 				items: [{
 					$content: {
 						etype: 'html:img',
-						src: 'img/Lil_cr.png'							
+						src: 'img/Lil_cr.png'
 					}
 				}, {
 					cls: 'username',
@@ -218,12 +215,12 @@ var w = $.ergo({
 							at: 'right bottom',
 							my: 'right top'
 						},
-						items: ['Профиль', '|', 'Выход']							
+						items: ['Профиль', '|', 'Выход']
 					}
 				}]
-			}				
-		}	
-*/			
+			}
+		}
+*/
 //	}
 });
 
@@ -232,19 +229,20 @@ w.render('#sample');
 
 
 w.$menu.opt('index', 0);
+
 $context.section('Панель навигации', 'Центрирование контента');
 $context.section_begin('navigation-2');
 $context.section_end('navigation-2');
 
 w = $.ergo({
 	etype: 'html:nav',
-	cls: 'navigation underlined',
+	as: 'navigation underlined',
 //	style: {'margin-top': 32, 'width': '100%'},
 	layout: 'columns',
 	$header: {
 		etype: 'html:h4',
 		text: 'Система контроля',
-		cls: 'nav-title',
+		as: 'nav-title',
 		style: {'white-space': 'nowrap', 'margin': 0, 'padding': '14px 1rem', 'color': '#bbb'},
 		wrapper: {
 			width: '1%'
@@ -262,7 +260,7 @@ w = $.ergo({
 	},
 	$user: {
 		etype: 'menu',
-		cls: 'user',
+		as: 'user',
 		state: 'right',
 		width: 100,
 		wrapper: {
@@ -270,33 +268,32 @@ w = $.ergo({
 		},
 		items: [{
 			etype: 'text',
-			cls: 'username text action',
+			as: 'username text action +to-left',
 			include: 'dropdown',
 			text: 'Username',
-      state: 'to-left',
+//      state: 'to-left',
 			onClick: function(e) {
 				this.states.set('opened');
 				e.stop();
 			},
 			$dropdown: {
 				etype: 'dropdown-menu',
-				cls: '__hover',
+				as: '__hover',
 				// popup: {
 				// 	at: 'right bottom',
 				// 	my: 'right top'
 				// },
-				items: ['Профиль', 'Выход']							
+				items: ['Профиль', 'Выход']
 			},
 			$caret: {
 				etype: 'icon',
-				cls: 'caret after'
+				as: 'caret after'
 			}
 		}]
-	}						
+	}
 });
 
 w.render('#sample');
-
 
 $context.section('Панель с иконками');
 $context.section_begin('nav-actions');
@@ -304,28 +301,27 @@ $context.section_end('nav-actions');
 
 w = $.ergo({
 	etype: 'html:nav',
-	cls: 'navigation underlined has-icon at-left at-right padding medium',
-	layout: 'fluid',
+	as: 'navigation underlined has-icon at-left at-right padding medium',
+	layout: 'float',
 	$icon: {
 		etype: 'icon',
-		cls: 'fa-chevron-left contextual left'
+		as: 'fa-chevron-left contextual left'
 	},
 	$xicon: {
 		etype: 'icon',
 		weight: 100,
-		cls: 'fa-bars contextual right'
+		as: 'fa-bars contextual right'
 	},
 	$content: {
 		etype: 'box',
 		$clock: {
 			text: '10:00',
-			cls: 'nav-clock'
+			as: 'nav-clock'
 		},
 	}
 });
 
 w.render('#sample');
-
 
 $context.section('Боковая панель');
 $context.section_begin('nav-side');
@@ -333,33 +329,31 @@ $context.section_end('nav-side');
 
 var box = $.ergo({
 	etype: 'box',
-	cls: 'has-sidebar at-left',
+	as: 'has-sidebar at-left',
 	$sidebar: {
 		etype: 'html:aside',
-		cls: 'sidebar',
+		as: 'sidebar',
 		$header: {
 			etype: 'html:h3',
 			text: 'M',
-			cls: 'header'
+			as: 'title'
 		},
 		$menu: {
 			etype: 'menu',
-			cls: 'vertical',
+			as: 'vertical',
 			include: 'selectable',
+			onClick: 'action:select',
 			defaultItem: {
 				$content: {
-					include: 'before-icon',
+					include: 'icon:before',
 					$content: {
 						etype: '.'
 					},
 					$label: {
 						etype: 'label',
-						cls: 'small teal float-right',
+						as: 'small teal float-right',
 						hidden: true
 					}
-				},
-				onClick: function() {
-					this.events.rise('select');
 				},
 				set: {
 					'icon': function(v) {
@@ -372,9 +366,9 @@ var box = $.ergo({
 				}
 			},
 			items: [
-				{text: 'Dashboard', icon: 'fa-dashboard'}, 
-				{text: 'Mail', icon: 'fa-envelope'}, 
-				{text: 'Tasks', icon: 'fa-tasks', label: '3'}, 
+				{text: 'Dashboard', icon: 'fa-dashboard'},
+				{text: 'Mail', icon: 'fa-envelope'},
+				{text: 'Tasks', icon: 'fa-tasks', label: '3'},
 				{text: 'Reports', icon: 'fa-pie-chart'}
 			],
 			set: {
@@ -385,7 +379,7 @@ var box = $.ergo({
 		}
 	},
 	$content: {
-		cls: 'content box padding',
+		as: 'content box padding',
 		items: [LOREMIPSUM, LOREMIPSUM_2]
 	}
 });
@@ -394,5 +388,6 @@ var box = $.ergo({
 box.render('#sample');
 
 box.$sidebar.$menu.opt('index', 0);
+
 
 

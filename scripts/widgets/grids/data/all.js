@@ -22,13 +22,13 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider, url: 'data/grid
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 400,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false
@@ -85,7 +85,7 @@ $context.section_begin('data-pagination');
 $context.section_end('data-pagination');
 
 ajaxProvider = {
-	url: 'data/grid.json', 
+	url: 'data/grid.json',
 	find_all: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
@@ -97,22 +97,22 @@ ajaxProvider = {
 
 
 var data = new Ergo.data.PagedCollection({
-	provider: ajaxProvider, 
+	provider: ajaxProvider,
 	parser: function(data){
 		// эмуляция страницы данных
 		var from = (this.options.index-1)*this.options.pageSize;
 		var to = this.options.index*this.options.pageSize;
-		
+
 		var v = [];
-		
+
 		to = Math.min(to, data.length);
-		
+
 		for(var i = from; i < to; i++) {
 			v.push(data[i]);
 		}
-		
+
 		this.options.totalCount = data.length;
-		
+
 		return v;
 	},
 });
@@ -123,19 +123,19 @@ var data = new Ergo.data.PagedCollection({
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 400,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text'
+				as: 'column-text'
 			}
 		},
 		autoBind: false,
 		set: {
 			'text': function(v) {this.content.opt('text', v);}
-		}		
+		}
 	},
 	columns: [{
 		header: 'ID',
@@ -168,7 +168,7 @@ var w = $.ergo({
 	// $loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
 	data: data,
 	$footer: {
-		cls: 'padding',
+		as: 'padding',
 		$pagination: {
 			etype: 'grid-pagination'
 		}
@@ -178,11 +178,11 @@ var w = $.ergo({
 	},
 	set: {
 		'index': function(index) {
-			
+
 			this.data.opt('index', index);
-			
+
 			this.data.fetch();
-			
+
 		}
 	}
 });
@@ -192,4 +192,3 @@ w.render('#sample');
 
 
 w.opt('index', 1);
-

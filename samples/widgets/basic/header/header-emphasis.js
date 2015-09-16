@@ -2,13 +2,13 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'block',
+	as: 'block',
 	items: [
-		{ text: 'Заголовок', etype: 'title',	cls: 'underlined strong' },
+		{ text: 'Заголовок', etype: 'title',	as: 'underlined strong' },
 		LOREMIPSUM,
-		{ text: 'Заголовок', etype: 'title',	cls: 'underlined' },
+		{ text: 'Заголовок', etype: 'title',	as: 'underlined' },
 		LOREMIPSUM_2,
-		{ text: 'Заголовок', etype: 'title',	cls: 'underlined weak' },
+		{ text: 'Заголовок', etype: 'title',	as: 'underlined weak' },
 		LOREMIPSUM_3
 	]
 })
@@ -16,4 +16,3 @@ var w = $.ergo({
 
 
 w.render('#sample');
-

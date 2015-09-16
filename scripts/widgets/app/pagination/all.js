@@ -33,42 +33,42 @@ $context.section_end('pagination-1');
 
 var w = $.ergo({
 	etype: 'panel',
-	cls: 'box bordered padded divided',
+	as: 'box bordered padded divided',
 	title: 'Pagination',
 	renderTo: '#sample',
 	data: data,
 	$header: {
-		layout: 'fluid',
-		$content: {
-			etype: 'html:h4'
-		},
+		layout: 'float',
+		// $title: {
+		// 	etype: 'html:h4'
+		// },
 		$tools: {
 			etype: 'box',
-			cls: 'right',
+			as: 'right',
 			$pagination: {
 				etype: 'pagination',
 			}
 		}
 	},
 	$content: {
-		cls: 'panel-content',
+		as: 'panel-content',
 		text: LOREMIPSUM
 	},
 	$footer: {
-		layout: 'fluid',
+		layout: 'float',
 		$pagination: {
 			etype: 'pagination'
 		},
 		$buttons: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: 'right __gap',
+			as: 'right __gap',
 			defaultItem: {
 				etype: 'button'
 			},
-			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
 		}
-		
+
 	},
 	onChangeDataIndex: function(e) {
 		this.opt('index', e.index);
@@ -77,9 +77,9 @@ var w = $.ergo({
 		'index': function(index) {
 
 			this.data.opt('index', index);
-			
+
 			this.data.fetch();
-			
+
 		}
 	}
 });
@@ -94,7 +94,7 @@ $context.section_end('pagination-2');
 
 var w2 = $.ergo({
 	etype: 'panel',
-	cls: 'box bordered divided padded',
+	as: 'box bordered divided padded',
 	title: 'Pagination',
 	renderTo: '#sample',
 	data: new PageCollection(),
@@ -109,11 +109,11 @@ var w2 = $.ergo({
 			items: [{
 				etype: 'grid-pagination',
 //				state: 'tiny'
-			}]			
-		}		
+			}]
+		}
 	},
 	$content: {
-		cls: 'panel-content',
+		as: 'panel-content',
 		text: LOREMIPSUM
 	},
 	$footer: {
@@ -131,9 +131,9 @@ var w2 = $.ergo({
 		'index': function(index) {
 
 			this.data.opt('index', index);
-			
+
 			this.data.fetch();
-			
+
 		}
 	}
 });

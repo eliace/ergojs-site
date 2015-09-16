@@ -4,18 +4,18 @@
 var menu = $.ergo({
 	etype: 'nested-menu',
 	include: 'selectable',
-	cls: 'vertical left',
+	as: 'vertical left',
 	width: 240,
 	defaultItem: {
 		$content: {
 			include: 'icon',
-			cls: 'has-icon at-right',
+			as: 'has-icon at-right',
 			$icon: {
-				cls: 'before'
+				as: 'before'
 			},
 			$caret: {
 				etype: 'icon',
-				cls: 'caret right',
+				as: 'caret right',
 				point: 'right',
 				autoRender: false,
 				states: {
@@ -23,18 +23,14 @@ var menu = $.ergo({
 					'right:point': 'point-right'
 				}
 			},
-			onClick: function() {
-				this.events.rise('expand');
-			}
+			onClick: 'action:expand'
 		},
 		$submenu: {
 			etype: 'menu',
 			hidden: true,
-			cls: 'side left nested',
+			as: 'side left nested',
 			defaultItem: {
-				onClick: function() {
-					this.events.rise('select');
-				},
+				onClick: 'action:select',
 				get: {
 					'name': function() { return this.opt('text'); }
 				}
@@ -64,8 +60,8 @@ var menu = $.ergo({
 		}
 	},
 	items: [
-		{	text: 'Dashboard', $content_icon: 'fa-dashboard'	}, 
-		{	text: 'Mail', $content_icon: 'fa-envelope',	$submenu_items: ['Inbox', 'Sent', 'Trash'], expandable: true }, 
+		{	text: 'Dashboard', $content_icon: 'fa-dashboard'	},
+		{	text: 'Mail', $content_icon: 'fa-envelope',	$submenu_items: ['Inbox', 'Sent', 'Trash'], expandable: true },
 		{	text: 'Tasks', $content_icon: 'fa-tasks'	}
 	],
 	selection: {

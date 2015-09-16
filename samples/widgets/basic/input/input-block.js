@@ -4,7 +4,7 @@
 var input1 = $.ergo({
 	etype: 'input',
 	include: 'xicon',
-	cls: 'icon right fluid',
+	as: 'icon right fluid',
 	xicon: 'fa-search',
 	placeholder: 'Search...'
 });
@@ -12,12 +12,11 @@ var input1 = $.ergo({
 
 var input2 = $.ergo({
 	etype: 'input',
-	cls: 'group fluid',
+	as: 'group fluid',
 	$action: {
 		etype: 'label',
-		cls: 'button action',
-		text: 'Search',
-		state: 'basic'
+		as: 'button action basic',
+		text: 'Search'
 	}
 });
 
@@ -29,6 +28,6 @@ $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	items: [ input1, input2 ]
 });

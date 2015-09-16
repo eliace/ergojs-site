@@ -2,12 +2,12 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-envelope before medium circular basic',
+			as: 'fa-envelope before medium circular basic',
 			weight: -10
 		}
 	},
@@ -15,4 +15,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

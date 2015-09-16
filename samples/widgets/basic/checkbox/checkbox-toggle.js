@@ -4,17 +4,17 @@
 var w = $.ergo({
 	etype: 'box',
 	include: 'selectable item-click-selection',
-	cls: 'group buttons',
+	as: 'group buttons',
 	defaultItem: {
-		cls: 'inactive rised'
+		as: 'inactive rised'
 	},
 	items: [{
 		etype: 'button',
-		cls: 'blue',
+		as: 'blue',
 		text: 'ON'
 	}, {
 		etype: 'button',
-		cls: 'green',
+		as: 'green',
 		text: 'OFF'
 	}],
 	index: 0

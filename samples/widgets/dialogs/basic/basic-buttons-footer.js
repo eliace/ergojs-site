@@ -1,13 +1,13 @@
 
 
 var dlg = new Dialog({
-	cls: 'simple padded center',
+	as: 'simple padded center',
 	title: 'Диалог',
 	$footer: {
 		$buttons: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: '__center __gap',
+			as: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -15,11 +15,11 @@ var dlg = new Dialog({
 				}
 			},
 			items: [{
-				state: 'primary',
+				as: 'primary',
 				text: 'ОК',
 				name: 'ok'
 			}, {
-				state: 'default',
+				as: 'default',
 				text: 'Отмена',
 				name: 'cancel'
 			}]
@@ -36,8 +36,5 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });
-
-
-

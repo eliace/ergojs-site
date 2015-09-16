@@ -5,7 +5,7 @@
 var w = $.ergo({
 	etype: 'box',
 
-	cls: 'button',
+	as: 'button',
 
 	include: 'dropdown',
 
@@ -24,7 +24,7 @@ var w = $.ergo({
 	},
 
 	$dropdown: {
-		cls: 'hovered',
+		as: 'hovered',
 		events: {
 			'jquery:click': function(e) {
 				return false;
@@ -35,13 +35,13 @@ var w = $.ergo({
 			layout: 'inherited',
 			autoRender: false,
 			$header: {
-				cls: 'header',
+				as: 'header',
 				include: 'icon',
 				icon: 'fa-globe before',
 				text: 'Группа 1'
 			},
 			defaultItem: {
-				cls: 'item',
+				as: 'item',
 				onClick: function() {
 					this.events.rise('close');
 				}
@@ -55,13 +55,13 @@ var w = $.ergo({
 			layout: 'inherited',
 			autoRender: false,
 			$header: {
-				cls: 'header',
+				as: 'header',
 				include: 'icon',
 				icon: 'fa-globe before',
 				text: 'Группа 2'
 			},
 			defaultItem: {
-				cls: 'item',
+				as: 'item',
 				onClick: function() {
 					this.events.rise('close');
 				}

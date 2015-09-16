@@ -5,9 +5,9 @@ var w = $.ergo({
 	data: USERS,
 //	cls: 'items-indent',
 	nestedItem: {
-		cls: 'margin-top',
+		as: 'margin-top',
 		$toggler: {
-			cls: 'fa-2x before',
+			as: 'fa-2x before',
 			states: {
 				'caret:c': 'fa-angle-right',
 				'opened:c': 'fa-angle-down'
@@ -15,7 +15,7 @@ var w = $.ergo({
 		},
 		$image: {
 			etype: 'html:img',
-			cls: 'rounded before',
+			as: 'rounded before',
 			binding: 'src',
 			format: function(v) {
 				var s = v.id;
@@ -28,7 +28,7 @@ var w = $.ergo({
 		},
 		$content: {
 			etype: 'box',
-			$content: {				
+			$content: {
 				$content: {
 					etype: '.',
 					format: '#{full_name}',
@@ -38,7 +38,7 @@ var w = $.ergo({
 				},
 				$email: {
 					etype: 'text',
-					cls: 'description',
+					as: 'description',
 					format: '#{email}'
 //					dataId: 'email'
 				}
@@ -48,9 +48,8 @@ var w = $.ergo({
 			if(v.children) this.states.set('expandable');
 		}
 	}
-	
+
 });
 
 
 w.render('#sample');
-

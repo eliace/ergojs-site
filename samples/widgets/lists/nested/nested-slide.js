@@ -8,27 +8,26 @@ var list = $.ergo({
 	$header: {
 		$button: {
 			etype: 'button',
-			cls: 'flat',
+			as: 'flat +disabled',
 			text: 'Назад',
 			include: 'icon:at-left',
 			icon: 'fa fa-chevron-left',
-			state: 'disabled',
 			onClick: 'action:back'
 		}
 	},
 
 	$content: {
-		cls: 'slidable',
+		as: 'slidable',
 		defaultComponent: {
 			dynamic: true,
-			cls: 'list __indent __hover slide',
+			as: 'list __indent __hover slide',
 			style: {'background-color': '#fff'},
 			defaultItem: {
 				etype: 'chips',
 				include: 'icon:at-right',
 				$icon: {
 					autoRender: false,
-					cls: 'fa-chevron-right muted'
+					as: 'fa-chevron-right muted'
 				},
 				$image: {
 					binding: 'src',
@@ -47,7 +46,7 @@ var list = $.ergo({
 					this.states.toggle('has-sub', !(!v.children));
 				},
 				onClick: 'action:itemClick'
-			}		
+			}
 		},
 
 		$content: {
@@ -63,7 +62,7 @@ var list = $.ergo({
 
 				var c = this.components.set(s, {
 					data: e.target.data.entry('children'),
-					state: 'off',
+					as: '+off',
 //					autoHeight: 'fit',
 					style: {'z-index': 100, 'position': 'absolute'}
 				});

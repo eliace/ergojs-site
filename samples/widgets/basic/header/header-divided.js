@@ -20,11 +20,10 @@ var w = $.ergo({
 	items: [{
 		etype: 'title',
 		text: 'Заголовок',
-		cls: 'divided'		
+		as: 'divided'		
 	},
 	LOREMIPSUM]
 });
 
 
 w.render('#sample');
-

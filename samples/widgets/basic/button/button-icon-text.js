@@ -3,7 +3,7 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'button',
 		include: 'icon',
@@ -22,15 +22,14 @@ var w = $.ergo({
 		text: 'Назад',
 		$icon: {
 			weight: -10,
-			cls: 'before'
+			as: 'before'
 		}
 	}, {
 		icon: 'fa-arrow-right',
 		text: 'Вперед',
 		$icon: {
 			weight: 10,
-			cls: 'after'
+			as: 'after'
 		}
 	}]
 });
-

@@ -1,7 +1,7 @@
 
 
 var dlg = new DialogX({
-	cls: 'simple center padded',
+	as: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Нажмите на кнопку для смены заголовка'
@@ -10,7 +10,7 @@ var dlg = new DialogX({
 		$buttons: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: '__center __gap',
+			as: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -36,5 +36,5 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });

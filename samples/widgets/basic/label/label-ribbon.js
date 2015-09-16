@@ -3,11 +3,11 @@
 var w = $.ergo({
 	etype: 'box',
 	width: 600,
-	cls: 'bordered rounded paper padding-x2',
+	as: 'bordered rounded paper padding-x2',
 //	style: {'margin-top': 16},
 	$ribbon: {
 		etype: 'label',
-		cls: 'ribbon left',
+		as: 'ribbon left',
 		text: 'Метка'
 	},
 	$title: {
@@ -40,19 +40,18 @@ var w = $.ergo({
 			}
 			return w;
 		}
-	},	
+	},
 	$content: {
 		etype: 'html:img',
 		src: 'img/galleries/space/preview/solar_2-wallpaper-1366x768.jpg',
-		cls: 'width-small',
+		as: 'width-small',
 		$label: {
 			etype: 'label',
-			cls: 'ribbon primary left',
+			as: 'ribbon primary left',
 			text: 'Изображение',
 			style: {'position': 'absolute', 'left': 'calc(-16px)', 'top': 16}
-		}		
+		}
 	}
 });
 
 w.render('#sample');
-

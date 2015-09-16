@@ -3,7 +3,7 @@
 var context_menu = $.ergo({
 	etype: 'dropdown-menu',
 	renderTo: 'body',
-	cls: 'dropdown context __hover',
+	as: 'dropdown context __hover',
 	popup: {
 		behaviour: 'contextmenu',
 		offset: [-2, -2]
@@ -14,11 +14,11 @@ var context_menu = $.ergo({
 	defaultItem: {
 		include: 'icon',
  		$icon: {
- 			cls: 'before'
+ 			as: 'before'
  		}
 	},
 	items: [
-		{icon: 'fa-copy', text: 'Копировать'}, 
+		{icon: 'fa-copy', text: 'Копировать'},
 		{icon: 'fa-cut', text: 'Вырезать'},
 		{icon: 'fa-ban', text: 'Удалить'}
 	]
@@ -36,12 +36,12 @@ var w = $.ergo({
 
 	events: {
 		'jquery:contextmenu': function(e) {
-	
+
 			var x = e.pageX;
 			var y = e.pageY;
-				
+
 			context_menu.open(x, y);
-			
+
 			e.preventDefault();
 		}
 	}
@@ -49,5 +49,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
-

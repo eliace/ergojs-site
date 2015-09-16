@@ -70,7 +70,7 @@ var w = $.ergo({
 	$content: {
 		items: [{
 			etype: 'list',
-			cls: 'nav-menu',
+			as: 'nav-menu',
 			data: data,
 			defaultItem: {
 				$content: {
@@ -81,7 +81,7 @@ var w = $.ergo({
 					},
 					$caret: {
 						etype: 'icon',
-						state: 'caret'
+						as: 'caret'
 					},
 					onClick: function(e) {
 						this.parent.subtree.open();
@@ -93,7 +93,7 @@ var w = $.ergo({
 					etype: 'nested-list',
 					include: 'popup effects',
 					dataId: 'children',
-					cls: 'dropdown-menu',
+					as: 'dropdown-menu',
 					popup: {
 						at: 'left bottom',
 						exclusive: true
@@ -115,31 +115,31 @@ var w = $.ergo({
 							},
 							$caret: {
 								etype: 'caret',
-								state: 'right'
+								as: '+right'
 							},
 							events: {
 								'jquery:mouseenter': function(e) {
-									
+
 									var current = this.parent;
-									
+
 									this.parent.parent.items.each(function(item){
 										if( item != current && item.states.is('opened') ) {
 											item.subtree.close();
 											item.states.unset('opened');
 										}
 									});
-									
+
 									if(this.parent.states.is('has-subtree') & !this.parent.states.is('opened')) {
 										this.parent.subtree.open();
 										this.parent.states.set('opened');
 									}
-									
-									e.stopPropagation();							
+
+									e.stopPropagation();
 								}
 							}
 						},
 						$subtree: {
-							cls: 'dropdown-menu',
+							as: 'dropdown-menu',
 							mixins: ['popup', 'effects'],
 							popup: {
 								at: 'right top',
@@ -157,7 +157,7 @@ var w = $.ergo({
 						binding: function(v) {
 							if(v.children) this.states.set('has-subtree');
 						},
-						
+
 					}
 				},
 				binding: function(v) {
@@ -170,6 +170,7 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
 $context.section('Выбор элемента');
 $context.section_begin('nav-select');
 $context.section_end('nav-select');

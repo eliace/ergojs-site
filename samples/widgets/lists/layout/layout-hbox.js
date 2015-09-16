@@ -7,7 +7,7 @@ var w = $.ergo({
 	style: {
 		'overflow-y': 'auto'
 	},
-	cls: 'bordered',
+	as: 'bordered',
 	data: data,
 	defaultItem: {
 		etype: 'box',
@@ -15,7 +15,7 @@ var w = $.ergo({
 
 		layout: 'hbox',  // ITEM LAYOUT
 
-		cls: '__gap padding has-icon at-right',
+		as: '__gap padding has-icon at-right',
 		binding: false,
 		items: [{
 			etype: 'check',
@@ -39,7 +39,7 @@ var w = $.ergo({
 			},
 			$icon: {
 				etype: 'icon',
-				cls: 'before fa-envelope'
+				as: 'before fa-envelope'
 			},
 			$content: {
 				etype: '.'
@@ -50,12 +50,12 @@ var w = $.ergo({
 		}],
 		$after: {
 			etype: 'icon',
-			cls: 'right contextual action fa-close',
+			as: 'right contextual action fa-close',
 			binding: false,
 			weight: 10
 		}
 	}
-	
+
 });
 
 

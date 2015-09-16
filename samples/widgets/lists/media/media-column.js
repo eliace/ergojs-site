@@ -10,7 +10,7 @@ var w = $.ergo({
 		layout: 'columns',
 		$icon: {
 			etype: 'html:img',
-			cls: 'circular align-middle',
+			as: 'circular align-middle',
 			width: 64,
 			binding: function(v) {
 				this.opt('src', 'img/avatars/00'+v.id+'.jpg');
@@ -34,7 +34,7 @@ var w = $.ergo({
 		$date: {
 			etype: 'text',
 //			text: '25 ноября',
-			cls: 'align-top',
+			as: 'align-top',
 			dataId: 'date'
 		}
 	}

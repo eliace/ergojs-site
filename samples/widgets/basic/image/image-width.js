@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: '__gap',
+	as: '__gap',
 //	layout: 'stack',
 	defaultItem: {
 		etype: 'image',
@@ -11,12 +11,11 @@ var w = $.ergo({
 	items: [
 //		{cls: 'huge'},
 //		{cls: 'width-large'},
-		{cls: 'width-medium'},
-		{cls: 'width-small'},
-		{cls: 'width-tiny'},
-		{cls: 'width-mini'}
+		{as: 'width-medium'},
+		{as: 'width-small'},
+		{as: 'width-tiny'},
+		{as: 'width-mini'}
 	]
 });
 
 w.render('#sample');
-

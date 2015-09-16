@@ -5,15 +5,13 @@ w = $.ergo({
 	width: 800,
 	$header: {
 		etype: 'html:h2',
-		cls: 'header disabled',
+		as: 'title disabled',
 		$content: {
-			etype: '&text',
+			etype: '.',
 			text: 'Заголовок'
 		}
 	},
 	$content: LOREMIPSUM
-}); 
+});
 
 w.render('#sample');
-
-

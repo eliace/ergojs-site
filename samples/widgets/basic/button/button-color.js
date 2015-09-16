@@ -2,39 +2,37 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
-		etype: 'button'		
+		etype: 'button'
 	},
 	items: [{
 		text: 'Orange',
-		cls: 'orange'
+		as: 'orange'
 	}, {
 		text: 'Green',
-		cls: 'green'
+		as: 'green'
 	}, {
 		text: 'Red',
-		cls: 'red'
+		as: 'red'
 	}, {
 		text: 'Yellow',
-		cls: 'yellow'
+		as: 'yellow'
 	}, {
 		text: 'Black',
-		type: 'black'
+		as: 'black'
 	}, {
 		text: 'Teal',
-		type: 'teal'
+		as: 'teal'
 	}, {
 		text: 'Indigo',
-		type: 'indigo'
+		as: 'indigo'
 	}, {
 		text: 'Pink',
-		type: 'pink'
+		as: 'pink'
 	}, {
 		text: 'Purple',
-		type: 'purple'
+		as: 'purple'
 	}]
 });
-
-

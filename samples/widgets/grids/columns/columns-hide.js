@@ -1,13 +1,13 @@
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 300,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false,
@@ -22,9 +22,9 @@ var w = $.ergo({
 // 				var maxX = offset.left + this.el.outerWidth();
 // 				// var minY = offset.top;
 // 				// var maxY = minY + this.el.outerHeight();
-				
+
 // 				var prev = this.prev();
-				
+
 // 				if((x < minX+2 && prev && prev.states.is('resizable') ) || (this.states.is('resizable') && x > maxX-6))
 // 					this.parent.states.set('resize');
 // 				else if(this.parent.states.is('resize'))
@@ -39,7 +39,7 @@ var w = $.ergo({
 		binding: 'text',
 		width: 60
 	}, {
-		header: 'Full Name', 
+		header: 'Full Name',
 		dataId: 'Full Name',
 		binding: 'text',
 	}, {
@@ -70,12 +70,12 @@ var w = $.ergo({
 			},
 			$contextMenu: {
 				defaultItem: {
-					cls: 'check-item',
+					as: 'check-item',
 					components: {
 						addon: {
 							etype: 'check',
 							weight: -10,
-							cls: 'before',
+							as: 'before',
 							onChange: function(e) {
 								this.events.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
 							},
@@ -86,7 +86,7 @@ var w = $.ergo({
 						content: {
 							etype: '&text'
 						}
-						
+
 					}
 				},
 				items: ['ID', 'Full Name', 'Country', 'Email', 'Created At']
@@ -95,20 +95,20 @@ var w = $.ergo({
 		// loader: {
 			// $icon_cls: 'fa fa-spinner fa-spin fa-3x'
 		// },
-		
-		
+
+
 		footer: {
 			etype: 'tool-bar',
 			items: [{
 				etype: 'icon-button',
 				icon: 'fa fa-fw fa-refresh',
-				state: 'flat tool',
+				as: 'flat tool',
 				onClick: function() {
 					this.data.fetch();
 				}
 			}]
-		}		
-	},	
+		}
+	},
 	data: data,
 	onHideColumn: function(e) {
 		this.columns.hide(e.key);

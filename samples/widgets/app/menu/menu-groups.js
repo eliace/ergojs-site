@@ -3,7 +3,7 @@
 var menu = $.ergo({
 	etype: 'menu',
 	include: 'selectable',
-	cls: 'vertical left',
+	as: 'vertical left',
 	width: 240,
 	defaultItem: {
 		etype: 'menu',
@@ -11,18 +11,16 @@ var menu = $.ergo({
 
 		$header: {
 			etype: 'html:li',
-			cls: 'header'
+			as: 'header'
 		},
 
 		defaultItem: {
 			etype: 'menu-item',
-			onClick: function() {
-				this.events.rise('select');
-			},
+			onClick: 'action:select',
 			$content: {
 				$label: {
 					etype: 'label',
-					cls: 'float-right small teal',
+					as: 'float-right small teal',
 					hidden: true
 				},
 				set: {
@@ -30,7 +28,7 @@ var menu = $.ergo({
 						this.$label.opt('hidden', !v);
 						this.$label.opt('text', v);
 					}
-				}			
+				}
 			},
 			get: {
 				'name': function() {
@@ -47,8 +45,8 @@ var menu = $.ergo({
 	}, {
 		$header_text: 'Actions',
 		items: [
-			{	text: 'Dashboard'	}, 
-			{	text: 'Mail',	$content_label: '24' }, 
+			{	text: 'Dashboard'	},
+			{	text: 'Mail',	$content_label: '24' },
 			{	text: 'Tasks'	}
 		]
 	}],

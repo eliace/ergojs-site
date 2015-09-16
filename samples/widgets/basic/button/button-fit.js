@@ -1,9 +1,8 @@
 
 var w = $.ergo({
 	etype: 'button',
-	cls: 'block primary',
+	as: 'block primary',
 	text: 'Fluid button',
 });
 
 w.render('#sample');
-

@@ -1,6 +1,6 @@
 
 var dlg = new DialogX({
-	cls: 'simple center padded',
+	as: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Сюда будет загружен HTML',
@@ -31,5 +31,5 @@ $.ergo({
 	onClick: function() {
 		this.options.dialog.open();
 		this.options.dialog.load();
-	}	
+	}
 });

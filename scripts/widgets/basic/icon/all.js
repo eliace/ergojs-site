@@ -13,13 +13,12 @@ $.ergo({
 	etype: 'box',
 //	layout: 'hbox',
 	renderTo: '#sample',
-	cls: 'block items __gap',
+	as: 'block items __gap',
 	defaultItem: {
 		etype: 'icon'
 	},
 	items: ICONS
 });
-
 
 $context.section('Круглые');
 $context.section_begin('icon-circular');
@@ -46,24 +45,23 @@ $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 //		layout: 'bar',
-		cls: 'box items __gap padding',
+		as: 'box items __gap padding',
 		defaultItem: {
 			etype: 'icon',
-			cls: 'contextual'
+			as: 'contextual'
 		},
 		items: ICONS
 	},
 	items: [
-		{cls: 'basic'},
-		{cls: 'primary'},
-		{cls: 'info'},
-		{cls: 'success'},
-		{cls: 'warning'},
-		{cls: 'danger'}
+		{as: 'basic'},
+		{as: 'primary'},
+		{as: 'info'},
+		{as: 'success'},
+		{as: 'warning'},
+		{as: 'danger'}
 	]
 
 });
-
 
 $context.section('Системные');
 $context.section_begin('icon-builtin');
@@ -72,19 +70,19 @@ $context.section_end('icon-builtin');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'block items __gap',
+	as: 'block items __gap',
 	defaultItem: {
 		etype: 'icon'
 	},
 	items: [
-		'caret', 
-		'caret up', 
-		'caret left', 
-		'caret right', 
-		'caret nw', 
-		'caret ne', 
-		'caret se', 
-		'caret sw', 
+		'caret',
+		'caret up',
+		'caret left',
+		'caret right',
+		'caret nw',
+		'caret ne',
+		'caret se',
+		'caret sw',
 		'close',
 		'spinner'
 	]
@@ -102,10 +100,10 @@ $context.section_end('icon-side');
 var box1 = $.ergo({
 	etype: 'text',
 	text: 'Текст',
-	cls: 'has-icon at-left bg-basic padding',
+	as: 'has-icon at-left bg-basic padding',
 	$icon: {
 		etype: 'icon',
-		cls: 'left fa-user',
+		as: 'left fa-user',
 		weight: -10
 	}
 });
@@ -115,10 +113,10 @@ var box1 = $.ergo({
 var box2 = $.ergo({
 	etype: 'text',
 	text: 'Текст',
-	cls: 'has-icon at-right bg-basic padding',
+	as: 'has-icon at-right bg-basic padding',
 	$icon: {
 		etype: 'icon',
-		cls: 'right fa-search',
+		as: 'right fa-search',
 		weight: 10
 	}
 });
@@ -128,15 +126,15 @@ var box2 = $.ergo({
 var box3 = $.ergo({
 	etype: 'text',
 	text: 'Текст',
-	cls: 'has-icon at-left at-right bg-basic padding',
+	as: 'has-icon at-left at-right bg-basic padding',
 	$icon: {
 		etype: 'icon',
-		cls: 'left fa-user',
+		as: 'left fa-user',
 		weight: -10
 	},
 	$xicon: {
 		etype: 'icon',
-		cls: 'right fa-search',
+		as: 'right fa-search',
 		weight: 10
 	}
 });
@@ -146,12 +144,13 @@ var box3 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'hbox',
-	cls: '__gap',
+	as: '__gap',
 	items: [ box1, box2, box3 ]
 });
 
 
 w.render('#sample');
+
 $context.section('Цвет');
 $context.section_begin('icon-color');
 $context.section_end('icon-color');
@@ -215,23 +214,24 @@ $context.section_end('icon-size');
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'fa-book'
+		as: 'fa-book'
 	},
 	items: [
-		{cls: 'tiny'},
-		{cls: 'small'},
-		{cls: 'medium'},
-		{cls: 'large'},
-		{cls: 'huge'},
-		{cls: 'giant'}
+		{as: 'tiny'},
+		{as: 'small'},
+		{as: 'medium'},
+		{as: 'large'},
+		{as: 'huge'},
+		{as: 'giant'}
 	]
 });
 
 
 box1.render('#sample');
+
 $context.section('Метка');
 $context.section_begin('icon-label');
 $context.section_end('icon-label');
@@ -247,16 +247,17 @@ COLORS.forEach(function(c, i) {
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'label'
+		as: 'label'
 	},
 	items: colored_icons
 });
 
 
 box1.render('#sample');
+
 $context.section('Кнопка');
 $context.section_begin('icon-button');
 $context.section_end('icon-button');
@@ -265,20 +266,21 @@ $context.section_end('icon-button');
 var colored_icons = [];
 
 COLORS.forEach(function(c, i) {
-	colored_icons.push({icon: ICONS[i], cls: COLORS[i]});
+	colored_icons.push({icon: ICONS[i], as: COLORS[i]});
 });
 
 
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'button'
+		as: 'button'
 	},
 	items: colored_icons
 });
 
 
 box1.render('#sample');
+

@@ -6,33 +6,31 @@ var w = $.ergo({
 	etype: 'box',
 
 	layout: 'vbox',
-	
+
 	include: 'selectable',
-	
+
 //	multiselect: true,
 
-	cls: '__gap',
+	as: '__gap',
 
 	defaultItem: {
 		etype: 'html:label',
 		$check: {
 			etype: 'radio',
-			cls: 'before',
+			as: 'before',
 			weight: -10
 		},
 		$content: {
 			etype: '.'
 		},
-		
+
 		states: {
 			'selected': function(on) {
 				this.check.opt('value', on);
 			}
 		},
-		
-		onClick: function() {
-			this.events.rise('select');				
-		}		
+
+		onClick: 'action:select'
 	},
 
 	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
@@ -41,8 +39,8 @@ var w = $.ergo({
 	binding: function(v) {
 		this.opt('selected', v);
 	},
-	
-	value: 1	
+
+	value: 1
 
 });
 
@@ -58,26 +56,26 @@ var w = $.ergo({
 	etype: 'box',
 	layout: 'grid',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 
 		etype: 'html:fieldset',
-		
+
 		layout: 'vbox',
-		
+
 		include: 'selectable',
-		
+
 		$title: {
 			etype: 'html:legend',
 			text: 'Выбор страны'
 		},
-		
+
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
 	},
-	
-	
+
+
 	items: [{
-		
+
 		cls: '__gap',
 
 		defaultItem: {
@@ -89,27 +87,27 @@ var w = $.ergo({
 			$content: {
 				etype: '.'
 			},
-			
+
 			states: {
 				'selected': function(on) {
 					this.radio.opt('value', on);
 				}
 			},
-			
+
 			onClick: function() {
-				this.events.rise('select');				
+				this.events.rise('select');
 			}
-			
-			
+
+
 		},
-		
+
 		binding: function(v) {
 			this.opt('selected', v);
 		},
-		
-		value: 1		
-		
-		
+
+		value: 1
+
+
 	}, {
 
 		defaultItem: {
@@ -132,28 +130,28 @@ var w = $.ergo({
 					this.radio.opt('value', on);
 				}
 			},
-			
+
 			onChange: function(e) {
 				this.events.rise('select');
 			}
-			
+
 		},
-		
-		
+
+
 		// onAction: function(e) {
 			// this.opt('value', e.key);
 		// },
-		
+
 		binding: function(v) {
 			this.opt('selected', v);
 		},
-		
+
 		value: 3
-		
+
 	}]
-	
-	
-	
-	
+
+
+
+
 });
 */

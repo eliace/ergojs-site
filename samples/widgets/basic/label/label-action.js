@@ -5,9 +5,8 @@ var w = $.ergo({
 	$close: {
 		etype: 'icon',
 		weight: 10,
-		cls: 'contextual action fa-remove after'
+		as: 'contextual action fa-remove after'
 	}
 });
 
 w.render('#sample');
-

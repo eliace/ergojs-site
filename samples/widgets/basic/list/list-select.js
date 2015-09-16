@@ -3,13 +3,14 @@
 var w = $.ergo({
 	etype: 'list',
 	include: 'selectable',
-	cls: 'divided',
+	as: 'divided',
 	defaultItem: {
 		layout: 'hbox',
-		cls: 'item padding',
+		as: 'item padding',
+		onClick: 'action:select',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 40
 		},
 		$content: {
@@ -20,15 +21,12 @@ var w = $.ergo({
 			},
 			$description: {
 				etype: 'html:small',
-				cls: 'description'
+				as: 'description'
 			}
 		},
 		set: {
 			'description': function(v) { this.$content.$description.opt('text', v); },
 			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
-		},
-		onClick: function() {
-			this.events.rise('select');
 		}
 	},
 	set: {
@@ -44,5 +42,3 @@ w.opt('index', 1);
 
 
 w.render('#sample');
-
-

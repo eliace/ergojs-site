@@ -4,13 +4,13 @@ var w = $.ergo({
 //	layout: 'stack',
 	style: {'margin-top': 16},
 //	width: 600,
-	cls: 'divided padded',
+	as: 'divided padded',
 	defaultItem: {
 		etype: 'chips',
 		$button: {
 			etype: 'label',
 			text: 'online',
-			cls: 'float-right success small'
+			as: 'float-right success small'
 		},
 		set: {
 //			'description': function(v) { this.content.description.opt('text', v); },
@@ -21,4 +21,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

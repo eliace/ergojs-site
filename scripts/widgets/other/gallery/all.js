@@ -25,9 +25,9 @@ var images = [
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	
+
 	$gallery: {
-		
+
 		include: 'selectable',
 
 		selection: {
@@ -36,9 +36,9 @@ var w = $.ergo({
 			}
 		},
 
-		
+
 		$preview: {
-			cls: 'gallery-preview',
+			as: 'gallery-preview',
 			height: 400,
 			$content: {
 				etype: 'html:img',
@@ -56,97 +56,96 @@ var w = $.ergo({
 				}
 			}
 		},
-		
+
 		$slider: {
-			
+
 			layout: 'hbox',
-			
+
 			$prevBtn: {
 				etype: 'icon-button',
-				state: 'tool line disabled',
-				cls: 'slider-button',
+				state: 'slider-button tool line disabled',
 				weight: -10,
 				icon: 'fa-chevron-left',
-				action: 'prev'
+				onClick: 'action:prev'
 			},
 
 			$nextBtn: {
 				etype: 'icon-button',
 				weight: 10,
-				state: 'tool line',
-				cls: 'slider-button',
+				state: 'slider-button tool line',
 				icon: 'fa-chevron-right',
-				action: 'next'
+				onClick: 'action:next'
 			},
 
-			
+
 			$content: {
-				cls: 'gallery-slider',
+				as: 'gallery-slider',
 
 				layout: 'hslide',
 
 				autoWidth: true,
-				
+
 				dynamic: true,
-				
+
 				data: images,
-				
+
 				defaultItem: {
 					etype: 'html:img',
 					binding: function(v) {
 						this.opt('src', 'img/galleries/space/preview/'+v);
 					},
-					actions: {
-						'jquery:click': 'changeImage'
-					}
+					onClick: 'action:changeImage'
+					// actions: {
+					// 	'jquery:click': 'changeImage'
+					// }
 					// onClick: function() {
 						// this.events.rise('selectImage');
 					// }
 				},
-				
-				actions: {
-					'layout:slide': 'slide'
+
+				events: {
+					'layout:slide': 'action:slide'
 					// 'layout:slide': function(e) {
 						// this.events.rise('slide', e);
 					// }
 				}
-				
+
 			},
 
-			
+
 			onNext: function() {
-				
+
 				this.content.layout.slide_next();
-				
+
 			},
-			
-			
+
+
 			onPrev: function() {
-				
+
 				this.content.layout.slide_prev();
 			},
-			
+
 			onChangeImage: function(e) {
 				console.log('----');
 				this.content.layout.slide_to_item( e.target, 20 );
 			},
-			
+
 			onSlide: function(e) {
 				this.prevBtn.states.toggle('disabled', !e.hasPrev);
 				this.nextBtn.states.toggle('disabled', !e.hasNext);
 			}
-			
+
 //			index: 0
-			
-			
-			
+
+
+
 		},
-		
+
 		onChangeImage: function(e) {
 			this.opt('index', e.target.opt('name'));
 		},
-		
-		
+
+
 		set: {
 			'index': function(v) {
 				var img = this.slider.content.item(v);
@@ -154,16 +153,14 @@ var w = $.ergo({
 				this.selection.set(img);
 			}
 		}
-		
-		
+
+
 	}
-	
+
 });
 
 
 w.gallery.opt('index', 0);
-
-
 
 
 

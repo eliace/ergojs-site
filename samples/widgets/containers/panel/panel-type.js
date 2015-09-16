@@ -5,7 +5,7 @@ var w = $.ergo({
 	// pattern: [4, 4, 4],
 //	renderTo: '#sample',
 //	cls: 'list',
-	
+
 	layout: {
 		etype: 'tiles',
 		size: 4
@@ -15,7 +15,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'panel',
 //		width: 187,
-		cls: 'bordered divided padded margin',
+		as: 'bordered divided padded margin',
 		// $footer: {
 		// 	autoRender: true,
 		// 	$toolbar: {
@@ -34,30 +34,16 @@ var w = $.ergo({
 			text: LOREMIPSUM.substr(0, 200)
 		}
 	},
-	items: [{
-		title: 'Default',
-	}, {
-		title: 'Basic',		
-		cls: 'basic'
-	}, {
-		title: 'Primary',		
-		cls: 'primary'
-	}, {
-		title: 'Success',
-		cls: 'success'
-	}, {
-		title: 'Info',
-		cls: 'info'
-	}, {
-		title: 'Warning',
-		cls: 'warning'
-	}, {
-		title: 'Danger',
-		cls: 'danger'
-	}, {
-		title: 'Inverted',
-		cls: 'inverted'
-	}]
+	items: [
+		{	title: 'Default' },
+		{	title: 'Basic',	as: 'basic' },
+		{	title: 'Primary',	as: 'primary' },
+		{	title: 'Success',	as: 'success'	},
+		{	title: 'Info', as: 'info'	}, 
+		{	title: 'Warning',	as: 'warning'	},
+		{	title: 'Danger', as: 'danger' },
+		{	title: 'Inverted', as: 'inverted'	}
+	]
 });
 
 

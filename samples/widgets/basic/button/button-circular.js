@@ -1,12 +1,12 @@
 
 $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
 		include: 'icon',
-		cls: 'circular'
+		as: 'circular'
 	},
 	items: [{
 //		type: 'default',
@@ -39,12 +39,12 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
 		include: 'icon',
-		cls: 'large circular'
+		as: 'large circular'
 //		size: 'large'
 	},
 	items: [{
@@ -67,5 +67,3 @@ $.ergo({
 		icon: 'fa-unlock'
 	}]
 });
-
-

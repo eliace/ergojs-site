@@ -2,13 +2,13 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__indent',
+	as: '__indent',
 	defaultItem: {
-		cls: 'item icon right',
+		as: 'item icon right',
 		layout: 'hbox',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 48
 		},
 		$content: {
@@ -18,12 +18,12 @@ var w = $.ergo({
 			},
 			$description: {
 				etype: 'html:small',
-				cls: 'description'
+				as: 'description'
 			}
 		},
 		$xicon: {
 			etype: 'icon',
-			cls: 'fa-remove contextual action'
+			as: 'fa-remove contextual action'
 		},
 		set: {
 			'avatar': function(v) { this.$image.opt('src', AVATARS_URL+v+'.jpg'); },
@@ -34,4 +34,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

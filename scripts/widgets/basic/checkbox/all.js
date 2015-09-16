@@ -12,41 +12,41 @@ var w = $.ergo({
 	etype: 'box',
 
 	layout: 'vbox',
-	
+
 	include: 'selectable',
-	
+
 	multiselect: true,
 
-	cls: '__gap',
+	as: '__gap',
 
 	// $title: {
 	// 	etype: 'html:legend',
 	// 	text: 'Выбор страны'
 	// },
-	
+
 	defaultItem: {
 		etype: 'html:label',
 		$check: {
 			etype: 'check',
-			cls: 'before',
+			as: 'before',
 			weight: -10
 		},
 		$content: {
 			etype: '.'
 		},
-		
+
 		states: {
 			'selected': function(on) {
 				this.check.opt('value', on);
 			}
 		},
-		
+
 		onClick: function() {
 			this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
-		}		
+		}
 	},
 
-	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
+	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 
 });
 
@@ -61,29 +61,29 @@ var w = $.ergo({
 	etype: 'box',
 	layout: 'grid',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 		etype: 'html:fieldset',
 
 		layout: 'vbox',
-		
+
 		include: 'selectable',
-		
+
 		$title: {
 			etype: 'html:legend',
 			text: 'Выбор страны'
 		},
-		
+
 		defaultItem: {
 			style: {
 				'display': 'block'
 			}
 		}
-		
+
 	},
-	
+
 	items: [{
-		
+
 		cls: '__gap',
 
 		multiselect: true,
@@ -98,27 +98,27 @@ var w = $.ergo({
 				etype: '.',
 				weight: 10
 			},
-			
+
 			states: {
 				'selected': function(on) {
 					this.check.opt('value', on);
 				}
 			},
-			
+
 		// onChange: function() {
 			// this.events.rise('select');
 		// },
-		
+
 			onClick: function() {
 				this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
-			}		
-			
+			}
+
 		},
-		
-		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
-		
+
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+
 	}, {
-		
+
 		defaultItem: {
 			etype: 'html:label',
 			$check: {
@@ -129,18 +129,15 @@ var w = $.ergo({
 				etype: '.'
 			}
 		},
-		
-		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
-		
+
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+
 	}]
-	
-	
+
+
 });
 
 */
-
-
-
 
 $context.section('Radio');
 $context.section_begin('checkbox-radio');
@@ -153,33 +150,31 @@ var w = $.ergo({
 	etype: 'box',
 
 	layout: 'vbox',
-	
+
 	include: 'selectable',
-	
+
 //	multiselect: true,
 
-	cls: '__gap',
+	as: '__gap',
 
 	defaultItem: {
 		etype: 'html:label',
 		$check: {
 			etype: 'radio',
-			cls: 'before',
+			as: 'before',
 			weight: -10
 		},
 		$content: {
 			etype: '.'
 		},
-		
+
 		states: {
 			'selected': function(on) {
 				this.check.opt('value', on);
 			}
 		},
-		
-		onClick: function() {
-			this.events.rise('select');				
-		}		
+
+		onClick: 'action:select'
 	},
 
 	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
@@ -188,8 +183,8 @@ var w = $.ergo({
 	binding: function(v) {
 		this.opt('selected', v);
 	},
-	
-	value: 1	
+
+	value: 1
 
 });
 
@@ -205,26 +200,26 @@ var w = $.ergo({
 	etype: 'box',
 	layout: 'grid',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 
 		etype: 'html:fieldset',
-		
+
 		layout: 'vbox',
-		
+
 		include: 'selectable',
-		
+
 		$title: {
 			etype: 'html:legend',
 			text: 'Выбор страны'
 		},
-		
+
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа'],
 	},
-	
-	
+
+
 	items: [{
-		
+
 		cls: '__gap',
 
 		defaultItem: {
@@ -236,27 +231,27 @@ var w = $.ergo({
 			$content: {
 				etype: '.'
 			},
-			
+
 			states: {
 				'selected': function(on) {
 					this.radio.opt('value', on);
 				}
 			},
-			
+
 			onClick: function() {
-				this.events.rise('select');				
+				this.events.rise('select');
 			}
-			
-			
+
+
 		},
-		
+
 		binding: function(v) {
 			this.opt('selected', v);
 		},
-		
-		value: 1		
-		
-		
+
+		value: 1
+
+
 	}, {
 
 		defaultItem: {
@@ -279,31 +274,32 @@ var w = $.ergo({
 					this.radio.opt('value', on);
 				}
 			},
-			
+
 			onChange: function(e) {
 				this.events.rise('select');
 			}
-			
+
 		},
-		
-		
+
+
 		// onAction: function(e) {
 			// this.opt('value', e.key);
 		// },
-		
+
 		binding: function(v) {
 			this.opt('selected', v);
 		},
-		
+
 		value: 3
-		
+
 	}]
-	
-	
-	
-	
+
+
+
+
 });
 */
+
 $context.section('Switch');
 $context.section_begin('checkbox-switch');
 $context.section_end('checkbox-switch');
@@ -311,7 +307,7 @@ $context.section_end('checkbox-switch');
 
 var cb1 = $.ergo({
 	etype: 'box',
-	cls: 'switch',
+	as: 'switch',
 	onClick: function() {
 		this.states.toggle('checked');
 	}
@@ -325,7 +321,7 @@ var cb2 = $.ergo({
 	style: {'display': 'inline-block'},
 	$toggle: {
 		etype: 'box',
-		cls: 'switch before',
+		as: 'switch before',
 		events: {
 			'change': function(e) {
 				this.opt('value', e.value);
@@ -337,7 +333,7 @@ var cb2 = $.ergo({
 		},
 		binding: function(v) {
 			this.states.toggle('checked', !(!v));
-		}		
+		}
 	},
 	$content: {
 		etype: '.'
@@ -349,7 +345,7 @@ var cb2 = $.ergo({
 	},
 	onClick: function() {
 		this.states.toggle('selected');
-	}		
+	}
 });
 
 
@@ -360,13 +356,14 @@ var cb2 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	items: [ cb1, cb2 ]
 });
 
 
 
 w.render('#sample');
+
 $context.section('Toggle');
 $context.section_begin('checkbox-toggle');
 $context.section_end('checkbox-toggle');
@@ -376,17 +373,17 @@ $context.section_end('checkbox-toggle');
 var w = $.ergo({
 	etype: 'box',
 	include: 'selectable item-click-selection',
-	cls: 'group buttons',
+	as: 'group buttons',
 	defaultItem: {
-		cls: 'inactive rised'
+		as: 'inactive rised'
 	},
 	items: [{
 		etype: 'button',
-		cls: 'blue',
+		as: 'blue',
 		text: 'ON'
 	}, {
 		etype: 'button',
-		cls: 'green',
+		as: 'green',
 		text: 'OFF'
 	}],
 	index: 0
@@ -394,5 +391,6 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
 
 

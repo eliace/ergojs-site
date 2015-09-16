@@ -23,13 +23,13 @@ $context.section_end('columns-resize');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 300,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false,
@@ -39,24 +39,24 @@ var w = $.ergo({
 			// }
 		// }
 	},
-	
-	
+
+
 	$content: {
 		events: {
 			'jquery:scroll': function(e) {
-				
+
 				this.parent.header.content.el.css('margin-left', -this.el.scrollLeft());
-				
+
 			}
 		}
 	},
-	
+
 	$header_$content: {
 		$body: {
 			defaultItem: {
 				events: {
 					'jquery:mousemove': function(e) {
-						
+
 						var el = $(e.target).parents('th').addBack().first();
 						var cell = el.ergo();
 
@@ -69,13 +69,13 @@ var w = $.ergo({
 						// var minY = offset.top;
 						// var maxY = minY + this.el.outerHeight();
 
-						
-						
+
+
 						var prev = cell.prev();
-						
+
 						if(x < minX+2 && prev && prev.states.is('resizable') ) {
 							this.states.set('resize');
-							this._resize_target = prev;					
+							this._resize_target = prev;
 						}
 						else if(cell.states.is('resizable') && x > maxX-6) {
 							this.states.set('resize');
@@ -85,16 +85,16 @@ var w = $.ergo({
 							this.states.unset('resize');
 						}
 		//					console.log(x, y);
-						
-						
+
+
 					},
 					'jquery:mousedown': function(e) {
-						
+
 						// это все должно быть в обрабттчике события startResize
-						
-						
+
+
 						var gp = Ergo.context.open_glass_pane();
-						
+
 						gp.on('mouseup', function(e){
 
 							// итоговая ширина
@@ -103,83 +103,83 @@ var w = $.ergo({
 							Ergo.context.close_glass_pane();
 							$('.resize-handler').remove();
 							this._resizing = false;
-							
-							
+
+
 							var row_width = grid.header.el.outerWidth();
-							
+
 							grid.header.el.css('width', row_width);
 							grid.content.el.css('width', row_width);
 
 							// изменяем размер колонки
 							grid.columns.resize(this._resize_target._index, width);
-							
+
 							width = 0;
-							
+
 							grid.columns.each(function(col){
 								width += col.width;
 							});
-							
+
 							grid.header.content.el.css('width', width);
 							grid.content.content.el.css('width', width);
-							
-							
-							
-							
+
+
+
+
 						}.bind(this));
-						
+
 						gp.on('mousemove', function(e) {
-						
+
 							if(this._resizing) {
-								
+
 	//							var max_x = min_x + this._resize_target.el.outerWidth() - handler.width();
-								
+
 	//							var handler = $('.resize-handler');
-								
+
 								var x = e.pageX+dx;
 								x = Math.max(min_x, x);
 								x = Math.min(max_x, x);
-								
+
 								if( x >= min_x && x <= max_x)
-								handler.css({left: x});						
+								handler.css({left: x});
 							}
-							
+
 						}.bind(this));
-						
-						
-						
+
+
+
 						var grid = this.parent.parent.parent.parent;
-						
+
 						var offset = grid.el.offset();
-						
+
 						var handler = $('<div class="resize-handler"/>');
-						
+
 						var min_x = this._resize_target.el.offset().left;
 						var max_x = offset.left + grid.el.width() - handler.width();
 						var left = this._resize_target.el.offset().left + this._resize_target.el.outerWidth() - handler.width();
-						
+
 						var dx = left - e.pageX;
-						
+
 						handler.css({left: left, top: offset.top});
 						handler.height(grid.el.outerHeight());
-						
+
 						$('body').append(handler);
-						
+
 						this._resizing = true;
-						
+
 						e.preventDefault();
 					}
-				}			
+				}
 			}
 		}
 	},
-	
+
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
 		binding: 'text',
 		width: 60
 	}, {
-		header: 'Full Name', 
+		header: 'Full Name',
 		dataId: 'Full Name',
 		binding: 'text',
 	}, {
@@ -207,26 +207,26 @@ $context.section_end('columns-menu');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 300,
 	column: {
 //		cls: 'menu-header',
 		$content: {
 			etype: 'link',
-			cls: 'column-text',
+			as: 'column-text',
 		},
 		$menu: {
 			etype: 'box',
 			include: 'dropdown',
-			cls: 'float-right',
+			as: 'float-right',
 			$icon: {
 				etype: 'icon',
-				cls: 'fa-bars contextual action',
+				as: 'fa-bars contextual action',
 				weight: -100
 			},
 			$dropdown: {
 				etype: 'dropdown-menu',
-				cls: 'global',
+				as: 'global',
 				renderTo: 'body',
 				items: ['По возрастанию', 'По убыванию'],
 				popup: {
@@ -278,13 +278,13 @@ $context.section_end('columns-hide');
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 300,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false,
@@ -299,9 +299,9 @@ var w = $.ergo({
 // 				var maxX = offset.left + this.el.outerWidth();
 // 				// var minY = offset.top;
 // 				// var maxY = minY + this.el.outerHeight();
-				
+
 // 				var prev = this.prev();
-				
+
 // 				if((x < minX+2 && prev && prev.states.is('resizable') ) || (this.states.is('resizable') && x > maxX-6))
 // 					this.parent.states.set('resize');
 // 				else if(this.parent.states.is('resize'))
@@ -316,7 +316,7 @@ var w = $.ergo({
 		binding: 'text',
 		width: 60
 	}, {
-		header: 'Full Name', 
+		header: 'Full Name',
 		dataId: 'Full Name',
 		binding: 'text',
 	}, {
@@ -347,12 +347,12 @@ var w = $.ergo({
 			},
 			$contextMenu: {
 				defaultItem: {
-					cls: 'check-item',
+					as: 'check-item',
 					components: {
 						addon: {
 							etype: 'check',
 							weight: -10,
-							cls: 'before',
+							as: 'before',
 							onChange: function(e) {
 								this.events.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
 							},
@@ -363,7 +363,7 @@ var w = $.ergo({
 						content: {
 							etype: '&text'
 						}
-						
+
 					}
 				},
 				items: ['ID', 'Full Name', 'Country', 'Email', 'Created At']
@@ -372,20 +372,20 @@ var w = $.ergo({
 		// loader: {
 			// $icon_cls: 'fa fa-spinner fa-spin fa-3x'
 		// },
-		
-		
+
+
 		footer: {
 			etype: 'tool-bar',
 			items: [{
 				etype: 'icon-button',
 				icon: 'fa fa-fw fa-refresh',
-				state: 'flat tool',
+				as: 'flat tool',
 				onClick: function() {
 					this.data.fetch();
 				}
 			}]
-		}		
-	},	
+		}
+	},
 	data: data,
 	onHideColumn: function(e) {
 		this.columns.hide(e.key);

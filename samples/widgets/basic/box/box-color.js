@@ -5,34 +5,70 @@ var box = $.ergo({
 	etype: 'box',
 	layout: 'hbox',
 	defaultItem: {
-		cls: 'lite padding box',
+		as: 'lite padding box',
 //		width: 80
 	},
 	items: [
-		{cls: 'red', text: 'red'},
-		{cls: 'pink', text: 'pink'},
-		{cls: 'purple', text: 'purple'},
-		{cls: 'deep-purple', text: 'deep-purple'},
-		{cls: 'indigo', text: 'indigo'},
-		{cls: 'blue', text: 'blue'},
-		{cls: 'light-blue', text: 'light-blue'},
-		{cls: 'cyan', text: 'cyan'},
-		{cls: 'teal', text: 'teal'},
-		{cls: 'green', text: 'green'},
-		{cls: 'light-green', text: 'light-green'},
-		{cls: 'lime', text: 'lime'},
-		{cls: 'yellow', text: 'yellow'},
-		{cls: 'amber', text: 'amber'},
-		{cls: 'orange', text: 'orange'},
-		{cls: 'deep-orange', text: 'deep-orange'},
-		{cls: 'brown', text: 'brown'},
+		{as: 'red', text: 'red'},
+		{as: 'pink', text: 'pink'},
+		{as: 'purple', text: 'purple'},
+		{as: 'deep-purple', text: 'deep-purple'},
+		{as: 'indigo', text: 'indigo'},
+		{as: 'blue', text: 'blue'},
+		{as: 'light-blue', text: 'light-blue'},
+		{as: 'cyan', text: 'cyan'},
+		{as: 'teal', text: 'teal'},
+		{as: 'green', text: 'green'},
+		{as: 'light-green', text: 'light-green'},
+		{as: 'lime', text: 'lime'},
+		{as: 'yellow', text: 'yellow'},
+		{as: 'amber', text: 'amber'},
+		{as: 'orange', text: 'orange'},
+		{as: 'deep-orange', text: 'deep-orange'},
+		{as: 'brown', text: 'brown'},
 		{text: 'default'},
-		{cls: 'grey', text: 'grey'},
-		{cls: 'blue-grey', text: 'blue-grey'},
-		{cls: 'black', text: 'black'}
+		{as: 'grey', text: 'grey'},
+		{as: 'blue-grey', text: 'blue-grey'},
+		{as: 'black', text: 'black'}
 	]
 });
 
 
 box.render('#sample');
 
+
+
+var box2 = $.ergo({
+	etype: 'box',
+	layout: 'hbox',
+	defaultItem: {
+		as: 'lite padding box inverted',
+//		width: 80
+	},
+	items: [
+		{as: 'red', text: 'red'},
+		{as: 'pink', text: 'pink'},
+		{as: 'purple', text: 'purple'},
+		{as: 'deep-purple', text: 'deep-purple'},
+		{as: 'indigo', text: 'indigo'},
+		{as: 'blue', text: 'blue'},
+		{as: 'light-blue', text: 'light-blue'},
+		{as: 'cyan', text: 'cyan'},
+		{as: 'teal', text: 'teal'},
+		{as: 'green', text: 'green'},
+		{as: 'light-green', text: 'light-green'},
+		{as: 'lime', text: 'lime'},
+		{as: 'yellow', text: 'yellow'},
+		{as: 'amber', text: 'amber'},
+		{as: 'orange', text: 'orange'},
+		{as: 'deep-orange', text: 'deep-orange'},
+		{as: 'brown', text: 'brown'},
+		{text: 'default'},
+		{as: 'grey', text: 'grey'},
+		{as: 'blue-grey', text: 'blue-grey'},
+		{as: 'black', text: 'black'}
+	]
+});
+
+
+box2.render('#sample');

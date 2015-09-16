@@ -2,12 +2,12 @@
 
 var input1 = $.ergo({
 	etype: 'input',
-	cls: 'has-icon at-right',
+	as: 'has-icon at-right',
 	text: 'Search...',
 //	width: 180,
 	$icon: {
 		etype: 'icon',
-		cls: 'fa-search right'
+		as: 'fa-search right'
 	}
 });
 
@@ -16,11 +16,11 @@ var input1 = $.ergo({
 var input2 = $.ergo({
 	etype: 'input',
 	include: 'icon',
-	cls: 'has-icon at-right',
+	as: 'has-icon at-right',
 	icon: 'fa-search',
 	$icon: {
 		weight: 10,
-		cls: 'right'
+		as: 'right'
 	},
 	text: 'Search...',
 //	width: 180
@@ -42,7 +42,7 @@ var input3 = $.ergo({
 $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3 ]
 });

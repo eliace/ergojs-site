@@ -3,23 +3,21 @@
 var menu = $.ergo({
 	etype: 'menu',
 	include: 'selectable',
-	cls: 'vertical',
+	as: 'vertical',
 	width: 240,
 	defaultItem: {
-		onClick: function() {
-			this.events.rise('select');
-		},
+		onClick: 'action:select',
 		$content: {
-			include: 'after-icon',
+			include: 'icon:after',
 			$icon: {
-				cls: 'float-right'
+				as: 'float-right'
 			}
 		},
 		set: {
 			'icon': function(v) {
 				this.$content.opt('icon', v);
 			}
-		}			
+		}
 	},
 	items: [
 		{
@@ -44,4 +42,3 @@ var menu = $.ergo({
 menu.render('#sample');
 
 menu.opt('index', 1);
-

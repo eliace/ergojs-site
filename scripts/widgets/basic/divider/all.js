@@ -7,15 +7,15 @@ $context.section_end('divider-basic');
 
 var CustomFactory = function(o) {
 	if($.isString(o)) {
-		if(o == '-') 
+		if(o == '-')
 			o = {etype: 'box', cls: 'divider horizontal', divider: true};
-		else if(o == '|') 
+		else if(o == '|')
 			o = {etype: 'box', cls: 'divider vertical', divider: true};
 		else if(o[0] == '-')
-			o = {etype: 'box', text: o.substr(1), cls: 'x-divider horizontal', divider: true};
-		else if(o[0] == '|') 
-			o = {etype: 'box', text: o.substr(1), cls: 'x-divider vertical', divider: true};
-		else 
+			o = {etype: 'box', text: o.substr(1), as: 'x-divider horizontal', divider: true};
+		else if(o[0] == '|')
+			o = {etype: 'box', text: o.substr(1), as: 'x-divider vertical', divider: true};
+		else
 			o = {etype: 'text', text: o};
 	}
 	else {
@@ -28,7 +28,7 @@ var CustomFactory = function(o) {
 w = $.ergo({
 	etype: 'panel',
 	title: 'Divider',
-	cls: 'light',
+	as: 'light',
 	width: 600,
 	$content: {
 		itemFactory: CustomFactory,
@@ -63,5 +63,3 @@ w = $.ergo({
 });
 
 w.render('#sample');
-
-

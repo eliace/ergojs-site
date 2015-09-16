@@ -2,19 +2,19 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'block items __gap',
+	as: 'block items __gap',
 	defaultItem: {
 		etype: 'icon'
 	},
 	items: [
-		'caret', 
-		'caret up', 
-		'caret left', 
-		'caret right', 
-		'caret nw', 
-		'caret ne', 
-		'caret se', 
-		'caret sw', 
+		'caret',
+		'caret up',
+		'caret left',
+		'caret right',
+		'caret nw',
+		'caret ne',
+		'caret se',
+		'caret sw',
 		'close',
 		'spinner'
 	]

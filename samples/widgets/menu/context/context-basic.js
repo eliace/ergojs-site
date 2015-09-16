@@ -3,7 +3,7 @@
 var context_menu = $.ergo({
 	etype: 'dropdown-list',
 	renderTo: 'body',
-	cls: 'context-menu',
+	as: 'context-menu',
 	popup: {
 		behaviour: 'contextmenu'
 	},
@@ -11,11 +11,11 @@ var context_menu = $.ergo({
 		components: {
 			icon: {
 				etype: 'icon',
-				cls: 'fa fa-fw',
+//				as: 'fa fa-fw',
 				style: {'margin-right': 10}
 			},
 			content: {
-				etype: '&text'
+				etype: '.'
 			}
 		},
 		set: {
@@ -24,7 +24,7 @@ var context_menu = $.ergo({
 		}
 	},
 	items: [
-		{icon: 'fa-copy', text: 'Копировать'}, 
+		{icon: 'fa-copy', text: 'Копировать'},
 		{icon: 'fa-cut', text: 'Вырезать'},
 		{icon: 'fa-ban', text: 'Удалить'},
 		'|',
@@ -45,11 +45,11 @@ w.render('#sample');
 
 
 w.el.on('contextmenu', function(e) {
-	
+
 	var x = e.pageX;
 	var y = e.pageY;
-		
+
 	context_menu.open(x, y);
-	
+
 	e.preventDefault();
 });

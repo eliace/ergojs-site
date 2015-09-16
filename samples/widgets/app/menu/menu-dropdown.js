@@ -4,18 +4,18 @@
 var box = $.ergo({
 	etype: 'box',
 	include: 'dropdown',
-	cls: 'text action',
+	as: 'text action',
 	$content: {
 		etype: '.',
 		text: 'Dropdown'
 	},
 	$caret: {
 		etype: 'icon',
-		cls:' caret'
+		as: 'caret'
 	},
 	$dropdown: {
 		etype: 'dropdown-menu',
-		cls: '__hover',
+		as: '__hover',
 		items: ['Главная', 'Товары', 'Организации', 'Личный кабинет']
 	},
 	onClick: function(e) {

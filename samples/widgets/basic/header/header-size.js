@@ -2,22 +2,22 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'list __gap',
+	as: 'list __gap',
 	defaultItem: {
 		etype: 'title'
 	},
 	items: [
-		{cls: 'giant', text: 'Giant'},
+		{as: 'giant', text: 'Giant'},
 //		LOREMIPSUM,
-		{cls: 'huge', text: 'Huge'},
+		{as: 'huge', text: 'Huge'},
 //		LOREMIPSUM_2,
-		{cls: 'large', text: 'Large'},
+		{as: 'large', text: 'Large'},
 //		LOREMIPSUM_3,
 		{text: 'Default'},
 //		LOREMIPSUM_4,
-		{cls: 'small', text: 'Small'},
+		{as: 'small', text: 'Small'},
 //		LOREMIPSUM_5,
-		{cls: 'tiny', text: 'Tiny'},
+		{as: 'tiny', text: 'Tiny'},
 //		LOREMIPSUM_6
 	]
 });

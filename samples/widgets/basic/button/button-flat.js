@@ -2,27 +2,26 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
-		cls: 'flat'
+		as: 'flat'
 //		outline: true
 	},
 	items: [{
 		text: 'Default'
 	}, {
-		text: 'Basic', type: 'basic'
+		text: 'Basic', as: 'basic'
 	}, {
-		text: 'Primary', type: 'primary'
+		text: 'Primary', as: 'primary'
 	}, {
-		text: 'Info', type: 'info'
+		text: 'Info', as: 'info'
 	}, {
-		text: 'Success', type: 'success'
+		text: 'Success', as: 'success'
 	}, {
-		text: 'Warning', type: 'warning'
+		text: 'Warning', as: 'warning'
 	}, {
-		text: 'Danger',	type: 'danger'
+		text: 'Danger',	as: 'danger'
 	}]
 });
-

@@ -73,13 +73,13 @@ $context.section_end('basic-buttons-footer');
 
 
 var dlg = new Dialog({
-	cls: 'simple padded center',
+	as: 'simple padded center',
 	title: 'Диалог',
 	$footer: {
 		$buttons: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: '__center __gap',
+			as: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -87,11 +87,11 @@ var dlg = new Dialog({
 				}
 			},
 			items: [{
-				state: 'primary',
+				as: 'primary',
 				text: 'ОК',
 				name: 'ok'
 			}, {
-				state: 'default',
+				as: 'default',
 				text: 'Отмена',
 				name: 'cancel'
 			}]
@@ -108,26 +108,23 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });
-
-
-
 
 $context.section('Верхние кнопки');
 $context.section_begin('basic-buttons-header');
 $context.section_end('basic-buttons-header');
 
 var dlg = new Dialog({
-	cls: 'simple padded center',
+	as: 'simple padded center',
 	title: 'Диалог',
 	$header: {
 		layout: 'fluid',
-		cls: 'padding',
+		as: 'padding',
 		$buttons: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: 'align-right __gap',
+			as: 'align-right __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -135,11 +132,11 @@ var dlg = new Dialog({
 				}
 			},
 			items: [{
-				state: 'primary',
+				as: 'primary',
 				text: 'ОК',
 				name: 'ok'
 			}, {
-				state: 'default',
+				as: 'default',
 				text: 'Отмена',
 				name: 'cancel'
 			}]
@@ -156,7 +153,7 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });
 
 $context.section('Иконка закрытия');
@@ -164,22 +161,22 @@ $context.section_begin('basic-close-icon');
 $context.section_end('basic-close-icon');
 
 var dlg = new Dialog({
-	cls: 'simple center padded',
+	as: 'simple center padded',
 	title: 'Диалог',
 	$header: {
 		layout: 'fluid',
 		$buttons: {
 			etype: 'box',
-			cls: 'align-right tools',
+			as: 'align-right tools',
 			defaultItem: {
 				etype: 'icon',
-				cls: 'contextual action',
+				as: 'contextual action',
 				onClick: function(e) {
 					this.events.rise(this.opt('name'));
 				}
 			},
 			items: [{
-				cls: 'close',
+				as: 'close',
 				name: 'cancel'
 			}]
 		}
@@ -195,7 +192,7 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });
 
 $context.section('Управление заголовком');
@@ -204,7 +201,7 @@ $context.section_end('basic-header');
 
 
 var dlg = new DialogX({
-	cls: 'simple center padded',
+	as: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Нажмите на кнопку для смены заголовка'
@@ -213,7 +210,7 @@ var dlg = new DialogX({
 		$buttons: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: '__center __gap',
+			as: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
@@ -239,7 +236,7 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });
 
 $context.section('Загрузка html');
@@ -247,7 +244,7 @@ $context.section_begin('basic-html');
 $context.section_end('basic-html');
 
 var dlg = new DialogX({
-	cls: 'simple center padded',
+	as: 'simple center padded',
 	title: 'Диалог',
 	$content: {
 		text: 'Сюда будет загружен HTML',
@@ -278,7 +275,7 @@ $.ergo({
 	onClick: function() {
 		this.options.dialog.open();
 		this.options.dialog.load();
-	}	
+	}
 });
 
 $context.section('Множественные диалоги');
@@ -289,12 +286,12 @@ $context.section_end('basic-multiple');
 var MyDialogX = DialogX.extend({
 
 	defaults: {
-		cls: 'simple center padded',
+		as: 'simple center padded',
 		title: 'Диалог',
 		$content: {
 			height: 'auto',
 			layout: 'hbox',
-			cls: '__center',
+			as: '__center',
 			$button: {
 				etype: 'button',
 				type: 'primary',
@@ -309,7 +306,7 @@ var MyDialogX = DialogX.extend({
 		onNewDialog: function() {
 			var d = new MyDialogX();
 			d.open();
-		}				
+		}
 	}
 
 });
@@ -324,9 +321,8 @@ $.ergo({
 	onClick: function() {
 		var d = new MyDialogX();
 		d.open();
-	}	
+	}
 });
-
 
 $context.section('Типы');
 $context.section_begin('basic-type');
@@ -334,7 +330,7 @@ $context.section_end('basic-type');
 
 
 var dlg = new DialogX({
-	cls: 'paper center padded',
+	as: 'paper center padded',
 	title: 'Диалог',
 	states: {
 		'default:type': '',
@@ -355,7 +351,7 @@ var dlg = new DialogX({
 			etype: 'box',
 			layout: 'hbox',
 //			cls: 'fluid-right sz-normal',
-			cls: '__center __gap',
+			as: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function() {
@@ -399,7 +395,7 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });
 
 

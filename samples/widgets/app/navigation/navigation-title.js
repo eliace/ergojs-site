@@ -3,13 +3,13 @@
 var nav = $.ergo({
 	etype: 'html:nav',
 	layout: 'fluid',
-	cls: 'navigation underlined',
+	as: 'navigation underlined',
   $header: {
     etype: 'html:h3',
-    cls: 'header box',
+    as: 'title box',
     $icon: {
       etype: 'icon',
-      cls: 'fa-cogs'
+      as: 'fa-cogs'
     },
     $content: {
       etype: 'text',
@@ -19,7 +19,7 @@ var nav = $.ergo({
       },
       $subheader: {
         etype: 'text',
-        cls: 'sub-header',
+        as: 'sub title',
         text: 'Демонстрационное приложение ErgoJS'
       }
     }
@@ -27,18 +27,18 @@ var nav = $.ergo({
   $tools: {
   	etype: 'box',
   	layout: 'hbox',
-  	cls: 'align-right tools __gap',
+  	as: 'align-right tools __gap',
     style: {'padding': '0.5714rem 0'},
   	items: [{
   		etype: 'html:img',
-  		cls: 'circular',
+  		as: 'circular',
 			src: 'img/Lil_cr.png',
   		width: 32
   	}, {
   		etype: 'text',
   		include: 'dropdown',
-  		cls: 'text action',
-      state: 'to-left',
+  		as: 'text action +to-left',
+//      state: 'to-left',
       style: {'padding': '11px 0'},
   		$content: {
   			etype: '.',
@@ -46,11 +46,11 @@ var nav = $.ergo({
   		},
   		$caret: {
   			etype: 'icon',
-  			cls: 'caret'
+  			as: 'caret'
   		},
   		$dropdown: {
         etype: 'dropdown-menu',
-  			cls: '__hover',
+  			as: '__hover',
   			items: ['Профиль', 'Выход']
   		},
   		onClick: function(e) {
@@ -63,4 +63,3 @@ var nav = $.ergo({
 
 
 nav.render('#sample');
-

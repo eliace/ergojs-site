@@ -2,48 +2,47 @@
 
 var input1 = $.ergo({
 	etype: 'input',
-	cls: 'icon',
+	as: 'icon',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'icon',
-		cls: 'fa-calendar contextual action'
+		as: 'fa-calendar contextual action'
 	}
 });
 
 
 var input2 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'label',
 		include: 'icon',
 		icon: 'fa-calendar',
-		cls: 'basic action contextual'
+		as: 'basic action contextual'
 	}
 });
 
 
 var input3 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'label',
 		include: 'icon',
 		icon: 'fa-calendar',
-		cls: 'action button',
-		state: 'default'
+		as: 'action button default'
 	}
 });
 
 
 var input4 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
@@ -51,29 +50,28 @@ var input4 = $.ergo({
 		html: '<label/>',
 		weight: -10,
 		icon: 'fa-calendar',
-		cls: 'action',
-		state: 'primary'
+		as: 'action primary'
 	}
 });
 
 
 var input5 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'icon-button',
 		html: '<label/>',
 		icon: 'fa-fw fa-calendar',
-		cls: 'action',
+		as: 'action',
 //		state: 'primary'
 	},
 	$action2: {
 		etype: 'icon-button',
 		html: '<label/>',
 		icon: 'fa-fw fa-search',
-		cls: 'action',
+		as: 'action',
 //		state: 'primary'
 	}
 });
@@ -82,13 +80,13 @@ var input5 = $.ergo({
 
 var input6 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'button',
 		text: 'Search',
-		state: 'basic',
+		as: 'basic',
 		wrapper: {
 			etype: 'box'
 		}
@@ -98,7 +96,7 @@ var input6 = $.ergo({
 
 var input7 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
@@ -106,12 +104,12 @@ var input7 = $.ergo({
 		include: 'xicon',
 		xicon: 'fa-search',
 		text: 'Search',
-		state: 'primary',
+		as: 'primary',
 		wrapper: {
 			etype: 'box'
 		},
 		$xicon: {
-			cls: 'after'
+			as: 'after'
 		}
 	}
 });
@@ -126,7 +124,7 @@ var input7 = $.ergo({
 $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3, input4, input5, input6, input7 ]
 });

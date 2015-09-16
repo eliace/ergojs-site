@@ -4,15 +4,15 @@
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'border __gap',
+	as: 'border __gap',
 	defaultItem: {
 		etype: 'box',
 		layout: 'hbox',
-		cls: 'border __gap',
+		as: 'border __gap',
 		defaultItem: {
 			etype: 'text',
 			text: 'TEXT',
-			cls: 'border'
+			as: 'border'
 		},
 		items: [ 'Item1', 'Item2', 'Item3' ]
 	},
@@ -20,6 +20,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
-
-

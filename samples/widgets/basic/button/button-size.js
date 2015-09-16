@@ -1,29 +1,28 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button'
 	},
 	items: [{
 		text: 'Giant',
-		size: 'giant'
+		as: 'giant'
 	}, {
 		text: 'Huge',
-		size: 'huge'
+		as: 'huge'
 	}, {
 		text: 'Large',
-		size: 'large'
+		as: 'large'
 	}, {
 		text: 'Default',
-		size: 'medium'
+		as: 'medium'
 	}, {
 		text: 'Small',
-		size: 'small'
+		as: 'small'
 	}, {
 		text: 'Tiny',
-		size: 'tiny'
+		as: 'tiny'
 	}]
 });
-

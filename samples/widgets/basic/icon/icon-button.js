@@ -3,17 +3,17 @@
 var colored_icons = [];
 
 COLORS.forEach(function(c, i) {
-	colored_icons.push({icon: ICONS[i], cls: COLORS[i]});
+	colored_icons.push({icon: ICONS[i], as: COLORS[i]});
 });
 
 
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'button'
+		as: 'button'
 	},
 	items: colored_icons
 });

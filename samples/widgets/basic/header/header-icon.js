@@ -2,13 +2,13 @@
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding',
+	as: 'bordered rounded padding',
 	$title: {
 		etype: 'html:h3',
-		cls: 'title',
+		as: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-plug before'
+			as: 'fa-plug before'
 		},
 		$content: {
 			etype: '.',
@@ -17,7 +17,7 @@ w = $.ergo({
 	},
 	$content: LOREMIPSUM,
 	style: {'margin-bottom': 24} //FIXME
-}); 
+});
 
 w.render('#sample');
 
@@ -26,13 +26,13 @@ w.render('#sample');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding',
+	as: 'bordered rounded padding',
 	$header: {
 		etype: 'html:h3',
-		cls: 'title',
+		as: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-cogs medium before'
+			as: 'fa-cogs medium before'
 		},
 		$content: {
 			etype: 'text',
@@ -42,13 +42,12 @@ w = $.ergo({
 			},
 			$subheader: {
 				etype: 'title',
-				cls: 'sub',
+				as: 'sub',
 				text: 'Управление системными параметрами, пользователями и пр.'
 			}
 		}
 	},
 	$content: LOREMIPSUM_2
-}); 
+});
 
 w.render('#sample');
-

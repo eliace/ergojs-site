@@ -1,32 +1,19 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 //	layout: 'bar',
 	defaultItem: 'label',
-	items: [{
-		text: 'default',
-	}, {
-		text: 'basic',
-		cls: 'basic'
-	}, {
-		text: 'primary',
-		cls: 'primary'
-	}, {
-		text: 'success',
-		cls: 'success'
-	}, {
-		text: 'info',
-		cls: 'info'
-	}, {
-		text: 'warning',
-		cls: 'warning'
-	}, {
-		text: 'danger',
-		cls: 'danger'
-	}]
+	items: [
+		{	text: 'default' },
+		{	text: 'basic', as: 'basic' },
+		{	text: 'primary', as: 'primary' },
+		{	text: 'success', as: 'success' },
+		{ text: 'info',	as: 'info' },
+		{	text: 'warning', as: 'warning' },
+		{	text: 'danger',	as: 'danger' }
+	]
 });
 
 
 w.render('#sample');
-

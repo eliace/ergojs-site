@@ -4,7 +4,7 @@
 var w = $.ergo({
 	etype: 'box',
 
-	cls: 'button',
+	as: 'button',
 
 	include: 'dropdown',
 
@@ -19,12 +19,12 @@ var w = $.ergo({
 	},
 
 	$dropdown: {
-		cls: '__hover',
+		as: '__hover',
 		defaultItem: {
 			include: '+image',
 			$image: {
 				width: 32,
-				cls: 'circular before'
+				as: 'circular before'
 			}
 		},
 		items: [
@@ -40,5 +40,3 @@ var w = $.ergo({
 
 
 w.render('#sample');
-
-

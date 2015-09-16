@@ -24,7 +24,7 @@ $context.section_end('select-basic');
 var w = $.ergo({
 	etype: 'select',
 	text: 'Варианты...',
-	state: 'placeholder',
+	as: 'placeholder',
 	$dropdown: {
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 	}
@@ -32,6 +32,7 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
 $context.section('Связывание с данными');
 $context.section_begin('select-dropdown');
 $context.section_end('select-dropdown');
@@ -47,12 +48,12 @@ var data = {
 var data2 = {
 	country: 'CZ',
 	countries: [
-		{iso: 'HR', name: 'Хорватия'}, 
-		{iso: 'BG', name: 'Болгария'}, 
-		{iso: 'HU', name: 'Венгрия'}, 
-		{iso: 'PL', name: 'Польша'}, 
-		{iso: 'CZ', name: 'Чехия'}, 
-		{iso: 'SK', name: 'Словакия'}, 
+		{iso: 'HR', name: 'Хорватия'},
+		{iso: 'BG', name: 'Болгария'},
+		{iso: 'HU', name: 'Венгрия'},
+		{iso: 'PL', name: 'Польша'},
+		{iso: 'CZ', name: 'Чехия'},
+		{iso: 'SK', name: 'Словакия'},
 		{iso: 'SI', name: 'Словения'}]
 };
 
@@ -63,15 +64,15 @@ var select1 = $.ergo({
 
 	$dropdown: {
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
-	},	
+	},
 
-	value: 1		
+	value: 1
 });
 
 
 var select2 = $.ergo({
 	etype: 'select',
-	
+
 	$dropdown: {
 		defaultItem: {
 			get: {
@@ -82,21 +83,21 @@ var select2 = $.ergo({
 		},
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 	},
-	
-	value: 'Австралия'	
+
+	value: 'Австралия'
 });
 
 
 
 var select3 = $.ergo({
 	etype: 'select',
-	
+
 	$dropdown: {
 		data: data,
 		dataId: 'countries'
 	},
-	
-	data: data,	
+
+	data: data,
 	dataId: 'country'
 });
 
@@ -104,7 +105,7 @@ var select3 = $.ergo({
 
 var select4 = $.ergo({
 	etype: 'select',
-	
+
 	$dropdown: {
 		data: data2,
 		dataId: 'countries',
@@ -115,9 +116,9 @@ var select4 = $.ergo({
 			}
 		}
 	},
-	
+
 	data: data2,
-	dataId: 'country'		
+	dataId: 'country'
 
 });
 
@@ -128,17 +129,11 @@ var select4 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	items: [ select1, select2, select3, select4 ]
 });
 
 w.render('#sample');
-
-
-
-
-
-
 
 $context.section('С полем ввода');
 $context.section_begin('select-input');
@@ -333,7 +328,7 @@ var users = new Ergo.data.Collection({provider: usersProvider});
 var w = $.ergo({
 	etype: 'select',
 	text: 'Варианты...',
-	state: 'placeholder',
+	as: 'placeholder',
 	$content: {
 		format: '#{user_title}',
 		binding: 'text'
@@ -364,4 +359,5 @@ users.fetch();
 
 
 w.render('#sample');
+
 

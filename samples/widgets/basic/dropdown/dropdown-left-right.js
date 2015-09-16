@@ -3,14 +3,14 @@
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		layout: 'hbox',
-		cls: '__gap',
+		as: '__gap',
 		defaultItem: {
 			etype: 'box',
 			include: 'icon xicon dropdown',
-			cls: 'button basic',
+			as: 'button basic',
 			icon: 'fa-cog',
 			xicon: 'caret',
 			onClick: function(e) {
@@ -19,20 +19,19 @@ var w = $.ergo({
 			},
 			$dropdown: {
 				items: ['Испания', 'Германия', 'Франция', 'Италия', 'Великобритания', 'Греция']
-			}	
+			}
 		}
 	},
 
 	items: [
 		[
-			{	state: 'left to-up' }, 
-			{	state: 'right to-up'	}
+			{	as: '+left +to-up' },
+			{	as: '+right +to-up'	}
 		], [
-			{	state: 'left to-down'	}, 
-			{	state: 'right to-down'	}
+			{	as: '+left +to-down'	},
+			{	as: '+right +to-down'	}
 		]
 	]
 });
 
 w.render('#sample');
-

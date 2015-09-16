@@ -6,9 +6,8 @@ var w = $.ergo({
 		etype: 'text',
 		text: '15',
 		weight: 10,
-		cls: 'after'
+		as: 'after'
 	}
 });
 
 w.render('#sample');
-

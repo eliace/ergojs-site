@@ -1,33 +1,31 @@
 
 var box = $.ergo({
 	etype: 'box',
-	cls: 'has-sidebar at-left',
+	as: 'has-sidebar at-left',
 	$sidebar: {
 		etype: 'html:aside',
-		cls: 'sidebar',
+		as: 'sidebar',
 		$header: {
 			etype: 'html:h3',
 			text: 'M',
-			cls: 'header'
+			as: 'title'
 		},
 		$menu: {
 			etype: 'menu',
-			cls: 'vertical',
+			as: 'vertical',
 			include: 'selectable',
+			onClick: 'action:select',
 			defaultItem: {
 				$content: {
-					include: 'before-icon',
+					include: 'icon:before',
 					$content: {
 						etype: '.'
 					},
 					$label: {
 						etype: 'label',
-						cls: 'small teal float-right',
+						as: 'small teal float-right',
 						hidden: true
 					}
-				},
-				onClick: function() {
-					this.events.rise('select');
 				},
 				set: {
 					'icon': function(v) {
@@ -40,9 +38,9 @@ var box = $.ergo({
 				}
 			},
 			items: [
-				{text: 'Dashboard', icon: 'fa-dashboard'}, 
-				{text: 'Mail', icon: 'fa-envelope'}, 
-				{text: 'Tasks', icon: 'fa-tasks', label: '3'}, 
+				{text: 'Dashboard', icon: 'fa-dashboard'},
+				{text: 'Mail', icon: 'fa-envelope'},
+				{text: 'Tasks', icon: 'fa-tasks', label: '3'},
 				{text: 'Reports', icon: 'fa-pie-chart'}
 			],
 			set: {
@@ -53,7 +51,7 @@ var box = $.ergo({
 		}
 	},
 	$content: {
-		cls: 'content box padding',
+		as: 'content box padding',
 		items: [LOREMIPSUM, LOREMIPSUM_2]
 	}
 });

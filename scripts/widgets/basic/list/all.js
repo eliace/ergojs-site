@@ -58,13 +58,13 @@ var w = $.ergo({
 //	layout: 'stack',
 	style: {'margin-top': 16},
 //	width: 600,
-	cls: 'divided padded',
+	as: 'divided padded',
 	defaultItem: {
 		etype: 'chips',
 		$button: {
 			etype: 'label',
 			text: 'online',
-			cls: 'float-right success small'
+			as: 'float-right success small'
 		},
 		set: {
 //			'description': function(v) { this.content.description.opt('text', v); },
@@ -75,7 +75,6 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
 
 $context.section('С боковой иконкой');
 $context.section_begin('list-side');
@@ -89,7 +88,7 @@ $context.section_end('list-side');
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
-	cls: 'divided padded',
+	as: 'divided padded',
 	defaultItem: {
 		etype: 'chips',
 		include: 'icon:at-right',
@@ -111,12 +110,12 @@ w.render('#sample');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'divided padded',
+	as: 'divided padded',
 	defaultItem: {
 		etype: 'chips',
 		include: 'icon:at-left',
 		$icon: {
-			cls: 'contextual action fa-remove',
+			as: 'contextual action fa-remove',
 			weight: -20
 		},
 		set: {
@@ -127,10 +126,6 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
-
-
-
 
 $context.section('С активной иконкой');
 $context.section_begin('list-action');
@@ -143,14 +138,14 @@ $context.section_end('list-action');
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
-	cls: '__divide __indent',
+	as: '__divide __indent',
 	defaultItem: {
 		etype: 'chips',
 //		layout: 'hbox',
 		include: 'icon',
 //		cls: 'item',
 		$icon: {
-			cls: 'contextual action fa-volume-up medium before'
+			as: 'contextual action fa-volume-up medium before'
 		},
 // 		$image: {
 // 			etype: 'html:img',
@@ -180,23 +175,19 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
-
-
-
 $context.section('Hovered');
 $context.section_begin('list-hover');
 $context.section_end('list-hover');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'hovered padded',
+	as: 'hovered padded',
 	defaultItem: {
 		layout: 'hbox',
-		cls: 'item box padding',
+		as: 'item box padding',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 40
 		},
 		$content: {
@@ -211,8 +202,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
-
 $context.section('Striped');
 $context.section_begin('list-striped');
 $context.section_end('list-striped');
@@ -220,17 +209,17 @@ $context.section_end('list-striped');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'striped padded',
+	as: 'striped padded',
 	defaultItem: {
 		layout: 'hbox',
-		cls: 'item box padding',
+		as: 'item box padding',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 40
 		},
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		set: {
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
@@ -241,8 +230,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
-
 $context.section('Selected');
 $context.section_begin('list-select');
 $context.section_end('list-select');
@@ -251,13 +238,14 @@ $context.section_end('list-select');
 var w = $.ergo({
 	etype: 'list',
 	include: 'selectable',
-	cls: 'divided',
+	as: 'divided',
 	defaultItem: {
 		layout: 'hbox',
-		cls: 'item padding',
+		as: 'item padding',
+		onClick: 'action:select',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 40
 		},
 		$content: {
@@ -268,15 +256,12 @@ var w = $.ergo({
 			},
 			$description: {
 				etype: 'html:small',
-				cls: 'description'
+				as: 'description'
 			}
 		},
 		set: {
 			'description': function(v) { this.$content.$description.opt('text', v); },
 			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
-		},
-		onClick: function() {
-			this.events.rise('select');
 		}
 	},
 	set: {
@@ -292,8 +277,6 @@ w.opt('index', 1);
 
 
 w.render('#sample');
-
-
 
 
 

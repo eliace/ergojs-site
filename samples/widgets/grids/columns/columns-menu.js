@@ -1,26 +1,26 @@
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 300,
 	column: {
 //		cls: 'menu-header',
 		$content: {
 			etype: 'link',
-			cls: 'column-text',
+			as: 'column-text',
 		},
 		$menu: {
 			etype: 'box',
 			include: 'dropdown',
-			cls: 'float-right',
+			as: 'float-right',
 			$icon: {
 				etype: 'icon',
-				cls: 'fa-bars contextual action',
+				as: 'fa-bars contextual action',
 				weight: -100
 			},
 			$dropdown: {
 				etype: 'dropdown-menu',
-				cls: 'global',
+				as: 'global',
 				renderTo: 'body',
 				items: ['По возрастанию', 'По убыванию'],
 				popup: {

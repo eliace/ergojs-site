@@ -2,7 +2,7 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	layout: 'rows',
 	defaultItem: {
@@ -13,26 +13,25 @@ var w = $.ergo({
 		// $icon: {
 		// 	etype: 'icon',
 		// 	cls: 'fa-search'
-		// }		
+		// }
 	},
 	items: [{
 		placeholder: 'Giant',
-		state: 'giant'
+		as: 'giant'
 	}, {
 		placeholder: 'Huge',
-		state: 'huge'
+		as: 'huge'
 	}, {
 		placeholder: 'Large',
-		state: 'large'
+		as: 'large'
 	}, {
 		placeholder: 'Default',
-		state: 'medium'
+		as: 'medium'
 	}, {
 		placeholder: 'Small',
-		state: 'small'
+		as: 'small'
 	}, {
 		placeholder: 'Tiny',
-		state: 'tiny'
+		as: 'tiny'
 	}]
 });
-

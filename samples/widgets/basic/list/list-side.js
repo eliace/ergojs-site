@@ -7,7 +7,7 @@
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
-	cls: 'divided padded',
+	as: 'divided padded',
 	defaultItem: {
 		etype: 'chips',
 		include: 'icon:at-right',
@@ -29,12 +29,12 @@ w.render('#sample');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'divided padded',
+	as: 'divided padded',
 	defaultItem: {
 		etype: 'chips',
 		include: 'icon:at-left',
 		$icon: {
-			cls: 'contextual action fa-remove',
+			as: 'contextual action fa-remove',
 			weight: -20
 		},
 		set: {
@@ -45,7 +45,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
-
-
-

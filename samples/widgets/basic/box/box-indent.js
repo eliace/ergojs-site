@@ -11,15 +11,15 @@ $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'vbox',
-	cls: 'border __indent',
+	as: 'border __indent',
 	defaultItem: {
 		etype: 'box',
 		layout: 'hbox',
-		cls: 'border __indent',
+		as: 'border __indent',
 		defaultItem: {
 			etype: 'text',
 			text: 'TEXT',
-			cls: 'border'
+			as: 'border'
 		},
 		items: [ 'Item1', 'Item2', 'Item3' ]
 	},
@@ -27,4 +27,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

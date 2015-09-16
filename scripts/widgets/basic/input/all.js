@@ -64,12 +64,10 @@ var input5 = $.ergo({
 $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3/*, input4*/, input5 ]
 });
-
-
 
 $context.section('Размер');
 $context.section_begin('input-size');
@@ -78,7 +76,7 @@ $context.section_end('input-size');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	layout: 'rows',
 	defaultItem: {
@@ -89,29 +87,28 @@ var w = $.ergo({
 		// $icon: {
 		// 	etype: 'icon',
 		// 	cls: 'fa-search'
-		// }		
+		// }
 	},
 	items: [{
 		placeholder: 'Giant',
-		state: 'giant'
+		as: 'giant'
 	}, {
 		placeholder: 'Huge',
-		state: 'huge'
+		as: 'huge'
 	}, {
 		placeholder: 'Large',
-		state: 'large'
+		as: 'large'
 	}, {
 		placeholder: 'Default',
-		state: 'medium'
+		as: 'medium'
 	}, {
 		placeholder: 'Small',
-		state: 'small'
+		as: 'small'
 	}, {
 		placeholder: 'Tiny',
-		state: 'tiny'
+		as: 'tiny'
 	}]
 });
-
 
 $context.section('Иконка');
 $context.section_begin('input-icon');
@@ -120,12 +117,12 @@ $context.section_end('input-icon');
 
 var input1 = $.ergo({
 	etype: 'input',
-	cls: 'has-icon at-right',
+	as: 'has-icon at-right',
 	text: 'Search...',
 //	width: 180,
 	$icon: {
 		etype: 'icon',
-		cls: 'fa-search right'
+		as: 'fa-search right'
 	}
 });
 
@@ -134,11 +131,11 @@ var input1 = $.ergo({
 var input2 = $.ergo({
 	etype: 'input',
 	include: 'icon',
-	cls: 'has-icon at-right',
+	as: 'has-icon at-right',
 	icon: 'fa-search',
 	$icon: {
 		weight: 10,
-		cls: 'right'
+		as: 'right'
 	},
 	text: 'Search...',
 //	width: 180
@@ -160,10 +157,11 @@ var input3 = $.ergo({
 $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3 ]
 });
+
 $context.section('Загрузчик');
 $context.section_begin('input-loader');
 $context.section_end('input-loader');
@@ -172,7 +170,7 @@ $context.section_end('input-loader');
 var input1 = $.ergo({
 	etype: 'input',
 	include: 'xicon',
-	cls: 'icon right',
+	as: 'icon right',
 	xicon: 'spinner',
 	placeholder: 'Search...',
 //	width: 180
@@ -182,7 +180,7 @@ var input1 = $.ergo({
 var input2 = $.ergo({
 	etype: 'input',
 	include: 'icon',
-	cls: 'icon left',
+	as: 'icon left',
 	icon: 'spinner',
 	placeholder: 'Search...',
 //	width: 180
@@ -195,10 +193,11 @@ var input2 = $.ergo({
 $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2 ]
 });
+
 $context.section('Метки');
 $context.section_begin('input-label');
 $context.section_end('input-label');
@@ -206,23 +205,23 @@ $context.section_end('input-label');
 
 var input1 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	$label: {
 		etype: 'label',
 		text: '.com',
-		cls: 'basic'
+		as: 'basic'
 	}
 });
 
 
 var input2 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: '(___) _______',
 	$label: {
 		etype: 'label',
 		text: '+7',
-		cls: 'basic',
+		as: 'basic',
 		weight: -10
 	}
 });
@@ -235,7 +234,7 @@ $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	// layout: {
 	// 	etype: 'vbox',
 	// 	wrapper: function(item) {
@@ -244,6 +243,7 @@ $.ergo({
 	// },
 	items: [ input1, input2 ]
 });
+
 $context.section('Действия');
 $context.section_begin('input-action');
 $context.section_end('input-action');
@@ -251,48 +251,47 @@ $context.section_end('input-action');
 
 var input1 = $.ergo({
 	etype: 'input',
-	cls: 'icon',
+	as: 'icon',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'icon',
-		cls: 'fa-calendar contextual action'
+		as: 'fa-calendar contextual action'
 	}
 });
 
 
 var input2 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'label',
 		include: 'icon',
 		icon: 'fa-calendar',
-		cls: 'basic action contextual'
+		as: 'basic action contextual'
 	}
 });
 
 
 var input3 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'label',
 		include: 'icon',
 		icon: 'fa-calendar',
-		cls: 'action button',
-		state: 'default'
+		as: 'action button default'
 	}
 });
 
 
 var input4 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
@@ -300,29 +299,28 @@ var input4 = $.ergo({
 		html: '<label/>',
 		weight: -10,
 		icon: 'fa-calendar',
-		cls: 'action',
-		state: 'primary'
+		as: 'action primary'
 	}
 });
 
 
 var input5 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'icon-button',
 		html: '<label/>',
 		icon: 'fa-fw fa-calendar',
-		cls: 'action',
+		as: 'action',
 //		state: 'primary'
 	},
 	$action2: {
 		etype: 'icon-button',
 		html: '<label/>',
 		icon: 'fa-fw fa-search',
-		cls: 'action',
+		as: 'action',
 //		state: 'primary'
 	}
 });
@@ -331,13 +329,13 @@ var input5 = $.ergo({
 
 var input6 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
 		etype: 'button',
 		text: 'Search',
-		state: 'basic',
+		as: 'basic',
 		wrapper: {
 			etype: 'box'
 		}
@@ -347,7 +345,7 @@ var input6 = $.ergo({
 
 var input7 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: 'Дата',
 //	width: 180,
 	$action: {
@@ -355,12 +353,12 @@ var input7 = $.ergo({
 		include: 'xicon',
 		xicon: 'fa-search',
 		text: 'Search',
-		state: 'primary',
+		as: 'primary',
 		wrapper: {
 			etype: 'box'
 		},
 		$xicon: {
-			cls: 'after'
+			as: 'after'
 		}
 	}
 });
@@ -375,10 +373,11 @@ var input7 = $.ergo({
 $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3, input4, input5, input6, input7 ]
 });
+
 $context.section('На всю ширину');
 $context.section_begin('input-block');
 $context.section_end('input-block');
@@ -388,7 +387,7 @@ $context.section_end('input-block');
 var input1 = $.ergo({
 	etype: 'input',
 	include: 'xicon',
-	cls: 'icon right fluid',
+	as: 'icon right fluid',
 	xicon: 'fa-search',
 	placeholder: 'Search...'
 });
@@ -396,12 +395,11 @@ var input1 = $.ergo({
 
 var input2 = $.ergo({
 	etype: 'input',
-	cls: 'group fluid',
+	as: 'group fluid',
 	$action: {
 		etype: 'label',
-		cls: 'button action',
-		text: 'Search',
-		state: 'basic'
+		as: 'button action basic',
+		text: 'Search'
 	}
 });
 
@@ -413,9 +411,10 @@ $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	items: [ input1, input2 ]
 });
+
 $context.section('Многострочный');
 $context.section_begin('input-multiline');
 $context.section_end('input-multiline');

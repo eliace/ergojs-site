@@ -7,25 +7,24 @@ var w = $.ergo({
 	items: [{
 		title: 'Заголовок!',
 		text: 'Текстовое сообщение',
-		state: 'basic'
+		as: 'basic'
 	}, {
 		title: 'Информация!',
 		text: 'Полезная информация',
-		state: 'primary'
+		as: 'primary'
 	}, {
 		title: 'Готово!',
 		text: 'Процесс завершен',
-		state: 'success'		
+		as: 'success'
 	}, {
 		title: 'Предупреждение!',
 		text: 'Последующие действия пользователя могут повредить данные.',
-		state: 'warning'
+		as: 'warning'
 	}, {
 		title: 'Ошибка!',
 		text: 'Действия пользователя привели к исключительной ситуации',
-		state: 'danger'		
+		as: 'danger'
 	}]
 });
 
 w.render('#sample');
-

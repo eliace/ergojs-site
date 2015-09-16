@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'html:nav',
 	layout: 'fluid',
-	cls: 'navigation box',
+	as: 'navigation box',
 
 	$header: {
 		etype: 'html:h4',
@@ -17,12 +17,10 @@ var w = $.ergo({
 
 	$menu: {
 		etype: 'menu',
-		cls: 'box',
+		as: 'box',
 		include: 'selectable',
 		defaultItem: {
-			onClick: function() {
-				this.events.rise('select');
-			}
+			onClick: 'action:select'
 		},
 		items: ['Главная', 'Товары', 'Организации'],
 		set: {
@@ -36,16 +34,16 @@ var w = $.ergo({
 	$tools: {
 		etype: 'box',
 		layout: 'hbox',
-		cls: 'align-right',
+		as: 'align-right',
   	items: [{
   		style: {'padding': '7px 1rem'},
   		$content: {
 	  		etype: 'input',
 	  		placeholder: 'Поиск...',
-	  		cls: 'icon right',
+	  		as: 'icon right',
 	  		$icon: {
 	  			etype: 'icon',
-	  			cls: 'fa-search'
+	  			as: 'fa-search'
 	  		}
 	  	}
   	}/*{
@@ -62,7 +60,7 @@ var w = $.ergo({
 	  		etype: '.',
 	  		text: 'Пользователь'
 	  	}
-  	}*/]		
+  	}*/]
 	}
 
 
@@ -71,8 +69,8 @@ var w = $.ergo({
 			menu: {
 				etype: 'menu-bar',
 				items: [
-					'Mailboxes', 
-					'Domains', 
+					'Mailboxes',
+					'Domains',
 				{
 					etype: 'dropdown-box',
 					text: 'Dropdown',
@@ -132,7 +130,7 @@ var w = $.ergo({
 				items: [{
 					$content: {
 						etype: 'html:img',
-						src: 'img/Lil_cr.png'							
+						src: 'img/Lil_cr.png'
 					}
 				}, {
 					cls: 'username',
@@ -144,12 +142,12 @@ var w = $.ergo({
 							at: 'right bottom',
 							my: 'right top'
 						},
-						items: ['Профиль', '|', 'Выход']							
+						items: ['Профиль', '|', 'Выход']
 					}
 				}]
-			}				
-		}	
-*/			
+			}
+		}
+*/
 //	}
 });
 

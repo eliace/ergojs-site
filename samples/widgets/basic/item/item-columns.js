@@ -2,17 +2,17 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__indent',
+	as: '__indent',
 	defaultItem: {
 		etype: 'item',
 		layout: {
 			etype: 'columns',
 			autoClass: true
 		},
-		cls: 'items-align-top',
+		as: 'items-align-top',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 48,
 			weight: -10
 		},
@@ -22,10 +22,10 @@ var w = $.ergo({
 		},
 		$content: {
 			etype: 'box',
-			cls: 'text-right',
+			as: 'text-right',
 			$description: {
 				etype: 'html:small',
-				cls: 'description'
+				as: 'description'
 			},
 			weight: 10,
 			width: 150

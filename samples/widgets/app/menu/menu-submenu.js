@@ -4,7 +4,7 @@
 
 var menu = $.ergo({
 	etype: 'menu',
-	cls: 'menu box secondary',
+	as: 'menu box secondary',
 	defaultItem: {
 		include: 'dropdown',
 		onClick: function(e) {
@@ -17,21 +17,21 @@ var menu = $.ergo({
 			},
 			$caret: {
 				etype: 'icon',
-				icon: 'caret',
+				as: 'caret',
 				autoRender: false
 			}
 		},
 		$dropdown: {
 			etype: 'nested-menu',
 			include: 'popup',
-			cls: 'dropdown menu __hover',
+			as: 'dropdown menu __hover',
 			autoRender: 'non-empty',
 			// popup: {
 			// 	exclusive: false
 			// },
 			nestedItem: {
 				state: 'right to-down',
- 				cls: 'has-icon at-right',
+ 				as: 'has-icon at-right',
 				$caret: {
 					etype: 'icon',
 					icon: 'caret right',
@@ -39,7 +39,7 @@ var menu = $.ergo({
 				},
 				$submenu: {
 					include: 'popup',
-					cls: 'dropdown menu __hover',
+					as: 'dropdown menu __hover',
 					popup: {
 						exclusive: false
 					},
@@ -55,7 +55,7 @@ var menu = $.ergo({
 					'up:drop': 'drop-up',
 					'down:drop': '',
 					'left:drop': 'drop-left',
-					'right:drop': 'drop-right',					
+					'right:drop': 'drop-right',
 					'opened': function(on) {
 						on ? this.$submenu.open() : this.$submenu.close();
 					}
@@ -69,21 +69,21 @@ var menu = $.ergo({
 				},
 				events: {
 					'jquery:mouseenter': function(e) {
-						
+
 						var menu_item = this;//.parent;
-						
+
 						// menu_item.parent.items.each(function(item){
 						// 	if( item != menu_item && item.states.is('opened') ) {
 						// 		item.submenu.close();
 						// 		item.states.unset('opened');
 						// 	}
 						// });
-						
+
 						if(menu_item.states.is('has-dropdown') & !menu_item.states.is('opened')) {
 //								menu_item.submenu.open();
 							menu_item.states.set('opened');
 						}
-						
+
 						e.stopPropagation();							
 					}
 				}
@@ -97,7 +97,7 @@ var menu = $.ergo({
 		}
 	},
 	items: [
-		'Dashboard', 
+		'Dashboard',
 		{
 			text: 'Почта',
 			hasSubmenu: true,
@@ -109,7 +109,7 @@ var menu = $.ergo({
 					text: 'Мои',
 					hasSubmenu: true,
 					$submenu_items: ['Новые', 'В работе', 'Решенные']
-				}, 
+				},
 				'Назначенные мне'
 			]
 		}

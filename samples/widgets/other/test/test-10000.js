@@ -2,30 +2,28 @@
 $.ergo({
 	etype: 'box',
 	layout: 'hbox',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	defaultItem: {
-		onClick: function() {
-			this.events.rise('run');
-		}
+		onClick: 'action:run'
 	},
 	items: [{
 		etype: 'button',
-		cls: 'primary',
+		as: 'primary',
 		text: 'Reset',
 		cycles: 0
 	}, {
 		etype: 'button',
-		cls: 'warning',
+		as: 'warning',
 		text: 'Render'
 	}, {
 		etype: 'button',
-		cls: 'success',
+		as: 'success',
 		text: 'Binding'
 	}],
 	$result: {
 		etype: 'text',
-		cls: 'text red float-right',
+		as: 'text red float-right',
 		weight: 10,
 		format: function(v) { return 'Итог: ' + v + ' сек.' }
 	},
@@ -69,7 +67,7 @@ $.ergo({
 
 		var t1 = Ergo.timestamp();
 
-		this.$result.opt('value', (t1 - t0)/1000.0);		
+		this.$result.opt('value', (t1 - t0)/1000.0);
 	}
 });
 

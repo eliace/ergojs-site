@@ -1,30 +1,18 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'split-button',
 		$dropdown_items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
 	},
-	items: [{
-		text: 'Default',
-		type: 'default'
-	}, {
-		text: 'Primary',
-		type: 'primary'
-	}, {
-		text: 'Success',
-		type: 'success'
-	}, {
-		text: 'Warning',
-		type: 'warning'
-	}, {
-		text: 'Danger',
-		type: 'danger'
-	}/*, {
-		text: 'Tool',
-		type: 'tool'
-	}*/]
+	items: [
+		{	text: 'Default'	},
+		{	as: 'basic', text: 'Basic' },
+		{	as: 'primary', text: 'Primary' },
+		{	as: 'success', text: 'Success' },
+		{	as: 'warning', text: 'Warning' },
+		{	as: 'danger', text: 'Danger' }
+	]
 });
-

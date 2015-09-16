@@ -6,14 +6,14 @@
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'stack',
-	cls: '__divide __indent',
+	as: '__divide __indent',
 	defaultItem: {
 		etype: 'chips',
 //		layout: 'hbox',
 		include: 'icon',
 //		cls: 'item',
 		$icon: {
-			cls: 'contextual action fa-volume-up medium before'
+			as: 'contextual action fa-volume-up medium before'
 		},
 // 		$image: {
 // 			etype: 'html:img',
@@ -42,7 +42,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
-
-
-

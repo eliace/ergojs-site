@@ -1,12 +1,12 @@
 
 var form = $.ergo({
 	etype: 'box',
-	cls: 'block border rounded padding heavy',
+	as: 'block border rounded padding heavy',
 
 	items: [{
 		etype: 'title',
 		text: 'Person',
-		cls: 'large divided'		
+		as: 'large divided'		
 	}, {
 		layout: 'hform',
 		items: [{
@@ -18,7 +18,7 @@ var form = $.ergo({
 		}, {
 			etype: 'input',
 			label: 'Middle Name'
-		}]		
+		}]
 	}, {
 		layout: 'hform',
 		pattern: [2, 10],
@@ -32,9 +32,8 @@ var form = $.ergo({
 			include: 'icon:at-right',
 			icon: 'fa-map-marker',
 			label: 'Birth Place'
-		}]		
+		}]
 	}]
 });
 
 form.render('#sample');
-

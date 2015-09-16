@@ -7,41 +7,41 @@ var w = $.ergo({
 	etype: 'box',
 
 	layout: 'vbox',
-	
+
 	include: 'selectable',
-	
+
 	multiselect: true,
 
-	cls: '__gap',
+	as: '__gap',
 
 	// $title: {
 	// 	etype: 'html:legend',
 	// 	text: 'Выбор страны'
 	// },
-	
+
 	defaultItem: {
 		etype: 'html:label',
 		$check: {
 			etype: 'check',
-			cls: 'before',
+			as: 'before',
 			weight: -10
 		},
 		$content: {
 			etype: '.'
 		},
-		
+
 		states: {
 			'selected': function(on) {
 				this.check.opt('value', on);
 			}
 		},
-		
+
 		onClick: function() {
 			this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
-		}		
+		}
 	},
 
-	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
+	items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 
 });
 
@@ -56,29 +56,29 @@ var w = $.ergo({
 	etype: 'box',
 	layout: 'grid',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 		etype: 'html:fieldset',
 
 		layout: 'vbox',
-		
+
 		include: 'selectable',
-		
+
 		$title: {
 			etype: 'html:legend',
 			text: 'Выбор страны'
 		},
-		
+
 		defaultItem: {
 			style: {
 				'display': 'block'
 			}
 		}
-		
+
 	},
-	
+
 	items: [{
-		
+
 		cls: '__gap',
 
 		multiselect: true,
@@ -93,27 +93,27 @@ var w = $.ergo({
 				etype: '.',
 				weight: 10
 			},
-			
+
 			states: {
 				'selected': function(on) {
 					this.check.opt('value', on);
 				}
 			},
-			
+
 		// onChange: function() {
 			// this.events.rise('select');
 		// },
-		
+
 			onClick: function() {
 				this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
-			}		
-			
+			}
+
 		},
-		
-		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
-		
+
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+
 	}, {
-		
+
 		defaultItem: {
 			etype: 'html:label',
 			$check: {
@@ -124,15 +124,12 @@ var w = $.ergo({
 				etype: '.'
 			}
 		},
-		
-		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']		
-		
+
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+
 	}]
-	
-	
+
+
 });
 
 */
-
-
-

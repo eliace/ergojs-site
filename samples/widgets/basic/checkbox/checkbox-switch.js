@@ -2,7 +2,7 @@
 
 var cb1 = $.ergo({
 	etype: 'box',
-	cls: 'switch',
+	as: 'switch',
 	onClick: function() {
 		this.states.toggle('checked');
 	}
@@ -16,7 +16,7 @@ var cb2 = $.ergo({
 	style: {'display': 'inline-block'},
 	$toggle: {
 		etype: 'box',
-		cls: 'switch before',
+		as: 'switch before',
 		events: {
 			'change': function(e) {
 				this.opt('value', e.value);
@@ -28,7 +28,7 @@ var cb2 = $.ergo({
 		},
 		binding: function(v) {
 			this.states.toggle('checked', !(!v));
-		}		
+		}
 	},
 	$content: {
 		etype: '.'
@@ -40,7 +40,7 @@ var cb2 = $.ergo({
 	},
 	onClick: function() {
 		this.states.toggle('selected');
-	}		
+	}
 });
 
 
@@ -51,7 +51,7 @@ var cb2 = $.ergo({
 var w = $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	items: [ cb1, cb2 ]
 });
 

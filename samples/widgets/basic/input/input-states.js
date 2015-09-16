@@ -43,9 +43,7 @@ var input5 = $.ergo({
 $.ergo({
 	etype: 'box',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	items: [ input1, input2, input3/*, input4*/, input5 ]
 });
-
-

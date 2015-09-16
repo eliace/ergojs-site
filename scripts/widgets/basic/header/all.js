@@ -19,22 +19,22 @@ $context.section_end('header-size');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'list __gap',
+	as: 'list __gap',
 	defaultItem: {
 		etype: 'title'
 	},
 	items: [
-		{cls: 'giant', text: 'Giant'},
+		{as: 'giant', text: 'Giant'},
 //		LOREMIPSUM,
-		{cls: 'huge', text: 'Huge'},
+		{as: 'huge', text: 'Huge'},
 //		LOREMIPSUM_2,
-		{cls: 'large', text: 'Large'},
+		{as: 'large', text: 'Large'},
 //		LOREMIPSUM_3,
 		{text: 'Default'},
 //		LOREMIPSUM_4,
-		{cls: 'small', text: 'Small'},
+		{as: 'small', text: 'Small'},
 //		LOREMIPSUM_5,
-		{cls: 'tiny', text: 'Tiny'},
+		{as: 'tiny', text: 'Tiny'},
 //		LOREMIPSUM_6
 	]
 });
@@ -71,18 +71,18 @@ $context.section_end('header-image');
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'title',
+	as: 'title',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/003.jpg',
-		cls: 'image circular small before'
+		as: 'image circular small before'
 	},
 	$content: {
 		etype: '.',
 		text: 'Волкова Е.И.'
 	},
 //	style: {'margin-bottom': 24} //FIXME
-}); 
+});
 
 w.render('#sample');
 
@@ -90,11 +90,11 @@ w.render('#sample');
 
 w = $.ergo({
 	etype: 'html:h3',
-	cls: 'title',
+	as: 'title',
 	$image: {
 		etype: 'html:img',
 		src: 'demo/blog/img/avatars/002.jpg',
-		cls: 'image circular small before'
+		as: 'image circular small before'
 	},
 	$content: {
 		etype: 'text',
@@ -104,15 +104,13 @@ w = $.ergo({
 		},
 		$subtitle: {
 			etype: 'title',
-			cls: 'sub',
+			as: 'sub',
 			text: 'Ведущий веб-разработчик'
 		}
 	}
-}); 
+});
 
 w.render('#sample');
-
-
 
 $context.section('С иконкой');
 $context.section_begin('header-icon');
@@ -121,13 +119,13 @@ $context.section_end('header-icon');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding',
+	as: 'bordered rounded padding',
 	$title: {
 		etype: 'html:h3',
-		cls: 'title',
+		as: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-plug before'
+			as: 'fa-plug before'
 		},
 		$content: {
 			etype: '.',
@@ -136,7 +134,7 @@ w = $.ergo({
 	},
 	$content: LOREMIPSUM,
 	style: {'margin-bottom': 24} //FIXME
-}); 
+});
 
 w.render('#sample');
 
@@ -145,13 +143,13 @@ w.render('#sample');
 w = $.ergo({
 	etype: 'box',
 	width: 800,
-	cls: 'bordered rounded padding',
+	as: 'bordered rounded padding',
 	$header: {
 		etype: 'html:h3',
-		cls: 'title',
+		as: 'title',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-cogs medium before'
+			as: 'fa-cogs medium before'
 		},
 		$content: {
 			etype: 'text',
@@ -161,16 +159,15 @@ w = $.ergo({
 			},
 			$subheader: {
 				etype: 'title',
-				cls: 'sub',
+				as: 'sub',
 				text: 'Управление системными параметрами, пользователями и пр.'
 			}
 		}
 	},
 	$content: LOREMIPSUM_2
-}); 
+});
 
 w.render('#sample');
-
 
 $context.section('С разделителем');
 $context.section_begin('header-divided');
@@ -197,14 +194,13 @@ var w = $.ergo({
 	items: [{
 		etype: 'title',
 		text: 'Заголовок',
-		cls: 'divided'		
+		as: 'divided'		
 	},
 	LOREMIPSUM]
 });
 
 
 w.render('#sample');
-
 
 $context.section('Эмфаза');
 $context.section_begin('header-emphasis');
@@ -213,13 +209,13 @@ $context.section_end('header-emphasis');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'block',
+	as: 'block',
 	items: [
-		{ text: 'Заголовок', etype: 'title',	cls: 'underlined strong' },
+		{ text: 'Заголовок', etype: 'title',	as: 'underlined strong' },
 		LOREMIPSUM,
-		{ text: 'Заголовок', etype: 'title',	cls: 'underlined' },
+		{ text: 'Заголовок', etype: 'title',	as: 'underlined' },
 		LOREMIPSUM_2,
-		{ text: 'Заголовок', etype: 'title',	cls: 'underlined weak' },
+		{ text: 'Заголовок', etype: 'title',	as: 'underlined weak' },
 		LOREMIPSUM_3
 	]
 })
@@ -228,7 +224,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
 $context.section('Цвет');
 $context.section_begin('header-color');
 $context.section_end('header-color');
@@ -236,32 +231,32 @@ $context.section_end('header-color');
 var title1 = $.ergo({
 	etype: 'title',
 	text: 'Green',
-	cls: 'large underlined green'
+	as: 'large underlined green'
 });
 
 var title2 = $.ergo({
 	etype: 'title',
 	text: 'Blue',
-	cls: 'large underlined blue'
+	as: 'large underlined blue'
 });
 
 var title3 = $.ergo({
 	etype: 'title',
 	text: 'Teal',
-	cls: 'large weak underlined teal'
+	as: 'large weak underlined teal'
 });
 
 var title4 = $.ergo({
 	etype: 'title',
 	text: 'Orange',
-	cls: 'large weak underlined orange'
+	as: 'large weak underlined orange'
 });
 
 
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'block',
+	as: 'block',
 	items: [ title1, LOREMIPSUM, title2, LOREMIPSUM_2, title3, LOREMIPSUM_3, title4, LOREMIPSUM_4 ]
 });
 
@@ -278,15 +273,13 @@ w = $.ergo({
 	width: 800,
 	$header: {
 		etype: 'html:h2',
-		cls: 'header disabled',
+		as: 'title disabled',
 		$content: {
-			etype: '&text',
+			etype: '.',
 			text: 'Заголовок'
 		}
 	},
 	$content: LOREMIPSUM
-}); 
+});
 
 w.render('#sample');
-
-

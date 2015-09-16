@@ -2,12 +2,12 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 48,
 			weight: -10
 		},
@@ -17,7 +17,7 @@ var w = $.ergo({
 			// },
 			$description: {
 				etype: 'html:small',
-				cls: 'description'
+				as: 'description'
 			}
 		},
 		set: {
@@ -29,4 +29,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

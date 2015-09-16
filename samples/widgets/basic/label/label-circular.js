@@ -2,31 +2,20 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 //	layout: 'bar',
 	defaultItem: {
 		etype: 'label',
-		cls: 'circular'
+		as: 'circular'
 	},
-	items: [{
-		text: 'default',
-		cls: 'default'
-	}, {
-		text: 'primary',
-		cls: 'primary'
-	}, {
-		text: 'success',
-		cls: 'success'
-	}, {
-		text: 'info',
-		cls: 'info'
-	}, {
-		text: 'warning',
-		cls: 'warning'
-	}, {
-		text: 'danger',
-		cls: 'danger'
-	}]
+	items: [
+		{	text: 'default', as: 'default' },
+		{	text: 'primary', as: 'primary' },
+		{	text: 'success', as: 'success' },
+		{	text: 'info', as: 'info' },
+		{	text: 'warning', as: 'warning' },
+		{	text: 'danger',	as: 'danger' }
+	]
 });
 
 w.render('#sample');
@@ -38,38 +27,24 @@ $.ergo({etype: 'html:br', renderTo: '#sample'});
 var w = $.ergo({
 	etype: 'box',
 //	layout: 'bar',
-	cls: 'items __gap',
+	as: 'items __gap',
 //	style: {'margin-top': 16},
 	defaultItem: {
 		etype: 'label',
-		cls: 'circular'
+		as: 'circular'
 	},
-	items: [{
-		text: '1',
-		cls: 'default'
-	}, {
-		text: '-3',
-		cls: 'basic'
-	}, {
-		text: '2',
-		cls: 'primary'
-	}, {
-		text: '30',
-		cls: 'success'
-	}, {
-		text: '40',
-		cls: 'info'
-	}, {
-		text: '500',
-		cls: 'warning'
-	}, {
-		text: '600',
-		cls: 'danger'
-	}]
+	items: [
+		{	text: '1', as: 'default' },
+		{	text: '-3', as: 'basic'	},
+		{	text: '2', as: 'primary' },
+		{	text: '30',	as: 'success' },
+		{	text: '40',	as: 'info' },
+		{	text: '500', as: 'warning' },
+		{	text: '600', as: 'danger' }
+	]
 });
 
 
 
 
 w.render('#sample');
-

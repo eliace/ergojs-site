@@ -2,17 +2,17 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'striped padded',
+	as: 'striped padded',
 	defaultItem: {
 		layout: 'hbox',
-		cls: 'item box padding',
+		as: 'item box padding',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 40
 		},
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		set: {
 			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
@@ -22,5 +22,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
-

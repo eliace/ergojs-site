@@ -23,7 +23,7 @@ var w = $.ergo({
 	components: {
 		icon: {
 			etype: 'icon',
-			cls: 'fa fa-home'
+			as: 'fa fa-home'
 		},
 		content: {
 			etype: '.',
@@ -31,7 +31,7 @@ var w = $.ergo({
 		},
 		xicon: {
 			etype: 'icon',
-			cls: 'fa fa-angle-double-right'			
+			as: 'fa fa-angle-double-right'			
 		}
 	}
 });

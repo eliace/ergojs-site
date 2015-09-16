@@ -3,7 +3,7 @@
 var w = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'bordered divided padded',
+	as: 'bordered divided padded',
 	$header: {
 	},
 	$content: {

@@ -4,22 +4,22 @@
 
 var login1 = $.ergo({
 	etype: 'panel',
-	cls: 'inverted padded paper divided rounded',
+	as: 'inverted padded paper divided rounded',
 	width: 240,
 	$header: {
 		$content: {
 			etype: 'html:h4',
 			text: 'Sign In',
-			cls: 'header'
+			as: 'title'
 		}
 	},
 	$content: {
 		$form: {
 			etype: 'html:form',
 			layout: 'vbox',
-			cls: '__gap',
+			as: '__gap',
 			defaultItem: {
-				cls: 'fluid',
+				as: 'fluid',
 			},
 			items: [{
 				etype: 'input',
@@ -35,7 +35,7 @@ var login1 = $.ergo({
 			}, {
 				etype: 'button',
 				text: 'Sign In',
-				cls: 'primary',
+				as: 'primary',
 			}]
 		}
 	}
@@ -49,25 +49,25 @@ var login1 = $.ergo({
 
 var login2 = $.ergo({
 	etype: 'html:form',
-	cls: 'card paper rounded',
+	as: 'card paper rounded',
 	width: 240,
 	$header: {
 		etype: 'html:h3',
-		cls: 'header padding',
+		as: 'title padding',
 		text: 'Sign In'
 	},
 	$content: {
 		etype: 'box',
-		cls: 'content box padding __gap',
+		as: 'content box padding __gap',
 		layout: 'vbox',
 		defaultItem: {
-			cls: 'fluid'
+			as: 'fluid'
 		},
 		items: [{
 			etype: 'input',
 			include: 'icon:at-right',
 			icon: 'fa-user',
-			placeholder: 'Login'				
+			placeholder: 'Login'
 		}, {
 			etype: 'input',
 			include: 'icon:at-right',
@@ -78,11 +78,11 @@ var login2 = $.ergo({
 	},
 	$footer: {
 		etype: 'box',
-		cls: 'content box padding __center',
+		as: 'content box padding __center',
 		layout: 'hbox',
 		items: [{
 			etype: 'button',
-			cls: 'primary',
+			as: 'primary',
 			text: 'Sign In'
 		}]
 	}
@@ -94,25 +94,25 @@ var login2 = $.ergo({
 
 var login3 = $.ergo({
 	etype: 'html:form',
-	cls: 'card',
+	as: 'card',
 	width: 240,
 	$header: {
 		etype: 'html:h3',
-		cls: 'header box divided basic',
+		as: 'title box divided basic',
 		text: 'Sign In'
 	},
 	$content: {
 		etype: 'box',
-		cls: 'content box padding __gap',
+		as: 'content box padding __gap',
 		layout: 'vbox',
 		defaultItem: {
-			cls: 'fluid'
+			as: 'fluid'
 		},
 		items: [{
 			etype: 'input',
 			include: 'icon:at-right',
 			icon: 'fa-user',
-			placeholder: 'Login'				
+			placeholder: 'Login'
 		}, {
 			etype: 'input',
 			include: 'icon:at-right',
@@ -123,11 +123,11 @@ var login3 = $.ergo({
 	},
 	$footer: {
 		etype: 'box',
-		cls: 'content box padding',
+		as: 'content box padding',
 		layout: 'hbox',
 		items: [{
 			etype: 'button',
-			cls: 'primary outlined fluid',
+			as: 'primary outlined fluid',
 			text: 'Sign In'
 		}]
 	}
@@ -143,5 +143,3 @@ $context.split();
 login2.render('#sample');
 $context.split();
 login3.render('#sample');
-
-

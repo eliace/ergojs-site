@@ -1,16 +1,15 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	items: [{
 		etype: 'button',
 		text: 'Selected',
-		state: 'primary selected'
+		as: 'primary selected'
 	}, {
 		etype: 'button',
 		text: 'Disabled',
-		state: 'primary disabled'
+		as: 'primary disabled'
 	}]
 });
-

@@ -18,13 +18,13 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider, url: 'data/grid
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 400,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false

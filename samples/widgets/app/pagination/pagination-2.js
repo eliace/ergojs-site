@@ -2,7 +2,7 @@
 
 var w2 = $.ergo({
 	etype: 'panel',
-	cls: 'box bordered divided padded',
+	as: 'box bordered divided padded',
 	title: 'Pagination',
 	renderTo: '#sample',
 	data: new PageCollection(),
@@ -17,11 +17,11 @@ var w2 = $.ergo({
 			items: [{
 				etype: 'grid-pagination',
 //				state: 'tiny'
-			}]			
-		}		
+			}]
+		}
 	},
 	$content: {
-		cls: 'panel-content',
+		as: 'panel-content',
 		text: LOREMIPSUM
 	},
 	$footer: {
@@ -39,9 +39,9 @@ var w2 = $.ergo({
 		'index': function(index) {
 
 			this.data.opt('index', index);
-			
+
 			this.data.fetch();
-			
+
 		}
 	}
 });

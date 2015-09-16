@@ -3,7 +3,7 @@
 var w = $.ergo({
 	etype: 'box',
 
-	cls: 'button',
+	as: 'button',
 
 	include: 'dropdown',
 
@@ -22,27 +22,27 @@ var w = $.ergo({
 	},
 
 	$dropdown: {
-		cls: 'hovered',
+		as: 'hovered',
 		events: {
 			'jquery:click': function(e) {
 				return false;
 			}
 		},
 		$filter: {
-			cls: 'border-bottom',
+			as: 'border-bottom',
 			$content: {
 				etype: 'input',
-				cls: 'icon right',
+				as: 'icon right',
 				placeholder: 'Поиск...',
 				$icon: {
 					etype: 'icon',
-					cls: 'fa-search right',
+					as: 'fa-search right',
 					weight: 10
 				}
 			}
 		},
 		defaultItem: {
-			cls: 'item',
+			as: 'item',
 			onClick: 'action:close'
 			// onClick: function() {
 			// 	this.events.rise('close');

@@ -1,11 +1,11 @@
 
-var Provider = new Ergo.data.AjaxProvider('data/mock-30.json'); 
+var Provider = new Ergo.data.AjaxProvider('data/mock-30.json');
 
 
 
 $.ergo({
 	etype: 'list',
-	cls: 'list',
+	as: 'list',
 	renderTo: '#sample',
 	data: new Ergo.data.Collection({provider: Provider}),
 	autoFetch: true,
@@ -36,7 +36,7 @@ $.ergo({
 				// },
 				set: {
 					'label': function(v) { this.label.opt('icon', v); }
-				}				
+				}
 			},
 			items: [{
 				etype: 'text',
@@ -54,4 +54,3 @@ $.ergo({
 		}
 	}
 });
-

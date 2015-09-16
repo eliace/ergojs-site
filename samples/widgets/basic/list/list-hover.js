@@ -1,13 +1,13 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: 'hovered padded',
+	as: 'hovered padded',
 	defaultItem: {
 		layout: 'hbox',
-		cls: 'item box padding',
+		as: 'item box padding',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 40
 		},
 		$content: {
@@ -21,5 +21,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
-

@@ -35,7 +35,7 @@ $context.section_end('item-text');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item'
 	},
@@ -44,7 +44,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
 $context.section('Иконка');
 $context.section_begin('item-icon');
 $context.section_end('item-icon');
@@ -52,12 +51,12 @@ $context.section_end('item-icon');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$icon: {
 			etype: 'icon',
-			cls: 'fa-envelope before medium circular basic',
+			as: 'fa-envelope before medium circular basic',
 			weight: -10
 		}
 	},
@@ -66,7 +65,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
 $context.section('Картинка');
 $context.section_begin('item-image');
 $context.section_end('item-image');
@@ -74,12 +72,12 @@ $context.section_end('item-image');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
 			etype: 'image',
-			cls: 'circular small before',
+			as: 'circular small before',
 //			width: 48,
 			weight: -10
 		},
@@ -92,7 +90,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
 $context.section('Описание', 'Добавляем компонент с описанием');
 $context.section_begin('item-desc');
 $context.section_end('item-desc');
@@ -100,12 +97,12 @@ $context.section_end('item-desc');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 48,
 			weight: -10
 		},
@@ -115,7 +112,7 @@ var w = $.ergo({
 			// },
 			$description: {
 				etype: 'html:small',
-				cls: 'description'
+				as: 'description'
 			}
 		},
 		set: {
@@ -128,7 +125,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
 $context.section('Заголовок', 'Добавляем компонент с заголовком');
 $context.section_begin('item-title');
 $context.section_end('item-title');
@@ -136,19 +132,19 @@ $context.section_end('item-title');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
 			etype: 'html:img',
-			cls: 'image circular before',
+			as: 'image circular before',
 			width: 48,
 			weight: -10
 		},
 		$content: {
 			$content: {
 				etype: 'html:h4',
-				cls: 'title'
+				as: 'title'
 			},
 			$description: {
 				etype: '.'
@@ -164,7 +160,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
 $context.section('Колоночная компоновка');
 $context.section_begin('item-columns');
 $context.section_end('item-columns');
@@ -172,17 +167,17 @@ $context.section_end('item-columns');
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__indent',
+	as: '__indent',
 	defaultItem: {
 		etype: 'item',
 		layout: {
 			etype: 'columns',
 			autoClass: true
 		},
-		cls: 'items-align-top',
+		as: 'items-align-top',
 		$image: {
 			etype: 'html:img',
-			cls: 'circular before',
+			as: 'circular before',
 			width: 48,
 			weight: -10
 		},
@@ -192,10 +187,10 @@ var w = $.ergo({
 		},
 		$content: {
 			etype: 'box',
-			cls: 'text-right',
+			as: 'text-right',
 			$description: {
 				etype: 'html:small',
-				cls: 'description'
+				as: 'description'
 			},
 			weight: 10,
 			width: 150

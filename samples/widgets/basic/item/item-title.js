@@ -2,19 +2,19 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item',
 		$image: {
 			etype: 'html:img',
-			cls: 'image circular before',
+			as: 'image circular before',
 			width: 48,
 			weight: -10
 		},
 		$content: {
 			$content: {
 				etype: 'html:h4',
-				cls: 'title'
+				as: 'title'
 			},
 			$description: {
 				etype: '.'
@@ -29,4 +29,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

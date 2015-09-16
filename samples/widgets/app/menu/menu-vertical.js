@@ -3,16 +3,14 @@
 var menu = $.ergo({
 	etype: 'menu',
 	include: 'selectable',
-	cls: 'vertical left underlined divided',
+	as: 'vertical left underlined divided',
 	width: 240,
 	defaultItem: {
-		onClick: function() {
-			this.events.rise('select');
-		},
+		onClick: 'action:select',
 		$content: {
 			$label: {
 				etype: 'label',
-				cls: 'float-right small red',
+				as: 'float-right small red',
 				hidden: true
 			},
 			set: {
@@ -56,7 +54,7 @@ $context.split();
 var menu2 = $.ergo({
 	etype: 'menu',
 	include: 'selectable',
-	cls: 'vertical left',
+	as: 'vertical left',
 	width: 240,
 	defaultItem: {
 		onClick: function() {
@@ -65,7 +63,7 @@ var menu2 = $.ergo({
 		$content: {
 			$label: {
 				etype: 'label',
-				cls: 'float-right small teal',
+				as: 'float-right small teal',
 				hidden: true
 			},
 			set: {
@@ -73,7 +71,7 @@ var menu2 = $.ergo({
 					this.$label.opt('hidden', !v);
 					this.$label.opt('text', v);
 				}
-			}			
+			}
 		},
 	},
 	items: [
@@ -110,16 +108,14 @@ $context.split();
 var menu3 = $.ergo({
 	etype: 'menu',
 	include: 'selectable',
-	cls: 'vertical left tabular divided',
+	as: 'vertical left tabular divided',
 	width: 240,
 	defaultItem: {
-		onClick: function() {
-			this.events.rise('select');
-		},
+		onClick: 'action:select',
 		$content: {
 			$label: {
 				etype: 'label',
-				cls: 'float-right small primary circular',
+				as: 'float-right small primary circular',
 				hidden: true
 			},
 			set: {
@@ -127,12 +123,12 @@ var menu3 = $.ergo({
 					this.$label.opt('hidden', !v);
 					this.$label.opt('text', v);
 				}
-			}			
+			}
 		},
 	},
 	items: [
-		{	text: 'Dashboard'	}, 
-		{	text: 'Mail' }, 
+		{	text: 'Dashboard'	},
+		{	text: 'Mail' },
 		{	text: 'Tasks',	$content_label: '12' }
 	],
 	set: {
@@ -146,9 +142,3 @@ var menu3 = $.ergo({
 menu3.render('#sample');
 
 menu3.opt('index', 0);
-
-
-
-
-
-

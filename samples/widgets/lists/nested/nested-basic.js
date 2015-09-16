@@ -5,16 +5,16 @@
 
 var w = $.ergo({
 	etype: 'nested-list',
-	cls: 'list nested hovered divide',
+	as: 'list nested hovered divide',
 	data: data,
 	nestedItem: {
 		$content: {
 			etype: 'box',
-			cls: 'item padding-vertical',
+			as: 'item padding-vertical',
 			// аватарка пользователя
 			$avatar: {
 				etype: 'html:img',
-				cls: 'rounded before',
+				as: 'rounded before',
 				binding: 'src',
 				format: function(v) {
 					var s = v.id;
@@ -33,14 +33,14 @@ var w = $.ergo({
 				},
 				$email: {
 					etype: 'text',
-					cls: 'description',
+					as: 'description',
 					format: '#{email}'
 				}
 			}
 		},
 		$sub: {
 			hidden: false,
-			cls: 'list nested hovered divide',
+			as: 'list nested hovered divide',
 			// "Магия"" происходит тут
 			events: {
 				'item:added': function(e) {
@@ -59,4 +59,3 @@ var w = $.ergo({
 
 
 w.render('#sample');
-

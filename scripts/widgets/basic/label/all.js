@@ -19,16 +19,12 @@ $context.section_end('label-icon');
 
 var w = $.ergo({
 	etype: 'label',
+	include: 'icon:before',
 	text: '42',
-	$icon: {
-		etype: 'icon',
-		weight: -10,
-		cls: 'fa-envelope before'
-	}
+	icon: 'fa-envelope'
 });
 
 w.render('#sample');
-
 
 $context.section('С вложенным компонентом');
 $context.section_begin('label-content');
@@ -41,12 +37,11 @@ var w = $.ergo({
 		etype: 'text',
 		text: '15',
 		weight: 10,
-		cls: 'after'
+		as: 'after'
 	}
 });
 
 w.render('#sample');
-
 
 $context.section('С действием');
 $context.section_begin('label-action');
@@ -58,12 +53,11 @@ var w = $.ergo({
 	$close: {
 		etype: 'icon',
 		weight: 10,
-		cls: 'contextual action fa-remove after'
+		as: 'contextual action fa-remove after'
 	}
 });
 
 w.render('#sample');
-
 
 $context.section('Со ссылкой');
 $context.section_begin('label-link');
@@ -76,21 +70,20 @@ var w = $.ergo({
 	$link: {
 		etype: 'link',
 		weight: 10,
-		cls: 'after',
+		as: 'after',
 		text: '37',
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		$icon: {
 			etype: 'icon',
 			weight: -10,
-			cls: 'fa-envelope before'				
+			as: 'fa-envelope before'
 		}
 	}
 });
 
 w.render('#sample');
-
 
 $context.section('С указателем');
 $context.section_begin('label-pointer');
@@ -99,7 +92,7 @@ $context.section_end('label-pointer');
 var w = $.ergo({
 	etype: 'html:form',
 //	width: 800,
-	cls: '__gap-x2 divided',
+	as: '__gap-x2 divided',
 	layout: {
 		etype: 'vbox',
 		wrapper: function(item) {
@@ -118,10 +111,10 @@ var w = $.ergo({
 	items: [{
 		etype: 'input',
 		placeholder: 'Фамилия',
-		cls: 'block',
+		as: 'block',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-above',
+			as: 'pointing-above',
 			text: 'Введите значение'
 		}
 	}/*, {
@@ -130,10 +123,10 @@ var w = $.ergo({
 	}*/, {
 		etype: 'input',
 		placeholder: 'Имя',
-		cls: 'block',
+		as: 'block',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-below',
+			as: 'pointing-below',
 			text: 'Введите значение'
 		}
 	}/*, {
@@ -144,7 +137,7 @@ var w = $.ergo({
 		placeholder: 'Отчество',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-left',
+			as: 'pointing-left',
 			text: 'Введите значение'
 		}
 	}/*, {
@@ -155,14 +148,13 @@ var w = $.ergo({
 		placeholder: 'Место рождения',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-right',
+			as: 'pointing-right',
 			text: 'Введите значение'
 		}
 	}]
 });
 
 w.render('#sample');
-
 
 $context.section('Лента');
 $context.section_begin('label-ribbon');
@@ -172,11 +164,11 @@ $context.section_end('label-ribbon');
 var w = $.ergo({
 	etype: 'box',
 	width: 600,
-	cls: 'bordered rounded paper padding-x2',
+	as: 'bordered rounded paper padding-x2',
 //	style: {'margin-top': 16},
 	$ribbon: {
 		etype: 'label',
-		cls: 'ribbon left',
+		as: 'ribbon left',
 		text: 'Метка'
 	},
 	$title: {
@@ -209,22 +201,21 @@ var w = $.ergo({
 			}
 			return w;
 		}
-	},	
+	},
 	$content: {
 		etype: 'html:img',
 		src: 'img/galleries/space/preview/solar_2-wallpaper-1366x768.jpg',
-		cls: 'width-small',
+		as: 'width-small',
 		$label: {
 			etype: 'label',
-			cls: 'ribbon primary left',
+			as: 'ribbon primary left',
 			text: 'Изображение',
 			style: {'position': 'absolute', 'left': 'calc(-16px)', 'top': 16}
-		}		
+		}
 	}
 });
 
 w.render('#sample');
-
 
 $context.section('Цвета');
 $context.section_begin('label-color');
@@ -232,35 +223,22 @@ $context.section_end('label-color');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 //	layout: 'bar',
 	defaultItem: 'label',
-	items: [{
-		text: 'default',
-	}, {
-		text: 'basic',
-		cls: 'basic'
-	}, {
-		text: 'primary',
-		cls: 'primary'
-	}, {
-		text: 'success',
-		cls: 'success'
-	}, {
-		text: 'info',
-		cls: 'info'
-	}, {
-		text: 'warning',
-		cls: 'warning'
-	}, {
-		text: 'danger',
-		cls: 'danger'
-	}]
+	items: [
+		{	text: 'default' },
+		{	text: 'basic', as: 'basic' },
+		{	text: 'primary', as: 'primary' },
+		{	text: 'success', as: 'success' },
+		{ text: 'info',	as: 'info' },
+		{	text: 'warning', as: 'warning' },
+		{	text: 'danger',	as: 'danger' }
+	]
 });
 
 
 w.render('#sample');
-
 
 $context.section('Круглые');
 $context.section_begin('label-circular');
@@ -269,31 +247,20 @@ $context.section_end('label-circular');
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 //	layout: 'bar',
 	defaultItem: {
 		etype: 'label',
-		cls: 'circular'
+		as: 'circular'
 	},
-	items: [{
-		text: 'default',
-		cls: 'default'
-	}, {
-		text: 'primary',
-		cls: 'primary'
-	}, {
-		text: 'success',
-		cls: 'success'
-	}, {
-		text: 'info',
-		cls: 'info'
-	}, {
-		text: 'warning',
-		cls: 'warning'
-	}, {
-		text: 'danger',
-		cls: 'danger'
-	}]
+	items: [
+		{	text: 'default', as: 'default' },
+		{	text: 'primary', as: 'primary' },
+		{	text: 'success', as: 'success' },
+		{	text: 'info', as: 'info' },
+		{	text: 'warning', as: 'warning' },
+		{	text: 'danger',	as: 'danger' }
+	]
 });
 
 w.render('#sample');
@@ -305,40 +272,26 @@ $.ergo({etype: 'html:br', renderTo: '#sample'});
 var w = $.ergo({
 	etype: 'box',
 //	layout: 'bar',
-	cls: 'items __gap',
+	as: 'items __gap',
 //	style: {'margin-top': 16},
 	defaultItem: {
 		etype: 'label',
-		cls: 'circular'
+		as: 'circular'
 	},
-	items: [{
-		text: '1',
-		cls: 'default'
-	}, {
-		text: '-3',
-		cls: 'basic'
-	}, {
-		text: '2',
-		cls: 'primary'
-	}, {
-		text: '30',
-		cls: 'success'
-	}, {
-		text: '40',
-		cls: 'info'
-	}, {
-		text: '500',
-		cls: 'warning'
-	}, {
-		text: '600',
-		cls: 'danger'
-	}]
+	items: [
+		{	text: '1', as: 'default' },
+		{	text: '-3', as: 'basic'	},
+		{	text: '2', as: 'primary' },
+		{	text: '30',	as: 'success' },
+		{	text: '40',	as: 'info' },
+		{	text: '500', as: 'warning' },
+		{	text: '600', as: 'danger' }
+	]
 });
 
 
 
 
 w.render('#sample');
-
 
 

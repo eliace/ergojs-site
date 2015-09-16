@@ -1,11 +1,9 @@
 
 var w = $.ergo({
 	etype: 'button-box',
-	cls: 'group',
+	as: 'group',
 	defaultItem: {
-		onClick: function() {
-			this.states.toggle('selected');
-		}
+		onClick: 'action:select'
 	},
 	items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3']
 });

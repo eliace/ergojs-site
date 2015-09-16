@@ -1,13 +1,9 @@
 
 var w = $.ergo({
 	etype: 'label',
+	include: 'icon:before',
 	text: '42',
-	$icon: {
-		etype: 'icon',
-		weight: -10,
-		cls: 'fa-envelope before'
-	}
+	icon: 'fa-envelope'
 });
 
 w.render('#sample');
-

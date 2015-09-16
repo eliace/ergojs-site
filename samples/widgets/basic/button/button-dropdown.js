@@ -1,12 +1,12 @@
 
 $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
 		$dropdown: {
-			cls: '__hover',
+			as: '__hover',
 			items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
 		}
 	},
@@ -15,19 +15,19 @@ $.ergo({
 //		type: 'default'
 	}, {
 		text: 'Basic',
-		type: 'basic'
+		as: 'basic'
 	}, {
 		text: 'Primary',
-		type: 'primary'
+		as: 'primary'
 	}, {
 		text: 'Success',
-		type: 'success'
+		as: 'success'
 	}, {
 		text: 'Warning',
-		type: 'warning'
+		as: 'warning'
 	}, {
 		text: 'Danger',
-		type: 'danger'
+		as: 'danger'
 	}]
 });
 
@@ -40,7 +40,7 @@ $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'dropdown-button',
@@ -50,7 +50,7 @@ $.ergo({
 		// },
 		$dropdown: {
 //			state: 'dropup',
-			cls: '__hover',
+			as: '__hover',
 			items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
 		}
 	},
@@ -59,19 +59,18 @@ $.ergo({
 //		type: 'default'
 	}, {
 		text: 'Basic',
-		type: 'basic'
+		as: 'basic'
 	}, {
 		text: 'Primary',
-		type: 'primary'
+		as: 'primary'
 	}, {
 		text: 'Success',
-		type: 'success'
+		as: 'success'
 	}, {
 		text: 'Warning',
-		type: 'warning'
+		as: 'warning'
 	}, {
 		text: 'Danger',
-		type: 'danger'
+		as: 'danger'
 	}]
 });
-

@@ -1,25 +1,24 @@
 
 w = $.ergo({
 	etype: 'html:nav',
-	cls: 'navigation underlined has-icon at-left at-right padding medium',
-	layout: 'fluid',
+	as: 'navigation underlined has-icon at-left at-right padding medium',
+	layout: 'float',
 	$icon: {
 		etype: 'icon',
-		cls: 'fa-chevron-left contextual left'
+		as: 'fa-chevron-left contextual left'
 	},
 	$xicon: {
 		etype: 'icon',
 		weight: 100,
-		cls: 'fa-bars contextual right'
+		as: 'fa-bars contextual right'
 	},
 	$content: {
 		etype: 'box',
 		$clock: {
 			text: '10:00',
-			cls: 'nav-clock'
+			as: 'nav-clock'
 		},
 	}
 });
 
 w.render('#sample');
-

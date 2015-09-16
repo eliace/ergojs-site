@@ -7,7 +7,7 @@ $context.section_end('panel-basic');
 var w = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'bordered divided padded',
+	as: 'bordered divided padded',
 	$header: {
 	},
 	$content: {
@@ -23,6 +23,7 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
 $context.section('Заголовок');
 $context.section_begin('panel-header');
 $context.section_end('panel-header');
@@ -31,15 +32,15 @@ $context.section_end('panel-header');
 var panel1 = $.ergo({
 	etype: 'panel',
 	title: 'Title',
-	cls: 'padded divided-header',
+	as: 'padded divided-header',
 	$header: {
 //		cls: 'no-padding',
 		$title: {
 			etype: 'html:h5',
-			cls: 'title',
+			as: 'title',
 			$icon: {
 				etype: 'icon',
-				cls: 'fa-cogs before medium',
+				as: 'fa-cogs before medium',
 				weight: -10
 			},
 			$content: {
@@ -49,7 +50,7 @@ var panel1 = $.ergo({
 				},
 				$subheader: {
 					etype: 'title',
-					cls: 'sub',
+					as: 'sub',
 					text: 'Управление системными параметрами, пользователями и пр.'
 				}
 			}
@@ -67,10 +68,10 @@ var panel1 = $.ergo({
 var panel2 = $.ergo({
 	etype: 'panel',
 	title: 'Title',
-	cls: 'padded',
+	as: 'padded',
 	$header: {
 		$title: {
-			cls: 'large'
+			as: 'large'
 		}
 	},
 	$content: {
@@ -83,14 +84,11 @@ var panel2 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'list __gap-x4',
+	as: 'list __gap-x4',
 //	layout: 'grid',
 	renderTo: '#sample',
 	items: [ panel1, panel2 ]
 });
-
-
-
 
 $context.section('Кнопки в подвале');
 $context.section_begin('panel-buttons-footer');
@@ -100,7 +98,7 @@ $context.section_end('panel-buttons-footer');
 var panel1 = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'padded',
+	as: 'padded',
 // 	$header: {
 // //		cls: 'no-padding',
 // 		$content: {
@@ -115,16 +113,16 @@ var panel1 = $.ergo({
 	$footer: {
 //			autoRender: true,
 		layout: 'hbox',
-		cls: '__right',
+		as: '__right',
 		$buttons: {
 			etype: 'box',
-			cls: 'items __gap',
+			as: 'items __gap',
 			defaultItem: {
 				etype: 'button'
 			},
-			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
 		}
-	}			
+	}
 });
 
 
@@ -132,7 +130,7 @@ var panel1 = $.ergo({
 var panel2 = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'padded',
+	as: 'padded',
 	// $header: {
 	// 	cls: 'box border-bottom'
 	// },
@@ -147,26 +145,26 @@ var panel2 = $.ergo({
 //			etype: 'tool-bar',
 //			state: 'center',
 		layout: 'hbox',
-		cls: '__center __gap',
+		as: '__center __gap',
 		$buttons: {
 			etype: 'box',
 //			layout: 'hbox',
-			cls: 'items __gap',				
+			as: 'items __gap',
 			defaultItem: {
 				etype: 'button'
 			},
-			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
 		},
 		$icons: {
 			etype: 'box',
 //			layout: 'hbox',
-			cls: 'items __gap',				
+			as: 'items __gap',				
 			defaultItem: {
 				etype: 'icon-button'
 			},
-			items: ['fa-globe', 'fa-cogs']			
+			items: ['fa-globe', 'fa-cogs']
 		}
-	}			
+	}
 });
 
 
@@ -183,7 +181,6 @@ var w = $.ergo({
 
 w.render('#sample');
 
-
 $context.section('Кнопки в заголовке');
 $context.section_begin('panel-buttons-header');
 $context.section_end('panel-buttons-header');
@@ -192,20 +189,20 @@ $context.section_end('panel-buttons-header');
 var panel1 = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'bordered divided padded',
+	as: 'bordered divided padded',
 	$header: {
 //		cls: 'box-medium',
 		layout: 'fluid',
-		cls: 'padding',
+		as: 'padding',
 //		cls: 'adjust medium',
 		$toolbar: {
 //			etype: 'tool-bar',
 			etype: 'box',
-			cls: 'align-right',
+			as: 'align-right',
 			items: [{
 //				layout: 'bar',
 				layout: 'hbox',
-				cls: '__gap',
+				as: '__gap',
 				defaultItem: {
 					etype: 'button'
 				},
@@ -216,7 +213,7 @@ var panel1 = $.ergo({
 	$content: {
 //		cls: 'panel-content',
 		text: LOREMIPSUM
-	}	
+	}
 });
 
 
@@ -224,19 +221,19 @@ var panel1 = $.ergo({
 var panel2 = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'bordered divided padded',
+	as: 'bordered divided padded',
 	$header: {
-		cls: 'padding',
+		as: 'padding',
 		layout: 'fluid',
 		$toolbar: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: 'align-right __gap',
+			as: 'align-right __gap',
 			items: [{
 //				etype: 'button-box',
 				etype: 'box',
 				layout: 'hbox',
-				cls: '__gap',
+				as: '__gap',
 				defaultItem: {
 					etype: 'button'
 //					cls: 'tool-item'
@@ -246,7 +243,7 @@ var panel2 = $.ergo({
 			}, {
 				etype: 'box',
 				layout: 'hbox',
-				cls: '__gap',
+				as: '__gap',
 //					cls: 'tools-tiny',
 				defaultItem: {
 					etype: 'icon-button'
@@ -272,9 +269,9 @@ var panel2 = $.ergo({
 // 			defaultItem: {
 // 				etype: 'button'
 // 			},
-// 			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+// 			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
 // 		}
-// 	}	
+// 	}
 });
 
 
@@ -287,7 +284,6 @@ $.ergo({
 	items: [ panel1, panel2 ]
 });
 
-
 $context.section('Типы');
 $context.section_begin('panel-type');
 $context.section_end('panel-type');
@@ -298,7 +294,7 @@ var w = $.ergo({
 	// pattern: [4, 4, 4],
 //	renderTo: '#sample',
 //	cls: 'list',
-	
+
 	layout: {
 		etype: 'tiles',
 		size: 4
@@ -308,7 +304,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'panel',
 //		width: 187,
-		cls: 'bordered divided padded margin',
+		as: 'bordered divided padded margin',
 		// $footer: {
 		// 	autoRender: true,
 		// 	$toolbar: {
@@ -327,33 +323,20 @@ var w = $.ergo({
 			text: LOREMIPSUM.substr(0, 200)
 		}
 	},
-	items: [{
-		title: 'Default',
-	}, {
-		title: 'Basic',		
-		cls: 'basic'
-	}, {
-		title: 'Primary',		
-		cls: 'primary'
-	}, {
-		title: 'Success',
-		cls: 'success'
-	}, {
-		title: 'Info',
-		cls: 'info'
-	}, {
-		title: 'Warning',
-		cls: 'warning'
-	}, {
-		title: 'Danger',
-		cls: 'danger'
-	}, {
-		title: 'Inverted',
-		cls: 'inverted'
-	}]
+	items: [
+		{	title: 'Default' },
+		{	title: 'Basic',	as: 'basic' },
+		{	title: 'Primary',	as: 'primary' },
+		{	title: 'Success',	as: 'success'	},
+		{	title: 'Info', as: 'info'	}, 
+		{	title: 'Warning',	as: 'warning'	},
+		{	title: 'Danger', as: 'danger' },
+		{	title: 'Inverted', as: 'inverted'	}
+	]
 });
 
 
 w.render('#sample');
+
 
 

@@ -5,27 +5,14 @@ var w = $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'button',
-		cls: 'tool'
+		as: 'tool'
 	},
-	items: [{
-		text: 'Default',
-		type: 'default'
-	}, {
-		text: 'Primary',
-		type: 'primary'
-	}, {
-		text: 'Success',
-		type: 'success'
-	}, {
-		text: 'Warning',
-		type: 'warning'
-	}, {
-		text: 'Danger',
-		type: 'danger'
-	}/*, {
-		text: 'Tool',
-		type: 'tool'
-	}*/]
+	items: [
+		{	text: 'Default'	},
+		{	as: 'basic', text: 'Basic' },
+		{	as: 'primary', text: 'Primary' },
+		{	as: 'success', text: 'Success' },
+		{	as: 'warning', text: 'Warning' },
+		{	as: 'danger', text: 'Danger' }
+	]
 });
-
-

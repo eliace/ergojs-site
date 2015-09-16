@@ -3,20 +3,20 @@
 var panel1 = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'bordered divided padded',
+	as: 'bordered divided padded',
 	$header: {
 //		cls: 'box-medium',
 		layout: 'fluid',
-		cls: 'padding',
+		as: 'padding',
 //		cls: 'adjust medium',
 		$toolbar: {
 //			etype: 'tool-bar',
 			etype: 'box',
-			cls: 'align-right',
+			as: 'align-right',
 			items: [{
 //				layout: 'bar',
 				layout: 'hbox',
-				cls: '__gap',
+				as: '__gap',
 				defaultItem: {
 					etype: 'button'
 				},
@@ -27,7 +27,7 @@ var panel1 = $.ergo({
 	$content: {
 //		cls: 'panel-content',
 		text: LOREMIPSUM
-	}	
+	}
 });
 
 
@@ -35,19 +35,19 @@ var panel1 = $.ergo({
 var panel2 = $.ergo({
 	etype: 'panel',
 	title: 'Header',
-	cls: 'bordered divided padded',
+	as: 'bordered divided padded',
 	$header: {
-		cls: 'padding',
+		as: 'padding',
 		layout: 'fluid',
 		$toolbar: {
 			etype: 'box',
 			layout: 'hbox',
-			cls: 'align-right __gap',
+			as: 'align-right __gap',
 			items: [{
 //				etype: 'button-box',
 				etype: 'box',
 				layout: 'hbox',
-				cls: '__gap',
+				as: '__gap',
 				defaultItem: {
 					etype: 'button'
 //					cls: 'tool-item'
@@ -57,7 +57,7 @@ var panel2 = $.ergo({
 			}, {
 				etype: 'box',
 				layout: 'hbox',
-				cls: '__gap',
+				as: '__gap',
 //					cls: 'tools-tiny',
 				defaultItem: {
 					etype: 'icon-button'
@@ -83,9 +83,9 @@ var panel2 = $.ergo({
 // 			defaultItem: {
 // 				etype: 'button'
 // 			},
-// 			items: [{text: 'ОК', state: 'primary'}, 'Отмена']			
+// 			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
 // 		}
-// 	}	
+// 	}
 });
 
 
@@ -97,4 +97,3 @@ $.ergo({
 	renderTo: '#sample',
 	items: [ panel1, panel2 ]
 });
-

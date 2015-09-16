@@ -3,7 +3,7 @@
 
 var w = $.ergo({
 	etype: 'list',
-	cls: '__gap',
+	as: '__gap',
 	defaultItem: {
 		etype: 'item'
 	},
@@ -11,4 +11,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

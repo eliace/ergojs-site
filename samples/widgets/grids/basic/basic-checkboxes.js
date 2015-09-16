@@ -2,18 +2,18 @@
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table box grid single-line celled',
+	as: 'table box grid single-line celled',
 	height: 300,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false
 	},
-	
+
 	$header_$content: {
 		$control: {
 			$checkcol: {
@@ -31,11 +31,11 @@ var w = $.ergo({
 					$content: {
 						etype: 'check',
 						onChange: function() {
-							this.events.rise('checkAll', {value: this.opt('value')}); 
+							this.events.rise('checkAll', {value: this.opt('value')});
 						}
 					}
 				}
-			}			
+			}
 		}
 	},
 
@@ -57,7 +57,7 @@ var w = $.ergo({
 							etype: 'check',
 							autoBind: false,
 							onChange: function() {
-								this.events.rise('checkOne', {value: this.opt('value')}); 
+								this.events.rise('checkOne', {value: this.opt('value')});
 							}
 						}
 					}
@@ -65,7 +65,7 @@ var w = $.ergo({
 			}
 		}
 	},
-	
+
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
@@ -97,26 +97,26 @@ var w = $.ergo({
 		});
 	},
 	onCheckOne: function(e) {
-		
-		
+
+
 		var checked = 0;
 		this.rows().each(function(row) {
 			if(row.checkcol.content.opt('value')) checked++;
 		});
 		var checker = this.header.content.body.item(0).checkcol.content;
-		
-		
-//		console.log(checked, this.rows().count());		
-		
+
+
+//		console.log(checked, this.rows().count());
+
 		if(checked == 0)
 			checker.states.unset('indeterminate');
 		else if(checked < this.rows().count())
 			checker.states.set('indeterminate');
 		else {
-			checker.opt('value', true);			
+			checker.opt('value', true);
 			checker.states.unset('indeterminate');
 		}
-			
+
 	}
 });
 

@@ -4,7 +4,7 @@ var w = $.ergo({
 	layout: 'hbox',
 	renderTo: '#sample',
 	defaultItem: 'button',
-	cls: 'group',
+	as: 'group',
 //	cls: 'btn-box',
 	items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3']
 });
@@ -15,9 +15,8 @@ var w = $.ergo({
 	layout: 'vbox',
 	renderTo: '#sample',
 	defaultItem: 'button',
-	cls: 'group',
+	as: 'group',
 //	cls: 'btn-box',
 	items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3'],
 	style: {'margin-top': 16}
 });
-

@@ -10,10 +10,10 @@ COLORS.forEach(function(c, i) {
 
 var box1 = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'icon',
-		cls: 'label'
+		as: 'label'
 	},
 	items: colored_icons
 });

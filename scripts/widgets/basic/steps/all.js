@@ -7,10 +7,10 @@ $context.section_end('steps-basic');
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'hbox',
-	cls: 'steps bordered',
+	as: 'steps bordered',
 //	width: 800,
 	defaultItem: {
-		cls: 'step-item',
+		as: 'step-item',
 		$content: {
 			etype: 'text'
 		}
@@ -28,16 +28,16 @@ w.item(0).states.set('active');
 var w = $.ergo({
 	etype: 'list',
 //	layout: 'hbox',
-	cls: 'steps bordered',
+	as: 'steps bordered',
 //	width: 800,
 	style: {'display': 'table'},
 	defaultItem: {
-		cls: 'step-item',
+		as: 'step-item',
 		$content: {
 			etype: 'box',
 			$content: {
 				etype: 'text',
-				cls: 'item-title'
+				as: 'item-title'
 			},
 			$description: {
 				etype: 'box'
@@ -62,4 +62,3 @@ var w = $.ergo({
 w.render('#sample');
 
 w.item(0).states.set('active');
-

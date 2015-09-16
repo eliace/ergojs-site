@@ -2,10 +2,10 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'button',
-		cls: 'icon-button',
+		as: 'icon-button',
 		include: 'icon'
 		// $icon: {
 		// 	etype: 'icon'
@@ -18,23 +18,22 @@ var w = $.ergo({
 //		type: 'default',
 		icon: 'fa-filter'
 	}, {
-		type: 'basic',
+		as: 'basic',
 		icon: 'fa-edit'
 	}, {
-		type: 'primary',
+		as: 'primary',
 		icon: 'fa-upload'
 	}, {
-		type: 'success',
+		as: 'success',
 		icon: 'fa-check'
 	}, {
-		type: 'warning',
+		as: 'warning',
 		icon: 'fa-warning'
 	}, {
-		type: 'danger',
+		as: 'danger',
 		icon: 'fa-unlock'
 	}/*, {
 		type: 'tool',
 		icon: 'fa-copy'
 	}*/]
 });
-

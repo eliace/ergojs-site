@@ -2,25 +2,22 @@
 
 var acc = $.ergo({
 	etype: 'box',
-	cls: 'accordion list bordered rounded divided',
+	as: 'accordion list bordered rounded divided',
 	defaultItem: {
 		include: 'expandable exclusive-expand',
 		$title: {
 			etype: 'box',
-			cls: 'title action toggle box padding small',
+			as: 'title action toggle box padding small',
 			weight: -10,
 			$caret: {
 				etype: 'icon',
-				cls: 'caret',
-				state: 'point-right',
+				as: 'caret +point-right',
 				weight: -10
 			},
 			$content: {
 				etype: '.'
 			},
-			onClick: function() {
-				this.events.rise('expand');
-			}
+			onClick: 'action:expand'
 		},
 		$sub: {
 			etype: 'box',
@@ -29,7 +26,7 @@ var acc = $.ergo({
 				'show': {type: 'slideDown', delay: 300},
 				'hide': {type: 'slideUp', delay: 300}
 			},
-			cls: 'box padding'
+			as: 'box padding'
 		}
 	},
 	items: [{

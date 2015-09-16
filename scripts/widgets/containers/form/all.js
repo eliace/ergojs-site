@@ -7,12 +7,12 @@ $context.section_end('form-basic');
 
 var form = $.ergo({
 	etype: 'box',
-	cls: 'block border rounded padding heavy',
+	as: 'block border rounded padding heavy',
 
 	items: [{
 		etype: 'title',
 		text: 'Person',
-		cls: 'large divided'		
+		as: 'large divided'		
 	}, {
 		layout: 'hform',
 		items: [{
@@ -24,7 +24,7 @@ var form = $.ergo({
 		}, {
 			etype: 'input',
 			label: 'Middle Name'
-		}]		
+		}]
 	}, {
 		layout: 'hform',
 		pattern: [2, 10],
@@ -38,12 +38,11 @@ var form = $.ergo({
 			include: 'icon:at-right',
 			icon: 'fa-map-marker',
 			label: 'Birth Place'
-		}]		
+		}]
 	}]
 });
 
 form.render('#sample');
-
 
 $context.section('Flat');
 $context.section_begin('form-flat');
@@ -52,27 +51,27 @@ $context.section_end('form-flat');
 
 var form = $.ergo({
 	etype: 'box',
-	cls: 'block border rounded padding heavy',
+	as: 'block border rounded padding heavy',
 
 	items: [{
 		etype: 'title',
 		text: 'Person',
-		cls: 'large divided'		
+		as: 'large divided'
 	}, {
 		layout: 'hform',
 		items: [{
 			etype: 'input',
-			cls: 'flat primary',
+			as: 'flat primary',
 			text: 'First Name'
 		}, {
 			etype: 'input',
-			cls: 'flat primary',
+			as: 'flat primary',
 			text: 'Last Name'
 		}, {
 			etype: 'input',
-			cls: 'flat primary',
+			as: 'flat primary',
 			text: 'Middle Name'
-		}]		
+		}]
 	}, {
 		layout: 'hform',
 		pattern: [3, 9],
@@ -80,15 +79,15 @@ var form = $.ergo({
 			etype: 'input',
 			include: 'icon:at-left',
 			icon: 'fa-calendar',
-			cls: 'flat primary',
+			as: 'flat primary',
 			text: 'Birth Date'
 		}, {
 			etype: 'input',
 			include: 'icon:at-left',
 			icon: 'fa-map-marker',
-			cls: 'flat primary',
+			as: 'flat primary',
 			text: 'Birth Place'
-		}]		
+		}]
 	}]
 });
 
@@ -152,12 +151,12 @@ $context.section_end('form-message');
 
 var form = $.ergo({
 	etype: 'box',
-	cls: 'block border rounded padding heavy',
+	as: 'block border rounded padding heavy',
 
 	items: [{
 		etype: 'title',
 		text: 'Person',
-		cls: 'large divided'		
+		as: 'large divided'
 	}, {
 		layout: 'hform',
 		defaultItem: {
@@ -187,7 +186,7 @@ var form = $.ergo({
 		}, {
 			etype: 'input',
 			label: 'Middle Name'
-		}]		
+		}]
 	}, {
 		layout: 'hform',
 		pattern: [2, 10],
@@ -208,12 +207,11 @@ var form = $.ergo({
 			include: 'icon:at-right',
 			icon: 'fa-map-marker',
 			label: 'Birth Place'
-		}]		
+		}]
 	}]
 });
 
 form.render('#sample');
-
 
 
 

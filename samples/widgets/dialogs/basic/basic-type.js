@@ -1,7 +1,7 @@
 
 
 var dlg = new DialogX({
-	cls: 'paper center padded',
+	as: 'paper center padded',
 	title: 'Диалог',
 	states: {
 		'default:type': '',
@@ -22,7 +22,7 @@ var dlg = new DialogX({
 			etype: 'box',
 			layout: 'hbox',
 //			cls: 'fluid-right sz-normal',
-			cls: '__center __gap',
+			as: '__center __gap',
 			defaultItem: {
 				etype: 'button',
 				onClick: function() {
@@ -66,5 +66,5 @@ $.ergo({
 	text: 'Диалог',
 	onClick: function() {
 		this.options.dialog.open();
-	}	
+	}
 });

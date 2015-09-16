@@ -4,21 +4,20 @@ $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 //		layout: 'bar',
-		cls: 'box items __gap padding',
+		as: 'box items __gap padding',
 		defaultItem: {
 			etype: 'icon',
-			cls: 'contextual'
+			as: 'contextual'
 		},
 		items: ICONS
 	},
 	items: [
-		{cls: 'basic'},
-		{cls: 'primary'},
-		{cls: 'info'},
-		{cls: 'success'},
-		{cls: 'warning'},
-		{cls: 'danger'}
+		{as: 'basic'},
+		{as: 'primary'},
+		{as: 'info'},
+		{as: 'success'},
+		{as: 'warning'},
+		{as: 'danger'}
 	]
 
 });
-

@@ -1,15 +1,15 @@
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table box grid single-line celled',
+	as: 'table box grid single-line celled',
 	height: 300,
-	
+
 	column: {
 		// обычный заголовок
 		components: {
 			content: {
 				etype: 'link',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false
@@ -45,4 +45,3 @@ var w = $.ergo({
 
 
 w.render('#sample');
-

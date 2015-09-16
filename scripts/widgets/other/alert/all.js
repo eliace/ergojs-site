@@ -8,34 +8,34 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'alert',
 		$icon: {
-			cls: 'circular'
+			as: 'circular'
 		}
 	},
 	items: [{
 		icon: 'fa-cog',
 		title: 'Заголовок',
 		text: 'Текст сообщения',
-		state: 'basic'
+		as: 'basic'
 	}, {
 		icon: 'fa-info',
 		title: 'Информация!',
 		text: 'Полезная информация',
-		state: 'primary'
+		as: 'primary'
 	}, {
 		icon: 'fa-check',
 		title: 'Готово!',
 		text: 'Процесс завершен',
-		state: 'success'		
+		as: 'success'
 	}, {
 		icon: 'fa-bell-o',
 		title: 'Предупреждение!',
 		text: 'Последующие действия пользователя могут повредить данные.',
-		state: 'warning'
+		as: 'warning'
 	}, {
 		icon: 'fa-times',
 		title: 'Ошибка!',
 		text: 'Действия пользователя привели к исключительной ситуации',
-		state: 'danger'		
+		as: 'danger'		
 	}]
 });
 
@@ -53,27 +53,26 @@ var w = $.ergo({
 	items: [{
 		title: 'Заголовок!',
 		text: 'Текстовое сообщение',
-		state: 'basic'
+		as: 'basic'
 	}, {
 		title: 'Информация!',
 		text: 'Полезная информация',
-		state: 'primary'
+		as: 'primary'
 	}, {
 		title: 'Готово!',
 		text: 'Процесс завершен',
-		state: 'success'		
+		as: 'success'
 	}, {
 		title: 'Предупреждение!',
 		text: 'Последующие действия пользователя могут повредить данные.',
-		state: 'warning'
+		as: 'warning'
 	}, {
 		title: 'Ошибка!',
 		text: 'Действия пользователя привели к исключительной ситуации',
-		state: 'danger'		
+		as: 'danger'
 	}]
 });
 
 w.render('#sample');
-
 
 

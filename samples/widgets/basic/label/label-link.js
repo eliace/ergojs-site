@@ -6,18 +6,17 @@ var w = $.ergo({
 	$link: {
 		etype: 'link',
 		weight: 10,
-		cls: 'after',
+		as: 'after',
 		text: '37',
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		$icon: {
 			etype: 'icon',
 			weight: -10,
-			cls: 'fa-envelope before'				
+			as: 'fa-envelope before'
 		}
 	}
 });
 
 w.render('#sample');
-

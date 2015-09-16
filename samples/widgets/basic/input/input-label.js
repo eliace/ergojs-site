@@ -2,23 +2,23 @@
 
 var input1 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	$label: {
 		etype: 'label',
 		text: '.com',
-		cls: 'basic'
+		as: 'basic'
 	}
 });
 
 
 var input2 = $.ergo({
 	etype: 'input',
-	cls: 'group',
+	as: 'group',
 	placeholder: '(___) _______',
 	$label: {
 		etype: 'label',
 		text: '+7',
-		cls: 'basic',
+		as: 'basic',
 		weight: -10
 	}
 });
@@ -31,7 +31,7 @@ $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
 	layout: 'rows',
-	cls: '__gap',
+	as: '__gap',
 	// layout: {
 	// 	etype: 'vbox',
 	// 	wrapper: function(item) {

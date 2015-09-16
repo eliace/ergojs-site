@@ -18,38 +18,38 @@ JsonAjaxProvider = {
 
 
 var SortableCollection = Ergo.data.Collection.extend({
-	
+
 	sort2: function() {
-		
+
 		var entries = this.entries.copy();
-		
+
 		var field = this.options.sortField;
 		var order = this.options.sortOrder;
 
 
-		
+
 		entries.sort(function(x, y){
 			a = x.get();
 			b = y.get();
-			
+
 			if(order == 'asc') {
 				var c = b[field];
 				b = a[field];
-				a = c;			
+				a = c;
 			}
 			else if(order == 'desc') {
 				a = a[field];
-				b = b[field];			
+				b = b[field];
 			}
 			else {
 				b = x.id;
 				a = y.id;
 			}
-			
+
 			return this.options.sort.call(this, a, b);
 		}.bind(this));
 
-		
+
 		var ids = [];
 		for(var i = 0; i < entries.count(); i++) {
 			ids.push(entries.get(i).id);
@@ -58,54 +58,54 @@ var SortableCollection = Ergo.data.Collection.extend({
 		for(var i = 0; i < entries.count(); i++) {
 			this.entries.get(i).id = ids[i];
 		}
-		
-		
+
+
 	},
-	
-	
+
+
 	sort: function() {
 
 		var field = this.options.sortField;
 		var order = this.options.sortOrder;
-		
+
 		this.entries.sort(function(x, y){
 			a = x.get();
 			b = y.get();
-			
+
 			if(order == 'asc') {
 				var c = b[field];
 				b = a[field];
-				a = c;			
+				a = c;
 			}
 			else if(order == 'desc') {
 				a = a[field];
-				b = b[field];			
+				b = b[field];
 			}
 			else {
 				b = x.id;
 				a = y.id;
 			}
-			
+
 			return this.options.sort.call(this, a, b);
 		}.bind(this));
-		
+
 	},
-	
-/*	
+
+/*
 	each: function(callback) {
-		
+
 		var v = this.get();
-		
+
 		v.sort(this.options.sort);
-		
+
 		for(var i = 0; i < v.length; i++) {
 			callback.call(this, this.entry(i), i, v[i]);
 		}
-		
+
 //		Ergo.each(v, callback.bind(this));
-		
+
 	}
-*/	
+*/
 });
 
 
@@ -122,17 +122,17 @@ var data = new SortableCollection({
 
 var w = $.ergo({
 	etype: 'table-grid',
-	cls: 'table grid box single-line celled',
+	as: 'table grid box single-line celled',
 	height: 400,
 	column: {
 		components: {
 			content: {
 				etype: 'link',
-				cls: 'column-text',
+				as: 'column-text',
 				components: {
 					caret: {
 						etype: 'html:span',
-						cls: 'caret',
+						as: 'caret',
 						weight: 100
 					},
 					content: {

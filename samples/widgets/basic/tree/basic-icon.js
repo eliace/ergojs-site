@@ -8,7 +8,7 @@ var w = $.ergo({
 			format: '#{title}',
 			$icon: {
 				etype: 'icon',
-				cls: 'before',
+				as: 'before',
 				weight: -10,
 				states: {
 					// отображение состояния на класс иконки
@@ -27,7 +27,7 @@ var w = $.ergo({
 			if(v.type != 'cities') this.states.set('expandable');
 		}
 	}
-	
+
 });
 
 w.render('#sample');

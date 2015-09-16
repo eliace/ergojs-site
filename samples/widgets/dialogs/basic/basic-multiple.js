@@ -3,12 +3,12 @@
 var MyDialogX = DialogX.extend({
 
 	defaults: {
-		cls: 'simple center padded',
+		as: 'simple center padded',
 		title: 'Диалог',
 		$content: {
 			height: 'auto',
 			layout: 'hbox',
-			cls: '__center',
+			as: '__center',
 			$button: {
 				etype: 'button',
 				type: 'primary',
@@ -23,7 +23,7 @@ var MyDialogX = DialogX.extend({
 		onNewDialog: function() {
 			var d = new MyDialogX();
 			d.open();
-		}				
+		}
 	}
 
 });
@@ -38,6 +38,5 @@ $.ergo({
 	onClick: function() {
 		var d = new MyDialogX();
 		d.open();
-	}	
+	}
 });
-

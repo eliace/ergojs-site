@@ -2,14 +2,14 @@
 
 var w = $.ergo({
 	etype: 'box',
-	cls: 'items __gap',
+	as: 'items __gap',
 	defaultItem: {
 		etype: 'button',
-		cls: 'has-icon at-right',
+		as: 'has-icon at-right',
 		$icon: {
 			etype: 'icon',
 			weight: 10,
-			cls: 'right'
+			as: 'right'
 		},
 		$content: {
 			etype: '.'
@@ -23,23 +23,23 @@ var w = $.ergo({
 		icon: 'fa-filter'
 	}, {
 		text: 'Basic',
-		type: 'basic',
+		as: 'basic',
 		icon: 'fa-edit'
 	}, {
 		text: 'Primary',
-		type: 'primary',
+		as: 'primary',
 		icon: 'fa-upload'
 	}, {
 		text: 'Success',
-		type: 'success',
+		as: 'success',
 		icon: 'fa-check'
 	}, {
 		text: 'Warning',
-		type: 'warning',
+		as: 'warning',
 		icon: 'fa-warning'
 	}, {
 		text: 'Danger',
-		type: 'danger',
+		as: 'danger',
 		icon: 'fa-unlock'
 	}]
 });

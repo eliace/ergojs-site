@@ -3,7 +3,7 @@
 
 var profile = $.ergo({
 	etype: 'box',
-	cls: 'card __gap __center',
+	as: 'card __gap __center',
 	width: 240,
 	layout: 'vbox',
 
@@ -11,16 +11,16 @@ var profile = $.ergo({
 		etype: 'html:img',
 		width: 96,
 		src: AVATARS_URL + '004.jpg',
-		cls: 'image circular'
+		as: 'image circular'
 	},
 	$content: {
 		etype: 'box',
-		cls: 'header medium lite',
+		as: 'header medium lite',
 		text: 'Зайцев Александр Андреевич'
 	},
 	$desc: {
 		etype: 'text',
-		cls: 'text muted',
+		as: 'text muted',
 		text: 'Ведущий дизайнер'
 	}
 

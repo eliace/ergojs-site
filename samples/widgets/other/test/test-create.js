@@ -2,42 +2,40 @@
 $.ergo({
 	etype: 'box',
 	layout: 'hbox',
-	cls: '__gap',
+	as: '__gap',
 	renderTo: '#sample',
 	defaultItem: {
-		onClick: function() {
-			this.events.rise('run');
-		}
+		onClick: 'action:run'
 	},
 	items: [{
 		etype: 'button',
-		cls: 'primary',
+		as: 'primary',
 		text: 'Reset',
 		cycles: 0
 	}, {
 		etype: 'button',
-		cls: 'warning',
+		as: 'warning',
 		text: '500',
 		cycles: 500
 	}, {
 		etype: 'button',
-		cls: 'success',
+		as: 'success',
 		text: '1000',
 		cycles: 1000
 	}, {
 		etype: 'button',
-		cls: 'teal',
+		as: 'teal',
 		text: '1500',
 		cycles: 1500
 	}, {
 		etype: 'button',
-		cls: 'danger',
+		as: 'danger',
 		text: '2000',
 		cycles: 2000
 	}],
 	$result: {
 		etype: 'text',
-		cls: 'text red float-right',
+		as: 'text red float-right',
 		weight: 10,
 		format: function(v) { return 'Итог: ' + v + ' с.' }
 	},
@@ -49,7 +47,7 @@ $.ergo({
 
 		var t1 = Ergo.timestamp();
 
-		this.$result.opt('text', (t1 - t0)/1000.0);		
+		this.$result.opt('text', (t1 - t0)/1000.0);
 	}
 });
 
@@ -57,14 +55,14 @@ $.ergo({
 
 var w = $.ergo({
 	etype: 'table',
-	cls: 'table grid single-line',
+	as: 'table grid single-line',
 //	height: 400,
 	width: 1200,
 	column: {
 		components: {
 			content: {
 				etype: 'text',
-				cls: 'column-text',
+				as: 'column-text',
 			}
 		},
 		autoBind: false
@@ -86,7 +84,7 @@ var w = $.ergo({
 			format: '#{avatar}',
 //			dataId: 'avatar',
 			binding: 'src',
-			cls: 'rounded',
+			as: 'rounded',
 			width: 40
 		}
 	}, {

@@ -4,7 +4,7 @@
 var w = $.ergo({
 	etype: 'box',
 
-	cls: 'button',
+	as: 'button',
 
 	include: 'dropdown',
 
@@ -19,12 +19,9 @@ var w = $.ergo({
 	},
 
 	$dropdown: {
-		cls: '__hover',
+		as: '__hover',
 		defaultItem: {
-			include: 'icon',
-			$icon: {
-				cls: 'before'
-			}
+			include: 'icon:before'
 		},
 		items: [
 			{icon: 'fa-cab', text: 'Такси'},
@@ -39,4 +36,3 @@ var w = $.ergo({
 
 
 w.render('#sample');
-

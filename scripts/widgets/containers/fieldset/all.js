@@ -7,7 +7,7 @@ $context.section_end('fieldset-basic');
 
 var w = $.ergo({
 	etype: 'html:fieldset',
-	cls: 'border rounded',
+	as: 'border rounded',
 	$title: {
 		etype: 'html:legend',
 		text: 'Заголовок'
@@ -20,4 +20,3 @@ var w = $.ergo({
 
 
 w.render('#sample');
-

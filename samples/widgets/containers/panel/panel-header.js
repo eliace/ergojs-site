@@ -3,15 +3,15 @@
 var panel1 = $.ergo({
 	etype: 'panel',
 	title: 'Title',
-	cls: 'padded divided-header',
+	as: 'padded divided-header',
 	$header: {
 //		cls: 'no-padding',
 		$title: {
 			etype: 'html:h5',
-			cls: 'title',
+			as: 'title',
 			$icon: {
 				etype: 'icon',
-				cls: 'fa-cogs before medium',
+				as: 'fa-cogs before medium',
 				weight: -10
 			},
 			$content: {
@@ -21,7 +21,7 @@ var panel1 = $.ergo({
 				},
 				$subheader: {
 					etype: 'title',
-					cls: 'sub',
+					as: 'sub',
 					text: 'Управление системными параметрами, пользователями и пр.'
 				}
 			}
@@ -39,10 +39,10 @@ var panel1 = $.ergo({
 var panel2 = $.ergo({
 	etype: 'panel',
 	title: 'Title',
-	cls: 'padded',
+	as: 'padded',
 	$header: {
 		$title: {
-			cls: 'large'
+			as: 'large'
 		}
 	},
 	$content: {
@@ -55,11 +55,8 @@ var panel2 = $.ergo({
 
 $.ergo({
 	etype: 'box',
-	cls: 'list __gap-x4',
+	as: 'list __gap-x4',
 //	layout: 'grid',
 	renderTo: '#sample',
 	items: [ panel1, panel2 ]
 });
-
-
-

@@ -3,11 +3,9 @@
 var menu = $.ergo({
 	etype: 'menu',
 	include: 'selectable',
-	cls: 'box secondary',
+	as: 'box secondary',
 	defaultItem: {
-		onClick: function() {
-			this.events.rise('select');
-		}
+		onClick: 'action:select'
 	},
 	items: ['Главная', 'Товары', 'Организации', 'Личный кабинет'],
 	set: {

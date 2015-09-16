@@ -2,7 +2,7 @@
 var w = $.ergo({
 	etype: 'html:form',
 //	width: 800,
-	cls: '__gap-x2 divided',
+	as: '__gap-x2 divided',
 	layout: {
 		etype: 'vbox',
 		wrapper: function(item) {
@@ -21,10 +21,10 @@ var w = $.ergo({
 	items: [{
 		etype: 'input',
 		placeholder: 'Фамилия',
-		cls: 'block',
+		as: 'block',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-above',
+			as: 'pointing-above',
 			text: 'Введите значение'
 		}
 	}/*, {
@@ -33,10 +33,10 @@ var w = $.ergo({
 	}*/, {
 		etype: 'input',
 		placeholder: 'Имя',
-		cls: 'block',
+		as: 'block',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-below',
+			as: 'pointing-below',
 			text: 'Введите значение'
 		}
 	}/*, {
@@ -47,7 +47,7 @@ var w = $.ergo({
 		placeholder: 'Отчество',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-left',
+			as: 'pointing-left',
 			text: 'Введите значение'
 		}
 	}/*, {
@@ -58,11 +58,10 @@ var w = $.ergo({
 		placeholder: 'Место рождения',
 		$label: {
 			etype: 'label',
-			cls: 'pointing-right',
+			as: 'pointing-right',
 			text: 'Введите значение'
 		}
 	}]
 });
 
 w.render('#sample');
-

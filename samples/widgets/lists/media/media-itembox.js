@@ -10,7 +10,7 @@ var w = $.ergo({
 		etype: 'item-box',
 		$before: {
 			etype: 'html:img',
-			cls: 'rounded',
+			as: 'rounded',
 			width: 64,
 			binding: function(v) {
 				this.opt('src', 'img/avatars/00'+v.id+'.jpg');
@@ -43,7 +43,3 @@ var w = $.ergo({
 
 
 w.render('#sample');
-
-
-
-

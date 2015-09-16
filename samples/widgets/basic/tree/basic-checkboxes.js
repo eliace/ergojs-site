@@ -30,7 +30,7 @@ var w = $.ergo({
 		},
 		$checkbox: {
 			etype: 'check',
-			cls: 'before',
+			as: 'before',
 			weight: -20,
 			autoBind: false,
 			onAction: function() {
@@ -39,7 +39,7 @@ var w = $.ergo({
 		},
 		$icon: {
 			etype: 'icon',
-			cls: 'before',
+			as: 'before',
 			weight: -10,
 			states: {
 				// настраиваем FontAwesome-иконки для состояний
@@ -56,4 +56,3 @@ w.render('#sample');
 
 
 data.fetch();
-
