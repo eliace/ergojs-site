@@ -16,25 +16,25 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		
+
 		<link href='css/layout.css' rel='stylesheet' type='text/css'>
 		<link href='css/index.css' rel='stylesheet' type='text/css'>
-		
+
 		<!-- FontAwesome -->
 		<link href='lib/components-font-awesome/css/font-awesome.min.css' rel='stylesheet'>
-		
+
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="lib/highlight/github.min.css">
-		<script src="lib/highlight/highlight.min.js"></script>		
-		
+
+		<link rel="stylesheet" href="lib/highlightjs/styles/github.css">
+		<script src="lib/highlightjs/highlight.pack.js"></script>
+
 	</head>
 
 	<body>
 		<div>
 			<header class="page-header">
 				<h3><span>Ergo</span>JS</h3>
-				
+
 				<nav>
 					<ul class="menu">
 						<li><a href="/">Главная</a></li>
@@ -48,7 +48,7 @@
 				<span class="github">
 					<a href="http://github.com/eliace/ergo-js"><i class="fa fa-github"></i>GitHub</a>
 				</span>
-				
+
 			</header>
 
 			<div class="banner">
@@ -59,7 +59,7 @@
 					<a class="download" href="lib/ergojs-0.11.3.zip" target="_blank"><i class="fa fa-download"></i>Скачать</a>
 				</div>
 			</div>
-			
+
 			<div class="description">
 				<div>
 					<h2><i class="fa fa-magic before"></i>Декларативный стиль</h2>
@@ -74,27 +74,27 @@
 					<p>Для работы с DOM, анимацией, AJAX-ом и др. используется проверенная и удобная библиотка jQuery. Это означает, что виджеты Ergo могут комбинироваться с огромным количеством уже существующих jQuery-плагинов</p>
 				</div>
 			</div>
-			
+
 			<div class="divider"></div>
-			
+
 			<div class="quickstart">
-				<h2>Быстрый старт</h2>				
-				<h3>1. Подключаем зависимости</h3>				
+				<h2>Быстрый старт</h2>
+				<h3>1. Подключаем зависимости</h3>
 				<pre>
 					<code class="html">
 &lt;!-- jQuery (для ядра) --&gt;
-&lt;script src="lib/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="lib/jquery-2.1.4.min.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;!-- Font-Awesome (для библиотеки виджетов) --&gt;
 &lt;link href='lib/font-awesome.min.css' rel='stylesheet'&gt;
 					</code>
 				</pre>
-				<h3>2. Подключаем стили</h3>				
+				<h3>2. Подключаем стили</h3>
 				<pre>
 					<code class="html">
 &lt;link href='lib/ergojs.css' rel='stylesheet' type='text/css'&gt;
 					</code>
 				</pre>
-				<h3>3. Загружаем скрипты</h3>				
+				<h3>3. Загружаем скрипты</h3>
 				<pre>
 					<code class="html">
 &lt;!-- Ядро --&gt;
@@ -108,34 +108,34 @@
 					<code class="javascript">
 // Добавим код создания виджета в обработчик события onready
 $(document).ready(function() {
-	
+
   // создаем виджет
   var w = $.ergo({
     etype: 'list',
     items: ['Австралия', 'Африка', 'Европа']
   });
-	
+
   // отрисовываем виджет в &lt;body&gt;
   w.render('body');
-	
+
 });
 					</code>
 				</pre>
 			</div>
-			
-			
-			
+
+
+
 			<footer class="page-footer">
 				<p>Идея и разработка <a href="https://twitter.com/eliace_the_grey">eliace</a></p>
 				<p>Исходный код распространяется под лицензией <a href="https://github.com/eliace/ergo-js/blob/master/LICENSE.txt">MIT</a></p>
 			</footer>
 		</div>
 	</body>
-	
+
 	<script>
-		
+
 		hljs.initHighlightingOnLoad();
-		
+
 	</script>
-	
+
 </html>

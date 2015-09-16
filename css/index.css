@@ -91,7 +91,7 @@ pre {
 
 .github > a {
 	color: #fff;
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 .github > a > i {
@@ -206,7 +206,7 @@ pre {
 
 
 .quickstart {
-	width: 80%;
+	width: 600px;
 	margin: 32px auto;
 }
 
@@ -230,5 +230,3 @@ pre {
 	color: #888;
 	display: block;
 }
-
-
