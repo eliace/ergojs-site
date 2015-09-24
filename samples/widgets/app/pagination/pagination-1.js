@@ -28,13 +28,13 @@ var w = $.ergo({
 			etype: 'pagination'
 		},
 		$buttons: {
-			etype: 'box',
-			layout: 'hbox',
+			etype: 'button-box',
+//			layout: 'hbox',
 			as: 'right __gap',
-			defaultItem: {
-				etype: 'button'
-			},
-			items: [{text: 'ОК', state: 'primary'}, 'Отмена']
+			// defaultItem: {
+			// 	etype: 'button'
+			// },
+			items: [{text: 'ОК', as: 'primary'}, 'Отмена']
 		}
 
 	},

@@ -38,11 +38,11 @@ var Dialog = Ergo.widgets.Panel.extend({
 var DialogX = Dialog.extend({
 
 	defaults: {
-		
+
 		$header: {
 			$buttons: {
 				etype: 'tool-bar',
-				cls: 'fluid-right',
+				cls: 'float-right',
 				defaultItem: {
 					etype: 'icon-button',
 					onClick: function(e) {
@@ -155,7 +155,7 @@ $.ergo({
 			$header: {
 				$buttons: {
 					etype: 'tool-bar',
-					cls: 'fluid-right',
+					cls: 'float-right',
 					defaultItem: {
 						etype: 'button',
 						onClick: function(e) {
@@ -191,7 +191,7 @@ $.ergo({
 				cls: 'sz-large',
 				$buttons: {
 					etype: 'tool-bar',
-					cls: 'fluid-right',
+					cls: 'float-right',
 					defaultItem: {
 						etype: 'icon',
 						cls: 'contextual action-icon',
@@ -313,7 +313,7 @@ $.ergo({
 				onNewDialog: function() {
 					var d = new MyDialogX();
 					d.open();
-				}				
+				}
 			}
 
 		});
@@ -349,7 +349,7 @@ $.ergo({
 				$buttons: {
 					etype: 'tool-bar',
 //					layout: 'bar',
-					cls: 'fluid-right sz-normal',
+					cls: 'float-right sz-normal',
 					defaultItem: {
 						etype: 'button',
 						onClick: function() {
@@ -505,10 +505,3 @@ $.ergo({
 
 
 });
-
-
-
-
-
-
-

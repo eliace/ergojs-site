@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: Tree</title>
+    <title>Source: ergojs-widgets-all.js</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -3096,2567 +3096,4026 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="Ergo.widgets.Tree.html">Class: Tree</h1>
+        <h1 class="page-title" data-filename="ergojs-widgets-all.js.html">Source: ergojs-widgets-all.js</h1>
         
 
 
+    
+    <section>
+        <article>
+            <pre class="prettyprint source "><code>
 
-<section>
-    
-<header>
-    <h2>
-        <span class="ancestors"><a href="Ergo.html">Ergo</a><a href="Ergo.widgets.html">.widgets</a>.</span>
-    
-    Tree
-    </h2>
-    
-</header>  
 
-<article>
-    <div class="container-overview">
-    
-    
-    
-        
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="Tree">
-            
-            new Ergo.widgets.Tree<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-widgets-all.js.html">ergojs-widgets-all.js</a>, <a href="ergojs-widgets-all.js.html#line760">line 760</a>
-        </div>
-        
-    </div>
+/**
+ * Блочный элемент, у которого все дочерние элементы тоже имеют тип `box`
+ *  
+ * :`box`
+ * 
+ * @class
+ * @name Ergo.widgets.Box
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.Box', 'Ergo.core.Widget',  /** @lends Ergo.widgets.Box.prototype */{
+	
+	defaults: {
+		html: '&lt;div/>',
+		defaultItem: {
+			etype: 'box'
+		},
+		defaultComponent: {
+			etype: 'box'
+		}
+	}
+	
+}, 'widgets:box');
 
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Дерево</p>
-<p>:<code>tree</code></p>
-    </div>
-    
 
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
+/**
+ * Кнопка
+ *  
+ * :`button`
+ * 
+ * Состояния:
+ * 	`type` [default, primary, success, info, warning, danger, tool]
+ * 	`size` [large, small, tiny]
+ * 	`disabled`
+ * 
+ * @class
+ * @name Ergo.widgets.Button
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.Button', 'Ergo.core.Widget', /** @lends Ergo.widgets.Button.prototype */{
+	
+	defaults: {
+		html: '&lt;button/>',
+		cls: 'button',
+//		type: 'default',
+		states: {
+			'default:type': 'default',
+			'primary:type': 'primary',
+			'success:type': 'success',
+			'info:type': 'info',
+			'warning:type': 'warning',
+			'danger:type': 'danger',
+			'tool:type': 'tool',
+			
+			'small:size': 'small',
+			'large:size': 'large',
+			'tiny:size': 'tiny',
+			
+			'outline': 'outline',
+			'flat': 'flat',
+			'line': 'line',
 
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-    
-    </div>
-    
-    
-        <h3 class="subsection-title">Extends</h3>
-        
-        <ul>
-            <li><a href="Ergo.widgets.NestedList.html">Ergo.widgets.NestedList</a></li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        <h3 class="subsection-title">Members</h3>
-        
-        <dl>
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="children">children</h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Коллекция дочерних виджетов</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="components">components</h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Коллекция компонентов</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="items">items</h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Коллекция элементов</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="layout">layout</h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Компоновка</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">value</h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Установка значения, связанного с виджетом</p>
-<p>Если задана функция хранения (<code>options.unformat</code>), то она используется для преобразования значения</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">value</h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Получение значения, связанного с виджетом.</p>
-<p>Если задана функция форматирования (<code>options.format</code>), то она используется для преобразования результата</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        </dl>
-    
-    
-    
-        <h3 class="subsection-title">Methods</h3>
-        
-        <dl>
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_construct">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_construct">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_construct<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line5854">line 5854</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>В фазе конструирования виджета:</p>
-<ol>
-<li>создаются поля</li>
-<li>создается элемнт DOM-дерева (обернутый jQuery)</li>
-<li>создаются компоненты</li>
-<li>создаются элементы</li>
-<li>регистрируются события (виджета, jquery, ctx)</li>
-<li>регистрируются обработчики onClick, onDoubleClick</li>
-</ol>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_dataChanged">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_dataChanged">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_dataChanged<span class="signature">(lazy, cascade, noDynamic)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7000">line 7000</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Каскадное обновление связывания</p>
-<p>Если указана функция связывания (<code>options.binding</code>), то она используется для обновления виджета</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
+			'block': 'block',
+			'round': 'round',
+			
+			'disabled': function(on) { on ? this.layout.el.prop('disabled', 'disabled') : this.layout.el.removeProp('disabled'); return false; }
+		}
+	}
+	
+	
+	// _construct: function(o) {
+	// 	Ergo.widgets.Button.superclass._construct.call(this, o);
 		
-		<th>Name</th>
+	// 	var self = this;
+		
+	// 	if(o.action) {
+	// 		this.el.on('click', function(e) {
+	// 			self.events.rise(o.action, null, e);
+	// 		});
+	// 	}
+		
+	// }
+	
+	
+}, 'widgets:button');
+
+
+/**
+ * Пиктограмма
+ *  
+ * :`icon`
+ * 
+ * Опции:
+ * 	`text`
+ * 	`icon`
+ * 
+ * @class
+ * @name Ergo.widgets.Icon
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.Icon', 'Ergo.core.Widget', {
+	
+	defaults: {
+		html: '&lt;i/>',
+		cls: 'icon',
+		binding: 'text'
+	},
+	
+	set_icon: function(v) {
+		this.states.set(v);		
+	},
+	
+	set_text: function(v) {
+		this.states.set(v);		
+	}
+	
+}, 'widgets:icon');
+
+
+
+
+/**
+ * Ссылка
+ *  
+ * :`link`
+ * 
+ * Опции:
+ * 	`href`
+ * 
+ * @class
+ * @name Ergo.widgets.Link
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.Link', 'Ergo.core.Widget', /** @lends Ergo.widgets.Link.prototype */{
+	
+	defaults: {
+		baseCls: 'link',
+		html: '&lt;a href="#"/>',
+		binding: 'text'
+	},
+	
+	set_href: function(v) {
+		this.el.attr('href', v);
+	}
+	
+}, 'widgets:link');
+
+
+
+/**
+ * Список
+ * 
+ * :list
+ * \s [~]:html:li
+ *  
+ * 
+ * @class
+ * @name Ergo.widgets.List
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.List', 'Ergo.widgets.Box', /** @lends Ergo.widgets.List.prototype */{
+	
+	defaults: {
+		html: '&lt;ul/>',
+		baseCls: 'list',
+		dynamic: true,
+		defaultItem: {
+			html: '&lt;li/>',
+//			etype: 'html:li',
+			binding: 'text'
+		},
+		defaultComponent: {
+			html: '&lt;li/>'
+//			etype: 'html:li'			
+		}
+	}
+	
+}, 'widgets:list');
+
+
+
+Ergo.defineClass('Ergo.widgets.OrderedList', 'Ergo.widgets.List', {
+	
+	defaults: {
+		html: '&lt;ol/>'
+	}
+	
+}, 'widgets:o-list');
+
+
+
+
+/**
+ * Панель
+ * 
+ * :`panel`
+ * \s	header:`box`
+ * \s\s		title:`html:span`
+ * \s	content:`box`
+ * \s	footer:`box`
+ * 
+ * Опции:
+ * 	`title`
+ *  
+ * @class
+ * @name Ergo.widgets.Panel
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.Panel', 'Ergo.widgets.Box', /** @lends Ergo.widgets.Panel.prototype */{
+	
+	defaults: {
+//		html: '&lt;div/>',
+		cls: 'panel',
+		components: {
+			header: {
+				etype: 'html:header',
+//				html: '&lt;header/>',
+				weight: -10,
+				components: {
+					title: {
+						etype: 'title',
+						autoRender: 'non-empty'
+//						cls: 'panel-title'
+					}
+				}				
+			},
+			content: {
+			},
+			footer: {
+				etype: 'html:footer',
+//				html: '&lt;footer/>',
+				weight: 10,
+				autoRender: 'non-empty'
+			}
+		}
+	},
+	
+	
+	set_title: function(v) {
+		this.$header.$title.opt('text', v);
+	}
+	
+}, 'widgets:panel');
+
+
+
+
+/**
+ * Таблица
+ * 
+ * :`table`
+ * 	\s control:`box`
+ * 	\s\s [...]:`html:col`
+ * 	\s head:`html:thead`
+ * 	\s\s [...]:`table-row`
+ * 	\s\s\s [...]:`html:th`
+ * 	\s body:`html:tbody`
+ * 	\s\s [~]:`table-row`
+ *  
+ * 
+ * Опции:
+ * 	`row`
+ * 	`cell`
+ * 	`columns`
+ * 	`rows`
+ * 
+ * 
+ * @class
+ * @name Ergo.widgets.Table
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.Table', 'Ergo.widgets.Box', /** @lends Ergo.widgets.Table.prototype */{
+	
+	defaults: {
+		html: '&lt;table/>',
+		components: {
+			control: {
+				html: '&lt;colgroup/>',
+				defaultItem: {
+					etype: 'html:col'
+				},
+				weight: -10
+			},
+			head: {
+				etype: 'html:thead',
+				defaultItem: {
+					etype: 'table-row',
+					defaultItem: {
+						etype: 'html:th'
+					}
+				},
+				items: [{}],
+				weight: -5,
+			},
+			body: {
+				etype: 'html:tbody',
+				defaultItem: {
+					etype: 'table-row',
+					items: []
+				},
+				dynamic: true
+			}
+		},
+		row: {},
+		cell: {},
+		columns: []
+	},
+	
+
+
+
+/*	
+	_pre_construct: function(o) {
+
+		
+		this._super(o);
+		
+	},
+*/
+
+
+
+	_construct: function(o) {
+		this._super(o);
 		
 		
-		<th>Type</th>
+		var w = this;
+		
+		/**
+		 * @field 
+		 */
+		this.columns = {
+			
+			_widget: this,
+			
+			add: function(column, key) {
+				
+				var col_item = Ergo.deep_copy(column);
+				var col = {};
+				var hdr_item = {};
+				
+				if('width' in col_item) {
+					col.width = col_item.width;
+					delete col_item.width;
+				}
+
+				if('header' in col_item) {
+					if($.isString(col_item.header)) {
+						hdr_item.text = col_item.header;
+					}
+					else {
+						hdr_item = col_item.header;
+					}
+					delete col_item.header;
+				}
+
+				
+				this._widget.control.items.add(col);
+				this._widget.head.item(0).items.add(Ergo.smart_override({}, this._widget.options.column, hdr_item));
+				this._widget.body.options.defaultItem.items.push(col_item);
+			},
+			
+			
+			size: function() {
+				return this._widget.options.columns.length;
+			},
+			
+			
+			get: function(i) {
+				return this._widget.options.columns[i];
+			},
+			
+			
+			each: function(callback) {
+				this._widget.options.columns.forEach(callback);
+			},
+			
+			
+			hide: function(i) {
+				
+				this._widget.control.item(i).el.detach();
+				this._widget.head.item(0).item(i).el.detach();
+				this._widget.body.items.each(function(row){
+					row.item(i).el.detach();
+				});
+//				this._widget.content.content.control.options.items[i].autoRender = false;
+				this._widget.body.options.defaultItem.items[i].autoRender = false;
+				
+				this.get(i).hidden = true;
+			},
+			
+			show: function(i) {
+				
+				var w = this._widget.control.item(i);
+				this._widget.control.layout.add( w, w._index, w._weight );//.item(i).el.detach();
+				w = this._widget.head.item(0).item(i);
+				this._widget.head.item(0).layout.add( w, w._index, w._weight );
+				
+				this._widget.body.items.each(function(row){
+					var cell = row.item(i);
+					row.layout.add(cell, cell._index, cell._weight);
+				});
+				delete this._widget.body.options.defaultItem.items[i].autoRender;
+
+				this.get(i).hidden = false;
+				
+			},
+			
+			
+			resize: function(i, width) {
+				
+				var self = this;
+				
+				var headers = this._widget.headers();
+				var control = this._widget.control;
+
+				
+				this.each(function(col, j){
+					if(i == j) col.width = width;
+					if(!col.width) {
+						// фиксируем ширину плавающей колонки
+//						col.width = hdr_control.item(j).el.width();
+						col.width = headers.get(j).el.width();
+//						console.log(col.width);
+						control.item(j).el.width(col.width);
+					}
+				});
+				
+				
+				control.item(i).el.width(width);
+//				bdy_control.item(i).el.width(width);
+				
+				// var w = this._widget.header.content.control;//.item(i);
+				// w.items.each(function(item){
+				// });
+				// w.el.width(width);
+// 				
+				// w = this._widget.content.content.control.item(i);
+				// w.el.width(width);
+				
+			}
+			
+			
+			
+		};
 		
 		
+
+		o.columns.forEach(function(col) {
+			w.columns.add(col);
+		});
 		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>lazy</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
+		// for(var i in o.columns) {
+		// 	this.columns.add(o.columns[i]);
+		// }
 
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>если true, то не будут обновляться дочерние виджеты, имеющие тот же источник данных</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>cascade</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>если равно false, то все дочерние виджеты не будут обновляться</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>noDynamic</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>если равно true, то не будут обновляться дочерние виджеты, имеющие динамическое связывание</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_destroy">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_destroy">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_destroy<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line5717">line 5717</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Уничтожение виджета</p>
-<p>Удаляются связи в виртуальном дереве виджетов, отключается связь с данными,
-удаляется элемент из DOM-дерева, уничтожаются все дочерние виджеты.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_layoutChanged">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_layoutChanged">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_layoutChanged<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6450">line 6450</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Обработчик, вызываемый когда необходимо обновить компоновку</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_opt">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_opt">inherited</a></span>
-            
-            _opt<span class="signature">(o)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7085">line 7085</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Установка значения опций</p>
-<p>Порядок поиска опций:</p>
-<ol>
-<li>обработчик в <code>options.set</code></li>
-<li>сеттер set_*</li>
-<li>состояния</li>
-<li>ES5-сеттер</li>
-<li>группа эксклюзивных состояний</li>
-<li>список атрибутов</li>
-</ol>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
 		
-		<th>Name</th>
+		if('rows' in o) {
+			o.rows.forEach(function(row) {
+				w.body.items.add(row);
+			});
+			// for(var i in o.rows) {
+			// 	this.body.items.add(o.rows[i]);
+			// }
+		}
 		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>o</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
+	},
 
 
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>опции</p></td>
-        </tr>
+	rows: function() {
+		return this.body.items;
+	},
+	
+	headers: function() {
+		return this.head.item(0).items;
+	}
+
 	
 	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
+	
+}, 'widgets:table');
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
 
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_post_construct">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_post_construct">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_post_construct<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6122">line 6122</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Фаза постконструирования виджета:</p>
-<ol>
-<li>рендеринг (renderTo)</li>
-<li>подключение данных (data)</li>
-<li>установка состояний (state)</li>
-</ol>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_pre_construct">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_pre_construct">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_pre_construct<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line5788">line 5788</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>В фазе преконструирования происходит следующее:</p>
-<p>Преобразуется &quot;сахарное&quot; определение компонентов с префиксом $</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_rebind">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_rebind">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_rebind<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6793">line 6793</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_rerender">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#_rerender">inherited</a></span>
-            
-            <span class="type-signature ">protected</span>_rerender<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6373">line 6373</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Перерисовка виджета</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="action">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#action">inherited</a></span>
-            
-            action<span class="signature">(originalEvent, eventContext, name)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6192">line 6192</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Генерация всплывающего события</p>
-<p>Если имя события не определено, то используется имя виджета ( <code>w.opt('name')</code> )</p>
-<p>Если у оригинального события определен метод <code>stop()</code>, то он вызывается</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
+/*
+Ergo.defineClass('Ergo.controllers.Columns', 'Ergo.core.Object', {
+	
+	
+	_initialize: function(widget) {
+		this._widget = widget;
+	},
+	
+	
+	
+	add: function(o) {
+		// 1. добавляем опции в заголовок
+		// 2. добавляем опции в строки
+		// 3. добавляем ячейку в заголовок
+		// 4. добавляем ячейку во все строки
+	},
+	
+	
+	get: function(i) {
+		// получение чего-то 
+	},
+	
+	
+	remove_at: function(i) {
 		
-		<th>Name</th>
+	}
+	
+	
+	
+});
+*/
+
+
+
+
+/**
+ * Строка таблицы
+ * 
+ * :`table-row`
+ * \s	[...]:`box`
+ *  
+ * 
+ * @class
+ * @name Ergo.widgets.TableRow
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.TableRow', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		html: '&lt;tr/>',
+		defaultItem: {
+			etype: 'html:td'
+//			html: '&lt;td/>'
+			// set: {
+				// 'text': function(v) {
+				// }
+			// }
+//			etype: 'html:td'
+		}
+	}
+	
+}, 'widgets:table-row');
+
+
+
+
+
+
+
+
+
+/*
+Ergo.defineClass('Ergo.widgets.Text', 'Ergo.core.Widget', {
+	
+	defaults: {
+		html: '&lt;span/>',
+		binding: 'text'
+	}
+	
+}, 'widget:text');
+*/
+
+
+/**
+ * Текстовое содержимое
+ * 
+ * :`.`
+ *  
+ * Опции:
+ * 	`text`
+ * 
+ * @class
+ * @name Ergo.widgets._Text
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets._Text', 'Ergo.core.Widget', {
+	
+	defaults: {
+//		binding: 'text'
+	},
+	
+	set_text: function(v) {
+		this.el[0].textContent = (v == null ? '': v);
+	}
+	
+}, 'widgets:&amp;text');
+
+
+Ergo.alias('widgets:.', Ergo.widgets._Text);
+
+
+
+
+/**
+ * Строчный элемент
+ *  
+ * :`text`
+ *
+ * binding: `text`
+ * 
+ * @class
+ * @name Ergo.widgets.Text
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.Text', 'Ergo.core.Widget', {
+	
+	defaults: {
+		html: '&lt;span/>',
+		binding: 'text'
+	}
+	
+}, 'widgets:text');
+
+
+
+
+
+/**
+ * Вложенный список
+ * 
+ * :`nested-list`
+ * \s	[~]:`nested-item`
+ *  
+ * Опции:
+ * 	`nestedItem`
+ * 
+ * @class
+ * @name Ergo.widgets.NestedList
+ * @extends Ergo.core.Widget
+ */
+Ergo.defineClass('Ergo.widgets.NestedList', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		html: '&lt;ul/>',
+//		cls: 'tree',
+		dynamic: true,
+		defaultItem: {
+			etype: 'nested-item'
+		}
+		
+	},
+	
+	_pre_construct: function(o) {
+		this._super(o);
+		
+		o.defaultItem = Ergo.smart_override({components: {sub: {nestedItem: o.nestedItem}}}, o.nestedItem, o.defaultItem); //FIXME эмуляция обратной перегрузки
+	},
+
+
+
+	find_path: function(key) {
+		
+		var path = key.split(':');
+		var w = this;
+		var found = null;
+		for(var i = 0; i &lt; path.length; i++) {
+			w = w.item({_name: path[i]});
+			found = w;
+			if(!w) break;
+			w = w.$sub;
+		}
+		
+		return found;
+	},
+	
+	
+	walk_path: function(key, callback) {
+		
+		var path = key.split(':');
+		var w = this;
+		
+		for(var i = 0; i &lt; path.length; i++) {
+			w = w.item({_name: path[i]});
+			callback.call(this, w);   //TODO необходимо реализовать цепочку асинхронных вызовов
+			w = w.$sub;
+		}
+		
+	}
+
+	
+	
+	
+}, 'widgets:nested-list');	
+
+
+
+
+
+
+/**
+ * Вложенный список
+ * 
+ * :`nested-item`
+ * \s	content:`text`
+ * \s subtree:`nested-list`
+ *  
+ * Опции:
+ * 	`nestedItem`
+ * 
+ * @class
+ * @name Ergo.widgets.NestedItem
+ * @extends Ergo.widgets.Box
+ */
+Ergo.defineClass('Ergo.widgets.NestedItem', 'Ergo.widgets.Box', /** @lends Ergo.widgets.NestedItem.prototype */{
+	
+	defaults: {
+		
+		html: '&lt;li/>',
+		
+		components: {
+			content: {
+				etype: 'text'
+			},
+			sub: {
+				etype: 'nested-list',
+				autoRender: 'non-empty',
+				dynamic: true,
+				dataId: 'children',
+				weight: 100
+			}
+		}
+		
+	},
+	
+	
+	
+	/**
+	 * Путь к элементу вложенного списка 
+	 */
+	path: function() {
+		
+    var path = [];
+    var w = this;//.parent;
+    while(w &amp;&amp; w._name) {
+      path.push(w._name);
+      w = w.parent.parent;
+    }
+    
+    return path.reverse().join(':');
+	}
+	
+	
+}, 'widgets:nested-item');
+
+
+
+
+
+
+
+/**
+ * Дерево
+ * 
+ * :`tree`
+ * 
+ * @class
+ * @name Ergo.widgets.Tree
+ * @extends Ergo.widgets.NestedList
+ */
+Ergo.defineClass('Ergo.widgets.Tree', 'Ergo.widgets.NestedList', /** @lends Ergo.widgets.Tree.prototype */{
+	
+	defaults: {
+//		cls: 'tree'
+		// node: {
+			// etype: 'link'
+		// }
+//		dynamic: true,
+
+		defaultItem: {
+			etype: 'tree-item'
+		},
+		
+		nestedItem: {
+			components: {
+				sub: {
+					hidden: true,
+//					dataId: 'children',
+//					dynamic: true,
+					include: 'effects',
+					effects: {
+						show: 'slideDown',
+						hide: 'slideUp',
+						delay: 400
+//						initial: false
+					}
+				}
+			}
+		}
+
+
+	}
+
+
+
+}, 'widgets:tree');
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.TreeItem', 'Ergo.widgets.NestedItem', /** @lends Ergo.widgets.TreeItem.prototype */{
+	
+	defaults: {
+		
+		html: '&lt;li/>',
+		
+		transitions: {
+			'* > expanded': function() { this.$sub.show(); },
+			'expanded > *': function() { this.$sub.hide(); }
+		},
+		
+		components: {
+			// caret: {
+				// etype: 'icon',
+				// cls: 'caret',
+				// weight: -10,
+				// onClick: function() {
+					// this.parent.states.toggle('expanded');
+				// }
+			// },
+			sub: {
+				etype: 'tree'
+			}
+		}
+		
+	},
+	
+	
+	
+	
+	
+	// toggle: function() {
+	// 	this.states.toggle('expanded');
+	// }	
+	
+
+	// setText: function(v) {
+		// this.content.opt('text', v);
+	// }
+	
+	
+	// getLeaf: function() {
+		// return this.states.is('leaf');
+	// },
+// 	
+	// setLeaf: function(v) {
+		// this.states.toggle('leaf', v);
+	// }
+	
+	
+}, 'widgets:tree-item');
+
+
+
+
+
+
+Ergo.defineClass('Ergo.wigets.Check', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		cls: 'check',
+		components: {
+			content: {
+				etype: 'icon',
+				cls: 'fa'
+			}
+		},
+		states: {
+			'checked': function(on) {
+				this.content.states.toggle('fa-check', on);
+				this.states.unset('indeterminate');
+			},
+			'indeterminate': function(on) {
+				this.content.states.toggle('fa-square', on);				
+			}
+		},
+		events: {
+			'change': function(e) {
+				this.opt('value', e.value);			
+			},
+			// действие пользователя
+			'jquery:click': function(e) {
+//				if(e.button == 0)
+				this.events.fire('change', {value: !this.opt('value')});
+			}
+		},
+		binding: function(v) {
+			this.states.toggle('checked', !(!v));
+		}
+	}	
+	
+}, 'widgets:check');
+
+
+
+Ergo.defineClass('Ergo.widgets.Radio', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		cls: 'radio',
+		// components: {
+		// 	content: {
+		// 	}
+		// },
+		events: {
+			'change': function(e) {
+				this.opt('value', e.value);
+			},
+			// действие пользователя
+			'jquery:click': function() {
+				this.events.rise('change', {value: !this.opt('value')});
+			}
+		},
+		binding: function(v) {
+			this.states.toggle('checked', !(!v));
+		}		
+	}
+	
+	
+}, 'widgets:radio');
+
+
+
+Ergo.defineClass('Ergo.widgets.Label', 'Ergo.core.Widget', {
+
+	defaults: {
+		html: '&lt;label/>',
+		cls: 'label',
+		binding: 'text',
+		components: {
+			content: {
+				etype: '.',
+				binding: false
+			}
+		}
+	}
+
+}, 'widgets:label');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Item', 'Ergo.widgets.Box', {
+
+	defaults: {
+		cls: 'item',
+		components: {
+			content: {
+				etype: 'text',
+//				cls: 'content',
+				components: {
+					content: {
+						etype: '.'
+					}
+				}
+			}
+		}
+	}
+
+}, 'widgets:item');
+
+
+
+Ergo.defineClass('Ergo.widgets.Title', 'Ergo.core.Widget', {
+	
+	defaults: {
+		html: '&lt;span/>',
+		cls: 'title'
+//		binding: 'text'
+	}
+	
+}, 'widgets:title');
+
+
+
+Ergo.defineClass('Ergo.widgets.Image', 'Ergo.html.Img', {
+
+	defaults: {
+		cls: 'image'
+	}
+
+}, 'widgets:image');
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Chips', 'Ergo.widgets.Box', {
+
+	defaults: {
+		cls: 'chips',
+		components: {
+			image: {
+				etype: 'image',
+				cls: 'circular small before',
+				weight: -10
+			},
+			content: {
+				etype: 'text',
+				components: {
+					content: {
+						etype: '.'
+					},
+					description: {
+						etype: 'text',
+						cls: 'description'
+					}
+				}
+			}
+		}
+	},
+
+
+	set img(v) {
+		this.$image.opt('src', v);
+	},
+
+	set description(v) {
+		this.$content.$description.opt('text', v);
+	}
+
+
+}, 'widgets:chips');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Edit', 'Ergo.core.Widget', {
+	
+	defaults: {
+		html: '&lt;div contenteditable="true"/>',
+		binding: 'text'
+	}
+	
+}, 'widgets:edit');
+
+
+
+Ergo.defineClass('Ergo.widgets.Menu', 'Ergo.widgets.List', {
+
+	defaults: {
+		baseCls: 'menu',
+		defaultItem: {
+			etype: 'menu-item'
+		}
+	}
+
+}, 'widgets:menu');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.MenuItem', 'Ergo.widgets.Box', {
+
+	defaults: {
+		html: '&lt;li/>',
+		components: {
+			content: {
+				etype: 'html:a'
+			}
+		}
+	}
+
+}, 'widgets:menu-item');
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.NestedMenu', 'Ergo.widgets.Menu', {
+	
+	defaults: {
+//		html: '&lt;ul/>',
+//		cls: 'tree',
+		dynamic: true,
+		defaultItem: {
+			etype: 'nested-menu-item'
+		}
+		
+	},
+	
+	_pre_construct: function(o) {
+		this._super(o);
+		
+		o.defaultItem = Ergo.smart_override({components: {sub: {nestedItem: o.nestedItem}}}, o.nestedItem, o.defaultItem); //FIXME эмуляция обратной перегрузки
+	}
+	
+	
+}, 'widgets:nested-menu');	
+
+
+
+
+Ergo.defineClass('Ergo.widgets.NestedMenuItem', 'Ergo.widgets.MenuItem', {
+	
+	defaults: {
+		
+//		html: '&lt;li/>',		
+		components: {
+			// content: {
+			// 	etype: 'html:a'
+			// },
+			sub: {
+				etype: 'nested-menu',
+				autoRender: 'non-empty',
+				dynamic: true,
+				dataId: 'children',
+				weight: 100
+			}
+		}
+		
+	}
+	
+	
+}, 'widgets:nested-menu-item');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.TabBar', 'Ergo.widgets.List', {
+	
+	defaults: {
+		
+		cls: 'tabs tab-bar',
+		dynamic: false,
+		defaultItem: {
+		}				
 		
 		
-		<th>Type</th>
+	}
+	
+	
+}, 'widgets:tab-bar');
+
+
+Ergo.defineClass('Ergo.widgets.ToolBar', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		baseCls: 'tool-bar'
+	}
+	
+	
+}, 'widgets:tool-bar');
+
+
+
+Ergo.defineClass('Ergo.widgets.MenuBar', 'Ergo.widgets.List', {
+	
+	defaults: {		
+		baseCls: 'menu-bar',
+		defaultItem: {
+			html: '&lt;li/>',
+			components: {
+				content: {
+					etype: 'link'					
+				}
+			},
+			set: {
+				'text': function(v) {this.content.opt('text', v);}
+			}
+		},
+	}
+	
+	
+}, 'widgets:menu-bar');
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.TextBox', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		baseCls: 'text-box',
+		cls: 'control',
+		
+		binding: function(v) {
+			this.content.opt('value', v);
+		},
+		
+		components: {
+			content: {
+				etype: 'html:input',
+				autoBind: false,
+				events: {
+					'jquery:keyup': function() {
+						this.events.rise('changeText', {text: this.el.val()});
+					},
+					'jquery:focus': function() {
+						this.events.rise('focus', {focus: true});
+					},
+					'jquery:blur': function() {
+						this.events.rise('focus', {focus: false});
+					},
+					'jquery:change': function() {
+						this.events.rise('change', {text: this.el.val()});
+					}
+				}
+			}
+		},
+
+
+		states: {
+			'disabled': function(on) {
+				this.content.opt('disabled', on);
+			}
+		},
+
+
+		
+		onChange: function(e) {
+			this.opt('value', e.text);			
+		},
+		
+		onFocus: function(e) {
+			this.states.toggle('focused', e.focus);			
+		}
+		
+	},
+	
+	
+	
+	
+	
+	set_placeholder: function(v) {
+		this.content.opt('placeholder', v);
+	},
+
+	set_name: function(v) {
+		this.content.opt('name', v);
+	},
+	
+
+
+	
+	
+	
+	selection_range: function(v0, v1) {
+		
+		var elem = this.content.el[0];
+
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(v0, v1);
+    } 
+    else if (elem.createTextRange) {
+      var range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', v0);
+      range.moveStart('character', v1);
+      range.select();
+    }
+		
+	},
+	
+	cursor_position: function(v) {
+		this.selection_range(v, v);		
+	}
+	
+}, 'widgets:text-box');
+
+
+
+Ergo.defineClass('Ergo.widgets.SelectBox', 'Ergo.widgets.TextBox', {
+	
+	defaults: {
+		cls: 'select-box',
+		
+		include: 'dropdown selectable',
+		
+		components: {
+			content: {
+				type: 'button',
+				autoBind: false,
+				onClick: function(e) {
+					this.events.rise('dropdown');
+					e.stop();//baseEvent.stopPropagation();
+				}
+			},
+			addon: {
+				etype: 'html:span',
+				cls: 'addon',
+				components: {
+					content: {
+						etype: 'icon',
+						html: '&lt;button/>',
+						cls: 'fa fa-fw fa-caret-down'
+					}				
+				},
+				onClick: function(e) {
+					this.events.rise('dropdown');
+					e.stop();
+				}
+			},
+			dropdown: {
+				weight: -100, 		// располагаем выпадающий список первым из-за бага Chrome
+				popup: {
+					adjust: true
+				},
+				defaultItem: {
+					onClick: function() {
+						this.events.rise('action', {key: this.opt('name')});
+					}
+					// get: {
+						// 'name': function() {
+							// return this._index;
+						// }
+					// }
+				},
+			}
+		},
+
+		selection: {
+			lookup: function(key) {
+				return this.dropdown.item(key);
+			}
+		},
+
+		
+		onDropdown: function(e) {
+			this.states.toggle('opened');
+		},
 		
 		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>originalEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Object.html">Object</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>Оригинальное событие</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventContext</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>контекст события (<code>jquery</code>, <code>scope</code> и т.д.)</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>Имя события</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="bind">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#bind">inherited</a></span>
-            
-            bind<span class="signature">(data)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6606">line 6606</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Подключение данных к виджету</p>
-<p>Если опция autoBind = false, то связывание осуществлено не будет.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
+		onAction: function(e) {
+			this.opt('value', e.key);
+		},
 		
 		
-		<th>Type</th>
+		binding: function(v) {
+			this.opt('selected', v);
+			this.content.opt('value', this.selection.get().opt('text'));
+		}
 		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
 	
-	<tbody>
+	}	
 	
+}, 'widgets:select-box');
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.ComboBox', 'Ergo.widgets.TextBox', {
 	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Object.html">Object</a></span>
-|
-
-<span class="param-type">Array</span>
-|
-
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>подключаемые данные</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="component">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#component">inherited</a></span>
-            
-            component<span class="signature">(i)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Ergo.core.Widget.html">Ergo.core.Widget</a>}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6533">line 6533</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Поиск компонента</p>
-<p>Поиск элемента</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
+	defaults: {
+		cls: 'combo-box',
 		
-		<th>Name</th>
+//		mixins: ['dropdown'],
+
+		include: 'dropdown',
 		
-		
-		<th>Type</th>
+		components: {
+			content: {
+//				type: 'button',
+				onClick: function(e) {
+//					this.events.rise('dropdown');
+					e.stop();//baseEvent.stopPropagation();
+				}
+			},
+			addon: {
+				etype: 'html:span',
+				cls: 'addon',
+				components: {
+					content: {
+						etype: 'icon',
+						html: '&lt;button/>',
+						cls: 'fa fa-fw fa-caret-down'
+					}				
+				},
+				onClick: function(e) {
+					this.events.rise('dropdownOpen');
+					e.stop();//baseEvent.stopPropagation();
+				}
+			},
+			dropdown: {
+				weight: -100, 		// располагаем выпадающий список первым из-за бага Chrome
+				popup: {
+					adjust: true
+				},
+				defaultItem: {
+					onClick: function() {
+						this.events.rise('action', {key: this.opt('key')});
+					},
+					get: {
+						'key': function() {
+							return this.opt('text');
+						}
+					}
+				},
+			}
+		},
 		
 		
 		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>i</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">class</span>
-|
-
-<span class="param-type">function</span>
-|
-
-<span class="param-type"><a href="Object.html">Object</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>имя|класс|фильтр|шаблон</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="hide">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#hide">inherited</a></span>
-            
-            hide<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6229">line 6229</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Скрытие виджета</p>
-<p>В том случае, если он уже включен в DOM-дерево</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="item">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#item">inherited</a></span>
-            
-            item<span class="signature">(i)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Ergo.core.Widget.html">Ergo.core.Widget</a>}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6510">line 6510</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Поиск элемента</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
+		onDropdownOpen: function(e) {
+			this.states.set('opened');
+		},
 		
 		
-		<th>Type</th>
+		onAction: function(e) {
+			this.opt('value', e.key);
+		}
 		
+		// selector: function(key) {
+			// return this.dropdown.item(function(v) {
+				// return v.opt('key') == key;
+			// });
+		// },
 		
+		// binding: function(v) {
+// //			this.opt('selected', v);
+			// this.content.opt('value', v);//this._selected.opt('text'));
+		// }
 		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
 	
-	<tbody>
+	}	
 	
+}, 'widgets:combo-box');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.NumberBox', 'Ergo.widgets.TextBox', {
 	
-        <tr>
-            
-                <td class="name"><code>i</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-|
-
-<span class="param-type">string</span>
-|
-
-<span class="param-type">class</span>
-|
-
-<span class="param-type">function</span>
-|
-
-<span class="param-type"><a href="Object.html">Object</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>индекс|имя|класс|фильтр|шаблон</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
-    
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code>w.item(2) - находит элемент с индексом 2
-w.item('header') - находит элемент с именем "header"
-w.item(Ergo.widgets.MyWidget) - элемент класса Ergo.widgets.MyWidget
-w.item({tag: 'hello'}) - элемент, у которого свойство "tag" равно "hello"</code></pre>
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="next">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#next">inherited</a></span>
-            
-            next<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6484">line 6484</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Получение следующего соседнего элемента, если виджет является элементом коллекции</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="opt">
-            
-                <span class="inherited"><a href="Ergo.core.Object.html#opt">inherited</a></span>
-            
-            opt<span class="signature">(o)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line2093">line 2093</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Установка опций (options) объекта.</p>
-<p>Передаваемые параметры применяются и сохраняются в this.options</p>
-<p>Опции применяются/получаются с учетом приоритета:
-    Для сеттеров:</p>
-<pre><code>    1. Сеттер-опция из this.options.set
-    2. Сеттер-метод вида set_&lt;имя сеттера&gt;
-
-Для геттеров:
-    1. Геттер-опция из this.options.get
-    2. Геттер-метод вида get_&lt;имя сеттера&gt;
-</code></pre><p>opt(i) - получение опции i
-opt(i, v) - установка опции i
-opt(o) - установка нескольких опций, передаваемых в виде Hash</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
+	defaults: {
+		cls: 'number',
+		components: {
+			addon: {
+				cls: 'addon spinner',
+				html: '&lt;span>',
+				components: {
+					up: {
+						html: '&lt;span>',
+						cls: 'up',
+						components: {
+							content: {
+								etype: 'icon',
+								html: '&lt;button/>',
+								cls: 'fa fa-fw fa-caret-up',
+								events: {
+									'jquery:mousedown': function() {
+										this.events.rise('up');
+									}
+								}
+							}
+						}
+					},
+					down: {
+						html: '&lt;span>',
+						cls: 'down',
+						components: {
+							content: {
+								etype: 'icon',
+								html: '&lt;button/>',
+								cls: 'fa fa-fw fa-caret-down',
+								events: {
+									'jquery:mousedown': function() {
+										this.events.rise('down');
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		
-		<th>Name</th>
+		step: 1,
 		
+		binding: function(v) {
+			this.content.opt('value', v);
+		},
 		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
+		events: {
+			'up': function(e) {
+				this.up();
+				e.stop();
+			},
+			'down': function(e) {
+				this.down();
+				e.stop();
+			}
+		}	
+	},
 	
 	
-        <tr>
-            
-                <td class="name"><code>o</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Object.html">Object</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>параметры</p></td>
-        </tr>
+	up: function() {
+		var v = this.opt('value');
+		var step = this.options.step;
+		this.opt('value', (v ? (v+step) : step));
+	},
+	
+	down: function() {
+		var v = this.opt('value');
+		var step = this.options.step;
+		this.opt('value', (v ? (v-step) : -step));		
+	}
 	
 	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="parents">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#parents">inherited</a></span>
-            
-            parents<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Array}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6556">line 6556</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Получение списка всех родителей виджета.</p>
-<p>Еще здесь применим термин &quot;путь&quot; для деревьев.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
+	
+	
+	
+}, 'widgets:number-box');
 
 
-<h5>Returns:</h5>
-родительских виджетов
-<br />
 
-    
-    
-    
-</dd>
+Ergo.defineClass('Ergo.widgets.ButtonBox', 'Ergo.widgets.Box', {
 
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="prev">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#prev">inherited</a></span>
-            
-            prev<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6492">line 6492</a>
-        </div>
-        
-    </div>
+	defaults: {
+//		as: 'button-box',
+		layout: 'hbox',
+		defaultItem: {
+			etype: 'button',
+			name: 'button',
+			onClick: 'action'
+		},
+		// states: {
+		// 	'default:type': 'default',
+		// 	'primary:type': 'primary',
+		// 	'success:type': 'success',
+		// 	'info:type': 'info',
+		// 	'warning:type': 'warning',
+		// 	'danger:type': 'danger',
+		// 	'tool:type': 'tool',
+		//
+		// 	'small:size': 'small',
+		// 	'large:size': 'large',
+		// 	'tiny:size': 'tiny',
+		//
+		// 	'outline': 'outline',
+		// 	'block': 'block',
+		// 	'round': 'round',
+		// 	'flat': 'flat'
+		// }
+	}
 
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Получение предыдущего соседнего элемента, если виджет является элементом коллекции</p>
-    </div>
-    
+}, 'widgets:button-box');
 
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
+Ergo.defineClass('Ergo.widgets.CaretBox', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		components: {
+			// content: {
+				// etype: 'text'
+			// },
+			caret: {
+				etype: 'html:span',
+				cls: 'caret'
+			}
+		}
+	},
+	
+	// setText: function(v) {
+		// this.content.opt('text', v);
+	// }
+	
+}, 'widgets:caret-box');
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
+Ergo.defineClass('Ergo.widgets.DropdownBox', 'Ergo.widgets.Box', {
+	
+	defaults: {
+//		mixins: ['dropdown'],
+		include: 'dropdown',
+		components: {
+			content: {
+				// здесь не должен использоваться caret-box
+				cls: 'dropdown-toggle',
+				components: {
+					content: {
+						etype: '&amp;text'
+					},
+					caret: {
+						etype: 'caret'
+						// etype: 'html:span',
+						// cls: 'caret'
+					}
+				},
+				onClick: function(e) {
+					this.parent.states.toggle('opened');
+					e.base.stopPropagation();
+					e.base.preventDefault();  //IE11
+				}		
+			},
+			dropdown: {
+				weight: 100,
+				popup: {
+					at: 'left bottom'
+				},
+				onClosed: function() {
+					this.parent.states.unset('opened');
+				}
+			}
+		}
+		// states: {
+			// 'opened': function(on) {
+				// on ? this.dropdown.open() : this.dropdown.close();
+			// }
+		// }
+	}
+	
+	
+	// setText: function(v) {
+		// this.content.opt('text', v);
+	// }
+	
+}, 'widgets:dropdown-box');
 
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="render">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#render">inherited</a></span>
-            
-            render<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6247">line 6247</a>
-        </div>
-        
-    </div>
 
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Отрисовка (рендеринг) виджета, т.е. добавление его в DOM-дерево</p>
-<p>Если метод вызывается без параметров, а виджет входит в виртуальное дерево
-виджетов, то он будет добавлен в компоновку родителя</p>
-<p>Отрисовка выполняется для всех дочерних виджетов</p>
-<p>После отрисовки вызывается обработчик _layoutChanged</p>
-    </div>
-    
 
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="show">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#show">inherited</a></span>
-            
-            show<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6219">line 6219</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Отображение виджета</p>
-<p>В том случае, если он уже включен в DOM-дерево</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="unrender">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#unrender">inherited</a></span>
-            
-            unrender<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6353">line 6353</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Удаление виджета из DOM-дерева</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="walk">
-            
-                <span class="inherited"><a href="Ergo.core.Widget.html#walk">inherited</a></span>
-            
-            walk<span class="signature">(callback)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line6470">line 6470</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Рекурсивный обход всех дочерних виджетов</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
+Ergo.defineClass('Ergo.widgets.ItemBox', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		baseCls: 'item-box',
+		components: {
+			before: {
+				cls: 'before',
+				autoRender: false
+			},
+			after: {
+				cls: 'after',
+				autoRender: false
+			}
+		}
+	},
+	
+	_layoutChanged: function() {
+		this._super();
 		
 		
-		<th>Type</th>
+		if(this.before._rendered) {
+			var h = this.before.el.outerHeight();
+			var w = this.before.el.outerWidth(true);
+			this.before.el.css({
+				'margin-top': -h/2,
+				'left': this.el.css('padding-left') || 0
+			});
+			
+			if(this.content) {
+				this.content.el.css({
+					'margin-left': w
+				});
+			}
+		}
+
+		if(this.after._rendered) {
+			var h = this.after.el.outerHeight();
+			var w = this.after.el.outerWidth(true);
+			this.after.el.css({
+				'margin-top': -h/2,
+				'right': this.el.css('padding-right') || 0
+			});
+			
+			if(this.content) {
+				this.content.el.css({
+					'margin-right': w
+				});
+			}
+			
+		}
+		
+	}	
+	
+	
+}, 'widgets:item-box');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.LinkButton', 'Ergo.widgets.Link', {
+	
+	defaults: {
+		cls: 'btn',
+		state: 'default'
+	}
+	
+}, 'widgets:link-button');
+
+
+Ergo.defineClass('Ergo.widgets.IconButton', 'Ergo.widgets.Button', {
+	
+	defaults: {
+		cls: 'icon-button',
+		components: {
+			content: {
+				etype: 'icon'			
+			}
+		}
+	},
+	
+	
+	set_icon: function(v) {
+		this.content.states.set(v);
+	}
+	
+}, 'widgets:icon-button');
+
+
+Ergo.defineClass('Ergo.widgets.ImageButton', 'Ergo.html.Img', {
+	
+	defaults: {
+		cls: 'btn',
+		state: 'default'
+	}	
+	
+}, 'widgets:image-button');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.DropdownButton', 'Ergo.widgets.ButtonBox', {
+	
+	defaults: {
+//		baseCls: 'dropdown-button',
+		include: 'dropdown',
+		components: {
+			content: {
+				etype: 'button',
+				cls: 'dropdown-toggle',
+				components: {
+					caret: {
+						etype: 'icon',
+						cls: ['caret', 'after']
+					}
+				},
+				onClick: function(e) {
+		//			this.states.is('opened') ? 
+					this.parent.states.toggle('opened');
+					e.stop();//baseEvent.stopPropagation();
+				}		
+			},
+			dropdown: {
+//				etype: 'dropdown-list',
+				weight: 100,
+				popup: {
+					behaviour: 'none'
+				}
+				// onClosed: function() {
+				// 	this.parent.states.unset('opened');
+				// }
+			}
+		}
+		// states: {
+		// 	'opened': function(on) {
+		// 		on ? this.dropdown.open() : this.dropdown.close();
+		// 	}
+		// }
+	}
+	
+	
+	// setText: function(v) {
+		// this.button.opt('text', v);
+	// }
+	
+}, 'widgets:dropdown-button');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.SplitButton', 'Ergo.widgets.DropdownButton', {
+	
+	defaults: {
+		cls: 'split group',
+		components: {
+			actionButton: {
+				etype: 'button',
+				weight: -10
+			},
+			content: {
+				components: {
+					caret: {
+						'-cls': 'after'
+					}
+				}
+			}
+		}
+	},
+	
+	set text(v) {
+		this.actionButton.opt('text', v);
+	}
+	
+	
+}, 'widgets:split-button');
+
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.ModalDialog', 'Ergo.widgets.Panel', {
+	
+	defaults: {
+
+		include: 'modal effects',
+		
+		cls: 'modal widget',
+		
+		closeOn: 'outerClick',
+		
+		renderTo: 'body',
+		
+		effects: {
+			'show': {type: 'fadeIn', delay: 400}
+		},
+		
+		width: 600,
+				
+		components: {
+			footer: {
+				autoRender: true,
+				layout: 'row',
+//				etype: 'tool-bar',
+				components: {
+					buttons: {
+						layout: 'bar',
+						defaultItem: {
+							etype: 'button',
+							onClick: function() {
+								this.events.rise('dialogAction', {action: this.opt('name')});
+								// var name = this.opt('name');
+								// if(name)
+									// this.events.rise(name);
+							}
+						}
+					}
+				}
+//				items: []
+			}
+		},
+		
+		onClick: function(e) {
+			e.stop();
+		},
+		
+		onDialogAction: function(e) {
+			
+			if(e.action)
+				this.events.fire(e.action);
+			
+			this.close();
+		}
+	}
+	
+	
+/*	
+	_construct: function(o) {
+		this._super(o);
+		
+		if(o.dialogButtons) {
+			
+			for(var btn in o.dialogButtons) {
+				this.footer.buttons.items.add(btn);			
+			}
+			
+		}
+		
+	}
+*/	
+	
+}, 'widgets:modal-dialog');
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.TableGrid', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		cls: 'table-grid',
+		components: {
+			header: {
+				cls: 'grid-header',
+				components: {
+					content: {
+						etype: 'grid-header'
+					}
+				}
+			},
+			content: {
+				cls: 'grid-content',
+				autoHeight: true,
+				components: {
+					content: {
+						etype: 'grid-box'				
+					}
+				}
+			}
+		}		
+	},
+	
+	
+	_layoutChanged: function() {
+		this._super();
+		
+//		console.log('grid layout changed');
+		
+		var hw = this.header.content.el.width();
+		var cw = this.content.content.el.width();
+
+//		console.log(hw);
+//		console.log(cw);
+
+		
+		if(hw > cw) {
+			this.header.el.css('padding-right', hw-cw);
+		}
+	},
+	
+
+
+	_pre_construct: function(o) {
+		this._super(o);
+
+		if(o.cell)
+			Ergo.smart_override(o.components.content.components.content, {components: {body: {components: {rows: {defaultItem: {defaultItem: o.cell}}}}}});
+		
+		if(o.row)
+			Ergo.smart_override(o.components.content.components.content, {components: {body: {components: {rows: {defaultItem: o.row}}}}});
+		
+	},
+
+
+	
+	_construct: function(o) {
+		this._super(o);
 		
 		
+		var grid = this;
 		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+		this.columns = {
+			
+			_widget: this,
+			
+			add: function(column, key) {
+				
+				var col_item = Ergo.deep_copy(column);
+				var col = {};
+				var hdr_item = {};
+				
+				if('width' in col_item) {
+					col.width = col_item.width;
+					delete col_item.width;
+				}
+
+				if('header' in col_item) {
+					if($.isString(col_item.header)) {
+						hdr_item.text = col_item.header;
+					}
+					else {
+						hdr_item = col_item.header;
+					}
+					delete col_item.header;
+				}
+
+				
+				this._widget.content.content.control.items.add(col);
+				this._widget.content.content.body.rows.options.defaultItem.items.push(col_item);
+
+				this._widget.header.content.control.items.add(col);
+				this._widget.header.content.body.item(0).items.add(Ergo.smart_override({}, this._widget.options.column, hdr_item));
+			},
+			
+			
+			size: function() {
+				return this._widget.options.columns.length;
+			},
+			
+			
+			get: function(i) {
+				return this._widget.options.columns[i];				
+			},
+			
+			
+			each: function(callback) {
+				this._widget.options.columns.forEach(callback);
+			},
+			
+			
+			hide: function(i) {
+				
+				this._widget.header.content.control.item(i).el.detach();
+				this._widget.header.content.body.item(0).item(i).el.detach();
+				
+				this._widget.content.content.control.item(i).el.detach();
+				this._widget.content.content.body.rows.items.each(function(row){
+					row.item(i).el.detach();
+				});
+//				this._widget.content.content.control.options.items[i].autoRender = false;
+				this._widget.content.content.body.rows.options.defaultItem.items[i].autoRender = false;
+				
+				this.get(i).hidden = true;
+			},
+			
+			show: function(i) {
+				
+				var w = this._widget.header.content.control.item(i);
+				this._widget.header.content.control.layout.add( w, w._index, w._weight );//.item(i).el.detach();
+				w = this._widget.header.content.body.item(0).item(i);
+				this._widget.header.content.body.item(0).layout.add( w, w._index, w._weight );
+				
+				w = this._widget.content.content.control.item(i);
+				this._widget.content.content.control.layout.add( w, w._index, w._weight );
+				this._widget.content.content.body.rows.items.each(function(row){
+					var cell = row.item(i);
+					row.layout.add(cell, cell._index, cell._weight);
+				});
+				delete this._widget.content.content.body.rows.options.defaultItem.items[i].autoRender;
+
+				this.get(i).hidden = false;
+				
+			},
+			
+			
+			resize: function(i, width) {
+				
+				var self = this;
+				
+				var headers = this._widget.headers();
+				var hdr_control = this._widget.header.content.control;
+				var bdy_control = this._widget.content.content.control;
+
+				
+				this.each(function(col, j){
+					if(i == j) col.width = width;
+					if(!col.width) {
+						// фиксируем ширину плавающей колонки
+//						col.width = hdr_control.item(j).el.width();
+						col.width = headers.get(j).el.width();
+						console.log(col.width);
+						hdr_control.item(j).el.width(col.width);
+						bdy_control.item(j).el.width(col.width);
+					}
+				});
+				
+				
+				hdr_control.item(i).el.width(width);
+				bdy_control.item(i).el.width(width);
+				
+				// var w = this._widget.header.content.control;//.item(i);
+				// w.items.each(function(item){
+				// });
+				// w.el.width(width);
+// 				
+				// w = this._widget.content.content.control.item(i);
+				// w.el.width(width);
+				
+			}
+			
+			
+			
+		};
+		
+		
+
+		o.columns.forEach(function(col) {
+			grid.columns.add(col);
+		});
+		
+		
+	},
 	
-	<tbody>
+	
+	rows: function() {
+		return this.content.content.body.rows.items;
+	},
+	
+	headers: function() {
+		return this.header.content.body.item(0).items;
+	}
 	
 	
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Object.html">Object</a></span>
+	
+}, 'widgets:table-grid');
 
 
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>метод, вызываемый для каждого компонента</p></td>
-        </tr>
+
+
+
+
+Ergo.defineClass('Ergo.widgets.grid.Header', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		html: '&lt;table/>',
+//		cls: 'grid-header',
+		cls: 'grid-box header',
+		components: {
+			control: {
+				html: '&lt;colgroup/>',
+				defaultItem: {
+					etype: 'html:col'
+				},
+				weight: -1
+			},
+			body: {
+				html: '&lt;thead/>',
+				defaultItem: {
+					etype: 'table-row',
+					defaultItem: {
+						html: '&lt;th/>'
+//						etype: 'html:th'
+					}
+				},
+				items: [{}]
+			}
+		}		
+	}
+	
+}, 'widgets:grid-header');
+
+
+
+Ergo.defineClass('Ergo.widgets.grid.Box', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		html: '&lt;table/>',
+		cls: 'grid-box',
+		components: {
+			control: {
+				html: '&lt;colgroup/>',
+				defaultItem: {
+					html: '&lt;col/>'
+				},
+				weight: -1
+			},
+			body: {
+				html: '&lt;tbody/>',
+				components: {
+					rows: {
+						autoRender: false,
+						layout: 'inherited',
+						dynamic: true,						
+						defaultItem: {
+							etype: 'table-row',
+							items: []
+						}						
+					}
+				}
+			}
+		}		
+		
+	}
+	
+}, 'widgets:grid-box');
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.TabPanel', 'Ergo.widgets.Panel', {
+	
+	defaults: {
+		
+		cls: 'tab-panel',
+		
+		include: 'selectable',
+		
+		components: {
+			header: {
+				autoRender: false
+			},
+			tabbar: {
+				weight: -5,
+				etype: 'tab-bar',
+				defaultItem: {
+					onClick: function() {
+						this.events.rise('select', {key: this.opt('name') /*this._name || this._key || this._index*/});
+					}					
+				}
+			},
+			content: {
+				include: 'pageable',
+				// defaultItem: {
+					// states: {
+						// 'selected': function(on) {
+							// if(on) {
+								// this.parent.opt('visible', this);
+							// }
+						// }						
+					// }
+				// }
+			}
+		},
+		
+		// onSelectTab: function(e) {
+			// this.opt('selected', e.key);
+			// e.stop();
+		// },
+
+		selection: {
+			lookup: function(key) {
+	//			console.log(key);
+				return this.tabbar.item(key);//, this.content.item(key)];
+			}
+		},
+		
+		onSelectionChanged: function(e) {
+			this.content.opt('active', e.selection.opt('name'));
+			this.events.fire('selectTab', {key: e.selection.opt('name')});
+			e.stop();
+		}
+		
+	},
 	
 	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
+	_construct: function(o) {
+		this._super(o);
+		
+		this.tabs = new Ergo.core.Tabs(this);
+		
+		if('tabs' in o) {
+			for(var i = 0; i &lt; o.tabs.length; i++)
+				this.tabs.add(o.tabs[i]);
+		}
+		
+		
+	}
+	
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
+	
+}, 'widgets:tab-panel');
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
 
-        </dl>
-    
-    
-    
-    
-    
-</article>
 
-</section>  
+
+
+Ergo.defineClass('Ergo.core.Tabs', 'Ergo.core.Object', {
+	
+	defaults: {
+		mixins: [Ergo.Observable]
+	},
+	
+	
+	_initialize: function(w, o) {
+		this._super(o);
+		
+		this._widget = w;
+	},
+	
+	
+	
+	add: function(o) {
+
+		var page = {};
+		var tab = {};
+		
+		if($.isString(o)) {
+			tab = o;
+		}
+		else {
+			page = Ergo.deep_copy(o);
+			tab = o.tab;
+			delete page.tab;
+		}
+		
+		this._widget.tabbar.items.add(tab);
+		this._widget.content.items.add(page);
+		
+	}
+	
+});
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.BasicTree', 'Ergo.widgets.Tree', {
+	
+	defaults: {
+
+		cls: 'tree basic',
+
+		nestedItem: {
+
+			cls: 'item',
+			
+			transitions: {
+				'* > expanded': function() {
+					// загружаем данные поддерева и открываем его
+					var item = this;
+					if(item.data &amp;&amp; item.data.fetch &amp;&amp; !item.data._fetched)
+						item.data.fetch()
+							.then( function() { item.$sub.show(); } );
+					else if(!item.data._fetched)
+						item.$sub.show();
+				},
+				'expanded > *': function() {
+					// скрываем поддерево и удаляем его
+					var item = this;
+					this.$sub.hide().then(function(){
+						if(item.data &amp;&amp; item.data.purge) item.data.purge();
+					});
+				}
+			},
+			
+			components: {
+				toggler: {
+					etype: 'icon',
+					cls: 'toggle contextual action',
+					state: 'caret',
+					weight: -100,
+					autoBind: false,
+					onClick: function() {
+						this.parent.states.toggle('expanded');
+					},
+					states: {
+						'opened:type': 'se',
+						'closed:type': ''
+					}
+				},
+				// content: {
+				// 	etype: 'link'
+				// },
+				sub: {
+					cls: 'tree'
+				}
+			},
+			states: {
+				'expanded': function(on) {
+					this.$toggler.states.toggle('opened', on);
+					if(on)
+						this.events.rise('itemExpanded');
+				}
+			}
+		}
+	}
+	
+}, 'widgets:basic-tree');
+
+
+Ergo.declare('Ergo.widgets.ListTree', 'Ergo.widgets.NestedList', {
+	
+	defaults: {
+		cls: 'list-tree',
+		
+		nestedItem: {
+			components: {
+				content: {
+					etype: 'link'
+				}
+			}
+		}
+	},
+	
+}, 'widgets:list-tree');	
+
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.SideMenu', 'Ergo.widgets.Tree', {
+	
+	defaults: {
+		baseCls: 'side-menu',
+		nestedItem: {
+			components: {
+				content: {
+					etype: 'link',
+					components: {
+						icon: {
+							etype: 'icon',
+							cls: 'before',
+							weight: -100
+						},
+						content: {
+							etype: '&amp;text',
+						},
+						caret: {
+							etype: 'caret',
+							state: 'closed',
+							states: {
+								'opened:g': 'down',
+								'closed:g': 'right'
+							},
+							binding: function(v) {
+								if(!v.children) this.hide();
+							}
+						}
+					},
+					binding: false,
+					onClick: function() {
+						
+						if( !this.data.get('children') ) {
+							this.events.rise('menuAction', {target: this.parent, key: this.parent.path()});
+						}
+						else {
+							this.parent.states.toggle('expanded');							
+						}
+					}
+				}				
+			},
+			states: {
+				'expanded': function(on) {
+					this.content.caret.states.set(on ? 'opened' : 'closed');
+					if(on)
+						this.events.rise('itemExpanded');
+				}
+			}
+		},
+		binding: function(v) {
+			if(v.children) this.states.set('has-subtree');
+		},
+		
+		// onExpandItem: function(e) {
+			// // FIXME эксклюзивное открытие ветви
+			// this.items.each(function(item){
+				// if(e.target != item &amp;&amp; item.states.is('expanded'))
+					// item.states.unset('expanded');
+			// });					
+		// }
+		
+	}
+	
+	
+	
+}, 'widgets:side-menu');
+
+
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Input', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		cls: 'input',
+		
+		binding: function(v) {
+			this.content.opt('value', v);
+		},
+		
+		components: {
+			content: {
+				etype: 'html:input',
+				autoBind: false,
+				events: {
+					'jquery:keyup': function() {
+						this.events.rise('changeText', {text: this.el.val()});
+					},
+					// 'jquery:focus': function() {
+					// 	this.events.rise('focus', {focus: true});
+					// },
+					// 'jquery:blur': function() {
+					// 	this.events.rise('focus', {focus: false});
+					// },
+					'jquery:change': function() {
+						this.events.rise('change', {text: this.el.val()});
+					}
+				}
+			}
+		},
+
+
+		states: {
+			'disabled': function(on) {
+				this.content.opt('disabled', on);
+			}
+		},
+
+
+		
+		onChange: function(e) {
+			this.opt('value', e.text);			
+		}
+		
+		// onFocus: function(e) {
+		// 	this.states.toggle('focused', e.focus);			
+		// }
+		
+	},
+	
+	
+	
+	
+	set text(v) {
+		this.content.opt('placeholder', v);
+	},
+	
+	set placeholder(v) {
+		this.content.opt('placeholder', v);
+	},
+
+	set name(v) {
+		this.content.opt('name', v);
+	},
+	
+	set type(v) {
+		this.content.opt('type', v);
+	},
+
+
+	
+/*	
+	
+	selection_range: function(v0, v1) {
+		
+		var elem = this.content.el[0];
+
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(v0, v1);
+    } 
+    else if (elem.createTextRange) {
+      var range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', v0);
+      range.moveStart('character', v1);
+      range.select();
+    }
+		
+	},
+	
+	cursor_position: function(v) {
+		this.selection_range(v, v);		
+	}
+
+*/	
+	
+}, 'widgets:input');
+
+
+
+
+
+/**
+ * Элемент с выпадающим списком и выборкой
+ *  
+ * 
+ * @class
+ * @name Ergo.widgets.Select
+ * @extends Ergo.widgets.Box
+ *
+ * @mixes dropdown
+ * @mixes selectable
+ *
+ * @fires dropdown
+ * @fires select
+ *
+ *
+ */
+Ergo.defineClass('Ergo.widgets.Select', 'Ergo.widgets.Box', {
+	
+	defaults: {
+
+		cls: 'select has-icon at-right',
+
+		include: 'dropdown selectable',
+
+		components: {
+
+			'icon': {
+				etype: 'icon',
+				cls: 'right',
+				icon: 'caret',
+				weight: 10,
+				onClick: 'action:dropdown'
+				// onClick: function(e) {
+				// 	this.events.rise('dropdown');
+				// 	e.stop();
+				// }
+			},
+
+			// 'input': {
+			// 	etype: 'html:input',
+			// 	hidden: true,
+			// },
+
+			'content': {
+				etype: 'text',
+				binding: false,
+				cls: 'text',
+				onClick: 'action:dropdown'
+				// onClick: function(e) {
+				// 	this.events.rise('dropdown');
+				// 	e.stop();
+				// }
+			},
+
+			'dropdown': {
+				weight: -100,
+				popup: {
+					adjust: true
+				},
+				defaultItem: {
+					onClick: 'action:select'
+					// onClick: function(e) {
+					// 	this.events.rise('select');
+					// }
+				}
+			}
+
+		},
+
+		selection: {
+			lookup: function(key) {
+				return this.$dropdown.item(key);
+			}
+		},
+
+
+		binding: function(v) {
+
+			this.opt('selected', v);
+			
+			var selected = this.selection.get();
+
+//			this.$input.opt('text', v);
+			this.$content.opt('text', selected ? selected.opt('text') : null);
+			this.states.toggle('placeholder', v == null);
+
+		},
+
+
+//		onDropdown: function
+
+		onDropdown: function() {
+			this.states.toggle('opened');
+		},
+
+		onSelect: function(e) {
+			this.opt('value', e.target.opt('name'));
+			this.states.unset('opened');
+	//		this.$dropdown.close();
+		}
+	}
+
+
+	// _process_dropdown: function() {
+	// 	this.states.toggle('opened');		
+	// }
+
+
+
+}, 'widgets:select');
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Growls', 'Ergo.widgets.List', {
+
+	defaults: {
+		as: 'growls __gap',
+//		renderTo: 'body',
+		defaultItem: {
+			include: 'effects',
+			effects: {
+				hide: {type: 'slideUp', delay: 300}
+			},
+			hideOnUnrender: true,
+			components: {
+				content: {
+					showOnRender: true,
+					include: 'effects',
+					effects: {
+						show: 'fadeIn',
+						hide: 'fadeOut',
+						delay: 600
+					},
+					style: {'display': 'none'}
+				}
+			},
+			onClick: function() {
+				this.events.fire('close');
+			},
+			onClose: function() {
+				this.el.height(this.el.height());
+				this.content.hide().then(function(){
+					this._destroy();//.el.slideUp(300);
+				}.bind(this));			
+			}
+		},
+		timeout: 6000
+	},
+
+
+
+	addGrowl: function(growl) {
+
+		var item = this.items.add({
+			$content: growl
+		});
+		
+		this.render();
+		
+		
+		setTimeout(function() {
+			item.events.fire('close');
+		}, this.options.timeout);
+
+	}
+
+
+
+}, 'widgets:growls');
+
+
+
+
+/**
+ * Добавляет компонент label
+ * 
+ * Опции:
+ * 	`label`
+ * 
+ * @mixin Ergo.mixins.Label
+ */
+
+
+
+Ergo.alias('includes:label', {
+
+	defaults: {
+		components: {
+			label: {
+				etype: 'html:label'
+//				autoRender: false
+			}
+		}		
+	},
+
+	overrides: {
+		set_label: function(v) {
+			this.label.opt('text', v);
+		},
+		
+		get_label: function() {
+			this.label.opt('text');
+		}
+	}
+
+
+});
+
+
+Ergo.alias('includes:icon', {
+
+	defaults:{
+		components: {
+			icon: {
+				etype: 'icon',
+				weight: -10
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	},
+
+
+	overrides: {
+		set_icon: function(v) {
+			this.icon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+
+Ergo.alias('includes:xicon', {
+
+	defaults:{
+		components: {
+			xicon: {
+				etype: 'icon',
+				weight: 10
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	},
+
+
+	overrides: {
+		set_xicon: function(v) {
+			this.xicon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+Ergo.alias('includes:icon:before', {
+
+	defaults:{
+		components: {
+			icon: {
+				etype: 'icon',
+				weight: -10,
+				cls: 'before'
+			},
+			content: {
+				etype: '.',
+				binding: false
+			}
+		}
+	},
+
+
+	overrides: {
+		set_icon: function(v) {
+			this.$icon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+
+
+Ergo.alias('includes:icon:after', {
+
+	defaults:{
+		components: {
+			icon: {
+				etype: 'icon',
+				weight: 10,
+				cls: 'after'
+			},
+			content: {
+				etype: '.',
+				binding: false
+			}
+		}
+	},
+
+
+	overrides: {
+		set_icon: function(v) {
+			this.$icon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+
+Ergo.alias('includes:xicon:after', {
+
+	defaults:{
+		components: {
+			xicon: {
+				etype: 'icon',
+				weight: 10,
+				cls: 'after'
+			},
+			content: {
+				etype: '.',
+				binding: false
+			}
+		}
+	},
+
+
+	overrides: {
+		set_xicon: function(v) {
+			this.$xicon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+
+
+
+Ergo.alias('includes:icon:at-left', {
+
+	defaults:{
+		cls: 'has-icon at-left',
+		components: {
+			icon: {
+				etype: 'icon',
+				weight: 10,
+				cls: 'left'
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	},
+
+
+	overrides: {
+		set_icon: function(v) {
+			this.$icon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+
+Ergo.alias('includes:icon:at-right', {
+
+	defaults:{
+		cls: 'has-icon at-right',
+		components: {
+			icon: {
+				etype: 'icon',
+				weight: 10,
+				cls: 'right'
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	},
+
+
+	overrides: {
+		set_icon: function(v) {
+			this.$icon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+Ergo.alias('includes:xicon:at-right', {
+
+	defaults:{
+		cls: 'has-icon at-right',
+		components: {
+			xicon: {
+				etype: 'icon',
+				weight: 10,
+				cls: 'right'
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	},
+
+
+	overrides: {
+		set_xicon: function(v) {
+			this.$xicon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+Ergo.alias('includes:caret', {
+
+	defaults:{
+		components: {
+			caret: {
+				etype: 'icon',
+        as: '+caret',
+				weight: 10
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	}
+
+
+	// overrides: {
+	// 	set caret(v) {
+	// 		this.$caret.opt('text', v);
+	// 	}
+	// }
+
+});
+
+
+
+
+Ergo.alias('includes:caret:at-right', {
+
+	defaults:{
+		cls: 'has-icon at-right',
+		components: {
+			caret: {
+				etype: 'icon',
+				weight: 10,
+				as: '+right +caret'
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	}
+
+
+	// overrides: {
+	// 	set_icon: function(v) {
+	// 		this.$icon.opt('text', v);
+	// 	}
+	// }
+
+});
+
+
+/**
+ * Добавляет компонент $dropdown
+ *
+ * Состояния:
+ * 	`opened`
+ *
+ * @fires dropdownClosed
+ *
+ * @mixin dropdown
+ */
+Ergo.alias('includes:dropdown', {
+
+	defaults: {
+//		drop: 'down',
+		as: '+has-dropdown',
+		components: {
+			dropdown: {
+				etype: 'list',
+				as: 'dropdown',
+				include: 'popup effects',
+				weight: 100,
+				style: {'display': 'none'},
+				// TODO неплохо бы сделать шорткаты примесями
+				shortcuts: {
+					'|': {cls: 'divider'}
+				},
+				effects: {
+					show: {type: 'slideDown', delay: 200},
+					hide: {type: 'slideUp', delay: 200}
+				},
+
+	// 			popup: {
+	// 				at: 'left bottom'
+	// //				adjust: true
+	// 			},
+				events: {
+					'closed': function() {
+						this.parent.states.unset('opened', false);
+						this.events.rise('dropdownClosed');
+					}
+	//				'opened': function
+				}
+			}
+		},
+		states: {
+			'up:drop': 'drop-up',
+			'down:drop': '',
+			'left:drop': 'drop-left',
+			'right:drop': 'drop-right',
+			'opened': function(on, f) {
+				on ? this.$dropdown.open() : this.$dropdown.close();
+			}
+		}
+	}
+
+});
+
+
+
+
+
+
+
+
+
+Ergo.alias('includes:dropdown:sub', {
+
+	defaults: {
+//		drop: 'down',
+		as: '+has-dropdown',
+		components: {
+			sub: {
+				etype: 'list',
+				as: 'dropdown',
+				include: 'popup effects',
+				weight: 100,
+				style: {'display': 'none'},
+				// TODO неплохо бы сделать шорткаты примесями
+				shortcuts: {
+					'|': {cls: 'divider'}
+				},
+				effects: {
+					show: {type: 'slideDown', delay: 200},
+					hide: {type: 'slideUp', delay: 200}
+				},
+
+	// 			popup: {
+	// 				at: 'left bottom'
+	// //				adjust: true
+	// 			},
+				events: {
+					'closed': function() {
+						this.parent.states.unset('opened', false);
+						this.events.rise('dropdownClosed');
+					}
+	//				'opened': function
+				}
+			}
+		},
+		states: {
+			'up:drop': 'drop-up',
+			'down:drop': '',
+			'left:drop': 'drop-left',
+			'right:drop': 'drop-right',
+			'opened': function(on, f) {
+				on ? this.$sub.open() : this.$sub.close();
+			}
+		}
+	}
+
+});
+
+
+
+Ergo.defineMixin('Ergo.widgets.Loader', function(o){
+	
+	o.components = Ergo.smart_override({
+		loader: {
+			etype: 'box',
+			cls: 'loader',
+			weight: 100,
+			autoHeight: 'ignore',
+			components: {
+				icon: {
+					etype: 'icon'					
+				}
+			}
+		}		
+	}, o.components);
+
+
+	o.events = Ergo.smart_override({
+		'fetch': function() {
+			this.states.set('loading');
+		},		
+		'fetched': function() {
+			this.states.unset('loading');
+		}		
+	}, o.events);
+
+	Ergo.smart_override(o, {cls: 'loadable'});
+	
+	// o.states = Ergo.smart_override({
+		// 'loading': 'loading'		
+	// }, o.states);
+	
+//	Ergo.smart_build(o);
+	
+}, 'mixins:loader');
+
+
+Ergo.defineMixin('Ergo.widgets.Lockable', function(o){
+	
+	o.components = Ergo.smart_override({
+		locker: {
+			etype: 'box',
+			cls: 'locker',
+			weight: 1000,
+			autoHeight: 'ignore',
+		}		
+	}, o.components);
+
+
+	// o.events = Ergo.smart_override({
+		// 'fetch': function() {
+			// this.states.set('loading');
+		// },		
+		// 'fetched': function() {
+			// this.states.unset('loading');
+		// }		
+	// }, o.events);
+
+//	Ergo.smart_override(o, {cls: 'lockable'});
+	
+	o.states = Ergo.smart_override({
+		'locked': 'locked'		
+	}, o.states);
+	
+//	Ergo.smart_build(o);
+	
+}, 'mixins:lockable');
+
+
+
+/**
+ * Добавляет компонент contextMenu
+ * 
+ * События:
+ * 	`contextMenu`
+ * 
+ * @mixin Ergo.mixins.ContextMenu
+ */
+
+Ergo.alias('includes:context-menu', {
+
+	defaults: {
+		components: {
+			contextMenu: {
+				etype: 'dropdown-menu',
+				cls: 'context-menu',
+				renderTo: 'body',
+				autoBind: false,
+				popup: {
+					behaviour: 'contextmenu'
+				}
+			}
+		},
+		events: {
+			'jquery:contextmenu': function(e) {
+				
+				var x = e.pageX;
+				var y = e.pageY;
+				
+				this.events.rise('contextMenu');
+					
+				this.contextMenu.open(x, y);
+				
+				e.preventDefault();			
+			}			
+		}
+	}
+
+});
+
+
+
+
+Ergo.alias('includes:icon-addon', {
+
+	defaults:{ 
+		components: {
+			icon: {
+				etype: 'icon',
+				cls: 'addon',
+				weight: 10
+			}
+			// addon: {
+			// 	cls: 'box',
+			// 	weight: 10,
+			// 	cls: 'addon',
+			// 	components: {
+			// 		icon: {
+			// 			etype: 'icon'
+			// 		}
+			// 	}
+			// }			
+		}
+	},
+
+
+	overrides: {
+		set_icon: function(v) {
+			this.icon.opt('text', v);
+		}
+	}
+
+});
+
+
+
+
+
+Ergo.alias('includes:+image', {
+
+	defaults:{ 
+		components: {
+			image: {
+				etype: 'html:img',
+				cls: 'image',
+				weight: -10
+			},
+			content: {
+				etype: '.'
+			}
+		}
+	},
+
+
+	overrides: {
+		set_image: function(v) {
+			this.image.opt('src', v);
+		}
+	}
+
+});
+
+
+
+Ergo.alias('includes:growls', {
+
+  defaults: {
+    growls: {
+      etype: 'growls',
+    	as: '+top +right',
+    	renderTo: 'body',
+    	defaultItem: {
+    		$content: {
+    			etype: 'alert',
+    			width: 300,
+    			as: 'box inverted minor',
+    			$icon: {
+    				as: 'fa circular'
+    			}
+    		}
+    	},
+    	timeout: 8000
+    }
+  },
+
+
+  _construct: function(o) {
+
+    var ctx = this;
+
+    this._growls = $.ergo(o.growls);
+
+
+    window.growl = {
+    	'error': function(msg, title) {
+    		ctx._growls.addGrowl({
+          icon: 'fa-times',
+          title: title || 'Ошибка!',
+          text: msg,
+          state: 'danger'
+    		});
+    	},
+      'warning': function(msg, title) {
+    		ctx._growls.addGrowl({
+          icon: 'fa-bell-o',
+          title: title || 'Внимание!',
+          text: msg,
+          state: 'warning'
+    		});
+    	},
+      'info': function(msg, title) {
+    		ctx._growls.addGrowl({
+          icon: 'fa-info',
+          title: title || 'Информация!',
+          text: msg,
+          state: 'info'
+    		});
+    	},
+      'success': function(msg, title) {
+    		ctx._growls.addGrowl({
+          icon: 'fa-check',
+          title: title || 'Готово!',
+          text: msg,
+          state: 'success'
+    		});
+    	}
+    }
+
+
+  }
+
+});
+
+
+
+Ergo.alias('includes:item-click-selection', {
+
+	defaults: {
+		defaultItem: {
+			events: {
+				'jquery:click': function() {
+					this.events.rise('itemSelect');
+				}
+			}
+		},
+		events: {
+			'itemSelect': function(e) {
+				this.opt('index', e.target.opt('name'));
+//				e.stop();
+			}
+		}
+	},
+
+
+	overrides: {
+
+		set index(v) {
+			this.selection.set(v);
+		}
+
+	}
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Breadcrumbs', 'Ergo.widgets.List', {
+	
+	defaults: {
+		baseCls: 'breadcrumbs',
+		defaultItem: {
+			components: {
+				content: {
+					etype: 'link'
+				}
+			}
+		},
+		components: {
+			current: {
+				etype: 'html:li',
+				binding: 'text',
+				weight: 100
+			}
+		}
+	}
+	
+}, 'widgets:breadcrumbs');	
+
+
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Alert', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		cls: 'alert',
+		layout: 'columns',
+		components: {
+			icon: {
+				etype: 'icon'
+			},
+			content: {
+				components: {
+					title: {
+						cls: 'alert-title',
+						etype: 'html:strong'
+					},
+					message: {
+						cls: 'alert-message',
+						etype: 'box'
+					}					
+				}
+			},
+			xicon: {
+				etype: 'icon',
+				autoRender: false
+			}
+		}
+	},
+	
+	
+	set_title: function(v) {
+		this.content.title.opt('text', v);
+	},
+	
+	set_icon: function(v) {
+		this.icon.states.set(v);
+	},
+	
+	set_text: function(v) {
+		this.content.message.opt('text', v);
+	}
+	
+	
+}, 'widgets:alert');
+
+
+
+Ergo.defineClass('Ergo.widgets.SimpleAlert', 'Ergo.widgets.Box', {
+
+	defaults: {
+		cls: 'alert simple',
+		components: {
+			title: {
+				etype: 'html:strong'
+			},
+			content: {
+				etype: '&amp;text'
+			}
+		}
+	},
+
+	set_title: function(v) {
+		this.title.opt('text', v);
+	}	
+
+}, 'widgets:simple-alert');
+
+
+
+Ergo.defineClass('Ergo.widgets.DropdownList', 'Ergo.widgets.List', {
+	
+	defaults: {
+//		baseCls: 'dropdown-list',
+		style: {'display': 'none'},
+		include: 'popup effects',
+		shortcuts: {
+			'|': {cls: 'divider'}
+		},
+		effects: {
+			show: {type: 'slideDown', delay: 200},
+			hide: {type: 'slideUp', delay: 200}
+		}
+	}
+	
+}, 'widgets:dropdown-list');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.DropdownMenu', 'Ergo.widgets.DropdownList', {
+	
+	defaults: {
+		baseCls: 'menu',
+		defaultItem: {
+			components: {
+				content: {
+					etype: 'html:a'
+				}				
+			}
+		}
+	}
+	
+}, 'widgets:dropdown-menu');
+
+
+
+Ergo.defineClass('Ergo.widgets.Pagination', 'Ergo.widgets.List', {
+	
+	defaults: {
+		
+		baseCls: 'pagination',
+//		mixins: ['selectable'],
+		include: 'selectable',
+		dynamic: false,  // отключаем динамическое построение элементов
+		components: {
+			nextBtn: {
+				etype: 'html:li',
+				weight: 100,
+				$content: {
+					etype: 'html:a',
+					text: '»',
+					binding: false,
+					events: {
+						'jquery:mousedown': function(e) {
+							this.events.rise('index:next');
+							e.preventDefault(); // блокируем выделение текста
+						}
+					}
+				}
+			},
+			prevBtn: {
+				etype: 'html:li',
+				weight: -100,
+				$content: {
+					etype: 'html:a',
+					text: '«',
+					binding: false,
+					events: {
+						'jquery:mousedown': function(e) {
+							this.events.rise('index:prev');
+							e.preventDefault(); // блокируем выделение текста
+						}
+					}
+				}			
+			}
+		},
+		defaultItem: {
+			$content: {
+				etype: 'html:a',
+				events: {
+					'jquery:mousedown': function(e) {
+	//				this.parent.parent.opt('index', this.parent);
+						var index = parseInt( this.parent.opt('name') );
+						if(index)
+							this.events.rise('index:change', {index: index});
+						e.preventDefault(); // блокируем выделение текста
+					}
+				}
+			},
+			autoBind: false
+		},
+		// выборка происходит только по имени
+		// lookup: function(key) {
+		// 	return this.item( Ergo.by_opts.curry({name: key}) );
+		// },
+
+		selection: {
+			lookup: function(key) {
+				return this.item( Ergo.by_opts.curry({name: key}) );
+			}
+		},
+
+		
+		binding: function(v) {
+			this.opt('dataIndex', this.data.opt('index'));
+		},
+		
+		
+		events: {
+			'index:next': function(e) {
+				var i = this.data.opt('index')+1;
+				if( i &lt;= this.data.opt('count') )
+					this.events.rise('changeDataIndex', {index: i});
+			},
+			'index:prev': function(e) {
+				var i = this.data.opt('index')-1;
+				if( i > 0 )
+					this.events.rise('changeDataIndex', {index: i});
+			},
+			'index:change': function(e) {
+				this.events.rise('changeDataIndex', {index: e.index});
+			}
+		}
+		
+	},
+	
+	
+	
+	
+	
+	set_dataIndex: function(index) {
+
+		var count = this.data.opt('count');
+		
+		var before_pages = 2;
+		var after_pages = 2;
+		var wrap_pages = 2;
+		
+		this.items.apply_all('_destroy');
+
+		var min_float = Math.min(before_pages, count);
+		var max_float = Math.max(min_float, count-after_pages);
+		var min_block = Math.max(min_float, index-wrap_pages-1);
+		var max_block = Math.min(max_float, index+wrap_pages);
+		
+		// BEFORE
+		for(var i = 0; i &lt; min_float; i++)
+			this.items.add({text: i+1, name: i+1});
+		
+		if(min_block - min_float > 0)
+			this.items.add({text: '...'});
+		
+		for(var i = min_block; i &lt; max_block; i++)
+			this.items.add({text: i+1, name: i+1});
+
+		if(max_float - max_block > 0)
+			this.items.add({text: '...'});
+		
+		// AFTER
+		for(var i = max_float; i &lt; count; i++)
+			this.items.add({text: i+1, name: i+1});
+		
+		this.render();
+		
+		this.selection.set(index);
+		
+//		this.opt('selected', index);
+		
+//		data.opt('index', index);
+//		data.fetch();
+		
+		this.events.fire('dataIndexChanged', {index: index});  //?
+	}
+	
+	
+	
+}, 'widgets:pagination');
+
+
+
+Ergo.defineClass('Ergo.widgets.GridPagination', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		baseCls: 'grid-pagination',
+		cls: 'pagination',
+		defaultComponent: {
+			etype: 'menu-item',
+			// components: {
+			// 	content: {
+			// 		etype: 'html:a'
+			// 	}
+			// }
+		},
+		components: {
+			firstButton: {
+				// etype: 'button',
+				// state: 'flat tool',
+				components: {
+					content: {
+						cls: 'icon move first'
+					}
+				},
+//				text: '«',
+				weight: -100,
+				onClick: function() {
+					this.events.rise('index:first');
+				}				
+			},
+			prevButton: {
+//				etype: 'button',
+//				state: 'flat tool',
+//				text: '&lt;',
+				components: {
+					content: {
+						cls: 'icon move prev'
+					}
+				},
+				weight: -50,
+				onClick: function() {
+					this.events.rise('index:prev');
+				}				
+			},
+			nextButton: {
+//				etype: 'button',
+//				state: 'flat tool',
+//				text: '>',
+				components: {
+					content: {
+						cls: 'icon move next'
+					}
+				},
+				weight: 50,
+				onClick: function() {
+					this.events.rise('index:next');
+				}				
+			},
+			lastButton: {
+				components: {
+					content: {
+						cls: 'icon move last'
+					}
+				},
+				// etype: 'button',
+				// state: 'flat tool',
+//				text: '»',
+				weight: 100,
+				onClick: function() {
+					this.events.rise('index:last');
+				}							
+			},
+			current: {
+				etype: 'html:li',
+				cls: 'text muted',
+				autoBind: false,
+				defaultItem: {
+					etype: '.',
+				},
+				items: [ 
+				'Стр. ', 
+				{
+					etype: 'input',
+					cls: 'underlined',
+					onChange: function(e) {
+						
+						var i = parseInt(e.text);
+						
+						this.states.toggle('invalid', (isNaN(i) || (i).toString().length != e.text.length));
+						
+						if( !this.states.is('invalid') )
+							this.events.rise('index:change', {index: i});							
+						
+					}
+				}, 
+				' из ', 
+				{
+					etype: '.'
+				}]
+				
+			}
+		},
+		
+		events: {
+			'index:first': function(e) {
+				this.events.rise('changeDataIndex', {index: 1});
+			},
+			'index:last': function(e) {
+				this.events.rise('changeDataIndex', {index: this.data.opt('count')});
+			},
+			'index:next': function(e) {
+				var i = this.data.opt('index')+1;
+				if( i &lt;= this.data.opt('count') )
+					this.events.rise('changeDataIndex', {index: i});
+			},
+			'index:prev': function(e) {
+				var i = this.data.opt('index')-1;
+				if( i > 0 )
+					this.events.rise('changeDataIndex', {index: i});
+			},
+			'index:change': function(e) {
+				var i = e.index;
+				if( !isNaN(i) &amp;&amp; i > 0 &amp;&amp; i &lt;= this.data.opt('count') )
+					this.events.rise('changeDataIndex', {index: e.index});
+//				this.states.set('invalid');
+//					this.opt('value', this.opt('value'));
+				
+			}			
+		},
+
+		binding: function(v) {
+			
+			this.current.item(1).opt('value', this.data.opt('index'));
+			this.current.item(3).opt('text', this.data.opt('count'));
+			
+		}
+	
+	
+	},
+	
+	
+	
+	
+	set_dataIndex: function(v) {
+		
+	}
+	
+	
+	// _construct: function(o) {
+		// this._super(o);
+// 		
+		// this._index = 0;
+	// }
+	
+	
+}, 'widgets:grid-pagination');
+
+
+
+Ergo.defineClass('Ergo.widgets.Navigation', 'Ergo.widgets.Box', {
+	
+	defaults: {
+		baseCls: 'navigation',
+		html: '&lt;nav/>',
+		components: {
+			header: {
+				layout: 'fluid',
+				cls: 'header',
+				components: {
+					title: {
+						etype: 'link',
+						cls: 'title'
+					}
+				}
+			},
+			content: {
+				layout: 'fluid',
+				cls: 'content'
+			}
+		}
+		
+	},
+	
+	
+	set_title: function(v) {
+		this.header.title.opt('text', v);
+	}
+	
+	
+}, 'widgets:navigation');
+
+
+
+
+Ergo.defineClass('Ergo.widgets.Caret', 'Ergo.widgets.Text', {
+	
+	defaults: {
+		cls: 'caret',
+		autoBind: false
+	}
+
+}, 'widgets:caret');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+        </article>
+    </section>
+
 
 
 
@@ -5665,7 +7124,7 @@ opt(o) - установка нескольких опций, передавае�
         
 
         <footer>
-            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Thu Sep 24 2015 10:02:41 GMT+0300 (RTZ 2 (зима))
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Thu Sep 24 2015 10:02:39 GMT+0300 (RTZ 2 (зима))
         </footer>
     </div>
 </div>

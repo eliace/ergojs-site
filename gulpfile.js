@@ -6,6 +6,7 @@ var File = require('vinyl');
 var path = require('path');
 var fs = require('fs');
 var watch = require('gulp-watch');
+var jsdoc = require("gulp-jsdoc");
 
 
 
@@ -19,6 +20,29 @@ gulp.task('unwatch', function() {
 	gulp.unwatch('samples/**');
 });
 
+
+
+gulp.task('jsdoc', function() {
+
+	var conf = {
+		options: {
+			encoding: "utf8",
+			recurse: true,
+//			destination: "./docs/",
+//			template: "node_modules/jaguarjs-jsdoc"
+		},
+		template: {
+			path: "node_modules/jaguarjs-jsdoc"
+		},
+		infos: {
+			plugins: ['plugins/markdown']
+		}
+	}
+
+
+	gulp.src("./lib/ergo-js/dist/*.js")
+	  .pipe(jsdoc('./docs', conf.template, conf.infos, conf.options))
+});
 
 
 gulp.task('default', function() {

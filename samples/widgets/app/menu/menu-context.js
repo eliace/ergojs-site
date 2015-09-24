@@ -12,10 +12,17 @@ var context_menu = $.ergo({
 		'hide': {type: 'hide', delay: 0}
 	},
 	defaultItem: {
-		include: 'icon',
- 		$icon: {
- 			as: 'before'
- 		}
+		$content: {
+			include: 'icon:before',
+			// 	$icon: {
+	 	// 		as: 'before'
+			// 	}
+		},
+		set: {
+			'icon': function(v) {
+				this.$content.opt('icon', v);
+			}
+		}
 	},
 	items: [
 		{icon: 'fa-copy', text: 'Копировать'},
