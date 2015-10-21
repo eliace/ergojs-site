@@ -5,7 +5,7 @@ $.ergo({
 	layout: 'hbox',
 	as: '__gap',
 	renderTo: '#sample',
-	defaultItem:
+	defaultItem: {
 		onClick: 'action:run'
 	},
 	items: [{
@@ -38,7 +38,7 @@ $.ergo({
 		etype: 'text',
 		as: 'text red float-right',
 		weight: 10,
-		format: function(v) { return 'Итог: ' + v + ' с.' }
+		format: 'Итог: #{*} с.'
 	},
 	onRun: function(e) {
 		var t0 = Ergo.timestamp();
@@ -115,22 +115,24 @@ var w = $.ergo({
 //		format: '#{gender}',
 		binding: 'text',
 		width: 60
-	}/*, {
-		header: 'Profile',
-		$content: {
-			etype: 'html:a',
-			dataId: 'url',
-			binding: function(v) {
-				this.el.prop('href', v);
-				this.content.opt('text', v ? 'link' : 'missing');
-			},
-			$content: {
-				etype: 'html:spam'
-			}
-		}
-//		dataId: 'profile',
-//		binding: 'text'
-	}*/, {
+	},
+// 	{
+// 		header: 'Profile',
+// 		$content: {
+// 			etype: 'html:a',
+// 			dataId: 'url',
+// 			binding: function(v) {
+// 				this.el.prop('href', v);
+// 				this.content.opt('text', v ? 'link' : 'missing');
+// 			},
+// 			$content: {
+// 				etype: 'html:spam'
+// 			}
+// 		}
+// //		dataId: 'profile',
+// //		binding: 'text'
+// 	},
+	{
 		header: 'Home page',
 		dataId: 'url',
 //		format: '#{url}',

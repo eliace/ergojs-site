@@ -19,7 +19,7 @@ var w = $.ergo({
 			text: 'Итог: '
 		},
 		$content: {
-			etype: '&text',
+			etype: '.',
 			binding: function(v) {
 				this.opt('text', "$" + (v.qty * v.cost));
 			}

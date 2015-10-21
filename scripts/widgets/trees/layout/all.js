@@ -38,13 +38,14 @@ var w = $.ergo({
 		$content: {
 			$content: {
 				etype: '.',
+				binding: 'text',
 				dataId: 'full_name'
 			},
 			$email: {
 				etype: 'text',
 				cls: 'description',
 				dataId: 'email'
-			}			
+			}
 		},
 		$sub: {
 			hidden: false,
@@ -54,8 +55,8 @@ var w = $.ergo({
 			// $content: {
 			// 	etype: 'box',
 			// 	cls: 'item',
-			// }			
-		}					
+			// }
+		}
 	}
 
 
@@ -63,6 +64,7 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
 $context.section('Columns', 'Сдвиг за счет первой колонки. Первая колонка выровнена по верхнему краю');
 $context.section_begin('layout-column');
 $context.section_end('layout-column');
@@ -96,15 +98,17 @@ var w = $.ergo({
 		},
 		$content: {
 			col: 'content',
+//			format: '#{full_name}'
 			$content: {
 				etype: '.',
+				binding: 'text',
 				dataId: 'full_name'
 			},
 			$email: {
 				etype: 'text',
 				cls: 'description',
 				dataId: 'email'
-			}			
+			}
 		},
 		$sub: {
 			hidden: false,
@@ -113,8 +117,8 @@ var w = $.ergo({
 			// $content: {
 			// 	etype: 'box',
 			// 	cls: 'item',
-			// }			
-		}					
+			// }
+		}
 	}
 
 
@@ -122,6 +126,7 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
 
 
 data.fetch();

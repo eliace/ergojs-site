@@ -3,6 +3,8 @@
 var w = $.ergo({
 	etype: 'select',
 
+	'-include': 'focusable',
+
 	$content: {
 		etype: 'html:input',
 		placeholder: 'Сторона света',

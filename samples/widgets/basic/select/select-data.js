@@ -11,7 +11,7 @@ var users = new Ergo.data.Collection({provider: usersProvider});
 var w = $.ergo({
 	etype: 'select',
 	text: 'Варианты...',
-	as: 'placeholder',
+	as: '+placeholder',
 	$content: {
 		format: '#{user_title}',
 		binding: 'text'

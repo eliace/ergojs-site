@@ -8,7 +8,7 @@ var provider = {
 
 		appconstant: {
 		  letters : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-		  
+
 		  avatars: {
 		      'M': 'demo/blog/img/avatars/001.jpg', //http://howlstream.com/dist/images/icons/PNG/Dude.png',
 		      'F': 'demo/blog/img/avatars/003.jpg', // 'http://howlstream.com/dist/images/icons/PNG/Girl.png'
@@ -79,6 +79,10 @@ var provider = {
 
 
 
+
+
+
+
 var data1wb = new Ergo.data.Collection({provider: provider});
 var data2wb = new Ergo.data.Collection({provider: provider});
 
@@ -90,3 +94,5 @@ $context.section('Таблица (Two-way binding)');
 //= require test-2wb
 $context.section('10000');
 //= require test-10000
+$context.section('Список (+ click)');
+//= require test-events

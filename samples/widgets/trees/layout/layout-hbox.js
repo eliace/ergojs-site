@@ -27,13 +27,14 @@ var w = $.ergo({
 		$content: {
 			$content: {
 				etype: '.',
+				binding: 'text',
 				dataId: 'full_name'
 			},
 			$email: {
 				etype: 'text',
 				cls: 'description',
 				dataId: 'email'
-			}			
+			}
 		},
 		$sub: {
 			hidden: false,
@@ -43,8 +44,8 @@ var w = $.ergo({
 			// $content: {
 			// 	etype: 'box',
 			// 	cls: 'item',
-			// }			
-		}					
+			// }
+		}
 	}
 
 

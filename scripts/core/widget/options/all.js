@@ -114,7 +114,7 @@ $context.section_end('options-jquery');
 Ergo.alias('includes:input-mask', {
 
 	_post_construct: function(o) {
-		this.content.el.mask(o.mask);
+		this.$content.el.mask(o.mask);
 	}
 
 });
@@ -124,7 +124,7 @@ Ergo.alias('includes:input-mask-2', {
 
 	overrides: {
 		set mask(v) {
-			this.content.el.mask(v);
+			this.$content.el.mask(v);
 		}
 	}
 
@@ -135,18 +135,19 @@ Ergo.alias('includes:input-mask-2', {
 
 var w = $.ergo({
 	etype: 'box',
-	layout: 'bar',
+	layout: 'vbox',
+	as: '__gap',
 
 	items: [{
-		etype: 'text-box',
-		include: 'input-mask icon-addon',
+		etype: 'input',
+		include: 'input-mask icon:at-right',
 		icon: 'fa-search',
 		mask: '+7 (000) 000 00 00',
-		placeholder: '+7 (___) _______',		
+		placeholder: '+7 (___) _______',
 		width: 180
 	}, {
-		etype: 'text-box',
-		include: 'icon-addon input-mask-2',
+		etype: 'input',
+		include: 'icon:at-right input-mask-2',
 		icon: 'fa-calendar',
 		mask: '00/00/00',
 		placeholder: 'дд/мм/гг',
@@ -155,8 +156,8 @@ var w = $.ergo({
 
 });
 
-w.render('#sample');
 
+w.render('#sample');
 
 
 

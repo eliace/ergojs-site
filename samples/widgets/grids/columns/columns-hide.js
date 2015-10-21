@@ -84,7 +84,7 @@ var w = $.ergo({
 							}
 						},
 						content: {
-							etype: '&text'
+							etype: '.'
 						}
 
 					}

@@ -446,34 +446,86 @@ var f = function(item) {
 
 
 
+
+
+
+
+
+
 var input = $.ergo({
 	etype: 'input',
 	text: 'Search...',
 	include: 'dropdown',
 	$dropdown: {
+		include: 'list-navigator',
 		items: COUNTRIES,
 		renderFilter: f,
-//		style: {'max-height': 200}
+		defaultItem: {
+			as: 'item',
+			onClick: 'action:itemClick'
+		}
 	},
-	onChangeText: function(e) {
-		if(e.text) {
 
-			n = 0;
+	onItemClick: function(e) {
+		this.opt('value', e.target.opt('text'));
+		this.states.unset('opened');
+	},
 
-			this.$dropdown.opt('search', e.text);
-			this.$dropdown.filter('render');
+	onKeyDown: function(e) {
 
-			this.states.set('opened');
+		var keyCode = e.base.keyCode;
+
+		var KEY_UP = 38;
+		var KEY_DOWN = 40;
+		var KEY_ENTER = 13;
+
+//		console.log(keyCode);
+
+		if(keyCode == KEY_DOWN) {
+			this.$dropdown.navigator.next();
+		}
+		else if(keyCode == KEY_UP) {
+			this.$dropdown.navigator.prev();
+		}
+
+	},
+	onKeyUp: function(e) {
+
+		var keyCode = e.base.keyCode;
+
+// 		var KEY_UP = 38;
+// 		var KEY_DOWN = 40;
+ 		var KEY_ENTER = 13;
+//
+
+		if(keyCode == KEY_ENTER) {
+			this.events.rise('itemClick', {target: this.$dropdown.navigator.selected});
+		//			this.$dropdown.events.fire('keyUp', {}, e.base);
 		}
 		else {
-			this.states.unset('opened');
+
+			if(e.text) {
+
+				n = 0;
+
+				this.$dropdown.opt('search', e.text);
+				this.$dropdown.filter('render');
+
+				console.log('render');
+
+				this.states.set('opened');
+
+			}
+			else {
+				this.states.unset('opened');
+			}
 		}
+
 	}
 });
 
 
 
 input.render('#sample');
-
 
 

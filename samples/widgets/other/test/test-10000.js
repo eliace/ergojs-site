@@ -42,7 +42,7 @@ $.ergo({
 			// });
 
 //			box.items.apply_all('_destroy');
-			box.children.apply_all('unrender');
+//			box.children.apply_all('unrender');
 		}
 		else if(test == 'Render') {
 

@@ -135,7 +135,7 @@ $context.section_end('events-type');
 var w = $.ergo({
 	etype: 'box',
 	text: 'Наведи курсор на меня',
-	
+
 	events: {
 		// событие виджета
 		'action': function(e) {
@@ -149,10 +149,10 @@ var w = $.ergo({
 			this.el.css('background-color', '');
 		},
 		'ctx:action': function(e) {
-			$context.alert('Событие контекста: ' + e.value);			
+			$context.alert('Событие контекста: ' + e.value);
 		}
 	}
-	
+
 });
 
 w.render('#sample');
@@ -173,7 +173,5 @@ var w2 = $.ergo({
 });
 
 w2.render('#sample');
-
-
 
 

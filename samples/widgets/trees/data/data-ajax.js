@@ -43,8 +43,9 @@ var w = $.ergo({
 				// }
 			},
 			$content: {
-				etype: '&text',
-				dataId: 'title'					
+				etype: '.',
+				format: '#{title}',
+				binding: 'text'
 			},
 			binding: false
 		},

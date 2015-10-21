@@ -11,7 +11,7 @@ var w = $.ergo({
 			width: 40
 		},
 		$content: {
-			etype: '&text'
+			etype: '.'
 		},
 		set: {
 			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
