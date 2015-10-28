@@ -30,7 +30,7 @@ var form = $.ergo({
 			etype: 'input',
 			label: 'Last Name',
 			message: 'Цифра 1 является недопустимой',
-			onChangeText: function(e) {
+			onInput: function(e) {
 				this.wrapper.states.toggle( 'error', e.text.indexOf('1') != -1 )
 			}
 		}, {

@@ -33,17 +33,17 @@ $.ergo({
 
 	data: data,
 
-	onChangeText: function(e) {
-		
+	onKeyUp: function(e) {
+
 		var self = this;
-		
+
 		// Метод №1
 
 		var criteria = text_filter.bind(this, e.text);
 
 		this.$content.filter( 'render', criteria );
 
-	}		
+	}
 
 });
 

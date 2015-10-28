@@ -1619,7 +1619,7 @@ h5 {
   cursor: default;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 200px;
+  max-height: 260px;
 }
 .list.dropdown > li {
   cursor: default;
@@ -3099,6 +3099,7 @@ label.selected {
   float: left;
   margin-top: 3px;
   margin-bottom: 3px;
+  line-height: 1;
 }
 .link {
   text-decoration: none;

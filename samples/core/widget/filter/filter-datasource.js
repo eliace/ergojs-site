@@ -6,12 +6,12 @@ var data3 = new Ergo.data.Collection({
 
 		var r = [];
 		var q = this.options.query;
-		
+
 		for(var i in v) {
 			if(!q.filter || (v[i].full_name.toLowerCase().indexOf(q.filter) > -1))
 				r.push(v[i]);
 		}
-		
+
 		return r;
 	}
 });
@@ -39,15 +39,15 @@ $.ergo({
 	},
 
 	data: data3,
-	
-	onChangeText: function(e) {
-		
+
+	onKeyUp: function(e) {
+
 		// Метод №3
 
-		this.data.opt('query', {filter: e.text});			
+		this.data.opt('query', {filter: e.text});
 		this.data.fetch();
-		
-	}		
+
+	}
 
 });
 

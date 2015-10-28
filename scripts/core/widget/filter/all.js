@@ -50,17 +50,17 @@ $.ergo({
 
 	data: data,
 
-	onChangeText: function(e) {
-		
+	onKeyUp: function(e) {
+
 		var self = this;
-		
+
 		// Метод №1
 
 		var criteria = text_filter.bind(this, e.text);
 
 		this.$content.filter( 'render', criteria );
 
-	}		
+	}
 
 });
 
@@ -96,7 +96,7 @@ $.ergo({
 				include: 'icon:at-right',
 				icon: 'fa-search',
 				autoBind: false,
-			}			
+			}
 		}
 	},
 	$content: {
@@ -111,10 +111,10 @@ $.ergo({
 
 	data: data2,
 
-	onChangeText: function(e) {
-		
+	onKeyUp: function(e) {
+
 		// Метод №2
-		
+
 		// this.content.opt('dynamicFilter', function(v, i) {
 		// 	return v && (v.full_name.indexOf(e.text) > -1);
 		// });
@@ -125,10 +125,10 @@ $.ergo({
 
 		// this.content.opt('dynamicFilter', filter);
 		// this.content._rebind();
-		
-	}		
 
-	
+	}
+
+
 });
 
 
@@ -145,12 +145,12 @@ var data3 = new Ergo.data.Collection({
 
 		var r = [];
 		var q = this.options.query;
-		
+
 		for(var i in v) {
 			if(!q.filter || (v[i].full_name.toLowerCase().indexOf(q.filter) > -1))
 				r.push(v[i]);
 		}
-		
+
 		return r;
 	}
 });
@@ -178,15 +178,15 @@ $.ergo({
 	},
 
 	data: data3,
-	
-	onChangeText: function(e) {
-		
+
+	onKeyUp: function(e) {
+
 		// Метод №3
 
-		this.data.opt('query', {filter: e.text});			
+		this.data.opt('query', {filter: e.text});
 		this.data.fetch();
-		
-	}		
+
+	}
 
 });
 

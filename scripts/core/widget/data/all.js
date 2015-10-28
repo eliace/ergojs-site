@@ -221,16 +221,8 @@ var w = $.ergo({
 
 	items: [{
 		etype: 'html:input',
-		set: {
-			'text': function(v) { this.el.val(v); }
-		},
-		get: {
-			'text': function() { return this.el.val(); }
-		},
-		events: {
-			'change': function(e) {
-				this.opt('value', e.value);
-			}
+		onChange: function(e) {
+			this.opt('value', e.value);
 		}
 	}, {
 		etype: 'text',
@@ -286,6 +278,4 @@ var w = $.ergo({
 
 
 w.render('#sample');
-
-
 

@@ -65,6 +65,9 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			}, {
 				title: 'Сортировка',
 				name: 'core/widget/sort'
+			}, {
+				title: 'Валидация',
+				name: 'core/widget/validate'
 			}]
 		}/*, {
 			title: 'Элементы и компоненты',

@@ -265,7 +265,10 @@ var w2 = $.ergo({
 //    format: '#{full_name}',
 		events: {
       'jquery:keyup': function(e) {
-        this.events.rise('keyUp', {text: this.el.val()}, e);
+        if( !(e.keyCode == KEY_UP || e.keyCode == KEY_DOWN || e.keyCode == KEY_ESC || e.keyCode == KEY_ENTER) ) {
+          this.events.rise('input', {text: this.el.val()}, e);
+        }
+//        this.events.rise('keyUp', {text: this.el.val()}, e);
       }
       // 'jquery:keydown': function(e) {
       //   this.events.rise('keyDown', {text: this.el.val()}, e);
@@ -295,42 +298,65 @@ var w2 = $.ergo({
       return this.$dropdown.data
         .fetch()
         .then(function() {
-          // обновляем выборку, поскольку список перестроился
+          //FIXME обновляем выборку, поскольку список перестроился
           self.selection.set( self.opt('value') );
-          self.$dropdown.navigator.selected = self.selection.get();
+//          self.$dropdown.navigator.selected = self.selection.get();
         });
     }
   },
 
-	onKeyUp: function(e) {
+
+  onInput: function(e) {
 
     var self = this;
 
-    if( !(e.base.keyCode == KEY_UP || e.base.keyCode == KEY_DOWN || e.base.keyCode == KEY_ESC || e.base.keyCode == KEY_ENTER) ) {
+    this.$dropdown.opt('dynamicFilter', inputFilter.curry(e.text));
 
-      this.$dropdown.opt('dynamicFilter', inputFilter.curry(e.text));
+    this.$dropdown.data
+      .fetch()
+      .then(function() {
+        //FIXME обновляем выборку, поскольку список перестроился
+        self.selection.set( self.opt('value') );
+//        self.$dropdown.navigator.selected = self.selection.get();
+      });
 
-      this.$dropdown.data
-        .fetch()
-        .then(function() {
-          // обновляем выборку, поскольку список перестроился
-          self.selection.set( self.opt('value') );
-          self.$dropdown.navigator.selected = self.selection.get();
-        });
+    this.states.set('opened');
 
-      this.states.set('opened');
-    }
+  },
 
-    // if( e.base.keyCode == 27 ) {
-    //   this._dataChanged();
-    // }
+	// onKeyUp: function(e) {
+  //
+  //   var self = this;
+  //
+  //   if( !(e.base.keyCode == KEY_UP || e.base.keyCode == KEY_DOWN || e.base.keyCode == KEY_ESC || e.base.keyCode == KEY_ENTER) ) {
+  //
+  //     this.$dropdown.opt('dynamicFilter', inputFilter.curry(e.text));
+  //
+  //     this.$dropdown.data
+  //       .fetch()
+  //       .then(function() {
+  //         //FIXME обновляем выборку, поскольку список перестроился
+  //         self.selection.set( self.opt('value') );
+  //         self.$dropdown.navigator.selected = self.selection.get();
+  //       });
+  //
+  //     this.states.set('opened');
+  //   }
+  //
+  //   // if( e.base.keyCode == 27 ) {
+  //   //   this._dataChanged();
+  //   // }
+  //
+	// },
 
-	},
 
-  onSelect: function(e) {
+
+  onChangeSelect: function(e) {
+    // устанавливаем фильтр
     var text = e.target.opt('text');
     if(text)
       this.$dropdown.opt('dynamicFilter', inputFilter.curry( text ));
+    // устанавливаем фокус на элемент ввода
     this.$content.el.focus();
   }
 

@@ -12,5 +12,3 @@ $context.section('Общие данные');
 //= require data-share
 $context.section('"Грязные" данные', 'Уведомление родительских источников данных о том, что значение изменилось');
 //= require data-dirty
-
-
