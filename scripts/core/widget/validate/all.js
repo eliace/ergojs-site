@@ -17,9 +17,6 @@ var w = $.ergo({
 
   defaultItem: {
     etype: 'html:text-input',
-    onInvalid: function(e) {
-      console.log('invalid', e.value);
-    }
   },
 
   items: [{
@@ -27,7 +24,7 @@ var w = $.ergo({
     placeholder: 'Не более 5 символов',
     unformat: function(v) {
       if(v && v.length > 5) {
-        this.events.fire('invalid', {value: v});
+        this.events.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -39,7 +36,7 @@ var w = $.ergo({
     placeholder: 'Без цифр',
     unformat: function(v) {
       if(v && /\d/.test(v)) {
-        this.events.fire('invalid', {value: v});
+        this.events.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -50,8 +47,9 @@ var w = $.ergo({
       setTimeout(function(){
         self.events.rise('change', {value: self.el.val()});
       }, 0);
-    },
+    }
   }]
+
 });
 
 w.render('#sample');
@@ -88,7 +86,10 @@ Ergo.defineClass('Ergo.data.type.String', 'Ergo.data.Object', {
 Ergo.defineClass('Ergo.data.SampleObject', 'Ergo.data.Object', {
   fields: {
     'a': 'data:numeric',
-    'b': {etype: 'data:string', onlyUppercase: true},
+    'b': {
+      etype: 'data:string',
+      onlyUppercase: true
+    },
     'c': {
       etype: 'data:string',
       validator: function(v) {
@@ -112,26 +113,44 @@ ds.set(data);
 var w = $.ergo({
   etype: 'box',
   layout: 'vbox',
-  as: '__gap',
+  as: 'list __gap',
   data: ds,
   defaultItem: {
-    etype: 'html:text-input',
-    events: {
-      'data:invalid': function(e) {
-        console.log('Некорректное значение: ' + e.value);
-      },
-      'input': 'changeAction'
+    as: 'item',
+    $input: {
+      etype: 'html:text-input',
+      events: {
+        'data:invalid': 'action:invalid',
+        'data:valid': 'action:valid',
+        'input': 'changeAction'
+      }
+    },
+    $message: {
+      as: 'red text after +hidden'
+    },
+    onInvalid: function(e) {
+      this.$message.states.unset('hidden');
+      this.$message.opt('text', 'Неверное значение: ' + e.value + ' в поле "' + e.entry._id[0] + '"');
+    },
+    onValid: function(e) {
+      this.$message.states.set('hidden');
     }
   },
   items: [{
-    placeholder: 'Целое число',
-    dataId: 'a'
+    $input: {
+      placeholder: 'Целое число',
+      dataId: 'a'
+    }
   }, {
-    placeholder: 'Печатные буквы',
-    dataId: 'b'
+    $input: {
+      placeholder: 'Печатные буквы',
+      dataId: 'b'
+    }
   }, {
-    placeholder: 'Прописные буквы',
-    dataId: 'c'
+    $input: {
+      placeholder: 'Прописные буквы',
+      dataId: 'c'
+    }
   }]
 });
 

@@ -13,9 +13,6 @@ var w = $.ergo({
 
   defaultItem: {
     etype: 'html:text-input',
-    onInvalid: function(e) {
-      console.log('invalid', e.value);
-    }
   },
 
   items: [{
@@ -23,7 +20,7 @@ var w = $.ergo({
     placeholder: 'Не более 5 символов',
     unformat: function(v) {
       if(v && v.length > 5) {
-        this.events.fire('invalid', {value: v});
+        this.events.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -35,7 +32,7 @@ var w = $.ergo({
     placeholder: 'Без цифр',
     unformat: function(v) {
       if(v && /\d/.test(v)) {
-        this.events.fire('invalid', {value: v});
+        this.events.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -46,8 +43,9 @@ var w = $.ergo({
       setTimeout(function(){
         self.events.rise('change', {value: self.el.val()});
       }, 0);
-    },
+    }
   }]
+
 });
 
 w.render('#sample');
