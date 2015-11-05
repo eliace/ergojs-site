@@ -29,11 +29,11 @@ var w = $.ergo({
 	},
 	data: userData,
 	dataId: ['user_id', 'user_title'],
-	selection: {
-		lookup: function(v) {
-			return this.$dropdown.items.find(function(item) { return item.opt('name').user_id == v.user_id; } );
-		}
-	}
+	// selection: {
+	// 	lookup: function(v) {
+	// 		return this.$dropdown.items.find(function(item) { return item.opt('name').user_id == v.user_id; } );
+	// 	}
+	// }
 });
 
 

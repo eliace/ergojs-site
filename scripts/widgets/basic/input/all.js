@@ -1,5 +1,7 @@
 
 
+$context.alert('Поскольку `input` использует стиль `display-table`, его не следует применять с компоновками типа `hbox` или `vbox`');
+
 $context.section('Поле ввода');
 $context.section_begin('input-basic');
 $context.section_end('input-basic');
@@ -527,5 +529,4 @@ var input = $.ergo({
 
 
 input.render('#sample');
-
 

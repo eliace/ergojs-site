@@ -1,23 +1,25 @@
 
+
 var textFilter = function(s, item) {
   var v = item.opt('text');
   return v && v.toLowerCase().indexOf(s.toLowerCase()) > -1;
 };
 
 
+var data = new Ergo.core.DataSource([]);
 
 
-var select = $.ergo({
+var select2 = $.ergo({
 	etype: 'select',
 	as: 'multi',
   selection: {
     multiselect: true
   },
 
-//  data: [],
+  data: data,
+  dynamic: true,
 //	$labels: {
 	defaultItem: {
-//		style: {'display': 'inline-block', 'vertical-align': 'middle', 'margin-left': 4, 'float': 'left', 'margin-top': 3, 'margin-bottom': 3},
 //		etype: 'label',
 		as: 'label',
 		$icon: {
@@ -26,13 +28,11 @@ var select = $.ergo({
 			as: 'contextual action after +close',
 			onClick: 'action:delete'
 		},
+    $content: {
+      etype: '.'
+    },
     onDelete: 'action:removeSelect'
-		// onDelete: function() {
-		// 	this._destroy();
-		// }
 	},
-//	items: ['hello', 'goodbye'],
-//	},
 	$content: {
 		etype: 'edit',
     include: 'user-input',
@@ -49,7 +49,11 @@ var select = $.ergo({
       var selected = this.selection.get(v[i]);
       if(!selected) {
 
-        var selected = this.selection.set( v[i] );
+        var selected = this.selection.set(v[i]);
+
+
+        // var selected = this.selection.set( v[i] );
+        // this.items.add({text: selected.opt('text'), name: selected.opt('name')}).render();
 
         this.$content.opt('text', '');
         this.$dropdown.options.renderFilter = textFilter.curry('');
@@ -61,14 +65,8 @@ var select = $.ergo({
 
 	onClick: 'action:dropdown',
 
-	// onChange: function(e) {
-	// 	this.items.add(e.text).render();
-	// 	this.$content.opt('text', '');
-	// },
 	onSelect: function(e) {
 		this.$content.el.focus();
-		// this.opt('value', e.target.opt('name'));
-		// e.stop(true);
 	},
 
 	onInput: function(e) {
@@ -78,29 +76,15 @@ var select = $.ergo({
 
 	onDropdown: function(e) {
 		this.$content.el.focus();
-		// this.$dropdown._rerender();
-		// this.states.set('opened');
-//		e.stop(true);
 	},
 
   onChangeSelect: function(e) {
 
     var k = e.target.opt('name');
 
-//    var selected = this.selection.set(k);
+    var entry = this.data.add( k );
 
-    this.items.add({text: e.target.opt('text'), name: e.target.opt('name')}).render();
-
-
-    var v = this.opt('value') || [];
-
-    v.push(k);
-
-    // this.selection.each(function(sel) {
-    //   v.push( sel.opt('name') );
-    // });
-
-    this.opt('value', v);
+    this.item({data: entry}).opt('text', e.target.opt('text')).opt('name', k);
 
     this.states.unset('opened');
 
@@ -113,18 +97,19 @@ var select = $.ergo({
 
   onRemoveSelect: function(e) {
 
-    var k = (e.key == null) ? e.target.opt('name') : e.key;
+    var k = e.target.opt('name');
 
     this.selection.unset(k);
+//    e.target._destroy();
+//    console.log(k);
 
-    e.target._destroy();
+    this.data.rm(k);
 
-
-    var v = this.opt('value') || [];
-
-    Ergo.remove(v, k);
-
-    this.opt('value', v);
+    // var v = this.opt('value') || [];
+    //
+    // Ergo.remove(v, k);
+    //
+    // this.opt('value', v);
 //
 //     this.selection.unset(k);
   }
@@ -132,4 +117,4 @@ var select = $.ergo({
 });
 
 
-select.render('#sample');
+select2.render('#sample');

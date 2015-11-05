@@ -174,7 +174,7 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Заголовок',
 				name: 'widgets/basic/header'
 			}, {
-				title: 'Элемент',
+				title: 'Chip',
 				name: 'widgets/basic/item'
 			}, {
 				title: 'Изображение',

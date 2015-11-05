@@ -12,7 +12,7 @@
 
 var w = $.ergo({
 	etype: 'select',
-	text: 'Варианты...',
+	placeholder: 'Варианты...',
 	as: '+placeholder',
 	$dropdown: {
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']

@@ -3,6 +3,7 @@
 var dlg = new Dialog({
 	as: 'simple padded center',
 	title: 'Диалог',
+	destroyOnClose: false,
 	$footer: {
 		$buttons: {
 			etype: 'box',

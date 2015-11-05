@@ -9,7 +9,8 @@ $context.section('Отступы', 'Задается расстояние от �
 //= require box-size
 $context.section('Цвета');
 //= require box-color
+$context.section('Линии');
+//= require box-line
 
 //$context.section('Панель инструментов', 'Выравнивание элементов за счет отступов');
 // require box-fluid
-

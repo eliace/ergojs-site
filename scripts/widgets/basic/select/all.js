@@ -14,7 +14,7 @@ var usersProvider = {
 
 
 
-
+$context.alert('Поскольку `select` использует стиль `display-table`, его не следует применять с компоновками типа `hbox` или `vbox`');
 
 $context.section('Простой список');
 $context.section_begin('select-basic');
@@ -33,7 +33,7 @@ $context.section_end('select-basic');
 
 var w = $.ergo({
 	etype: 'select',
-	text: 'Варианты...',
+	placeholder: 'Варианты...',
 	as: '+placeholder',
 	$dropdown: {
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
@@ -380,6 +380,11 @@ var textFilter = function(s, item) {
 var select = $.ergo({
 	etype: 'select',
 	as: 'multi',
+  selection: {
+    multiselect: true
+  },
+
+//  data: [],
 //	$labels: {
 	defaultItem: {
 //		style: {'display': 'inline-block', 'vertical-align': 'middle', 'margin-left': 4, 'float': 'left', 'margin-top': 3, 'margin-bottom': 3},
@@ -391,50 +396,36 @@ var select = $.ergo({
 			as: 'contextual action after +close',
 			onClick: 'action:delete'
 		},
-		onDelete: function() {
-			this._destroy();
-		}
+    onDelete: 'action:removeSelect'
+		// onDelete: function() {
+		// 	this._destroy();
+		// }
 	},
 //	items: ['hello', 'goodbye'],
 //	},
 	$content: {
 		etype: 'edit',
-//		html: '<div contenteditable="true"></div>',
-//		style: {'display': 'inline-block', 'vertical-align': 'middle', 'overflow': 'visible', 'min-width': 20, 'float': 'left', 'font': 'inherit', 'width': 'auto'},
+    include: 'user-input',
 		weight: 5,
-		events: {
-			// 'jquery:change': function() {
-			// 	this.events.rise('input', {text: this.el.val()});
-			// },
-			'jquery:keyup': function(e) {
-				this.events.rise('input', {text: this.opt('text')});
-			}
-			// 'jquery:keydown': function(e) {
-			// 	if(e.keyCode == 13) {
-			// 		this.events.rise('change', {text: this.opt('text')});
-			// 		e.preventDefault();
-			// 	}
-			// }
-		}
 	},
 	$dropdown: {
-		style: {'max-height': 200, 'overflow-y': 'auto', 'overflow-x': 'hidden'},
 		items: COUNTRIES
 	},
 
 
 	binding: function(v) {
 
-		this.opt('selected', v);
-		
-		var selected = this.selected;
+    for(var i = 0; i < v.length; i++) {
+      var selected = this.selection.get(v[i]);
+      if(!selected) {
 
-		if(selected) {
-			this.items.add(selected.opt('text')).render();
-			this.$content.opt('text', '');
-			this.$dropdown.options.renderFilter = textFilter.curry('');
-//			this.$content.events.rise('input', {text: ''});
-		}
+        var selected = this.selection.set( v[i] );
+
+        this.$content.opt('text', '');
+        this.$dropdown.options.renderFilter = textFilter.curry('');
+      }
+
+    }
 
 	},
 
@@ -449,25 +440,194 @@ var select = $.ergo({
 		// this.opt('value', e.target.opt('name'));
 		// e.stop(true);
 	},
+
 	onInput: function(e) {
 		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
 		this.states.toggle('opened', !(!e.text));
 	}.debounce(300),
+
 	onDropdown: function(e) {
 		this.$content.el.focus();
 		// this.$dropdown._rerender();
 		// this.states.set('opened');
-		e.stop(true);
+//		e.stop(true);
 	},
-	// set: {
-	// 	'text': function(v) {
-	// 		this.$content.el.attr('data-placeholder', v);
-	// 	}
-	// }
+
+  onChangeSelect: function(e) {
+
+    var k = e.target.opt('name');
+
+//    var selected = this.selection.set(k);
+
+    this.items.add({text: e.target.opt('text'), name: e.target.opt('name')}).render();
+
+
+    var v = this.opt('value') || [];
+
+    v.push(k);
+
+    // this.selection.each(function(sel) {
+    //   v.push( sel.opt('name') );
+    // });
+
+    this.opt('value', v);
+
+    this.states.unset('opened');
+
+    e.interrupt();
+  },
+
+
+  // onAddSelect: function(e) {
+  // },
+
+  onRemoveSelect: function(e) {
+
+    var k = (e.key == null) ? e.target.opt('name') : e.key;
+
+    this.selection.unset(k);
+
+    e.target._destroy();
+
+
+    var v = this.opt('value') || [];
+
+    Ergo.remove(v, k);
+
+    this.opt('value', v);
+//
+//     this.selection.unset(k);
+  }
+
 });
 
 
 select.render('#sample');
+
+$context.section('Множественный выбор (dynamic)');
+$context.section_begin('select-multi-dynamic');
+$context.section_end('select-multi-dynamic');
+
+
+var textFilter = function(s, item) {
+  var v = item.opt('text');
+  return v && v.toLowerCase().indexOf(s.toLowerCase()) > -1;
+};
+
+
+var data = new Ergo.core.DataSource([]);
+
+
+var select2 = $.ergo({
+	etype: 'select',
+	as: 'multi',
+  selection: {
+    multiselect: true
+  },
+
+  data: data,
+  dynamic: true,
+//	$labels: {
+	defaultItem: {
+//		etype: 'label',
+		as: 'label',
+		$icon: {
+			etype: 'icon',
+			weight: 10,
+			as: 'contextual action after +close',
+			onClick: 'action:delete'
+		},
+    $content: {
+      etype: '.'
+    },
+    onDelete: 'action:removeSelect'
+	},
+	$content: {
+		etype: 'edit',
+    include: 'user-input',
+		weight: 5,
+	},
+	$dropdown: {
+		items: COUNTRIES
+	},
+
+
+	binding: function(v) {
+
+    for(var i = 0; i < v.length; i++) {
+      var selected = this.selection.get(v[i]);
+      if(!selected) {
+
+        var selected = this.selection.set(v[i]);
+
+
+        // var selected = this.selection.set( v[i] );
+        // this.items.add({text: selected.opt('text'), name: selected.opt('name')}).render();
+
+        this.$content.opt('text', '');
+        this.$dropdown.options.renderFilter = textFilter.curry('');
+      }
+
+    }
+
+	},
+
+	onClick: 'action:dropdown',
+
+	onSelect: function(e) {
+		this.$content.el.focus();
+	},
+
+	onInput: function(e) {
+		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
+		this.states.toggle('opened', !(!e.text));
+	}.debounce(300),
+
+	onDropdown: function(e) {
+		this.$content.el.focus();
+	},
+
+  onChangeSelect: function(e) {
+
+    var k = e.target.opt('name');
+
+    var entry = this.data.add( k );
+
+    this.item({data: entry}).opt('text', e.target.opt('text')).opt('name', k);
+
+    this.states.unset('opened');
+
+    e.interrupt();
+  },
+
+
+  // onAddSelect: function(e) {
+  // },
+
+  onRemoveSelect: function(e) {
+
+    var k = e.target.opt('name');
+
+    this.selection.unset(k);
+//    e.target._destroy();
+//    console.log(k);
+
+    this.data.rm(k);
+
+    // var v = this.opt('value') || [];
+    //
+    // Ergo.remove(v, k);
+    //
+    // this.opt('value', v);
+//
+//     this.selection.unset(k);
+  }
+
+});
+
+
+select2.render('#sample');
+
 $context.section('Ajax');
 $context.section_begin('select-data');
 $context.section_end('select-data');
@@ -502,11 +662,11 @@ var w = $.ergo({
 	},
 	data: userData,
 	dataId: ['user_id', 'user_title'],
-	selection: {
-		lookup: function(v) {
-			return this.$dropdown.items.find(function(item) { return item.opt('name').user_id == v.user_id; } );
-		}
-	}
+	// selection: {
+	// 	lookup: function(v) {
+	// 		return this.$dropdown.items.find(function(item) { return item.opt('name').user_id == v.user_id; } );
+	// 	}
+	// }
 });
 
 
@@ -515,5 +675,4 @@ users.fetch();
 
 
 w.render('#sample');
-
 
