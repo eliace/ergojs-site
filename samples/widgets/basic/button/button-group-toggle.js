@@ -1,6 +1,6 @@
 
 var w = $.ergo({
-	etype: 'button-box',
+	etype: 'buttons',
 	as: 'group',
 	defaultItem: {
 		onClick: 'action:select'

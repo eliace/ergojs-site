@@ -220,8 +220,8 @@ $context.section_end = function(block) {
 						}, {
 							name: 'html',
 							etype: 'html:textarea',
-							value: '<script src="http://ergojs.com/lib/ergojs-core.js" type="text/javascript"></script>\n'
-								+'<script src="http://ergojs.com/lib/ergojs-widgets-all.js" type="text/javascript"></script>\n'
+							value: '<script src="http://ergojs.com/lib/ergo-js/dist/ergojs-core.js" type="text/javascript"></script>\n'
+								+'<script src="http://ergojs.com/lib/ergo-js/dist/ergojs-widgets-all.js" type="text/javascript"></script>\n'
 								+'<script src="http://ergojs.com/js/examples-context.js" type="text/javascript"></script>\n'
 								+'<script src="http://ergojs.com/js/examples-data.js" type="text/javascript"></script>\n'
 								+'<link href="http://fonts.googleapis.com/css?family=Roboto:400,500,600,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">\n'

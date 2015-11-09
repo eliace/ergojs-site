@@ -656,7 +656,7 @@ $context.section_begin('button-group-toggle');
 $context.section_end('button-group-toggle');
 
 var w = $.ergo({
-	etype: 'button-box',
+	etype: 'buttons',
 	as: 'group',
 	defaultItem: {
 		onClick: 'action:select'
@@ -671,7 +671,7 @@ $context.section_begin('button-group-select');
 $context.section_end('button-group-select');
 
 var w = $.ergo({
-	etype: 'button-box',
+	etype: 'buttons',
 	include: 'selectable',
 	as: 'group',
 	defaultItem: {
