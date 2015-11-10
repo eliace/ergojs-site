@@ -33,8 +33,11 @@ $context.section_end('select-basic');
 
 var w = $.ergo({
 	etype: 'select',
-	placeholder: 'Варианты...',
-	as: '+placeholder',
+//	placeholder: 'Варианты...',
+//	as: '+placeholder',
+	$content: {
+		placeholder: 'Варианты...'
+	},
 	$dropdown: {
 		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 	}
@@ -157,12 +160,13 @@ var w = $.ergo({
 
 	$content: {
 		etype: 'html:input',
-		placeholder: 'Сторона света',
+		placeholder: 'Сторона света'
 	},
 
 	$dropdown_items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 
 });
+
 
 
 w.render('#sample');
@@ -183,11 +187,11 @@ var textFilter = function(s, item) {
 var w = $.ergo({
 	etype: 'select',
 
-  '-include': 'focusable',
+  '-include': ['focusable', 'placeholder'],
 
 	$content: {
 		etype: 'html:input',
-		placeholder: 'Country',
+    placeholder: 'Country',
 		autoBind: false,
 		events: {
       'jquery:keyup': function(e) {
@@ -258,9 +262,10 @@ var w2 = $.ergo({
 
   dataId: ['id', 'full_name'],
 
+
 	$content: {
 		etype: 'html:input',
-		placeholder: 'User...',
+    placeholder: 'User...',
 		autoBind: false,
 //    format: '#{full_name}',
 		events: {
@@ -643,10 +648,10 @@ var users = new Ergo.data.Collection({provider: usersProvider});
 
 var w = $.ergo({
 	etype: 'select',
-	text: 'Варианты...',
-	as: '+placeholder',
+//	as: '+placeholder',
 	$content: {
 		format: '#{user_title}',
+		placeholder: 'Варианты...',
 		binding: 'text'
 	},
 	$dropdown: {

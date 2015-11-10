@@ -11,11 +11,11 @@ var textFilter = function(s, item) {
 var w = $.ergo({
 	etype: 'select',
 
-  '-include': 'focusable',
+  '-include': ['focusable', 'placeholder'],
 
 	$content: {
 		etype: 'html:input',
-		placeholder: 'Country',
+    placeholder: 'Country',
 		autoBind: false,
 		events: {
       'jquery:keyup': function(e) {
@@ -86,9 +86,10 @@ var w2 = $.ergo({
 
   dataId: ['id', 'full_name'],
 
+
 	$content: {
 		etype: 'html:input',
-		placeholder: 'User...',
+    placeholder: 'User...',
 		autoBind: false,
 //    format: '#{full_name}',
 		events: {

@@ -7,12 +7,13 @@ var w = $.ergo({
 
 	$content: {
 		etype: 'html:input',
-		placeholder: 'Сторона света',
+		placeholder: 'Сторона света'
 	},
 
 	$dropdown_items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 
 });
+
 
 
 w.render('#sample');
