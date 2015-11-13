@@ -63,7 +63,7 @@ var w = $.ergo({
       events: {
         'data:invalid': 'action:invalid',
         'data:valid': 'action:valid',
-        'input': 'changeAction'
+        'input': 'do_change'
       }
     },
     $message: {
@@ -71,7 +71,7 @@ var w = $.ergo({
     },
     onInvalid: function(e) {
       this.$message.states.unset('hidden');
-      this.$message.opt('text', 'Неверное значение: ' + e.value + ' в поле "' + e.entry._id[0] + '"');
+      this.$message.opt('text', 'Неверное значение: ' + e.base.value + ' в поле "' + e.base.entry._id[0] + '"');
     },
     onValid: function(e) {
       this.$message.states.set('hidden');

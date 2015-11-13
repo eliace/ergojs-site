@@ -1,7 +1,9 @@
 
 
 
-$context = new Ergo.core.Context();
+$context = new Ergo.core.Context({
+	include: 'growls'
+});
 
 
 

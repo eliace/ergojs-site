@@ -63,7 +63,7 @@ $.ergo({
 
 });
 
-$context.section('Системные');
+$context.section('Системные', 'Для них не нужно подключать сторонние наборы иконок');
 $context.section_begin('icon-builtin');
 $context.section_end('icon-builtin');
 

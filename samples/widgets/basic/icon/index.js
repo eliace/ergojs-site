@@ -11,7 +11,7 @@ $context.section('Круглые');
 //= require icon-circular
 $context.section('Контекстные');
 //= require icon-contextual
-$context.section('Системные');
+$context.section('Системные', 'Для них не нужно подключать сторонние наборы иконок');
 //= require icon-builtin
 $context.section('Боковые');
 //= require icon-side

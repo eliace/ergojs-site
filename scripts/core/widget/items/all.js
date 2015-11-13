@@ -5,17 +5,18 @@ $context.section_end('items-items');
 
 
 var w = $.ergo({
-	etype: 'widget',
-	html: '<div>',
-	
-	// стандартные отступы для горизонтальных элементов
-	layout: 'bar',
-	
+	etype: 'box',
+
+	// расположим элементы горизонтально
+	layout: 'hbox',
+	// с отступами
+	as: '__gap',
+
 	// этот параметр содержит параметры общие для всех элементов
 	defaultItem: {
 		etype: 'button'
 	},
-	
+
 	// элементы создаются по порядку
 	items: [{
 		state: 'primary',
@@ -25,16 +26,16 @@ var w = $.ergo({
 		text: '',
 		name: 'mybutton'    // опция tag задает значение свойства tag
 	}]
-	
+
 });
 
 
 /*
  * создадим элемент с помощью свойства items
- * 
+ *
  * Свойство items определяет набор групповых операций с подмножеством
  * дочерних виджетов, имеющих группу 'item'
- * 
+ *
  * элемент будет добавлен в конец списка
  */
 w.items.add({
@@ -53,16 +54,13 @@ w.render('#sample');
 
 
 // Удалим последний элемент
-w.items.remove_at(3);
+w.items.remove_at(3).unrender();
 
 // Поменяем текст у первой кнопки
 w.items.get(0).opt('text', 'Элемент 1');
 
-// Поменяем текст у второй кнопки, используя метод item() 
+// Поменяем текст у второй кнопки, используя метод item()
 w.item(2).opt('text', 'Элемент 2');
-
-
-
 
 $context.section('Компоненты');
 $context.section_begin('items-components');
@@ -75,8 +73,10 @@ var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
 
-	// стандартные отступы для горизонтальных элементов
+	// расположим элементы горизонтально
 	layout: 'hbox',
+	// с отступами
+	as: '__gap',
 
 	// этот параметр применяется фабрикой для всех компонентов
 	defaultComponent: {
@@ -139,7 +139,11 @@ $context.section_end('items-factory');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
+
+	// расположим элементы горизонтально
 	layout: 'hbox',
+	// с отступами
+	as: '__gap',
 
 	/**
 	 * Данный метод создает новые виджеты-кнопки и задает их содержимое на основе строки,
@@ -150,7 +154,7 @@ var w = $.ergo({
 	itemFactory: function(o) {
 
 		if(o == '|')
-			o = {etype: 'box', cls: 'divider'};
+			o = {etype: 'box', as: 'divider'};
 		else
 			o = {etype: 'button', text: o};
 

@@ -1,0 +1,23 @@
+
+
+var w = $.ergo({
+  etype: 'box',
+  include: 'selectable',
+  defaultItem: {
+    as: 'text action',
+    // по клику создаем всплывающее событие `select`
+    onClick: 'action:select',
+    states: {
+      // заменяем стандартный класс состояния `selected` на `blue`
+      'selected': 'blue'
+    }
+  },
+  items: ['Alice', 'Bob', 'Charlie', 'Dave'],
+
+  onSelectionChanged: function(e) {
+    growl.info( e.selected.opt('text') );
+  }
+});
+
+
+w.render('#sample');

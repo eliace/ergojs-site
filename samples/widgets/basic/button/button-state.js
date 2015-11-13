@@ -6,10 +6,10 @@ var w = $.ergo({
 	items: [{
 		etype: 'button',
 		text: 'Selected',
-		as: 'primary selected'
+		as: 'primary +selected'
 	}, {
 		etype: 'button',
 		text: 'Disabled',
-		as: 'primary disabled'
+		as: 'primary +disabled'
 	}]
 });

@@ -9,7 +9,11 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
+
+	// расположим элементы горизонтально
 	layout: 'hbox',
+	// с отступами
+	as: '__gap',
 
 	/**
 	 * Данный метод создает новые виджеты-кнопки и задает их содержимое на основе строки,
@@ -20,7 +24,7 @@ var w = $.ergo({
 	itemFactory: function(o) {
 
 		if(o == '|')
-			o = {etype: 'box', cls: 'divider'};
+			o = {etype: 'box', as: 'divider'};
 		else
 			o = {etype: 'button', text: o};
 

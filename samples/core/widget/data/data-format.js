@@ -9,6 +9,11 @@ var data = {
 };
 
 
+Ergo.alias('formats:maleOrFemale', function(v) {
+	return {'м': 'муж.', 'ж': 'жен.'}[v];
+});
+
+
 var w = $.ergo({
 	etype: 'box',
 	// элементы располагаются вертикально
@@ -20,14 +25,14 @@ var w = $.ergo({
 		etype: 'text',
 		include: 'label'
 	},
-	
+
 	items: [{
 		label: 'ФИО',
 		// базовый способ форматирования с помощью функции
 		format: function(v) { return ''+v.lastName+' '+v.firstName+' '+v.middleName; }
 	}, {
 		label: 'Возраст',
-		// строковое значение является сокращением для Ergo.format_obj.curry("#{age} года")
+		// использование встроенного форматирования
 		format: '#{age} года'
 	}, {
 		label: 'Отношение к воинской службе',
@@ -36,11 +41,11 @@ var w = $.ergo({
 		}
 	}, {
 		label: 'Пол',
-		dataId: 'gender',
-		format: function(v) { return {'м': 'муж.', 'ж': 'жен.'}[v]; }
+		// используем формат, зарегистрированный глобально
+		format: '#{gender|maleOrFemale}'
 	}]
-	
-	
+
+
 });
 
 w.render('#sample');

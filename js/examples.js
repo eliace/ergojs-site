@@ -56,6 +56,8 @@ $(document).ready(function(){
 
 
 
+	$context._growls.render('body');
+
 
 	// Подключаем данные к контексту
 	$context.data('examples', EXAMPLES);

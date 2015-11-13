@@ -10,7 +10,9 @@ var w = $.ergo({
 
 	include: 'selectable',
 
-	multiselect: true,
+	selection: {
+		multiselect: true		
+	},
 
 	as: '__gap',
 

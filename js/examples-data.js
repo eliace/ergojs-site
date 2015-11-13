@@ -418,6 +418,9 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 		children: [{
 			title: 'Popup',
 			name: 'mixins/popup'
+		}, {
+			title: 'Selectable',
+			name: 'mixins/selection'
 		}]
 	}];
 

@@ -19,7 +19,7 @@ var f = function(item) {
 
 var input = $.ergo({
 	etype: 'input',
-	text: 'Search...',
+	placeholder: 'Search...',
 	include: 'dropdown',
 	$dropdown: {
 		include: 'list-navigator',

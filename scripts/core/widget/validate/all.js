@@ -9,6 +9,7 @@ var data = {
 }
 
 
+
 var w = $.ergo({
   etype: 'box',
   layout: 'vbox',
@@ -30,7 +31,7 @@ var w = $.ergo({
       return v;
     },
     // при вводе символа вызываем onChange (символ появляется)
-    onInput: 'changeAction'
+    onInput: 'do_change'
   }, {
     dataId: 'b',
     placeholder: 'Без цифр',
@@ -45,7 +46,7 @@ var w = $.ergo({
     onKeyDown: function(e) {
       var self = this;
       setTimeout(function(){
-        self.events.rise('change', {value: self.el.val()});
+        self.do_change();//events.rise('change', {value: self.el.val()});
       }, 0);
     }
   }]
@@ -122,7 +123,7 @@ var w = $.ergo({
       events: {
         'data:invalid': 'action:invalid',
         'data:valid': 'action:valid',
-        'input': 'changeAction'
+        'input': 'do_change'
       }
     },
     $message: {
@@ -130,7 +131,7 @@ var w = $.ergo({
     },
     onInvalid: function(e) {
       this.$message.states.unset('hidden');
-      this.$message.opt('text', 'Неверное значение: ' + e.value + ' в поле "' + e.entry._id[0] + '"');
+      this.$message.opt('text', 'Неверное значение: ' + e.base.value + ' в поле "' + e.base.entry._id[0] + '"');
     },
     onValid: function(e) {
       this.$message.states.set('hidden');

@@ -2,11 +2,11 @@
 
 $context.section('Простое связывание', 'Иерархическое связывание с данными с использованием простых и составных ключей');
 //= require data-basic
-$context.section('Форматирование');
+$context.section('Форматирование', 'Механизм одностороннего связывания (one-way-binding)');
 //= require data-format
 $context.section('Настройка', 'Управление изменением виджета при обновлении данных');
 //= require data-binding
-$context.section('Динамическое связывание');
+$context.section('Динамическое связывание', 'Управление коллекцией элементов виджета через источник данных');
 //= require data-dynamic
 $context.section('Общие данные');
 //= require data-share
