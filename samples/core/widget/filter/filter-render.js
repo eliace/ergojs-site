@@ -5,7 +5,13 @@ var data = new Ergo.data.Collection({
 
 
 
-var text_filter = function(s, item) {
+// var text_filter = function(s, item) {
+// 	var v = item.opt('value');
+// 	return v && v.toLowerCase().indexOf(s.toLowerCase()) > -1;
+// };
+
+var text_filter = function(item) {
+	var s = this.opt('filterText');
 	var v = item.opt('value');
 	return v && v.toLowerCase().indexOf(s.toLowerCase()) > -1;
 };
@@ -25,6 +31,9 @@ $.ergo({
 		etype: 'list',
 		height: 300,
 		style: {'overflow': 'auto'},
+
+		renderFilter: text_filter,
+
 		defaultItem: {
 			binding: 'text',
 			format: '#{full_name}'
@@ -33,15 +42,17 @@ $.ergo({
 
 	data: data,
 
-	onKeyUp: function(e) {
+	onInput: function(e) {
 
 		var self = this;
 
 		// Метод №1
+		this.$content.opt('filterText', e.text);
 
-		var criteria = text_filter.bind(this, e.text);
+		this.$content._rerender();
 
-		this.$content.filter( 'render', criteria );
+//		var criteria = text_filter.bind(this, e.text);
+//		this.$content.filter( 'render', criteria );
 
 	}
 

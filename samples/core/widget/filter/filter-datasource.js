@@ -40,7 +40,7 @@ $.ergo({
 
 	data: data3,
 
-	onKeyUp: function(e) {
+	onInput: function(e) {
 
 		// Метод №3
 

@@ -421,6 +421,9 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 		}, {
 			title: 'Selectable',
 			name: 'mixins/selection'
+		}, {
+			title: 'Effects',
+			name: 'mixins/effects'
 		}]
 	}];
 
