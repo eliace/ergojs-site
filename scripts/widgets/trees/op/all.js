@@ -15,18 +15,17 @@ var w = $.ergo({
 	},
 	items: [{
 		text: 'Африка',
-		$sub_items: ['Египет', 'Марокко', 'Кения', 'Ангола']
+		$sub__items: ['Египет', 'Марокко', 'Кения', 'Ангола']
 	}, {
 		text: 'Азия',
-		$sub_items: ['Китай', 'Индия', 'Иран', 'Индонезия', 'Ливия', 'Непал']
+		$sub__items: ['Китай', 'Индия', 'Иран', 'Индонезия', 'Ливия', 'Непал']
 	}, {
 		text: 'Европа',
-		$sub_items: ['Великобритания', 'Германия', 'Италия']
+		$sub__items: ['Великобритания', 'Германия', 'Италия']
 	}]
 });
 
 w.render('#sample');
-
 
 $context.section('Вложенный список + динамические данные');
 $context.section_begin('tree-dynamic');
@@ -126,29 +125,25 @@ $context.section_end('tree-expand-path');
 // создаем примесь
 Ergo.alias('includes:expand-path', {
 
-	overrides: {
+	expandPath: function(path, effects) {
 
-		expand_path: function(path, effects) {
+		var path_a = path.split(':');
 
-			var path_a = path.split(':');
+		if(path_a.length > 1) {
 
-			if(path_a.length > 1) {
+			var found = null;
+			var item_name = path_a.shift();
 
-				var found = null;
-				var item_name = path_a.shift();
+			this.items.each(function(item) {
+				if(item.prop('name') == item_name)
+					found = item;
+			});
 
-				this.items.each(function(item) {
-					if(item._name == item_name)
-						found = item;
-				});
-
-				if(found) {
-					if(effects === false) found.$sub._no_effects = true;
-					found.states.set('expanded');
-					found.$sub.expand_path(path_a.join(':'));
-					if(effects === false) delete found.$sub._no_effects;
-				}
-
+			if(found) {
+				if(effects === false) found.$sub._no_effects = true;
+				found.set('expanded');
+				found.$sub.expandPath(path_a.join(':'));
+				if(effects === false) delete found.$sub._no_effects;
 			}
 
 		}
@@ -162,17 +157,17 @@ Ergo.alias('includes:expand-path', {
 var w = $.ergo({
 	etype: 'tree',
 	data: tree_data,
-	include: 'expand-path',	
+	include: 'expand-path',
 	nestedItem: {
 		$content: {
 			etype: 'link',
 			onClick: function() {
-				this.parent.states.toggle('expanded');
+				this.parent.toggle('expanded');
 			},
 			format: '#{text}'
 		},
 		binding: function(v) {
-			this.opt('name', v.text);
+			this.prop('name', v.text);
 		},
 		$sub: {
 			include: 'expand-path'
@@ -182,9 +177,8 @@ var w = $.ergo({
 
 w.render('#sample');
 
-w.expand_path('Азия:Китай', false);
-w.expand_path('Европа:Германия:Мюнхен', false);
-
+w.expandPath('Азия:Китай', false);
+w.expandPath('Европа:Германия:Мюнхен', false);
 
 $context.section('Выбор элемента вложенного списка');
 $context.section_begin('tree-select');
@@ -200,7 +194,7 @@ var w = $.ergo({
 			etype: 'link',
 			onClick: function() {
 				this.parent.states.toggle('expanded');
-				this.events.rise('nodeSelected', {key: this.parent.path()});
+				this.rise('nodeSelected', {key: this.parent.path()});
 			},
 			format: '#{text}'
 		},
@@ -210,7 +204,7 @@ var w = $.ergo({
 	},
 	selection: {
 		lookup: function(v) {
-			return this.find_path(v);
+			return this.findPath(v);
 		}
 	},
 	onNodeSelected: function(e) {
@@ -228,7 +222,6 @@ w.opt('index', 'Азия');
 
 w.render('#sample');
 
-
 $context.section('Эксклюзивное отображение пути');
 $context.section_begin('tree-exclusive');
 $context.section_end('tree-exclusive');
@@ -241,16 +234,17 @@ var w = $.ergo({
 		$content: {
 			etype: 'link',
 			onClick: function() {
-				this.parent.states.toggle('expanded');
-				this.events.rise('nodeExpanded');
+				this.parent.toggle('expanded');
+				this.rise('nodeExpanded');
 			},
 			format: '#{text}'
 		},
 		onNodeExpanded: function() {
 			// схлапываем соседние узлы
       this.parent.items.each(function(item) {
-        if(item != this && item.states.is('expanded'))
-          item.states.unset('expanded');
+        if(item != this && item.is('expanded')) {
+          item.unset('expanded');
+				}
       }.bind(this));
 
 		}
@@ -258,5 +252,4 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-
 

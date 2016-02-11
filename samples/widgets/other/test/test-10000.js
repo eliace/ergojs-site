@@ -35,7 +35,7 @@ $.ergo({
 		if(test == 'Reset') {
 			// while( !box.items.is_empty() )
 			// 	box.items.first()._destroy();
-			while( !box.children.is_empty() )
+			while( !box.children.isEmpty() )
 				box.children.first()._destroy();
 			// box.children.each(function(item) {
 			// 	console.log('item');

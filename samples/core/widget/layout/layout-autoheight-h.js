@@ -3,7 +3,7 @@
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 		$title: {
 		},
@@ -20,13 +20,13 @@ var w = $.ergo({
 				width: '38%',
 				text: 'Right'
 			}]
-			
+
 		},
 		set: {
-			'text': function(v) { this.title.opt('text', v); }
-		}		
+			'text': function(v) { this.$title.opt('text', v); }
+		}
 	},
-	
+
 	items: [{
 		text: 'До:'
 	}, {
@@ -41,5 +41,3 @@ var w = $.ergo({
 
 // обновляем компоновку
 w._layoutChanged();
-
-

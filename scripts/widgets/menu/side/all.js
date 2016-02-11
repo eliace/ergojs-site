@@ -51,7 +51,7 @@ var w = $.ergo({
 
 		selection: {
 			lookup: function(key) {
-				return this.$sidebox.$menu.find_path(key); // в выборку добавляем только элемент меню
+				return this.$sidebox.$menu.findPath(key); // в выборку добавляем только элемент меню
 			}
 		},
 

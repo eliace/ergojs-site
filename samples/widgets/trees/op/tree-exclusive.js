@@ -7,16 +7,17 @@ var w = $.ergo({
 		$content: {
 			etype: 'link',
 			onClick: function() {
-				this.parent.states.toggle('expanded');
-				this.events.rise('nodeExpanded');
+				this.parent.toggle('expanded');
+				this.rise('nodeExpanded');
 			},
 			format: '#{text}'
 		},
 		onNodeExpanded: function() {
 			// схлапываем соседние узлы
       this.parent.items.each(function(item) {
-        if(item != this && item.states.is('expanded'))
-          item.states.unset('expanded');
+        if(item != this && item.is('expanded')) {
+          item.unset('expanded');
+				}
       }.bind(this));
 
 		}
@@ -24,4 +25,3 @@ var w = $.ergo({
 });
 
 w.render('#sample');
-

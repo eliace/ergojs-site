@@ -28,7 +28,7 @@ var dialog1 = $.ergo({
 					etype: 'icon-button',
 					state: 'tool tiny flat',
 					onClick: function() {
-						this.events.rise('action', {action: this.opt('text')});
+						this.rise('action', {action: this.opt('text')});
 					},
 					$content: {
 						states: {
@@ -64,7 +64,7 @@ var dialog1 = $.ergo({
 			defaultItem: {
 				etype: 'button',
 				onClick: function() {
-					this.events.rise('action', {action: this.opt('name')});
+					this.rise('action', {action: this.opt('name')});
 				}
 			},
 			items: [{text: 'ОК', state: 'primary', name: 'ok'}, {text: 'Отмена', name: 'cancel'}]

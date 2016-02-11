@@ -60,7 +60,7 @@ var w = $.ergo({
 //	width: 600,
 	as: 'divided padded',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 		$button: {
 			etype: 'label',
 			text: 'online',
@@ -68,7 +68,7 @@ var w = $.ergo({
 		},
 		set: {
 //			'description': function(v) { this.content.description.opt('text', v); },
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS
@@ -90,10 +90,10 @@ var w = $.ergo({
 //	layout: 'stack',
 	as: 'divided padded',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 		include: 'icon:at-right',
 		$icon: {
-			cls: 'contextual action fa-remove'
+			as: 'contextual action fa-remove'
 		},
 		set: {
 			'avatar': function(v) { this.opt('img', 'demo/blog/img/avatars/'+v+'.jpg') }
@@ -112,7 +112,7 @@ var w = $.ergo({
 	etype: 'list',
 	as: 'divided padded',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 		include: 'icon:at-left',
 		$icon: {
 			as: 'contextual action fa-remove',
@@ -140,7 +140,7 @@ var w = $.ergo({
 //	layout: 'stack',
 	as: '__divide __indent',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 //		layout: 'hbox',
 		include: 'icon',
 //		cls: 'item',
@@ -167,7 +167,7 @@ var w = $.ergo({
 //		},
 		set: {
 //			'description': function(v) { this.content.description.opt('text', v); },
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS
@@ -222,7 +222,7 @@ var w = $.ergo({
 			etype: '.'
 		},
 		set: {
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS

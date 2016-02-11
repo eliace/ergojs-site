@@ -7,7 +7,7 @@ $context.section_end('group-basic');
 
 JsonAjaxProvider = {
 	url: 'data/mock-30.json',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
 			dataType: 'json'

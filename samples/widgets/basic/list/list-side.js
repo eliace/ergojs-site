@@ -9,10 +9,10 @@ var w = $.ergo({
 //	layout: 'stack',
 	as: 'divided padded',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 		include: 'icon:at-right',
 		$icon: {
-			cls: 'contextual action fa-remove'
+			as: 'contextual action fa-remove'
 		},
 		set: {
 			'avatar': function(v) { this.opt('img', 'demo/blog/img/avatars/'+v+'.jpg') }
@@ -31,7 +31,7 @@ var w = $.ergo({
 	etype: 'list',
 	as: 'divided padded',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 		include: 'icon:at-left',
 		$icon: {
 			as: 'contextual action fa-remove',

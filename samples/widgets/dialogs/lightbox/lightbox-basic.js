@@ -7,7 +7,7 @@ var dialog1 = $.ergo({
 	title: 'Лайтбокс',
 	closeOn: 'outerClick',
 	$header: {
-		layout: 'fluid',
+		layout: 'float',
 		$toolbar: {
 			etype: 'box',
 			as: 'align-right tools',
@@ -51,7 +51,7 @@ var buttons = $.ergo({
 		etype: 'button',
 		text: 'Открыть лайтбокс',
 		onClick: function() {
-			
+
 			dialog1.render();//'body');
 //			dialog1.open().then(function(){
 
@@ -101,8 +101,8 @@ var buttons = $.ergo({
 
 //							console.log(a, b);
 
-							dialog1.content.components.set('image', img);
-							dialog1.content.render();
+							dialog1.$content.components.set('image', img);
+							dialog1.$content.render();
 //							img.render();
 
 							var self = this;

@@ -11,7 +11,7 @@ var w = $.ergo({
 			cls: 'tab-bar default',
 			defaultItem: {
 				onClick: function() {
-					this.events.rise('select', {key: this._index});
+					this.rise('select', {key: this._index});
 				}
 			},
 			items: ['Закладка 1', 'Закладка 2', 'Закладка 3']
@@ -66,7 +66,7 @@ var w = $.ergo({
 			cls: 'tab-bar single',
 			defaultItem: {
 				onClick: function() {
-					this.events.rise('select', {key: this._index});
+					this.rise('select', {key: this._index});
 				}
 			},
 			items: ['Закладка 1', 'Закладка 2', 'Закладка 3']
@@ -121,7 +121,7 @@ var w = $.ergo({
 			cls: 'tab-bar simple',
 			defaultItem: {
 				onClick: function() {
-					this.events.rise('select', {key: this._index});
+					this.rise('select', {key: this._index});
 				}
 			},
 			items: ['Закладка 1', 'Закладка 2', 'Закладка 3']
@@ -189,7 +189,7 @@ var w = $.ergo({
 //					cls: 'simple',
 					defaultItem: {
 						onClick: function() {
-							this.events.rise('select', {key: this._index});
+							this.rise('select', {key: this._index});
 						}
 					},
 					items: ['Закладка 1', 'Закладка 2', 'Закладка 3']

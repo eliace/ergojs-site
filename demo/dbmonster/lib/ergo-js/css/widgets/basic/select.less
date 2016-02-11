@@ -1,0 +1,116 @@
+
+
+
+.select {
+	.bordered;
+	.rounded;
+
+	display: inline-block;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	cursor: pointer;
+	min-width: 11rem;
+
+	display: inline-table;
+
+	> .text {
+		line-height: 1.42857; //20px;
+		padding: 0.4286rem 0.5714rem; //6px 8px;
+		padding-right: 0;
+	  background-color: transparent;
+	  background-image: none;
+	  border: none;
+	  cursor: inherit;
+		height: 32px;
+		text-align: left;
+
+		display: table-cell;
+		width: 100%;
+	}
+
+
+	&.placeholder > .text {
+		color: @muted-color;
+	}
+
+
+	> .caret {
+		cursor: inherit;
+	}
+
+
+	&:hover, &:focus, &.focus {
+		border-color: darken(@border-color, 10%);
+		box-shadow: 0 0 4px rgba(0,0,0,0.15);
+	}
+
+	> input.text {
+		cursor: auto;
+	}
+
+
+	&.flat {
+		box-shadow: none;//0 2px 2px rgba(0, 0, 0, 0.075) inset;
+		box-shadow: none;
+		border-right: none;
+		border-left: none;
+		border-top-color: transparent;
+		border-bottom-width: 0.07143em;
+		border-bottom-style: solid;
+		border-radius: 0;
+
+ 		&.focus:not(.disabled) {
+ 			border-bottom-width: 0.1429em;
+ 			> .text {
+				height: 33px;
+ 				padding-bottom: 0.4286em - 0.07143em;
+ 			}
+ 		}
+
+ 		&.disabled > input {
+ 			border-top-color: transparent;
+ 		}
+
+	}
+
+
+	&.has-icon {
+
+		> .icon {
+			&.spinner:after, &.spinner:before {
+				width: 1em;
+				height: 1em;
+				top: 50%;
+				margin-top: -0.5em;
+				left: 50%;
+				margin-left: -0.5em;
+			}
+		}
+
+	}
+
+
+
+	&.multi {
+		.text {
+			display: inline-block;
+			vertical-align: middle;
+			overflow: visible;
+			min-width: 20px;
+			float: left;
+			font: inherit;
+			width: auto;
+			line-height: 1.571;
+		}
+		.label {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 4px;
+			float: left;
+			margin-top: 3px;
+			margin-bottom: 3px;
+			line-height: 1;
+		}
+	}
+
+
+}

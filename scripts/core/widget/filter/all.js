@@ -2,7 +2,7 @@
 
 ajaxProvider = {
 	url: 'data/mock-300.json',
-	find_all: function(source) {
+	findAll: function(source) {
 		return $.ajax(this.url, {
 			data: source.options.query,
 			dataType: 'json'
@@ -28,7 +28,7 @@ var data = new Ergo.data.Collection({
 // };
 
 var text_filter = function(item) {
-	var s = this.opt('filterText');
+	var s = this.opt('filterText') || '';
 	var v = item.opt('value');
 	return v && v.toLowerCase().indexOf(s.toLowerCase()) > -1;
 };

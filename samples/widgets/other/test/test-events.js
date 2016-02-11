@@ -74,7 +74,7 @@ $.ergo({
     var test = e.target.opt('text');
 
     if(test == 'Reset') {
-      while( !TestEventsList.children.is_empty() )
+      while( !TestEventsList.children.isEmpty() )
         TestEventsList.children.first()._destroy();
       }
       else {
@@ -89,7 +89,7 @@ $.ergo({
 
 //          b.items.add( o );
 
-          TestEventsList.items.add({text: testEventsData[i].label, onClick: function() { this.events.rise('select') }});
+          TestEventsList.items.add({text: testEventsData[i].label/*, onClick: function() { this.rise('select') }*/});
 
         }
 
@@ -113,11 +113,21 @@ var TestEventsList = $.ergo({
 //	dynamic: true,
 //  layout: 'grid',
 	defaultItem: {
+    as: 'aaa bbb aaa2 bbb2',
+    // onClick: function() {
+    //   this.rise('select');
+    // },
 //    layout: 'grid',
     $content: {
+      as: 'ccc ddd ccc2 ddd2',
 //    components: {
       $content: {
-        etype: 'text'
+        etype: 'text',
+        events: {
+          'click': function() {
+            this.rise('select');
+          }
+        }
       }
     }
 	}

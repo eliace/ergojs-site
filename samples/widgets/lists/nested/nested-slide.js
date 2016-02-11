@@ -23,7 +23,7 @@ var list = $.ergo({
 			as: 'list __indent __hover slide',
 			style: {'background-color': '#fff'},
 			defaultItem: {
-				etype: 'chips',
+				etype: 'chip',
 				include: 'icon:at-right',
 				$icon: {
 					autoRender: false,
@@ -40,9 +40,11 @@ var list = $.ergo({
 					}
 				},
 				binding: function(v) {
-	//				console.log(this.$icon._rendered);
-					if(v.children)
+//					console.log(this.$icon._rendered);
+					if(v.children) {
 						this.$icon.options.autoRender = true;
+						this.render();
+					}
 					this.states.toggle('has-sub', !(!v.children));
 				},
 				onClick: 'action:itemClick'
@@ -60,6 +62,8 @@ var list = $.ergo({
 				var s = this.$content ? 'xcontent' : 'content';
 				var c2 = this.components.get( s == 'content' ? 'xcontent' : 'content' );
 
+				console.log(s, c2);
+
 				var c = this.components.set(s, {
 					data: e.target.data.entry('children'),
 					as: '+off',
@@ -69,7 +73,7 @@ var list = $.ergo({
 
 	//			console.log(c.$icon._rendered);
 
-				c.render();
+				this.render();
 
 				var h = c.el.height();
 				var h2 = c2.el.height();
@@ -92,7 +96,8 @@ var list = $.ergo({
 //					c.el.height('');
 				}.bind(this), 1000);
 
-				this.events.rise('slide');
+				this.rise('slide');
+
 			}
 		}
 
@@ -109,6 +114,9 @@ var list = $.ergo({
 		var s = box.$content ? 'xcontent' : 'content';
 		var c2 = box.components.get( s == 'content' ? 'xcontent' : 'content' );
 
+		console.log('back', s, c2);
+
+
 		c2.el.css({'z-index': 100, 'position': 'absolute'});
 
 		var c = box.components.set(s, {
@@ -116,7 +124,7 @@ var list = $.ergo({
 //			autoHeight: 'fit'
 		});
 
-		c.render();
+		box.render();
 
 
 
@@ -132,7 +140,7 @@ var list = $.ergo({
 
 		setTimeout(function() {
 			c2._destroy();
-		}.bind(this), 1000);
+		}, 1000);
 
 		// var list = this.$content.$content || this.$content.$xcontent;
 		if( !c.data.source.source )

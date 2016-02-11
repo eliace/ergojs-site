@@ -22,6 +22,7 @@ var w = $.ergo({
 	},
 
 	$dropdown: {
+		as: '__hover',
 		items: ['Испания', 'Германия', 'Франция', 'Италия', 'Великобритания', 'Греция']
 	}
 
@@ -29,6 +30,7 @@ var w = $.ergo({
 
 
 w.render('#sample');
+
 $context.section('С группами');
 $context.section_begin('dropdown-groups');
 $context.section_end('dropdown-groups');
@@ -72,12 +74,13 @@ var w = $.ergo({
 				as: 'header',
 				include: 'icon',
 				icon: 'fa-globe before',
-				text: 'Группа 1'
+				text: 'Группа 1',
+				weight: -1
 			},
 			defaultItem: {
 				as: 'item',
 				onClick: function() {
-					this.events.rise('close');
+					this.rise('close');
 				}
 			},
 			items: ['Испания', 'Германия', 'Франция'],
@@ -92,12 +95,13 @@ var w = $.ergo({
 				as: 'header',
 				include: 'icon',
 				icon: 'fa-globe before',
-				text: 'Группа 2'
+				text: 'Группа 2',
+				weight: -1
 			},
 			defaultItem: {
 				as: 'item',
 				onClick: function() {
-					this.events.rise('close');
+					this.rise('close');
 				}
 			},
 			items: ['Россия', 'Украина', 'Казахстан'],
@@ -145,6 +149,7 @@ var w = $.ergo({
 		},
 		$filter: {
 			as: 'border-bottom',
+			weight: -1,
 			$content: {
 				etype: 'input',
 				as: 'icon right',
@@ -160,7 +165,7 @@ var w = $.ergo({
 			as: 'item',
 			onClick: 'action:close'
 			// onClick: function() {
-			// 	this.events.rise('close');
+			// 	this.rise('close');
 			// }
 		},
 		items: ['Испания', 'Германия', 'Франция', 'Италия', 'Великобритания', 'Греция']

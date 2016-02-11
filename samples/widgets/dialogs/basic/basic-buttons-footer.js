@@ -12,7 +12,7 @@ var dlg = new Dialog({
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
-					this.events.rise(this.opt('name'));
+					this.rise(this.opt('name'));
 				}
 			},
 			items: [{

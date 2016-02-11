@@ -21,47 +21,46 @@ var data = {
 var w = $.ergo({
 	etype: 'box',
 	// элементы располагаются вертикально
-	layout: 'band',
+	layout: 'form',
 	// источником данных является объект data
 	data: data,
 	// виджет text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
-		etype: 'box',
+		etype: 'text',
 		binding: 'text',
-		include: 'label'
+		include: 'label',
 	},
-	
+
 	items: [{
 		label: 'Имя',
 		// связываем виджет с полем dataId
-		dataId: 'firstName' 
+		dataId: 'firstName'
 	}, {
 		label: 'Отчество',
 		// связываем виджет с полем middleName
-		dataId: 'middleName' 
+		dataId: 'middleName'
 	}, {
 		label: 'Фамилия',
 		// связываем виджет с полем lastName
-		dataId: 'lastName' 
+		dataId: 'lastName'
 	}, {
 		label: 'Возраст',
 		// связываем виджет с полем age
-		dataId: 'age' 
+		dataId: 'age'
 	}, {
 		label: 'Пол',
 		// связываем виджет с полем gender
-		dataId: 'gender' 
+		dataId: 'gender'
 	}, {
 		label: 'Город',
 		// используем составной ключ
 		dataId: 'address.settlement'
 	}]
-	
+
 });
 
 
 w.render('#sample');
-
 
 $context.section('Форматирование', 'Механизм одностороннего связывания (one-way-binding)');
 $context.section_begin('data-format');
@@ -189,7 +188,7 @@ var w = $.ergo({
 		weight: 10
 	},
 	onClick: function() {
-		if( !d.data.entries.is_empty() )
+		if( !d.data.entries.isEmpty() )
 			d.data.entries.last().del();
 	}
 });

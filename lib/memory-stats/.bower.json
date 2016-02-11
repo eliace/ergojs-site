@@ -1,0 +1,29 @@
+{
+  "name": "memory-stats",
+  "main": "memory-stats.js",
+  "homepage": "https://github.com/paulirish/memory-stats.js",
+  "authors": [
+    "Paul Irish"
+  ],
+  "description": "Minimal monitor for JS Heap Size via performance.memory",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "performance",
+    "memory",
+    "chrome"
+  ],
+  "license": "MIT",
+  "_release": "6fa0f35913",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6fa0f359134c4668bd9b931b95156bae1073e8eb"
+  },
+  "_source": "git://github.com/paulirish/memory-stats.js.git",
+  "_target": "*",
+  "_originalSource": "memory-stats",
+  "_direct": true
+}

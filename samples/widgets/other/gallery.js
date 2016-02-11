@@ -96,14 +96,14 @@ var w = $.ergo({
 						'jquery:click': 'changeImage'
 					}
 					// onClick: function() {
-						// this.events.rise('selectImage');
+						// this.rise('selectImage');
 					// }
 				},
 				
 				actions: {
 					'layout:slide': 'slide'
 					// 'layout:slide': function(e) {
-						// this.events.rise('slide', e);
+						// this.rise('slide', e);
 					// }
 				}
 				

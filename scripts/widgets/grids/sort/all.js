@@ -8,7 +8,7 @@ $context.section_end('sort-basic');
 
 JsonAjaxProvider = {
 	url: 'data/grid-30.json',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
 			dataType: 'json'
@@ -155,7 +155,7 @@ var w = $.ergo({
 				},
 				onStateChanged: function(e) {
 					if(e.op == 'on')
-						this.events.rise('sort', {type: e.state, column: this.parent});
+						this.rise('sort', {type: e.state, column: this.parent});
 				}
 			}
 		},

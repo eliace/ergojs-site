@@ -6,16 +6,17 @@ var w = $.ergo({
 	events: {
 		// событие виджета
 		'action': function(e) {
-			$context.alert('Поддержка событий обеспечивается плагином Observable');
+			$context.alert('Поддержка событий обеспечивается примесью Observable');
 		},
-		// события jQuery определяются через префикс
-		'jquery:mouseenter': function(e) {
+		// на события VDOM можно подписаться через префикс
+		'vdom:mouseenter': function(e) {
 			this.el.css('background-color', 'blue');
 		},
-		'jquery:mouseleave': function(e) {
+		'vdom:mouseleave': function(e) {
 			this.el.css('background-color', '');
 		},
-		'ctx:action': function(e) {
+		// на события контекста тоже можно подписаться через префикс
+		'context:action': function(e) {
 			$context.alert('Событие контекста: ' + e.value);
 		}
 	}
@@ -26,9 +27,7 @@ w.render('#sample');
 
 
 // вызываем обработчик событий виджета
-w.events.fire('action');
-
-
+w.emit('action');
 
 
 var w2 = $.ergo({

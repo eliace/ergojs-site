@@ -16,15 +16,15 @@ var w = $.ergo({
 
 	data: data,
 
-	cls: 'tree',
+	as: 'tree',
 
 	nestedItem: {
-		cls: 'item margin-top',
+		as: 'item margin-top',
 		layout: 'hbox',
 //		layout: 'columns',
 		$image: {
 			etype: 'html:img',
-			cls: 'rounded before',
+			as: 'rounded before',
 			binding: 'src',
 			format: function(v) {
 				var s = v.id;
@@ -43,7 +43,7 @@ var w = $.ergo({
 			},
 			$email: {
 				etype: 'text',
-				cls: 'description',
+				as: 'description',
 				dataId: 'email'
 			}
 		},
@@ -51,7 +51,7 @@ var w = $.ergo({
 			hidden: false,
 //			autoRender: 'not-empty',
 			style: {'padding-left': 20},
-			cls: 'tree'// items-indent'
+			as: 'tree'// items-indent'
 			// $content: {
 			// 	etype: 'box',
 			// 	cls: 'item',

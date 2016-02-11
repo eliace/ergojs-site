@@ -43,13 +43,13 @@ var w = $.ergo({
 			as: 'list nested hovered divide',
 			// "Магия"" происходит тут
 			events: {
-				'item:added': function(e) {
+				'item#added': function(e) {
 					// задаем уровень вложенности элементов при композиции
 					e.item._depth = (this.parent._depth || 0)+1;
 				},
-				'item:rendered': function(e) {
+				'item#rendered': function(e) {
 					// при отрисовке устанавливаем значение отступа
-					e.item.content.el.css('padding-left', e.item._depth * 32);
+					e.item.$content.el.css('padding-left', e.item._depth * 32);
 				}
 			}
 		}

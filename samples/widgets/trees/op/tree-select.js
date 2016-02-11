@@ -9,7 +9,7 @@ var w = $.ergo({
 			etype: 'link',
 			onClick: function() {
 				this.parent.states.toggle('expanded');
-				this.events.rise('nodeSelected', {key: this.parent.path()});
+				this.rise('nodeSelected', {key: this.parent.path()});
 			},
 			format: '#{text}'
 		},
@@ -19,7 +19,7 @@ var w = $.ergo({
 	},
 	selection: {
 		lookup: function(v) {
-			return this.find_path(v);
+			return this.findPath(v);
 		}
 	},
 	onNodeSelected: function(e) {
@@ -36,4 +36,3 @@ var w = $.ergo({
 w.opt('index', 'Азия');
 
 w.render('#sample');
-

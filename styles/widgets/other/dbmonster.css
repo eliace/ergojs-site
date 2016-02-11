@@ -1,0 +1,16 @@
+
+
+.Query {
+  position: relative;
+}
+
+
+.popover {
+  display: none;
+}
+
+.Query:hover .popover {
+  left: -100%;
+  width: 100%;
+  display: block;
+}

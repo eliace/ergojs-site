@@ -8,12 +8,12 @@ var b = $.ergo({
 			this.el.toggleClass('green', on);
 		},
 		'visible': function(on) {
-			on ? this.content.el.show() : this.content.el.hide();
+			on ? this.$content.show() : this.$content.hide();
 		}
 	},
-	state: 'blue',
+	stt: 'blue',
 	$content: {
-		etype: 'html:p',
+		tag: 'p',
 		hidden: true,
 		text: 'Невидимый текст'
 	}
@@ -26,7 +26,7 @@ b.states.unset('blue');
 b.states.set('green');
 
 // выключаем состояние 'red'. Поскольку состояние не определено, по умолчанию
-// устанавливается класс 'red' 
+// устанавливается класс 'red'
 b.states.set('red');
 
 
@@ -40,5 +40,3 @@ $.ergo({
 		b.states.toggle('visible');
 	}
 });
-
-

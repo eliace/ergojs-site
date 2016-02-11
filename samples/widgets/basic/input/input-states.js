@@ -5,21 +5,21 @@ var input1 = $.ergo({
 	etype: 'input',
 //	width: 200,
 	placeholder: 'Search...',
-	as: '+focus'
+	as: '&focus'
 });
 
 var input2 = $.ergo({
 	etype: 'input',
 //	width: 200,
 	placeholder: 'Search...',
-	as: '+disabled'
+	as: '&disabled'
 });
 
 var input3 = $.ergo({
 	etype: 'input',
 //	width: 200,
 	placeholder: 'Search...',
-	as: '+error'
+	as: '&error'
 });
 
 // var input4 = $.ergo({
@@ -34,7 +34,7 @@ var input5 = $.ergo({
 	include: 'icon:at-right',
 	icon: 'fa-search',
 	text: 'Search...',
-	as: '+transparent'
+	as: '&transparent'
 });
 
 

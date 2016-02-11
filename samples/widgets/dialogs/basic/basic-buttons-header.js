@@ -3,7 +3,7 @@ var dlg = new Dialog({
 	as: 'simple padded center',
 	title: 'Диалог',
 	$header: {
-		layout: 'fluid',
+		layout: 'float',
 		as: 'padding',
 		$buttons: {
 			etype: 'box',
@@ -12,7 +12,7 @@ var dlg = new Dialog({
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
-					this.events.rise(this.opt('name'));
+					this.rise(this.opt('name'));
 				}
 			},
 			items: [{

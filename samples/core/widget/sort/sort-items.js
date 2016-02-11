@@ -12,17 +12,17 @@ var sort_opts = function(sort, sort_opt, a, b) {
 
 	if(sort == 'asc') {
 		a = a.opt(sort_opt);
-		b = b.opt(sort_opt);				
+		b = b.opt(sort_opt);
 	}
 	else {
 		var c = a;
 		a = b.opt(sort_opt);
-		b = c.opt(sort_opt);					
+		b = c.opt(sort_opt);
 	}
-	
+
 	if( a < b ) return -1;
 	if( a > b ) return 1;
-	return 0;	
+	return 0;
 };
 
 
@@ -32,20 +32,20 @@ var sort_opts = function(sort, sort_opt, a, b) {
 var w = $.ergo({
 	renderTo: '#sample',
 	etype: 'panel',
-	cls: 'widget',
+	as: 'widget',
 	$toolbar: {
 		weight: -5,
-		cls: 'tool-box',
-		layout: 'fluid',
+		as: 'tools',
+		layout: 'float',
 		$button: {
-			etype: 'select-box',
+			etype: 'select',
 			$dropdown: {
 				items: [
-					{text: 'По возрастанию', name: 'asc'}, 
+					{text: 'По возрастанию', name: 'asc'},
 					{text: 'По убыванию', name: 'desc'}]
 			},
 			onDataChanged: function() {
-				this.events.rise('changeValue', {value: this.opt('value')});
+				this.rise('changeValue', {value: this.value});
 			}
 		},
 		autoBind: false
@@ -54,10 +54,11 @@ var w = $.ergo({
 //			etype: 'list',
 		height: 300,
 		dynamic: true,
-		cls: 'list-box',
+		as: 'list-box',
 		style: {'overflow': 'auto'},
 		defaultItem: {
-			etype: 'item-box',
+			etype: 'box',
+			layout: 'float',
 			$content: {
 				binding: 'text',
 				dataId: 'full_name',
@@ -66,37 +67,37 @@ var w = $.ergo({
 //					etype: 'inline',
 				autoRender: true,
 				binding: 'text',
-				cls: 'tag warning',
+				as: 'label small warning right',
 				dataId: 'country'
 			}
-			
+
 		}
 	},
 
 
 	onChangeValue: function(e) {
-		
+
 		var sort = e.value;
 		var sort_field = 'full_name';
-		
-		
+
+
 		if( sort ) {
 
 			var sorter = sort_opts.bind(this, sort, 'text');
 
-			this.content.opt('renderSorter', sorter);
-			this.content._rerender();
+			this.$content.opt('renderSorter', sorter);
+			this.$content._rerender();
 
 
-			
+
 			// var items = [];
 			// this.content.items.each(function(item) {
 			// 	items.push(item);
 			// });
-			
+
 			// items.sort( sort_opts.bind(this, sort, 'text') );
-				
-			
+
+
 			// for(var i = 0; i < items.length; i++) {
 			// 	this.content.items.remove( items[i] );
 			// }
@@ -105,12 +106,12 @@ var w = $.ergo({
 			// 	this.content.items.add( items[i], i );
 			// }
 
-			
+
 			// this.content.render();
-			
+
 		}
-		
-		
+
+
 	}
 
 
@@ -119,11 +120,11 @@ var w = $.ergo({
 
 
 data.fetch().then(function() {
-	
+
 	var v = this.get();
-	
-	var list = w.content;
-	
+
+	var list = w.$content;
+
 	for(var i = 0; i < v.length; i++) {
 		list.items.add({
 			text: v[i].full_name,
@@ -132,7 +133,7 @@ data.fetch().then(function() {
 			}
 		});
 	}
-	
+
 	list.render();
-	
+
 }.bind(data));

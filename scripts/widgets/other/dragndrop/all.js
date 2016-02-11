@@ -70,7 +70,7 @@ var w = $.ergo({
 							});
 						}
 
-						self.events.rise('drag', {x: e.pageX, y: e.pageY});
+						self.rise('drag', {x: e.pageX, y: e.pageY});
 
 					});
 
@@ -87,7 +87,7 @@ var w = $.ergo({
 
 						self.render();
 
-						self.events.rise('drop', {target: self});
+						self.rise('drop', {target: self});
 					});
 
 

@@ -2,7 +2,7 @@
 
 Ergo.alias('includes:input-mask', {
 
-	_post_construct: function(o) {
+	_postConstruct: function(o) {
 		this.$content.el.mask(o.mask);
 	}
 
@@ -11,9 +11,11 @@ Ergo.alias('includes:input-mask', {
 
 Ergo.alias('includes:input-mask-2', {
 
-	overrides: {
-		set mask(v) {
-			this.$content.el.mask(v);
+	props: {
+		set: {
+			mask: function(v) {
+				this.$content.el.mask(v);
+			}
 		}
 	}
 

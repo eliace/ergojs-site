@@ -8,7 +8,7 @@ var w = $.ergo({
 //	layout: 'stack',
 	as: '__divide __indent',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 //		layout: 'hbox',
 		include: 'icon',
 //		cls: 'item',
@@ -35,7 +35,7 @@ var w = $.ergo({
 //		},
 		set: {
 //			'description': function(v) { this.content.description.opt('text', v); },
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS

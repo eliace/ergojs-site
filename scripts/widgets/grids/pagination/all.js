@@ -5,7 +5,7 @@ $context.section_end('pagination-basic');
 
 ajaxProvider = {
 	url: 'data/grid.json',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
 			dataType: 'json'
@@ -53,7 +53,7 @@ var w = $.ergo({
 		},
 		autoBind: false,
 		set: {
-			'text': function(v) {this.content.opt('text', v);}
+			'text': function(v) {this.$content.opt('text', v);}
 		}
 	},
 	columns: [{

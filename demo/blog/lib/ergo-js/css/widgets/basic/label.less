@@ -1,0 +1,107 @@
+
+
+
+.label {
+  background-image: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.8571em;
+}
+
+
+
+
+
+
+.label.circular {
+	border-radius: 1rem;
+  padding: 4px 8px;
+  min-width: 1.45rem;
+  text-align: center;
+}
+
+
+
+// .label-type(@color; @text: #fff) {
+//   background-color: @color;
+//   color: @text;
+// }
+
+
+
+.label {
+  background-color: #e8e8e8;
+  color: @text-color;
+
+
+  &.single-line {
+    white-space: nowrap;
+  }
+
+	// &.basic { .label-type(@basic, @text-color); }
+	// &.primary { .label-type(@primary); }
+	// &.success { .label-type(@success); }
+	// &.info { .label-type(@info); }
+	// &.warning { .label-type(@warning); }
+	// &.danger { .label-type(@danger); }
+
+
+//   &.red { .label-type(@red); }
+//   &.pink { .label-type(@pink); }
+//   &.purple { .label-type(@purple); }
+// //  &.deep-purple { .label-type(@deep-purple); }
+//   &.indigo { .label-type(@indigo); }
+//   &.blue { .label-type(@blue); }
+// //  &.light-blue { .label-type(@light-blue); }
+//   &.teal { .label-type(@teal); }
+//   &.cyan { .label-type(@cyan); }
+//   &.green { .label-type(@green); }
+// //  &.light-green { .label-type(@light-green); }
+//   &.lime { .label-type(@lime); }
+//   &.yellow { .label-type(@yellow); }
+//   &.amber { .label-type(@amber); }
+//   &.orange { .label-type(@orange); }
+// //  &.deep-orange { .label-type(@deep-orange); }
+//   &.brown { .label-type(@brown); }
+//   &.grey { .label-type(@grey); }
+//   &.blue-grey { .label-type(@blue-grey); }
+//   &.white { .label-type(@white, #000); }
+//   &.black { .label-type(@black); }
+
+
+  &.medium { padding: 0.4286rem 0.7143rem; }
+  &.small { padding: 0.1429rem 0.2857rem; }
+  &.tiny { padding: 0 0.2857rem; }
+
+}
+
+
+
+.label.ribbon.primary {
+  border-color: #3470A0;
+}
+
+
+
+
+label.selected {
+  color: @select-color;
+}
+
+
+
+.label .icon{
+  line-height: inherit;
+}
+
+
+
+
+
+.error {
+  .label, label {
+    color: @danger;
+  }
+}

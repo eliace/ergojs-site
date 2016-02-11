@@ -14,7 +14,7 @@ var cb2 = $.ergo({
 	etype: 'html:label',
 	text: 'Вариант №1',
 	style: {'display': 'inline-block'},
-	$toggle: {
+	$toggler: {
 		etype: 'box',
 		as: 'switch before',
 		events: {
@@ -23,7 +23,7 @@ var cb2 = $.ergo({
 			},
 			// действие пользователя
 			'jquery:click': function() {
-				this.events.rise('change', {value: !this.opt('value')});
+				this.rise('change', {value: !this.opt('value')});
 			}
 		},
 		binding: function(v) {
@@ -35,7 +35,7 @@ var cb2 = $.ergo({
 	},
 	states: {
 		'selected': function(on) {
-			this.$toggle.opt('value', on);
+			this.$toggler.opt('value', on);
 		}
 	},
 	onClick: function() {

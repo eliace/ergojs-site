@@ -64,7 +64,7 @@ var input = $.ergo({
 //
 
 		if(keyCode == KEY_ENTER) {
-			this.events.rise('itemClick', {target: this.$dropdown.navigator.selected});
+			this.rise('itemClick', {target: this.$dropdown.navigator.selected});
 		//			this.$dropdown.events.fire('keyUp', {}, e.base);
 		}
 		else {
@@ -74,7 +74,7 @@ var input = $.ergo({
 				n = 0;
 
 				this.$dropdown.opt('search', e.text);
-				this.$dropdown.filter('render');
+				this.$dropdown._rerender();//filter('render');
 
 				console.log('render');
 

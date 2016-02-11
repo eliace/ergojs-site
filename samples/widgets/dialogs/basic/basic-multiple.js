@@ -15,7 +15,7 @@ var MyDialogX = DialogX.extend({
 				text: 'Открыть новый диалог',
 				name: 'newDialog',
 				onClick: function() {
-					this.events.rise(this.options.name || 'action');
+					this.rise(this.options.name || 'action');
 				}
 			}
 		},

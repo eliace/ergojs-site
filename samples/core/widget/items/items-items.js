@@ -50,7 +50,7 @@ w.render('#sample');
 
 
 // Удалим последний элемент
-w.items.remove_at(3).unrender();
+w.items.removeAt(3).unrender();
 
 // Поменяем текст у первой кнопки
 w.items.get(0).opt('text', 'Элемент 1');

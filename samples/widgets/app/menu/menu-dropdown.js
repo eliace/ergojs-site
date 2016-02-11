@@ -26,3 +26,5 @@ var box = $.ergo({
 
 
 box.render('#sample');
+
+console.log( box.$dropdown.options );

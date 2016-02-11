@@ -14,7 +14,7 @@ var w = $.ergo({
 		autoBind: false
 	},
 
-	$header_$content: {
+	$header__$content: {
 		$control: {
 			$checkcol: {
 				weight: -100,
@@ -30,8 +30,8 @@ var w = $.ergo({
 					autoBind: false,
 					$content: {
 						etype: 'check',
-						onChange: function() {
-							this.events.rise('checkAll', {value: this.opt('value')});
+						onChange: function(e) {
+							this.rise('checkAll', {value: e.value});
 						}
 					}
 				}
@@ -39,7 +39,7 @@ var w = $.ergo({
 		}
 	},
 
-	$content_$content: {
+	$content__$content: {
 		$control: {
 			$checkcol: {
 				weight: -100,
@@ -57,7 +57,7 @@ var w = $.ergo({
 							etype: 'check',
 							autoBind: false,
 							onChange: function() {
-								this.events.rise('checkOne', {value: this.opt('value')});
+								this.rise('checkOne', {value: this.opt('value')});
 							}
 						}
 					}
@@ -93,28 +93,27 @@ var w = $.ergo({
 	data: data,
 	onCheckAll: function(e) {
 		this.rows().each(function(row) {
-			row.checkcol.content.opt('value', e.value);
+			row.$checkcol.$content.opt('value', e.value);
 		});
 	},
 	onCheckOne: function(e) {
 
-
 		var checked = 0;
 		this.rows().each(function(row) {
-			if(row.checkcol.content.opt('value')) checked++;
+			if(row.$checkcol.$content.opt('value')) checked++;
 		});
-		var checker = this.header.content.body.item(0).checkcol.content;
+		var checker = this.$header.$content.$body.item(0).$checkcol.$content;
 
 
 //		console.log(checked, this.rows().count());
 
 		if(checked == 0)
-			checker.states.unset('indeterminate');
+			checker.unset('indeterminate');
 		else if(checked < this.rows().count())
-			checker.states.set('indeterminate');
+			checker.set('indeterminate');
 		else {
 			checker.opt('value', true);
-			checker.states.unset('indeterminate');
+			checker.unset('indeterminate');
 		}
 
 	}

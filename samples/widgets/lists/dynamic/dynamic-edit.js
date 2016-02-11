@@ -125,7 +125,7 @@ var w = $.ergo({
 
 
 			onClick: function() {
-				this.events.rise( this.states.is('selected') ? 'unselect' : 'select');
+				this.rise( this.states.is('selected') ? 'unselect' : 'select');
 			}
 
 
@@ -248,7 +248,7 @@ var w = $.ergo({
 
 		this.toolbar.item(1).opt('value', this.selection.size());
 
-		this.selection.is_empty() ? this.toolbar.item(1).hide() : this.toolbar.item(1).show();
+		this.selection.isEmpty() ? this.toolbar.item(1).hide() : this.toolbar.item(1).show();
 
 	}
 

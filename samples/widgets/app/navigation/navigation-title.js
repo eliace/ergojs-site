@@ -2,7 +2,7 @@
 
 var nav = $.ergo({
 	etype: 'html:nav',
-	layout: 'fluid',
+	layout: 'float',
 	as: 'navigation underlined',
   $header: {
     etype: 'html:h3',

@@ -8,20 +8,20 @@ var w = $.ergo({
 		wrapper: function(item) {
 			var w = $('<div/>');
 			w.append(item.el);
-			if(item.label) {
-				item.label.options.autoRender = false;
-				if(item.label.el.hasClass('pointing-above') || item.label.el.hasClass('pointing-left'))
-					w.append(item.label.el);
-				else if(item.label.el.hasClass('pointing-below') || item.label.el.hasClass('pointing-right'))
-					w.prepend(item.label.el);
+			if(item.$label) {
+				item.$label.options.autoRender = false;
+				if(item.$label.el.hasClass('pointing-above') || item.$label.el.hasClass('pointing-left'))
+					w.append(item.$label.el);
+				else if(item.$label.el.hasClass('pointing-below') || item.$label.el.hasClass('pointing-right'))
+					w.prepend(item.$label.el);
 			}
-			return w;
+			return w[0];
 		}
 	},
 	items: [{
 		etype: 'input',
 		placeholder: 'Фамилия',
-		as: 'block',
+		as: 'fluid',
 		$label: {
 			etype: 'label',
 			as: 'pointing-above',

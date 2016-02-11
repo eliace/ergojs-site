@@ -14,7 +14,7 @@ var dlg = new DialogX({
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
-					this.events.rise(this.options.name || 'action');
+					this.rise(this.options.name || 'action');
 				}
 			},
 			items: ['Заголовок 1', 'Заголовок 2']

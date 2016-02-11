@@ -21,7 +21,7 @@ var w = $.ergo({
     placeholder: 'Не более 5 символов',
     unformat: function(v) {
       if(v && v.length > 5) {
-        this.events.rise('invalid', {value: v});
+        this.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -33,7 +33,7 @@ var w = $.ergo({
     placeholder: 'Без цифр',
     unformat: function(v) {
       if(v && /\d/.test(v)) {
-        this.events.rise('invalid', {value: v});
+        this.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -42,7 +42,7 @@ var w = $.ergo({
     onKeyDown: function(e) {
       var self = this;
       setTimeout(function(){
-        self.do_change();//events.rise('change', {value: self.el.val()});
+        self.do_change();//rise('change', {value: self.el.val()});
       }, 0);
     }
   }]

@@ -59,6 +59,7 @@ var w = $.ergo({
 
 
 	components: {
+/*
 		header: {
 			include: 'context-menu',
 			onContextMenu: function(e) {
@@ -77,7 +78,7 @@ var w = $.ergo({
 							weight: -10,
 							as: 'before',
 							onChange: function(e) {
-								this.events.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
+								this.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
 							},
 							onClick: function(e) {
 								e.base.stopPropagation();
@@ -95,18 +96,20 @@ var w = $.ergo({
 		// loader: {
 			// $icon_cls: 'fa fa-spinner fa-spin fa-3x'
 		// },
-
+*/
 
 		footer: {
-			etype: 'tool-bar',
-			items: [{
-				etype: 'icon-button',
-				icon: 'fa fa-fw fa-refresh',
-				as: 'flat tool',
-				onClick: function() {
-					this.data.fetch();
-				}
-			}]
+			$content: {
+				as: 'tools',
+				items: [{
+					etype: 'icon-button',
+					icon: 'fa fa-fw fa-refresh',
+					as: 'flat tool',
+					onClick: function() {
+						this.data.fetch();
+					}
+				}]
+			}
 		}
 	},
 	data: data,

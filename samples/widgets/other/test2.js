@@ -97,7 +97,7 @@ var data = new Ergo.data.Collection({provider: {
 	},
 
 
-	find_all: function() {
+	findAll: function() {
 
 		var g = this.generator;
 

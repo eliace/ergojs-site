@@ -9,7 +9,7 @@ var w = $.ergo({
   defaultItem: {
     as: 'text action',
     // по клику создаем всплывающее событие `clickItem`
-    onClick: 'action:clickItem',
+    onClick: 'rise:clickItem',
     // заменяем стандартный класс состояния `selected` на `blue`
     states: {
       'selected': 'blue'
@@ -20,11 +20,11 @@ var w = $.ergo({
 
   onClickItem: function(e) {
     // инвертируем выборку элемента
-    if( e.target.states.is('selected') ) {
+    if( e.target.is('selected') ) {
       this.selection.unset( e.target );
     }
     else {
-      this.selection.set( e.target );        
+      this.selection.set( e.target );
     }
 
   }

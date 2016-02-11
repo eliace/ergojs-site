@@ -50,11 +50,11 @@ var w = $.ergo({
 			},
 			
 		// onChange: function() {
-			// this.events.rise('select');
+			// this.rise('select');
 		// },
 		
 			onClick: function() {
-				this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
+				this.rise( this.states.is('selected') ? 'unselect' : 'select' );
 			}		
 			
 		},

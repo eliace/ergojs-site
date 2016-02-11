@@ -17,7 +17,7 @@ var w2 = $.ergo({
 		weight: 10
 	},
 	onClick: function() {
-		if( !w.data.entries.is_empty() )
+		if( !w.data.entries.isEmpty() )
 			w.data.entries.last().del();
 	}
 });

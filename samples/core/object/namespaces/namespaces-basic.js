@@ -1,23 +1,24 @@
 
 Ergo.$foo = function(o, etype) {
 	o.unshift({text: 'foo'}); 					// для всех элементов пространства foo: задаем текст по умолчанию
-	return Ergo.object(o, etype);
+	return Ergo.object('foo', o, etype);
 };
 
 
-Ergo.defineClass('Foo.ListItem', 'Ergo.core.Widget', {
-	
+Ergo.defineClass('Foo.ListItem', {
+
+	extends: 'Ergo.core.Widget',
+
 	defaults: {
-		html: '<li/>'
+		tag: 'li'
 	}
-	
+
 }, 'foo:list-item');
 
 
 
 var w = $.ergo({
-	etype: 'widget',
-	html: '<ul/>',
+	tag: 'ul',
 	defaultItem: {
 		etype: 'foo:list-item'
 	},

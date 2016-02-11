@@ -2,7 +2,7 @@
 var w = $.ergo({
 	renderTo: '#sample',				// куда добавляем созданный виджет (элемент или селектор jQuery)
 	etype: 'widget',						// псевдоним класса виджета
-	html: '<div/>',							// html-тэг виджета, который будет использован для рендеринга
+	tag: 'div',							// html-тэг виджета, который будет использован для рендеринга
 	width: 600,									// ширина
 	height: 200,								// высота
 	id: 'my-widget-id',					// атрибут DOM-элемента id
@@ -16,16 +16,21 @@ var w = $.ergo({
 	hidden: false,
 	value: 'Мужчина',
 	format: function(v) { return {'male': 'Муж.', 'female': 'Жен.'}[v]; },
-	store: function(v) { return {'Муж': 'male', 'Жен': 'female'}[v.substring(0, 3)]; }
+	unformat: function(v) { return {'Муж': 'male', 'Жен': 'female'}[v.substring(0, 3)]; }
 });
 
-// устанавливаем ширину
+// пользуемся опциями
 w.opt('width', 500);
-// устанавливаем высоту
 w.opt('height', 100);
+$context.alert( w.opt('value') );
 
-// когда виджет не связан с данными, его значение сохраняется в Widget._value
-$context.alert(w._value);
-// выводим отформатированное значение
-$context.alert(w.opt('value'));
+// пользуемся свойствами
+w.prop('width', 10);
+w.prop('height', 10);
+w.prop('value', 'Женщина');
+$context.alert( w.prop('value') );
 
+// пользуемся сеттерами/геттерами
+w.width = 500;
+w.height = 100;
+$context.alert( w.value );

@@ -4,7 +4,7 @@ var usersProvider = {
 
 	url: 'data/mock-30.json',
 
-	find_all: function() {
+	findAll: function() {
 		return $.ajax(this.url, {
 			method: 'get',
 			dataType: 'json'

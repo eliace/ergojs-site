@@ -7,7 +7,7 @@ var Dialog = Ergo.widgets.Panel.extend({
 		effects: {
 			show: {type: 'fadeIn', delay: 300}
 		},
-		cls: 'modal paper',
+		as: 'modal paper',
 		renderTo: 'body',
 		destroyOnClose: true,
 		closeOn: 'outerClick',
@@ -37,16 +37,16 @@ var Dialog = Ergo.widgets.Panel.extend({
 var DialogX = Dialog.extend({
 
 	defaults: {
-		
+
 		$header: {
-			layout: 'fluid',
+			layout: 'float',
 			$buttons: {
 				etype: 'box',
 				cls: 'align-right tools',
 				defaultItem: {
 					etype: 'icon',
 					onClick: function(e) {
-						this.events.rise(this.options.name || 'action');
+						this.rise(this.opt('name') || 'action');
 					}
 				},
 				items: [{
@@ -81,10 +81,3 @@ $context.section('Множественные диалоги');
 //= require basic-multiple
 $context.section('Типы');
 //= require basic-type
-
-
-
-
-
-
-

@@ -1,39 +1,39 @@
 
 
 Ergo.defineClass('App.widgets.FeedComment', 'Ergo.widgets.Media', {
-	
+
 	defaults: {
-		
-		cls: 'feed-comment',
-		
+
+		as: 'feed-comment',
+
 		$before: {
 			$content: {
 				dataId: 'avatar',
 				width: 48,
-				cls: 'rounded',
+				as: 'circular',
 				binding: function(v) {
 					this.opt('src', 'img/avatars/'+v);
 				}
 			}
 		},
-		
+
 		$content: {
 			$title: {
 				$content: {
 					etype: 'link',
 					dataId: 'author',
-					cls: 'comment-author'
-				},							
+					as: 'comment-author'
+				},
 				$date: {
 					dataId: 'created_at',
 					binding: 'text',
-					cls: 'comment-date'
+					as: 'comment-date'
 				}
 			},
 			$content: {
 				dataId: 'comment',
 				binding: 'text',
-				cls: 'comment-text'
+				as: 'comment-text'
 			},
 			$replies: {
 				dataId: 'replies',
@@ -43,7 +43,7 @@ Ergo.defineClass('App.widgets.FeedComment', 'Ergo.widgets.Media', {
 				}
 			}
 		}
-		
+
 	}
 
 

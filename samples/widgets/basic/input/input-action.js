@@ -26,6 +26,22 @@ var input2 = $.ergo({
 });
 
 
+var input21 = $.ergo({
+	etype: 'input',
+	as: 'group',
+	placeholder: 'Дата',
+//	width: 180,
+	$action: {
+		etype: 'box',
+		include: 'icon',
+		icon: 'fa-calendar green',
+		as: 'box border padding',
+		style: {'line-height': 1}
+	}
+});
+
+
+
 var input3 = $.ergo({
 	etype: 'input',
 	as: 'group',
@@ -47,7 +63,7 @@ var input4 = $.ergo({
 //	width: 180,
 	$action: {
 		etype: 'icon-button',
-		html: '<label/>',
+		tag: 'label',
 		weight: -10,
 		icon: 'fa-calendar',
 		as: 'action primary'
@@ -62,14 +78,14 @@ var input5 = $.ergo({
 //	width: 180,
 	$action: {
 		etype: 'icon-button',
-		html: '<label/>',
+		tag: 'label',
 		icon: 'fa-fw fa-calendar',
 		as: 'action',
 //		state: 'primary'
 	},
 	$action2: {
 		etype: 'icon-button',
-		html: '<label/>',
+		tag: 'label',
 		icon: 'fa-fw fa-search',
 		as: 'action',
 //		state: 'primary'
@@ -126,5 +142,5 @@ $.ergo({
 	layout: 'rows',
 	as: '__gap',
 	renderTo: '#sample',
-	items: [ input1, input2, input3, input4, input5, input6, input7 ]
+	items: [ input1, input2, input21, input3, input4, input5, input6, input7 ]
 });

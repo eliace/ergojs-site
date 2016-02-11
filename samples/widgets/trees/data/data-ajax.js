@@ -2,7 +2,7 @@
 // создаем провайдера тестовых данных дерева
 treeAjaxProvider = {
 	url: 'data/tree',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		var id = query.id || 0;
 		return $.ajax(this.url+'/'+id+'.json', {
 			data: query,
@@ -28,8 +28,9 @@ var w = $.ergo({
 		$content: {
 			$icon: {
 				etype: 'icon',
-				cls: 'before',
+				as: 'before',
 				weight: -10,
+				binding: 'icon',
 				states: {
 					// настраиваем FontAwesome-иконки для состояний
 					'drive:type': 'fa-hdd-o',

@@ -12,7 +12,7 @@ var w = $.ergo({
 			}
 		},
 		autoBind: false,
-		state: 'resizable'
+		stt: 'resizable'
 		// events: {
 			// 'jquery:mousemove': function(e) {
 			// }
@@ -24,13 +24,13 @@ var w = $.ergo({
 		events: {
 			'jquery:scroll': function(e) {
 
-				this.parent.header.content.el.css('margin-left', -this.el.scrollLeft());
+				this.parent.$header.$content.el.css('margin-left', -this.el.scrollLeft());
 
 			}
 		}
 	},
 
-	$header_$content: {
+	$header__$content: {
 		$body: {
 			defaultItem: {
 				events: {
@@ -72,22 +72,22 @@ var w = $.ergo({
 						// это все должно быть в обрабттчике события startResize
 
 
-						var gp = Ergo.context.open_glass_pane();
+						var gp = $context.open_glass_pane();
 
 						gp.on('mouseup', function(e){
 
 							// итоговая ширина
 							var width = e.pageX + dx - min_x + handler.width();
 
-							Ergo.context.close_glass_pane();
+							$context.close_glass_pane();
 							$('.resize-handler').remove();
 							this._resizing = false;
 
 
-							var row_width = grid.header.el.outerWidth();
+							var row_width = grid.$header.el.outerWidth();
 
-							grid.header.el.css('width', row_width);
-							grid.content.el.css('width', row_width);
+							grid.$header.el.css('width', row_width);
+							grid.$content.el.css('width', row_width);
 
 							// изменяем размер колонки
 							grid.columns.resize(this._resize_target._index, width);
@@ -98,8 +98,8 @@ var w = $.ergo({
 								width += col.width;
 							});
 
-							grid.header.content.el.css('width', width);
-							grid.content.content.el.css('width', width);
+							grid.$header.$content.el.css('width', width);
+							grid.$content.$content.el.css('width', width);
 
 
 

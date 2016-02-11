@@ -32,7 +32,7 @@ var w = $.ergo({
 					'num': function(v) { this.number.opt('text', v); }
 				},
 				onClick: function() {
-					this.events.rise('selectStep', {index: this._index});
+					this.rise('selectStep', {index: this._index});
 				}
 			},
 			items: [
@@ -63,7 +63,7 @@ var w = $.ergo({
 						text: 'Далее', 
 						state: 'primary', 
 						onClick: function() { 
-							this.events.rise('nextStep'); 
+							this.rise('nextStep'); 
 						}
 					}]
 				}

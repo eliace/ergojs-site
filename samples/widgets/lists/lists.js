@@ -14,11 +14,11 @@ var data = new Ergo.data.Collection({
 var w = $.ergo({
 	etype: 'panel',
 	cls: 'widget',
-	title: 'Item Box (fluid layout)',
+	title: 'Item Box (float layout)',
 	renderTo: '#sample',
-	
+
 	width: 700,
-	
+
 	$content: {
 		cls: 'list-box',
 		dynamic: true,
@@ -29,7 +29,7 @@ var w = $.ergo({
 		data: data,
 		defaultItem: {
 			etype: 'item-box',
-			layout: 'fluid',
+			layout: 'float',
 			items: [{
 				etype: 'check',
 				autoBind: false,
@@ -74,8 +74,8 @@ var w = $.ergo({
 			}
 		}
 	}
-	
-	
+
+
 });
 
 
@@ -87,9 +87,9 @@ var w = $.ergo({
 	cls: 'widget',
 	title: 'Item Box (hbox layout)',
 	renderTo: '#sample',
-	
+
 	width: 700,
-	
+
 	$content: {
 		cls: 'list-box',
 		dynamic: true,
@@ -145,8 +145,8 @@ var w = $.ergo({
 			}
 		}
 	}
-	
-	
+
+
 });
 
 
@@ -157,9 +157,9 @@ var w = $.ergo({
 	cls: 'widget',
 	title: 'Item Box (stack layout)',
 	renderTo: '#sample',
-	
+
 	width: 500,
-	
+
 	$content: {
 		cls: 'list-box',
 		dynamic: true,
@@ -227,8 +227,8 @@ var w = $.ergo({
 
 				// state: 'warning',
 				// autoRender: true,
-				// cls: 'icon-box',				
-				
+				// cls: 'icon-box',
+
 				// $content: {
 				// 	etype: 'icon',
 				// 	icon: 'fa-bar-chart',
@@ -237,8 +237,8 @@ var w = $.ergo({
 			}
 		}
 	}
-	
-	
+
+
 });
 
 

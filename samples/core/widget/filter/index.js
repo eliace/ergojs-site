@@ -2,7 +2,7 @@
 
 ajaxProvider = {
 	url: 'data/mock-300.json',
-	find_all: function(source) {
+	findAll: function(source) {
 		return $.ajax(this.url, {
 			data: source.options.query,
 			dataType: 'json'

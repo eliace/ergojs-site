@@ -2,16 +2,18 @@
 // Новый класс создается с помощью метода Ergo.declare
 // У него есть синоним Ergo.defineClass
 Ergo.defineClass(
-	'Samples.foo.MyClass', 			// полное имя нового класса
-	'Ergo.core.Object', 				// полное имя базового класса
+	'Samples.foo.MyClass', 			// имя нового класса
 	{
+		// имя базового класса
+		extends: 'Ergo.core.Object',
+		// псевдоним
+		etype: 'my-class',
 		// блок параметров по-умолчанию
 		defaults: {
 			color: 'Синий',
 			size: 0
-		}	
-	},
-	'my-class'									// псевдоним класса
+		}
+	}
 );
 
 
@@ -41,11 +43,11 @@ $context.alert( Ergo.format_obj('Цвет: #{color}, Размер: #{size}, Ве
 
 // Определяем расширенный класс
 var AnotherClass = Samples.foo.MyClass.extend({
-	
+
 	defaults: {
 		color: 'Серый'
 	}
-	
+
 });
 
 // Создаем экземпляр рпсширенного класса

@@ -215,7 +215,9 @@ var w = $.ergo({
 			etype: '.'
 		},
 		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
+			'icon': function(v) {
+				this.$icon.opt('icon', v);
+			}
 		}
 	},
 	items: [{
@@ -271,7 +273,7 @@ var w = $.ergo({
 			etype: '.'
 		},
 		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
+			'icon': function(v) { this.$icon.opt('icon', v); }
 		}
 	},
 	items: [{
@@ -406,7 +408,7 @@ var w = $.ergo({
 			etype: '.'
 		},
 		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
+			'icon': function(v) { this.$icon.opt('icon', v); }
 		}
 	},
 	items: [{
@@ -627,7 +629,7 @@ var w = $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'split-button',
-		$dropdown_items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
+		$dropdown__items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
 	},
 	items: [
 		{	text: 'Default'	},
@@ -659,7 +661,10 @@ var w = $.ergo({
 	etype: 'buttons',
 	as: 'group',
 	defaultItem: {
-		onClick: 'action:select'
+		onClick: 'toggle:selected'
+		// onClick: function() {
+		// 	this.states.toggle('selected');
+		// }
 	},
 	items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3']
 });
@@ -675,7 +680,7 @@ var w = $.ergo({
 	include: 'selectable',
 	as: 'group',
 	defaultItem: {
-		onClick: 'action:select'
+		onClick: 'rise:select'
 	},
 	items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3'],
 	selected: 0

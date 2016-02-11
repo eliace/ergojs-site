@@ -22,9 +22,9 @@ var w = $.ergo({
 	data: data,
 	defaultItem: {
 		etype: 'box',
-		html: '<li/>',
+//		html: '<li/>',
 
-		layout: 'fluid',  // ITEM LAYOUT
+		layout: 'float',  // ITEM LAYOUT
 
 		as: 'items __gap padding',
 		binding: false,
@@ -155,7 +155,7 @@ var w = $.ergo({
 	data: data,
 	defaultItem: {
 		etype: 'box',
-		html: '<li/>',
+		tag: 'li',
 
 		layout: 'flex',  // ITEM LAYOUT
 

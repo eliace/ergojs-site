@@ -43,10 +43,12 @@ var w = $.ergo({
 			$content: {
 				etype: 'html:img',
 				height: '100%',
+				format: 'img/galleries/space/#{*}',
 				binding: function(v) {
 					$.when(this.el.fadeOut(150))
 						.then(function(){
-							this.opt('src', 'img/galleries/space/'+v);
+							this.src = v;
+							//this.opt('src', 'img/galleries/space/'+v);
 						}.bind(this));
 				},
 				events: {
@@ -91,6 +93,8 @@ var w = $.ergo({
 
 				defaultItem: {
 					etype: 'html:img',
+//					binding: 'src',
+//					format: 'img/galleries/space/preview/#{*}',
 					binding: function(v) {
 						this.opt('src', 'img/galleries/space/preview/'+v);
 					},
@@ -99,14 +103,14 @@ var w = $.ergo({
 					// 	'jquery:click': 'changeImage'
 					// }
 					// onClick: function() {
-						// this.events.rise('selectImage');
+						// this.rise('selectImage');
 					// }
 				},
 
 				events: {
-					'layout:slide': 'action:slide'
+					'layout#slide': 'action:slide'
 					// 'layout:slide': function(e) {
-						// this.events.rise('slide', e);
+						// this.rise('slide', e);
 					// }
 				}
 
@@ -115,24 +119,24 @@ var w = $.ergo({
 
 			onNext: function() {
 
-				this.content.layout.slide_next();
+				this.$content.vdom.slide_next();
 
 			},
 
 
 			onPrev: function() {
 
-				this.content.layout.slide_prev();
+				this.$content.vdom.slide_prev();
 			},
 
 			onChangeImage: function(e) {
 				console.log('----');
-				this.content.layout.slide_to_item( e.target, 20 );
+				this.$content.vdom.slide_to_item( e.target, 20 );
 			},
 
 			onSlide: function(e) {
-				this.prevBtn.states.toggle('disabled', !e.hasPrev);
-				this.nextBtn.states.toggle('disabled', !e.hasNext);
+				this.$prevBtn.states.toggle('disabled', !e.base.hasPrev);
+				this.$nextBtn.states.toggle('disabled', !e.base.hasNext);
 			}
 
 //			index: 0
@@ -148,8 +152,8 @@ var w = $.ergo({
 
 		set: {
 			'index': function(v) {
-				var img = this.slider.content.item(v);
-				this.preview.content.opt('value', img.opt('value'));
+				var img = this.$slider.$content.item(v);
+				this.$preview.$content.opt('value', img.opt('value'));
 				this.selection.set(img);
 			}
 		}
@@ -160,7 +164,7 @@ var w = $.ergo({
 });
 
 
-w.gallery.opt('index', 0);
+w.$gallery.opt('index', 0);
 
 
 

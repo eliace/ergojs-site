@@ -690,7 +690,7 @@ var w = $.ergo({
 		include: 'selectable',
 		defaultItem: {
 			onClick: function() {
-				this.events.rise('select');
+				this.rise('select');
 			}
 		},
 		items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3'],

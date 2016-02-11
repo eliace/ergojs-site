@@ -109,7 +109,7 @@ $.ergo({
 					format: '#{title}',
 					onClick: function() {
 						// в качестве ключа используем путь к узлу
-						this.events.rise('selectNode', {key: this.parent.path()});
+						this.rise('selectNode', {key: this.parent.path()});
 					}
 				},
 				binding: function(v) {
@@ -119,7 +119,7 @@ $.ergo({
 				}
 			},
 			lookup: function(key) {
-				return this.find_path(key);
+				return this.findPath(key);
 			},
 			onSelectNode: function(e) {
 				this.selection.set(e.key);

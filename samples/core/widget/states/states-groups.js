@@ -2,28 +2,31 @@
 var g = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 		etype: 'icon',
 		states: {
 			// задаем набор состояний с группой 'fa'
-			'icon1:fa': 'fa-calculator',
-			'icon2:fa': 'fa-calendar',
-			'icon3:fa': 'fa-calendar-o',
-			'icon4:fa': 'fa-camera',
-			'icon5:fa': 'fa-bug'
-		}		
+			fa: {
+				'icon1': 'fa-calculator',
+				'icon2': 'fa-calendar',
+				'icon3': 'fa-calendar-o',
+				'icon4': 'fa-camera',
+				'icon5': 'fa-bug'
+			}
+		}
 	},
-	
+
 	items: [{
-		state: 'icon1'		// обычный способ установить состояние (группа не указывается)
+		stt: 'icon1'		// обычный способ установить состояние (группа не указывается)
 	}, {
-		fa: 'icon2'				// если опция отсутствует, то виджет может интерпретировать ее как группу состояний 
-	}, 
+		fa: 'icon2'				// если опция отсутствует, то виджет может интерпретировать ее как группу состояний
+	},
 	'icon3'							// особенность виджета icon
 	]
-	
+
 });
+
 
 
 
@@ -37,14 +40,16 @@ $.ergo({
 	// },
 	$icon: {
 		etype: 'icon',
-		cls: 'after',
+		as: 'after',
 		states: {
 			// задаем набор состояний с группой 'fa'
-			'icon1:fa': 'fa-calculator',
-			'icon2:fa': 'fa-calendar',
-			'icon3:fa': 'fa-calendar-o',
-			'icon4:fa': 'fa-camera',
-			'icon5:fa': 'fa-bug'
+			fa: {
+				'icon1': 'fa-calculator',
+				'icon2': 'fa-calendar',
+				'icon3': 'fa-calendar-o',
+				'icon4': 'fa-camera',
+				'icon5': 'fa-bug'
+			}
 		}
 	},
 	onClick: function() {
@@ -53,7 +58,7 @@ $.ergo({
 	},
 	set: {
 		'index': function(v) {
-			this.icon.states.set('icon'+v);
+			this.$icon.states.set('icon'+v);
 		}
 	},
 	index: 1

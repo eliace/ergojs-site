@@ -14,7 +14,7 @@ dlg.load = function() {
 	var d = this;
 
 	setTimeout(function() {
-		d.content.el.load('data/info.html', function(){
+		d.$content.el.load('data/info.html', function(){
 //			d.resize();
 		});
 	}, 1500);

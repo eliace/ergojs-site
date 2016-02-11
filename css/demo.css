@@ -34,6 +34,7 @@ body {
 .demo-item {
 	width: 300px;
   float: left;
+  margin: 1rem;
 /*	padding: 8px;
 	border: 1px solid #ddd;*/
 }

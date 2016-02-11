@@ -57,7 +57,7 @@ $.ergo({
 		etype: 'html:button',
 		text: 'Добавить элемент',
 		onClick: function() {
-			this.events.rise('action');
+			this.rise('action');
 		}
 	},
 	$content: {

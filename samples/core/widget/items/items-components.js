@@ -38,7 +38,7 @@ var w = $.ergo({
 			$icon: {
 				etype: 'icon',
 				cls: 'fa',
-				state: 'fa-search'
+				stt: 'fa-search'
 			},
 			$content: {
 				etype: '.'
@@ -56,4 +56,4 @@ w.component('first').opt('text', 'Компонент 2');
 // обратимся к компоненту с использованием фильтра по классу
 //w.component(Ergo.widgets.ButtonItem).opt('text', 'Компонент 4');
 // обратимся к компоненту с использованием аксессора
-w.second.opt('text', 'Компонент 3');
+w.$second.opt('text', 'Компонент 3');

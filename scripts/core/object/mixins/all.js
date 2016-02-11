@@ -1,68 +1,71 @@
 
-$context.section('Создание примеси');
-$context.section_begin('mixins-basic');
-$context.section_end('mixins-basic');
+$context.section('Mixin', 'Примешивание параметров к классу');
+$context.section_begin('mixins-class');
+$context.section_end('mixins-class');
 
+// mixin
+$ergo.alias('mixins:alert', {
 
-// примесь-объект
-var ObjectMixin = {
-				
 	showAlert: function(m) {
 		$context.alert(m);
 	}
-	
-};
 
-// примесь-функция
-var FunctionMixin = function(o) {
-	
-	this.alert = function(m) {
-		$context.alert(this.options.prefix + ': ' + m);
-	};
-	
-	o.prefix = o.prefix || 'Сообщение';
-	
-};
-
-
-
-// регистрируем примесь для использования псевдонима
-Ergo.defineMixin('Ergo.mixins.DoAlert', function(o) {
-	
-	this.doAlert = function(m) {
-		$context.alert('!!!!!  ' + m);
-	};	
-	
-}, 'mixins:do-alert');
-
-
-
-var obj = new Ergo.core.Object({
-	
-	mixins: [ ObjectMixin, FunctionMixin, 'do-alert' ]
-	
 });
 
-obj.alert("Текстовое сообщение");
-obj.showAlert("Текстовое сообщение 2");
-obj.doAlert("Текстовое сообщение 3");
+// another mixin
+$ergo.alias('mixins:date', {
 
+	showDate: function() {
+		$context.alert(Date());
+	}
 
+});
 
 
 
 var MyClass = Ergo.core.Object.extend({
-	
-	defaults: {
-		mixins: [ ObjectMixin, FunctionMixin, 'do-alert' ]			
+	mixins: ['alert', 'date']
+});
+
+
+var obj = new MyClass();
+
+
+obj.showAlert("Text message");
+obj.showDate();
+
+$context.section('Include', 'Включение параметров в экземпляр объекта');
+$context.section_begin('mixins-instance');
+$context.section_end('mixins-instance');
+
+// include
+$ergo.alias('includes:alert', {
+
+	doAlert: function(m) {
+		$context.alert('!!!!!  ' + m, 'warning');
 	}
-	
+
 });
 
 
-obj = new MyClass({
-	prefix: '[MESSAGE]'
+// another include
+$ergo.alias('includes:date', {
+
+	showDate: function() {
+		$context.alert(Date(), 'warning');
+	}
+
 });
 
-obj.alert("Текстовое сообщение 4");
+
+
+// instance include
+var obj = new Ergo.core.Object({
+	include: 'alert date'
+});
+
+
+
+obj.doAlert("Text message");
+obj.showDate();
 

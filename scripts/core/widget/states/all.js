@@ -13,12 +13,12 @@ var b = $.ergo({
 			this.el.toggleClass('green', on);
 		},
 		'visible': function(on) {
-			on ? this.content.el.show() : this.content.el.hide();
+			on ? this.$content.show() : this.$content.hide();
 		}
 	},
-	state: 'blue',
+	stt: 'blue',
 	$content: {
-		etype: 'html:p',
+		tag: 'p',
 		hidden: true,
 		text: 'Невидимый текст'
 	}
@@ -31,7 +31,7 @@ b.states.unset('blue');
 b.states.set('green');
 
 // выключаем состояние 'red'. Поскольку состояние не определено, по умолчанию
-// устанавливается класс 'red' 
+// устанавливается класс 'red'
 b.states.set('red');
 
 
@@ -45,8 +45,6 @@ $.ergo({
 		b.states.toggle('visible');
 	}
 });
-
-
 
 $context.section('Переходы', 'Действия при переходе из одного состояние в другое. Как правило, это анимация');
 $context.section_begin('states-transitions');
@@ -99,28 +97,31 @@ $context.section_end('states-groups');
 var g = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 		etype: 'icon',
 		states: {
 			// задаем набор состояний с группой 'fa'
-			'icon1:fa': 'fa-calculator',
-			'icon2:fa': 'fa-calendar',
-			'icon3:fa': 'fa-calendar-o',
-			'icon4:fa': 'fa-camera',
-			'icon5:fa': 'fa-bug'
-		}		
+			fa: {
+				'icon1': 'fa-calculator',
+				'icon2': 'fa-calendar',
+				'icon3': 'fa-calendar-o',
+				'icon4': 'fa-camera',
+				'icon5': 'fa-bug'
+			}
+		}
 	},
-	
+
 	items: [{
-		state: 'icon1'		// обычный способ установить состояние (группа не указывается)
+		stt: 'icon1'		// обычный способ установить состояние (группа не указывается)
 	}, {
-		fa: 'icon2'				// если опция отсутствует, то виджет может интерпретировать ее как группу состояний 
-	}, 
+		fa: 'icon2'				// если опция отсутствует, то виджет может интерпретировать ее как группу состояний
+	},
 	'icon3'							// особенность виджета icon
 	]
-	
+
 });
+
 
 
 
@@ -134,14 +135,16 @@ $.ergo({
 	// },
 	$icon: {
 		etype: 'icon',
-		cls: 'after',
+		as: 'after',
 		states: {
 			// задаем набор состояний с группой 'fa'
-			'icon1:fa': 'fa-calculator',
-			'icon2:fa': 'fa-calendar',
-			'icon3:fa': 'fa-calendar-o',
-			'icon4:fa': 'fa-camera',
-			'icon5:fa': 'fa-bug'
+			fa: {
+				'icon1': 'fa-calculator',
+				'icon2': 'fa-calendar',
+				'icon3': 'fa-calendar-o',
+				'icon4': 'fa-camera',
+				'icon5': 'fa-bug'
+			}
 		}
 	},
 	onClick: function() {
@@ -150,7 +153,7 @@ $.ergo({
 	},
 	set: {
 		'index': function(v) {
-			this.icon.states.set('icon'+v);
+			this.$icon.states.set('icon'+v);
 		}
 	},
 	index: 1

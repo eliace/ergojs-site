@@ -5,10 +5,8 @@ var w = $.ergo({
 	as: '__indent',
 	defaultItem: {
 		etype: 'item',
-		layout: {
-			etype: 'columns',
-			autoClass: true
-		},
+		layout: 'columns',
+		autoClass: true,
 		as: 'items-align-top',
 		$image: {
 			etype: 'html:img',

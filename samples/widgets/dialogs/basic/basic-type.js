@@ -26,7 +26,7 @@ var dlg = new DialogX({
 			defaultItem: {
 				etype: 'button',
 				onClick: function() {
-					this.events.rise('changeTheme', {theme: this.opt('text')});
+					this.rise('changeTheme', {theme: this.opt('text')});
 				}
 			},
 			items: [{

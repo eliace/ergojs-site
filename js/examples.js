@@ -1,5 +1,16 @@
 
-Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
+Ergo.alias('mixins:fa', {
+	defaults: {
+		as: 'fa fa-fw'
+	}
+})
+
+
+$ergo.mergeOptions(Ergo.widgets.Icon.prototype, Ergo.alias('mixins:fa'), { defaults: ['object'] });
+
+
+
+//Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
 
 
 
@@ -8,6 +19,13 @@ Ergo.widgets.Icon.prototype.defaults.cls = 'icon fa fa-fw';
 
 
 $(document).ready(function(){
+
+
+	$context._widget = Ergo.core.Widget({
+		tag: document.body
+	});
+
+//	$context.data = {};
 
 
 
@@ -19,6 +37,19 @@ $(document).ready(function(){
 	$(document).on('scroll', function(){
 		Ergo.context.events.fire('scroll');
 	});
+
+
+
+
+
+
+	// $context.showStats = function() {
+	// 	$(body).append( $(this.stats) );
+	// }
+	//
+	// $context.hideStats = function() {
+	// 	$(body).append( $(this.stats) );
+	// }
 
 
 /*
@@ -56,11 +87,11 @@ $(document).ready(function(){
 
 
 
-	$context._growls.render('body');
+	$context._growls.render(document.body);
 
 
 	// Подключаем данные к контексту
-	$context.data('examples', EXAMPLES);
+	$context.examples = EXAMPLES;
 
 	// Переключаемся в состояние "main"
 	$context.join('main');

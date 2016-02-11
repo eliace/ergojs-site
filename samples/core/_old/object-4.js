@@ -5,12 +5,14 @@ Ergo.$foo = function(o, etype) {
 };
 
 
-Ergo.defineClass('Foo.ListItem', 'Ergo.core.Widget', {
-	
+Ergo.defineClass('Foo.ListItem', {
+
+	extends: 'Ergo.core.Widget',
+
 	defaults: {
 		html: '<li/>'
 	}
-	
+
 }, 'foo:list-item');
 
 

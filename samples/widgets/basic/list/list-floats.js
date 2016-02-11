@@ -6,7 +6,7 @@ var w = $.ergo({
 //	width: 600,
 	as: 'divided padded',
 	defaultItem: {
-		etype: 'chips',
+		etype: 'chip',
 		$button: {
 			etype: 'label',
 			text: 'online',
@@ -14,7 +14,7 @@ var w = $.ergo({
 		},
 		set: {
 //			'description': function(v) { this.content.description.opt('text', v); },
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS

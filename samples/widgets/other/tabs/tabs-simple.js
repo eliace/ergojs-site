@@ -10,7 +10,7 @@ var w = $.ergo({
 			cls: 'tab-bar simple',
 			defaultItem: {
 				onClick: function() {
-					this.events.rise('select', {key: this._index});
+					this.rise('select', {key: this._index});
 				}
 			},
 			items: ['Закладка 1', 'Закладка 2', 'Закладка 3']

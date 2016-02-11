@@ -1,26 +1,26 @@
 
 
 Ergo.defineClass('Ergo.widgets.Media', 'Ergo.widgets.Box', {
-	
+
 	defaults: {
-		
-		baseCls: 'media',
-		
+
+		cls: 'media',
+
 		components: {
 			before: {
 				components: {
 					content: {
 						etype: 'html:img',
-						cls: 'before'
+						as: 'before'
 					}
 				}
 			},
 			content: {
 			}
 		}
-		
+
 	}
-	
-	
-	
+
+
+
 }, 'widgets:media');

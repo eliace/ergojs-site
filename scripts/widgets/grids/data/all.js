@@ -4,7 +4,7 @@ $context.section_begin('data-ajax');
 $context.section_end('data-ajax');
 
 JsonAjaxProvider = {
-	find_all: function(source) {
+	findAll: function(source) {
 		return $.ajax(source.options.url, {
 			data: source.options.query,
 			dataType: 'json'
@@ -86,7 +86,7 @@ $context.section_end('data-pagination');
 
 ajaxProvider = {
 	url: 'data/grid.json',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
 			dataType: 'json'
@@ -133,9 +133,9 @@ var w = $.ergo({
 			}
 		},
 		autoBind: false,
-		set: {
-			'text': function(v) {this.content.opt('text', v);}
-		}
+		// set: {
+		// 	'text': function(v) {this.$content.opt('text', v);}
+		// }
 	},
 	columns: [{
 		header: 'ID',

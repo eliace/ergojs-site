@@ -3,7 +3,7 @@
 
 JsonAjaxProvider = {
 	url: 'data/grid-30.json',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
 			dataType: 'json'
@@ -50,7 +50,7 @@ var w = $.ergo({
 					$content: {
 						etype: 'check',
 						onChange: function() {
-							this.events.rise('checkAll', {value: this.opt('value')}); 
+							this.rise('checkAll', {value: this.opt('value')}); 
 						}
 					}
 				}
@@ -76,7 +76,7 @@ var w = $.ergo({
 							etype: 'check',
 							autoBind: false,
 							onChange: function() {
-								this.events.rise('checkOne', {value: this.opt('value')}); 
+								this.rise('checkOne', {value: this.opt('value')}); 
 							}
 						}
 					}
@@ -90,7 +90,7 @@ var w = $.ergo({
 			$content: {
 				etype: 'check',
 				onAction: function() {
-					this.events.rise('checkAll', {value: this.opt('value')}); 
+					this.rise('checkAll', {value: this.opt('value')}); 
 				}
 			}
 		},
@@ -99,7 +99,7 @@ var w = $.ergo({
 			etype: 'check',
 			autoBind: false,
 			onAction: function() {
-				this.events.rise('checkOne', {value: this.opt('value')}); 
+				this.rise('checkOne', {value: this.opt('value')}); 
 			}
 		}
 	},*/ {

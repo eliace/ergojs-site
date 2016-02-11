@@ -6,7 +6,7 @@ $context.section_end('options-basic');
 var w = $.ergo({
 	renderTo: '#sample',				// куда добавляем созданный виджет (элемент или селектор jQuery)
 	etype: 'widget',						// псевдоним класса виджета
-	html: '<div/>',							// html-тэг виджета, который будет использован для рендеринга
+	tag: 'div',							// html-тэг виджета, который будет использован для рендеринга
 	width: 600,									// ширина
 	height: 200,								// высота
 	id: 'my-widget-id',					// атрибут DOM-элемента id
@@ -20,19 +20,24 @@ var w = $.ergo({
 	hidden: false,
 	value: 'Мужчина',
 	format: function(v) { return {'male': 'Муж.', 'female': 'Жен.'}[v]; },
-	store: function(v) { return {'Муж': 'male', 'Жен': 'female'}[v.substring(0, 3)]; }
+	unformat: function(v) { return {'Муж': 'male', 'Жен': 'female'}[v.substring(0, 3)]; }
 });
 
-// устанавливаем ширину
+// пользуемся опциями
 w.opt('width', 500);
-// устанавливаем высоту
 w.opt('height', 100);
+$context.alert( w.opt('value') );
 
-// когда виджет не связан с данными, его значение сохраняется в Widget._value
-$context.alert(w._value);
-// выводим отформатированное значение
-$context.alert(w.opt('value'));
+// пользуемся свойствами
+w.prop('width', 10);
+w.prop('height', 10);
+w.prop('value', 'Женщина');
+$context.alert( w.prop('value') );
 
+// пользуемся сеттерами/геттерами
+w.width = 500;
+w.height = 100;
+$context.alert( w.value );
 
 $context.section('Создание виджета');
 $context.section_begin('options-create');
@@ -42,7 +47,7 @@ $context.section_end('options-create');
 var w = $.ergo({
 	etype: 'widget',				// псевдоним класса (widget - базовый виджет)
 	renderTo: '#sample',			// куда добавляем созданный элемент (элемент или селектор jQuery)
-	html: '<div/>',					// widget не имеет разметки, поэтому необходимо ее задать
+	tag: 'div',					// widget не имеет разметки, поэтому необходимо ее задать
 	cls: 'my-widget',				// добавим класс
 });
 
@@ -52,17 +57,15 @@ var w = $.ergo({
 
 // Создадим вложенный (дочерний) виджет
 w.children.add({
-	etype: 'widget',
-	html: '<div/>',	
+	tag: 'div',
 	text: 'Вложенный виджет 1'		// текстовое содержимое виджета
 });
 
 
 // Добавим еще один вложенный (дочерний) виджет
 var child2 = $.ergo({
-	etype: 'widget',
-	html: '<div/>',
-	text: 'Вложенный виджет 2',		
+	tag: 'div',
+	text: 'Вложенный виджет 2',
 });
 
 w.children.add(child2);
@@ -70,15 +73,14 @@ w.children.add(child2);
 
 // Виджеты можно создавать и более "классическим" способом, явно вызывая конструктор класса
 var child3 = new Ergo.core.Widget({
-	html: '<div/>',
-	text: 'Вложенный виджет 3'	
+	tag: 'div',
+	text: 'Вложенный виджет 3'
 });
 
 w.children.add(child3);
 
 // отрисовываем всю иерархию виджетов
-w.render();        
-
+w.render();
 
 $context.section('HTML', 'Пространство имен для упрощенной работы с HTML-тегами как виджетами');
 $context.section_begin('options-html');
@@ -113,7 +115,7 @@ $context.section_end('options-jquery');
 
 Ergo.alias('includes:input-mask', {
 
-	_post_construct: function(o) {
+	_postConstruct: function(o) {
 		this.$content.el.mask(o.mask);
 	}
 
@@ -122,9 +124,11 @@ Ergo.alias('includes:input-mask', {
 
 Ergo.alias('includes:input-mask-2', {
 
-	overrides: {
-		set mask(v) {
-			this.$content.el.mask(v);
+	props: {
+		set: {
+			mask: function(v) {
+				this.$content.el.mask(v);
+			}
 		}
 	}
 

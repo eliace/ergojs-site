@@ -1,0 +1,38 @@
+{
+  "name": "ergo-js",
+  "version": "0.12.3",
+  "description": "Declarative javascript UI framework",
+  "keywords": [
+    "framework",
+    "javascript",
+    "ria"
+  ],
+  "main": "dist/ergojs-core.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eliace/ergo-js.git"
+  },
+  "author": "Kodanyov Yuriy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eliace/ergo-js/issues"
+  },
+  "homepage": "http://ergojs.com",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-cli": "^0.2.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-less": "^3.0.3",
+    "gulp-watch": "^4.2.4",
+    "through2": "^0.6.5",
+    "vinyl": "^0.4.6"
+  }
+}

@@ -3,7 +3,7 @@
 
 JsonAjaxProvider = {
 	url: 'data/grid-30.json',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
 			dataType: 'json'
@@ -95,7 +95,7 @@ var w = $.ergo({
 							weight: -10,
 							cls: 'before',
 							onChange: function(e) {
-								this.events.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
+								this.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
 							},
 							onClick: function(e) {
 								e.base.stopPropagation();

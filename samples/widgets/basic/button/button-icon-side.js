@@ -15,7 +15,7 @@ var w = $.ergo({
 			etype: '.'
 		},
 		set: {
-			'icon': function(v) { this.icon.opt('icon', v); }
+			'icon': function(v) { this.$icon.opt('icon', v); }
 		}
 	},
 	items: [{

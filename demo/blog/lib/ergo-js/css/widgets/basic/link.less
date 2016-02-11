@@ -1,0 +1,23 @@
+
+
+
+.link {
+	text-decoration: none;
+	color: lighten(@text-color, 15%);
+
+	&:hover {
+		color: @select-color;
+	}
+}
+
+
+
+.link > .icon {
+	display: inline; // links is inline by default
+}
+
+
+.disabled .link, .disabled.link {
+	color: @disabled-color;
+	cursor: default;
+}

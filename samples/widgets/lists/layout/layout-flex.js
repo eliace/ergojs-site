@@ -11,7 +11,7 @@ var w = $.ergo({
 	data: data,
 	defaultItem: {
 		etype: 'box',
-		html: '<li/>',
+		tag: 'li',
 
 		layout: 'flex',  // ITEM LAYOUT
 

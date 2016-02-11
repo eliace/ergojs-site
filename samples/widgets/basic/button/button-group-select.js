@@ -4,7 +4,7 @@ var w = $.ergo({
 	include: 'selectable',
 	as: 'group',
 	defaultItem: {
-		onClick: 'action:select'
+		onClick: 'rise:select'
 	},
 	items: ['Кнопка 1', 'Кнопка 2', 'Кнопка 3'],
 	selected: 0

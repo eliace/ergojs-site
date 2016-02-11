@@ -2,7 +2,7 @@
 
 ajaxProvider = {
 	url: 'data/grid-30.json',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
 			dataType: 'json'
@@ -33,7 +33,7 @@ var w = $.ergo({
 			}
 		},
 		autoBind: false,
-		state: 'resizable'
+		stt: 'resizable'
 		// events: {
 			// 'jquery:mousemove': function(e) {
 			// }
@@ -45,13 +45,13 @@ var w = $.ergo({
 		events: {
 			'jquery:scroll': function(e) {
 
-				this.parent.header.content.el.css('margin-left', -this.el.scrollLeft());
+				this.parent.$header.$content.el.css('margin-left', -this.el.scrollLeft());
 
 			}
 		}
 	},
 
-	$header_$content: {
+	$header__$content: {
 		$body: {
 			defaultItem: {
 				events: {
@@ -93,22 +93,22 @@ var w = $.ergo({
 						// это все должно быть в обрабттчике события startResize
 
 
-						var gp = Ergo.context.open_glass_pane();
+						var gp = $context.open_glass_pane();
 
 						gp.on('mouseup', function(e){
 
 							// итоговая ширина
 							var width = e.pageX + dx - min_x + handler.width();
 
-							Ergo.context.close_glass_pane();
+							$context.close_glass_pane();
 							$('.resize-handler').remove();
 							this._resizing = false;
 
 
-							var row_width = grid.header.el.outerWidth();
+							var row_width = grid.$header.el.outerWidth();
 
-							grid.header.el.css('width', row_width);
-							grid.content.el.css('width', row_width);
+							grid.$header.el.css('width', row_width);
+							grid.$content.el.css('width', row_width);
 
 							// изменяем размер колонки
 							grid.columns.resize(this._resize_target._index, width);
@@ -119,8 +119,8 @@ var w = $.ergo({
 								width += col.width;
 							});
 
-							grid.header.content.el.css('width', width);
-							grid.content.content.el.css('width', width);
+							grid.$header.$content.el.css('width', width);
+							grid.$content.$content.el.css('width', width);
 
 
 
@@ -336,6 +336,7 @@ var w = $.ergo({
 
 
 	components: {
+/*
 		header: {
 			include: 'context-menu',
 			onContextMenu: function(e) {
@@ -354,7 +355,7 @@ var w = $.ergo({
 							weight: -10,
 							as: 'before',
 							onChange: function(e) {
-								this.events.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
+								this.rise(e.value ? 'showColumn': 'hideColumn', {key: this.parent._index});
 							},
 							onClick: function(e) {
 								e.base.stopPropagation();
@@ -372,18 +373,20 @@ var w = $.ergo({
 		// loader: {
 			// $icon_cls: 'fa fa-spinner fa-spin fa-3x'
 		// },
-
+*/
 
 		footer: {
-			etype: 'tool-bar',
-			items: [{
-				etype: 'icon-button',
-				icon: 'fa fa-fw fa-refresh',
-				as: 'flat tool',
-				onClick: function() {
-					this.data.fetch();
-				}
-			}]
+			$content: {
+				as: 'tools',
+				items: [{
+					etype: 'icon-button',
+					icon: 'fa fa-fw fa-refresh',
+					as: 'flat tool',
+					onClick: function() {
+						this.data.fetch();
+					}
+				}]
+			}
 		}
 	},
 	data: data,

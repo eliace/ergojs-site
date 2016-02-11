@@ -60,9 +60,9 @@ var menu = $.ergo({
 		}
 	},
 	items: [
-		{	text: 'Dashboard', $content_icon: 'fa-dashboard'	},
-		{	text: 'Mail', $content_icon: 'fa-envelope',	$submenu_items: ['Inbox', 'Sent', 'Trash'], expandable: true },
-		{	text: 'Tasks', $content_icon: 'fa-tasks'	}
+		{	text: 'Dashboard', $content__icon: 'fa-dashboard'	},
+		{	text: 'Mail', $content__icon: 'fa-envelope',	$submenu__items: ['Inbox', 'Sent', 'Trash'], expandable: true },
+		{	text: 'Tasks', $content__icon: 'fa-tasks'	}
 	],
 	selection: {
 		lookup: function(v) {

@@ -25,7 +25,7 @@ var w = $.ergo({
     placeholder: 'Не более 5 символов',
     unformat: function(v) {
       if(v && v.length > 5) {
-        this.events.rise('invalid', {value: v});
+        this.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -37,7 +37,7 @@ var w = $.ergo({
     placeholder: 'Без цифр',
     unformat: function(v) {
       if(v && /\d/.test(v)) {
-        this.events.rise('invalid', {value: v});
+        this.rise('invalid', {value: v});
         return this.opt('value');
       }
       return v;
@@ -46,7 +46,7 @@ var w = $.ergo({
     onKeyDown: function(e) {
       var self = this;
       setTimeout(function(){
-        self.do_change();//events.rise('change', {value: self.el.val()});
+        self.do_change();//rise('change', {value: self.el.val()});
       }, 0);
     }
   }]
@@ -67,14 +67,16 @@ var data = {
 
 
 // Numeric
-Ergo.defineClass('Ergo.data.type.Numeric', 'Ergo.data.Object', {
+Ergo.defineClass('Ergo.data.type.Numeric', {
+  extends: 'Ergo.data.Object',
   _validate: function(v) {
     return v && !isNaN( parseInt(v) );
   }
 }, 'data:numeric');
 
 // String
-Ergo.defineClass('Ergo.data.type.String', 'Ergo.data.Object', {
+Ergo.defineClass('Ergo.data.type.String', {
+  extends: 'Ergo.data.Object',
   _validate: function(v) {
     if(v && this.options.onlyUppercase) {
       return v.toUpperCase() === v;
@@ -84,7 +86,8 @@ Ergo.defineClass('Ergo.data.type.String', 'Ergo.data.Object', {
 
 
 
-Ergo.defineClass('Ergo.data.SampleObject', 'Ergo.data.Object', {
+Ergo.defineClass('Ergo.data.SampleObject', {
+  extends: 'Ergo.data.Object',
   fields: {
     'a': 'data:numeric',
     'b': {
@@ -130,11 +133,11 @@ var w = $.ergo({
       as: 'red text after +hidden'
     },
     onInvalid: function(e) {
-      this.$message.states.unset('hidden');
+      this.$message.unset('hidden');
       this.$message.opt('text', 'Неверное значение: ' + e.base.value + ' в поле "' + e.base.entry._id[0] + '"');
     },
     onValid: function(e) {
-      this.$message.states.set('hidden');
+      this.$message.set('hidden');
     }
   },
   items: [{

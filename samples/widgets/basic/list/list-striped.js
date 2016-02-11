@@ -15,7 +15,7 @@ var w = $.ergo({
 			etype: '.'
 		},
 		set: {
-			'avatar': function(v) { this.image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
 		}
 	},
 	items: ITEMS

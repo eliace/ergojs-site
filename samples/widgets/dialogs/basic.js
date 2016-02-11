@@ -46,7 +46,7 @@ var DialogX = Dialog.extend({
 				defaultItem: {
 					etype: 'icon-button',
 					onClick: function(e) {
-						this.events.rise(this.options.name || 'action');
+						this.rise(this.options.name || 'action');
 					}
 				},
 				items: [{
@@ -75,7 +75,7 @@ $.ergo({
 	defaultItem: {
 		etype: 'button',
 		onClick: function(e) {
-			this.events.rise(this.opt('name'));
+			this.rise(this.opt('name'));
 		}
 	},
 	items: [{
@@ -125,7 +125,7 @@ $.ergo({
 					defaultItem: {
 						etype: 'button',
 						onClick: function(e) {
-							this.events.rise(this.opt('name'));
+							this.rise(this.opt('name'));
 						}
 					},
 					items: [{
@@ -159,7 +159,7 @@ $.ergo({
 					defaultItem: {
 						etype: 'button',
 						onClick: function(e) {
-							this.events.rise(this.opt('name'));
+							this.rise(this.opt('name'));
 						}
 					},
 					items: [{
@@ -196,7 +196,7 @@ $.ergo({
 						etype: 'icon',
 						cls: 'contextual action-icon',
 						onClick: function(e) {
-							this.events.rise(this.opt('name'));
+							this.rise(this.opt('name'));
 						}
 					},
 					items: [{
@@ -230,7 +230,7 @@ $.ergo({
 					defaultItem: {
 						etype: 'button',
 						onClick: function(e) {
-							this.events.rise(this.options.name || 'action');
+							this.rise(this.options.name || 'action');
 						}
 					},
 					items: ['Заголовок 1', 'Заголовок 2']
@@ -305,7 +305,7 @@ $.ergo({
 						text: 'Открыть новый диалог',
 						name: 'newDialog',
 						onClick: function() {
-							this.events.rise(this.options.name || 'action');
+							this.rise(this.options.name || 'action');
 						}
 					}
 				},
@@ -353,7 +353,7 @@ $.ergo({
 					defaultItem: {
 						etype: 'button',
 						onClick: function() {
-							this.events.rise('changeTheme', {theme: this.opt('text')});
+							this.rise('changeTheme', {theme: this.opt('text')});
 						}
 					},
 					items: [{

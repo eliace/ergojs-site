@@ -1,0 +1,147 @@
+
+@import "ergojs-mixins.less";
+
+
+@import "widgets/basic/spinner.less";
+@import "widgets/basic/caret.less";
+@import "widgets/basic/close.less";
+
+@import "widgets/basic/box.less";
+@import "widgets/basic/text.less";
+
+@import "widgets/basic/list.less";
+@import "widgets/basic/button.less";
+@import "widgets/basic/label.less";
+@import "widgets/basic/icon.less";
+@import "widgets/basic/image.less";
+@import "widgets/basic/input.less";
+@import "widgets/basic/select.less";
+@import "widgets/basic/link.less";
+@import "widgets/basic/header.less";
+@import "widgets/basic/title.less";
+@import "widgets/basic/item.less";
+@import "widgets/basic/check.less";
+@import "widgets/basic/tree.less";
+@import "widgets/basic/panel.less";
+@import "widgets/basic/loader.less";
+@import "widgets/basic/alert.less";
+@import "widgets/basic/menu.less";
+@import "widgets/basic/navigation.less";
+@import "widgets/basic/breadcrumbs.less";
+@import "widgets/basic/pagination.less";
+@import "widgets/basic/table.less";
+@import "widgets/basic/sidebar.less";
+@import "widgets/basic/divider.less";
+@import "widgets/basic/block.less";
+@import "widgets/basic/chips.less";
+@import "widgets/basic/edit.less";
+@import "widgets/basic/form.less";
+
+@import "widgets/basic/tools.less";
+@import "widgets/basic/growls.less";
+
+//@import "widgets/boxes/input-box.less";
+@import "widgets/boxes/button-box.less";
+@import "widgets/boxes/item-box.less";
+
+@import "widgets/menus/side-menu.less";
+
+@import "widgets/other/popup.less";
+@import "widgets/other/dropdown.less";
+@import "widgets/other/window.less";
+@import "widgets/other/placeholder.less";
+
+
+
+
+
+
+
+//---------------------
+// GROUP
+//---------------------
+
+/*
+.group {
+	display: inline-table;
+}
+
+.group > * {
+	display: table-cell;
+}
+
+*/
+
+
+
+.circular {
+	border-radius: 50%;
+}
+
+
+
+
+
+// .text-basic, .text-muted { color: @basic; }
+// .text-primary { color: @basic; }
+// .text-success { color: @basic; }
+// .text-info { color: @basic; }
+// .text-warning { color: @basic; }
+// .text-danger { color: @basic; }
+
+
+// .bg(@color) {
+// 	background-color: @color;
+// }
+
+
+// .bg-basic 	{ .bg(@basic); }
+// .bg-primary { .bg(@primary); }
+// .bg-success { .bg(@success); }
+// .bg-info 		{ .bg(@info); }
+// .bg-warning { .bg(@warning); }
+// .bg-danger 	{ .bg(@danger); }
+
+
+
+.padding { padding: @box-indent; }
+.padding-top {	padding-top: @box-indent; }
+.padding-bottom { padding-bottom: @box-indent; }
+.padding-left { padding-left: @box-indent; }
+.padding-right { padding-right: @box-indent; }
+.padding-vertical { padding: @box-indent 0; }
+.padding-horizontal { padding: 0 @box-indent; }
+
+.padding-x2 { padding: @box-indent * 2; }
+.padding-x4 { padding: @box-indent * 4; }
+
+
+
+.no-padding { padding: 0; }
+.lite.padding { padding: 0.2857rem; }
+.normal.padding { padding: 0.5714rem; }
+.heavy.padding { padding: 1.143rem; }
+.massive.padding { padding: 2.286rem; }
+
+
+
+
+
+
+// ?
+.margin {	margin: @box-indent; }
+.margin-top {	margin-top: @box-indent; }
+.margin-bottom { margin-bottom: @box-indent; }
+.margin-left { margin-left: @box-indent; }
+.margin-right { margin-right: @box-indent; }
+.margin-vertical { margin: @box-indent 0; }
+.margin-horizontal { margin: 0 @box-indent; }
+
+
+.border {	border: 1px solid @border-color; }
+.border-top {	border-top: 1px solid @border-color; }
+.border-bottom { border-bottom: 1px solid @border-color; }
+.border-left { border-left: 1px solid @border-color; }
+.border-right { border-right: 1px solid @border-color; }
+.border-vertical { border-top: 1px solid @border-color; border-bottom: 1px solid @border-color; }
+.border-horizontal { border-left: 1px solid @border-color; border-right: 1px solid @border-color; }

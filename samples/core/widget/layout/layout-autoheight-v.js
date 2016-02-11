@@ -18,7 +18,7 @@ var w = $.ergo({
 			}]
 		},
 		set: {
-			'text': function(v) { this.title.opt('text', v); }
+			'text': function(v) { this.$title.opt('text', v); }
 		}
 	},
 

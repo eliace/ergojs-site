@@ -1,7 +1,7 @@
 
 var w = $.ergo({
 	etype: 'html:nav',
-	layout: 'fluid',
+	layout: 'float',
 	as: 'navigation box',
 
 	$header: {
@@ -113,7 +113,7 @@ var w = $.ergo({
 								},
 								'jquery:mouseleave': function(e, w) {
 									w.submenu.hide();
-									w.events.rise('closeMenu');
+									w.rise('closeMenu');
 								}
 							}
 						}],

@@ -132,6 +132,8 @@ var box = $.ergo({
 
 box.render('#sample');
 
+console.log( box.$dropdown.options );
+
 $context.section('Submenu');
 $context.section_begin('menu-submenu');
 $context.section_end('menu-submenu');
@@ -216,21 +218,21 @@ var menu = $.ergo({
 		{
 			text: 'Почта',
 			submenu: true,
-			$sub_items: ['Входящие', 'Отправленные', 'Черновики']
+			$sub__items: ['Входящие', 'Отправленные', 'Черновики']
 		}, {
 			text: 'Задачи',
 			submenu: true,
-			$sub_items: [{
+			$sub__items: [{
 					text: 'Мои',
 					submenu: true,
-					$sub_items: [{
+					$sub__items: [{
 						text: 'Новые',
 						submenu: true,
-						$sub_items: ['test@gmail.com', 'foo@gmail.com', 'me@mail.ru', 'test@yandex.ru']
+						$sub__items: ['test@gmail.com', 'foo@gmail.com', 'me@mail.ru', 'test@yandex.ru']
 					}, {
 						text: 'В работе',
 						submenu: true,
-						$sub_items: ['boss@business.com']
+						$sub__items: ['boss@business.com']
 					}, 'Решенные']
 				},
 				'Назначенные мне'
@@ -337,7 +339,7 @@ var menu = $.ergo({
 			text: 'Dashboard'
 		}, {
 			text: 'Mail',
-			$content_label: '5'
+			$content__label: '5'
 		}, {
 			text: 'Tasks'
 		}
@@ -369,7 +371,7 @@ var menu2 = $.ergo({
 	width: 240,
 	defaultItem: {
 		onClick: function() {
-			this.events.rise('select');
+			this.rise('select');
 		},
 		$content: {
 			$label: {
@@ -390,7 +392,7 @@ var menu2 = $.ergo({
 			text: 'Dashboard'
 		}, {
 			text: 'Mail',
-			$content_label: '124'
+			$content__label: '124'
 		}, {
 			text: 'Tasks'
 		}
@@ -440,7 +442,7 @@ var menu3 = $.ergo({
 	items: [
 		{	text: 'Dashboard'	},
 		{	text: 'Mail' },
-		{	text: 'Tasks',	$content_label: '12' }
+		{	text: 'Tasks',	$content__label: '12' }
 	],
 	set: {
 		'index': function(v) {
@@ -518,7 +520,8 @@ var menu = $.ergo({
 
 		$header: {
 			etype: 'html:li',
-			as: 'header'
+			as: 'header',
+			weight: -10
 		},
 
 		defaultItem: {
@@ -545,15 +548,15 @@ var menu = $.ergo({
 		}
 	},
 	items: [{
-		$header_text: 'User',
+		$header__text: 'User',
 		items: [
 			{ text: 'Profile' }
 		]
 	}, {
-		$header_text: 'Actions',
+		$header__text: 'Actions',
 		items: [
 			{	text: 'Dashboard'	},
-			{	text: 'Mail',	$content_label: '24' },
+			{	text: 'Mail',	$content__label: '24' },
 			{	text: 'Tasks'	}
 		]
 	}],
@@ -645,9 +648,9 @@ var menu = $.ergo({
 		}
 	},
 	items: [
-		{	text: 'Dashboard', $content_icon: 'fa-dashboard'	},
-		{	text: 'Mail', $content_icon: 'fa-envelope',	$submenu_items: ['Inbox', 'Sent', 'Trash'], expandable: true },
-		{	text: 'Tasks', $content_icon: 'fa-tasks'	}
+		{	text: 'Dashboard', $content__icon: 'fa-dashboard'	},
+		{	text: 'Mail', $content__icon: 'fa-envelope',	$submenu__items: ['Inbox', 'Sent', 'Trash'], expandable: true },
+		{	text: 'Tasks', $content__icon: 'fa-tasks'	}
 	],
 	selection: {
 		lookup: function(v) {

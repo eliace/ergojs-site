@@ -11,7 +11,7 @@ var w = $.ergo({
 	include: 'selectable',
 
 	selection: {
-		multiselect: true		
+		multiselect: true
 	},
 
 	as: '__gap',
@@ -34,12 +34,12 @@ var w = $.ergo({
 
 		states: {
 			'selected': function(on) {
-				this.check.opt('value', on);
+				this.$check.opt('value', on);
 			}
 		},
 
 		onClick: function() {
-			this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
+			this.rise( this.states.is('selected') ? 'unselect' : 'select' );
 		}
 	},
 
@@ -103,11 +103,11 @@ var w = $.ergo({
 			},
 
 		// onChange: function() {
-			// this.events.rise('select');
+			// this.rise('select');
 		// },
 
 			onClick: function() {
-				this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
+				this.rise( this.states.is('selected') ? 'unselect' : 'select' );
 			}
 
 		},

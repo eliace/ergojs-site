@@ -40,7 +40,7 @@ var w = $.ergo({
 			},
 			
 			onClick: function() {
-				this.events.rise('select');				
+				this.rise('select');				
 			}
 			
 			
@@ -77,7 +77,7 @@ var w = $.ergo({
 			},
 			
 			onChange: function(e) {
-				this.events.rise('select');
+				this.rise('select');
 			}
 			
 		},

@@ -192,7 +192,7 @@ var panel1 = $.ergo({
 	as: 'bordered divided padded',
 	$header: {
 //		cls: 'box-medium',
-		layout: 'fluid',
+		layout: 'float',
 		as: 'padding',
 //		cls: 'adjust medium',
 		$toolbar: {
@@ -224,7 +224,7 @@ var panel2 = $.ergo({
 	as: 'bordered divided padded',
 	$header: {
 		as: 'padding',
-		layout: 'fluid',
+		layout: 'float',
 		$toolbar: {
 			etype: 'box',
 			layout: 'hbox',

@@ -16,7 +16,7 @@ var w = $.ergo({
 	include: 'selectable',
 
 	selection: {
-		multiselect: true		
+		multiselect: true
 	},
 
 	as: '__gap',
@@ -39,12 +39,12 @@ var w = $.ergo({
 
 		states: {
 			'selected': function(on) {
-				this.check.opt('value', on);
+				this.$check.opt('value', on);
 			}
 		},
 
 		onClick: function() {
-			this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
+			this.rise( this.states.is('selected') ? 'unselect' : 'select' );
 		}
 	},
 
@@ -108,11 +108,11 @@ var w = $.ergo({
 			},
 
 		// onChange: function() {
-			// this.events.rise('select');
+			// this.rise('select');
 		// },
 
 			onClick: function() {
-				this.events.rise( this.states.is('selected') ? 'unselect' : 'select' );
+				this.rise( this.states.is('selected') ? 'unselect' : 'select' );
 			}
 
 		},
@@ -172,7 +172,7 @@ var w = $.ergo({
 
 		states: {
 			'selected': function(on) {
-				this.check.opt('value', on);
+				this.$check.opt('value', on);
 			}
 		},
 
@@ -241,7 +241,7 @@ var w = $.ergo({
 			},
 
 			onClick: function() {
-				this.events.rise('select');
+				this.rise('select');
 			}
 
 
@@ -278,7 +278,7 @@ var w = $.ergo({
 			},
 
 			onChange: function(e) {
-				this.events.rise('select');
+				this.rise('select');
 			}
 
 		},
@@ -321,7 +321,7 @@ var cb2 = $.ergo({
 	etype: 'html:label',
 	text: 'Вариант №1',
 	style: {'display': 'inline-block'},
-	$toggle: {
+	$toggler: {
 		etype: 'box',
 		as: 'switch before',
 		events: {
@@ -330,7 +330,7 @@ var cb2 = $.ergo({
 			},
 			// действие пользователя
 			'jquery:click': function() {
-				this.events.rise('change', {value: !this.opt('value')});
+				this.rise('change', {value: !this.opt('value')});
 			}
 		},
 		binding: function(v) {
@@ -342,7 +342,7 @@ var cb2 = $.ergo({
 	},
 	states: {
 		'selected': function(on) {
-			this.$toggle.opt('value', on);
+			this.$toggler.opt('value', on);
 		}
 	},
 	onClick: function() {

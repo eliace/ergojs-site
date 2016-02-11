@@ -16,7 +16,7 @@ var w = $.ergo({
 				state: 'small line',
 				icon: 'fa-close',
 				onClick: function() {
-					this.events.rise('closeDialog');
+					this.rise('closeDialog');
 				}				
 			}],
 			// $dialogButtons: {
@@ -25,7 +25,7 @@ var w = $.ergo({
 			// 		etype: 'icon-button',
 			// 		state: 'small line',
 			// 		onClick: function() {
-			// 			this.events.rise(this.opt('text')+'Dialog');
+			// 			this.rise(this.opt('text')+'Dialog');
 			// 		},
 			// 		$content: {
 			// 			states: {

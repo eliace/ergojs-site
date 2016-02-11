@@ -11,7 +11,7 @@ var textFilter = function(s, item) {
 var w = $.ergo({
 	etype: 'select',
 
-  '-include': ['focusable', 'placeholder'],
+  '~include': ['focusable', 'placeholder'],
 
 	$content: {
 		etype: 'html:input',
@@ -19,23 +19,23 @@ var w = $.ergo({
 		autoBind: false,
 		events: {
       'jquery:keyup': function(e) {
-        this.events.rise('keyUp', {text: this.el.val()}, e);
+        this.rise('keyUp', {text: this.opt('text')}, e);
       },
       'jquery:keydown': function(e) {
-        this.events.rise('keyDown', {text: this.el.val()}, e);
+        this.rise('keyDown', {text: this.opt('text')}, e);
       },
       //
 			// 'jquery:keyup': function() {
-			// 	this.events.rise('input', {value: this.el.val()});
+			// 	this.rise('input', {value: this.el.val()});
 			// },
 			// // 'jquery:focus': function() {
-			// // 	this.events.rise('focus', {focus: true});
+			// // 	this.rise('focus', {focus: true});
 			// // },
 			// // 'jquery:blur': function() {
-			// // 	this.events.rise('focus', {focus: false});
+			// // 	this.rise('focus', {focus: false});
 			// // },
 			// 'jquery:change': function() {
-			// 	this.events.rise('change', {text: this.el.val()});
+			// 	this.rise('change', {text: this.el.val()});
 			// }
 		}
 	},
@@ -48,12 +48,12 @@ var w = $.ergo({
 
 	onKeyUp: function(e) {
 
-//    console.log('keydown');
+    console.log('keyup', e.text);
 
-		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
+//		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
 
-		// this.$dropdown.opt('filter', textFilter.curry(e.value));
-		// this.$dropdown._rerender();
+		this.$dropdown.opt('renderFilter', textFilter.bind(this, e.text));
+		this.$dropdown._rerender();
 
 	}
 
@@ -80,7 +80,7 @@ var inputFilterData = new Ergo.data.Collection({provider: usersProvider});
 var w2 = $.ergo({
 	etype: 'select',
 
-  '-include': 'focusable',
+  '~include': 'focusable',
 
   data: {},
 
@@ -95,12 +95,12 @@ var w2 = $.ergo({
 		events: {
       'jquery:keyup': function(e) {
         if( !(e.keyCode == KEY_UP || e.keyCode == KEY_DOWN || e.keyCode == KEY_ESC || e.keyCode == KEY_ENTER) ) {
-          this.events.rise('input', {text: this.el.val()}, e);
+          this.rise('input', {text: this.el.val()}, e);
         }
-//        this.events.rise('keyUp', {text: this.el.val()}, e);
+//        this.rise('keyUp', {text: this.el.val()}, e);
       }
       // 'jquery:keydown': function(e) {
-      //   this.events.rise('keyDown', {text: this.el.val()}, e);
+      //   this.rise('keyDown', {text: this.el.val()}, e);
       // }
 		}
 	},
@@ -139,7 +139,7 @@ var w2 = $.ergo({
 
     var self = this;
 
-    this.$dropdown.opt('dynamicFilter', inputFilter.curry(e.text));
+    this.$dropdown.opt('dynamicFilter', inputFilter.bind(this, e.text));
 
     this.$dropdown.data
       .fetch()
@@ -184,7 +184,7 @@ var w2 = $.ergo({
     // устанавливаем фильтр
     var text = e.target.opt('text');
     if(text)
-      this.$dropdown.opt('dynamicFilter', inputFilter.curry( text ));
+      this.$dropdown.opt('dynamicFilter', $ergo.curry(inputFilter, text) );
     // устанавливаем фокус на элемент ввода
     this.$content.el.focus();
   }

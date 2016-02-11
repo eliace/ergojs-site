@@ -6,7 +6,7 @@ var PageCollection = Ergo.data.PagedCollection.extend({
 	
 	defaults: {
 		provider: {
-			find_all: function(query) {
+			findAll: function(query) {
 				var o = this.options;
 				return $.when({total: 1000, from: query.from, to: query.to/*(o.index-1)*o.pageSize, to: o.index*o.pageSize*/, data: []});
 			}

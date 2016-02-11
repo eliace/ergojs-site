@@ -2,16 +2,18 @@
 
 
 Ergo.defineClass('App.widgets.FeedItem', 'Ergo.widgets.Panel', {
-	
+
 	defaults: {
-		
-		cls: 'feed-post',
-		
+
+		as: 'feed-post',
+
 		components: {
 			header: {
 				weight: -20,
 				components: {
 					title: {
+						cls: 'panel-title',
+						as: 'padding',
 //						etype: 'html:a',
 //						binding: 'text',
 //						format: '#{title}',
@@ -19,34 +21,36 @@ Ergo.defineClass('App.widgets.FeedItem', 'Ergo.widgets.Panel', {
 						components: {
 							author: {
 								etype: 'box',
-								cls: 'post-author',
+								as: 'post-author',
 								weight: 15,
 								binding: 'text',
 								dataId: 'author'
 							},
 							content: {
 								etype: 'html:a',
+								href: '#',
 								binding: 'text',
 								dataId: 'title'
 							}
 						}
 					},
 					toolbar: {
-						layout: 'fluid',
+						etype: 'box',
+						layout: 'float',
 						components: {
 							date: {
 								etype: 'text',
-								cls: 'pull-right post-date',
+								as: 'right post-date',
 								dataId: 'created_at'
 //								text: '5 минут назад'
 							}
 						}
-					}					
+					}
 				}
 			},
 			image: {
 				etype: 'html:img',
-				cls: 'post-img',
+				as: 'post-img',
 				weight: -10,
 				dataId: 'image',
 				autoRender: false,
@@ -61,23 +65,25 @@ Ergo.defineClass('App.widgets.FeedItem', 'Ergo.widgets.Panel', {
 			content: {
 				components: {
 					content: {
-						etype: '&text',
-						dataId: 'text'
+						etype: '.',
+						dataId: 'text',
+						binding: 'text'
 //						text: LOREMIPSUM
 					},
 					readmore: {
 						etype: 'link',
 						text: 'Читать дальше »',
-						cls: 'after',
+						as: 'after',
 						binding: false
 					}
 				}
 			},
 			footer: {
-				autoRender: true,
+//				autoRender: true,
 				components: {
-					$comments: {
+					comments: {
 						etype: 'link',
+						binding: 'text',
 //						dataId: 'comments',
 						format: '#{comments} комментариев'
 //						text: '12 комментариев'
@@ -86,5 +92,5 @@ Ergo.defineClass('App.widgets.FeedItem', 'Ergo.widgets.Panel', {
 			}
 		}
 	}
-	
+
 }, 'widgets:feed-item');

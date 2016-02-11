@@ -6,8 +6,9 @@ var w = $.ergo({
   defaultItem: {
     as: 'text action',
     // по клику создаем всплывающее событие `select`
-    onClick: function() {
-      this.events.rise('select');
+    onClick: function(e) {
+      this.rise('select');
+      e.stop();
     },
     states: {
       // заменяем стандартный класс состояния `selected` на `blue`

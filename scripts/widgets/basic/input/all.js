@@ -9,14 +9,12 @@ $context.section_end('input-basic');
 
 var input1 = $.ergo({
 	etype: 'input',
-	text: 'Search...'
+	placeholder: 'Search...'
 });
 
 
 
 input1.render('#sample');
-
-
 
 $context.section('Состояния');
 $context.section_begin('input-states');
@@ -28,21 +26,21 @@ var input1 = $.ergo({
 	etype: 'input',
 //	width: 200,
 	placeholder: 'Search...',
-	as: '+focus'
+	as: '&focus'
 });
 
 var input2 = $.ergo({
 	etype: 'input',
 //	width: 200,
 	placeholder: 'Search...',
-	as: '+disabled'
+	as: '&disabled'
 });
 
 var input3 = $.ergo({
 	etype: 'input',
 //	width: 200,
 	placeholder: 'Search...',
-	as: '+error'
+	as: '&error'
 });
 
 // var input4 = $.ergo({
@@ -57,7 +55,7 @@ var input5 = $.ergo({
 	include: 'icon:at-right',
 	icon: 'fa-search',
 	text: 'Search...',
-	as: '+transparent'
+	as: '&transparent'
 });
 
 
@@ -120,7 +118,7 @@ $context.section_end('input-icon');
 var input1 = $.ergo({
 	etype: 'input',
 	as: 'has-icon at-right',
-	text: 'Search...',
+	placeholder: 'Search...',
 //	width: 180,
 	$icon: {
 		etype: 'icon',
@@ -139,7 +137,7 @@ var input2 = $.ergo({
 		weight: 10,
 		as: 'right'
 	},
-	text: 'Search...',
+	placeholder: 'Search...',
 //	width: 180
 });
 
@@ -149,7 +147,7 @@ var input3 = $.ergo({
 	include: 'icon:at-left',
 //	cls: 'icon left',
 	icon: 'fa-folder-open',
-	text: 'Search...',
+	placeholder: 'Search...',
 //	width: 180
 });
 
@@ -277,6 +275,22 @@ var input2 = $.ergo({
 });
 
 
+var input21 = $.ergo({
+	etype: 'input',
+	as: 'group',
+	placeholder: 'Дата',
+//	width: 180,
+	$action: {
+		etype: 'box',
+		include: 'icon',
+		icon: 'fa-calendar green',
+		as: 'box border padding',
+		style: {'line-height': 1}
+	}
+});
+
+
+
 var input3 = $.ergo({
 	etype: 'input',
 	as: 'group',
@@ -298,7 +312,7 @@ var input4 = $.ergo({
 //	width: 180,
 	$action: {
 		etype: 'icon-button',
-		html: '<label/>',
+		tag: 'label',
 		weight: -10,
 		icon: 'fa-calendar',
 		as: 'action primary'
@@ -313,14 +327,14 @@ var input5 = $.ergo({
 //	width: 180,
 	$action: {
 		etype: 'icon-button',
-		html: '<label/>',
+		tag: 'label',
 		icon: 'fa-fw fa-calendar',
 		as: 'action',
 //		state: 'primary'
 	},
 	$action2: {
 		etype: 'icon-button',
-		html: '<label/>',
+		tag: 'label',
 		icon: 'fa-fw fa-search',
 		as: 'action',
 //		state: 'primary'
@@ -377,7 +391,7 @@ $.ergo({
 	layout: 'rows',
 	as: '__gap',
 	renderTo: '#sample',
-	items: [ input1, input2, input3, input4, input5, input6, input7 ]
+	items: [ input1, input2, input21, input3, input4, input5, input6, input7 ]
 });
 
 $context.section('На всю ширину');
@@ -501,7 +515,7 @@ var input = $.ergo({
 //
 
 		if(keyCode == KEY_ENTER) {
-			this.events.rise('itemClick', {target: this.$dropdown.navigator.selected});
+			this.rise('itemClick', {target: this.$dropdown.navigator.selected});
 		//			this.$dropdown.events.fire('keyUp', {}, e.base);
 		}
 		else {
@@ -511,7 +525,7 @@ var input = $.ergo({
 				n = 0;
 
 				this.$dropdown.opt('search', e.text);
-				this.$dropdown.filter('render');
+				this.$dropdown._rerender();//filter('render');
 
 				console.log('render');
 

@@ -38,12 +38,13 @@ var w = $.ergo({
 				as: 'header',
 				include: 'icon',
 				icon: 'fa-globe before',
-				text: 'Группа 1'
+				text: 'Группа 1',
+				weight: -1
 			},
 			defaultItem: {
 				as: 'item',
 				onClick: function() {
-					this.events.rise('close');
+					this.rise('close');
 				}
 			},
 			items: ['Испания', 'Германия', 'Франция'],
@@ -58,12 +59,13 @@ var w = $.ergo({
 				as: 'header',
 				include: 'icon',
 				icon: 'fa-globe before',
-				text: 'Группа 2'
+				text: 'Группа 2',
+				weight: -1
 			},
 			defaultItem: {
 				as: 'item',
 				onClick: function() {
-					this.events.rise('close');
+					this.rise('close');
 				}
 			},
 			items: ['Россия', 'Украина', 'Казахстан'],

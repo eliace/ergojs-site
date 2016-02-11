@@ -2,7 +2,7 @@
 
 
 JsonAjaxProvider = {
-	find_all: function(source) {
+	findAll: function(source) {
 		return $.ajax(source.options.url, {
 			data: source.options.query,
 			dataType: 'json'

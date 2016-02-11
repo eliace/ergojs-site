@@ -133,7 +133,7 @@ var w = $.ergo({
 			etype: 'link',
 			onClick: function() {
 				this.parent.states.toggle('expanded');
-				this.events.rise('nodeExpanded');
+				this.rise('nodeExpanded');
 			},
 			format: '#{text}'
 		},
@@ -166,7 +166,7 @@ var w = $.ergo({
 			etype: 'link',
 			onClick: function() {
 				this.parent.states.toggle('expanded');
-				this.events.rise('nodeSelected', {key: this.parent.path()});
+				this.rise('nodeSelected', {key: this.parent.path()});
 			},
 			format: '#{text}'
 		},
@@ -175,7 +175,7 @@ var w = $.ergo({
 		}
 	},
 	selector: function(v) {
-		return this.find_path(v);
+		return this.findPath(v);
 	},
 	onNodeSelected: function(e) {
 		this.opt('index', e.key);

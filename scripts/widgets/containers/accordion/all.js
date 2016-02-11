@@ -42,17 +42,17 @@ var acc = $.ergo({
 		}
 	},
 	items: [{
-		$title_text: 'Section 1',
-		$sub_text: LOREMIPSUM
+		$title__text: 'Section 1',
+		$sub__text: LOREMIPSUM
 	}, {
-		$title_text: 'Section 2',
-		$sub_text: LOREMIPSUM_2
+		$title__text: 'Section 2',
+		$sub__text: LOREMIPSUM_2
 	}, {
-		$title_text: 'Section 3',
-		$sub_text: LOREMIPSUM_3
+		$title__text: 'Section 3',
+		$sub__text: LOREMIPSUM_3
 	}, {
-		$title_text: 'Section 4',
-		$sub_text: LOREMIPSUM_4
+		$title__text: 'Section 4',
+		$sub__text: LOREMIPSUM_4
 	}]
 });
 
@@ -95,17 +95,17 @@ var acc = $.ergo({
 		}
 	},
 	items: [{
-		$title_text: 'Section 1',
-		$sub_text: LOREMIPSUM
+		$title__text: 'Section 1',
+		$sub__text: LOREMIPSUM
 	}, {
-		$title_text: 'Section 2',
-		$sub_text: LOREMIPSUM_2
+		$title__text: 'Section 2',
+		$sub__text: LOREMIPSUM_2
 	}, {
-		$title_text: 'Section 3',
-		$sub_text: LOREMIPSUM_3
+		$title__text: 'Section 3',
+		$sub__text: LOREMIPSUM_3
 	}, {
-		$title_text: 'Section 4',
-		$sub_text: LOREMIPSUM_4
+		$title__text: 'Section 4',
+		$sub__text: LOREMIPSUM_4
 	}]
 });
 

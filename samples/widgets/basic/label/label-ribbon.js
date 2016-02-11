@@ -33,12 +33,12 @@ var w = $.ergo({
 		wrapper: function(item) {
 			var w = $('<div/>');
 			w.append(item.el);
-			if(item.label) {
-				item.label.options.autoRender = false;
-				if(item.label.el.hasClass('ribbon'))
-					w.prepend(item.label.el);
+			if(item.$label) {
+				item.$label.options.autoRender = false;
+				if(item.$label.el.hasClass('ribbon'))
+					w.prepend(item.$label.el);
 			}
-			return w;
+			return w[0];
 		}
 	},
 	$content: {

@@ -30,6 +30,7 @@ var w = $.ergo({
 		},
 		$filter: {
 			as: 'border-bottom',
+			weight: -1,
 			$content: {
 				etype: 'input',
 				as: 'icon right',
@@ -45,7 +46,7 @@ var w = $.ergo({
 			as: 'item',
 			onClick: 'action:close'
 			// onClick: function() {
-			// 	this.events.rise('close');
+			// 	this.rise('close');
 			// }
 		},
 		items: ['Испания', 'Германия', 'Франция', 'Италия', 'Великобритания', 'Греция']

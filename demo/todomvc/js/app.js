@@ -9,7 +9,9 @@
 	// });
 
 
-	$context.events.fire('scopeRestore');
+//	$context.events.fire('scopeRestore');
+
+//	$context._widget = $ergo({tag: document.body});
 
 
 
@@ -38,8 +40,8 @@
 			as: 'new-todo',
 			placeholder: 'What needs to be done?',
 			onChange: function(e) {
-				this.opt('value', '');
-				this.events.rise('addTask', e);
+				this.prop('value', '');
+				this.rise('addTask', e);
 			}
 		},
 	});
@@ -75,7 +77,7 @@
 				},
 				get: {
 					'name': function() {
-						return this.opt('text');
+						return this.prop('text');
 					}
 				}
 			},
@@ -85,9 +87,9 @@
 				}
 			},
 			items: [
-				{	text: 'All', $content_href: '#/' },
-				{	text: 'Active', $content_href: '#/active' },
-				{	text: 'Completed', $content_href: '#/completed' }
+				{	text: 'All', $content__href: '#/' },
+				{	text: 'Active', $content__href: '#/active' },
+				{	text: 'Completed', $content__href: '#/completed' }
 			]
 		},
 		$clearBtn: {
@@ -97,11 +99,11 @@
 			onClick: 'action:clearCompleted',
 			format: '#{*|countCompleted}',
 			binding: function(v) {
-				this.states.toggle('hidden', v == '0');
+				this.toggle('hidden', v == '0');
 			}
 		},
 		binding: function(v) {
-			this.states.toggle('hidden', !v.length);
+			this.toggle('hidden', !v.length);
 		}
 	});
 
@@ -125,7 +127,7 @@
 			format: '#{*|allCompleted}',
 			onChange: function(e) {
 //				console.log(e);
-				this.events.rise('toggleAll', e);
+				this.rise('toggleAll', e);
 				e.interrupt();
 			}
 //			onChange: 'action:toggleAll'
@@ -173,7 +175,7 @@
 					},
 				},
 				binding: function(v) {
-					this.states.toggle('completed', v.completed);
+					this.toggle('completed', !!v.completed);
 				},
 
 
@@ -189,7 +191,7 @@
 
 					this.$content.render();
 
-					this.events.rise('editTask', e);
+					this.rise('editTask', e);
 
 				},
 				onCancelEdit: function() {
@@ -198,7 +200,7 @@
 			}
 		},
 		binding: function(v) {
-			this.$checkbox.states.toggle('hidden', !v.length);
+			this.$checkbox.toggle('hidden', !v.length);
 		}
 	});
 
@@ -233,6 +235,37 @@
 			todos.each(function(todo) {
 				todo.set('completed', false);
 			})
+		},
+
+
+		states: {
+			'': {
+				'all': function(on) {
+					Content.$list.opt('dynamicFilter', null);
+					Content.$list._rebind();
+					Footer.$filters.selection.set('All');
+				},
+				'active': function(on) {
+					var f = function(v) {
+						return !v.completed;
+					};
+			//		Content.$list.filter('compose', f);
+					Content.$list.opt('dynamicFilter', f);
+					Content.$list._rebind();
+
+					Footer.$filters.selection.set('Active');
+				},
+				'completed': function(on) {
+					var f = function(v) {
+						return v.completed;
+					};
+			//		Content.$list.filter('compose', f);
+					Content.$list.opt('dynamicFilter', f);
+					Content.$list._rebind();
+
+					Footer.$filters.selection.set('Completed');
+				}
+			}
 		}
 
 	});
@@ -242,13 +275,15 @@
 	ToDo.render();
 
 
-
-	$context.scope('root', function($scope) {
+/*
+	$context.scope('', function($scope) {
+		//
 	});
 
 
 	$context.scope('all', function($scope) {
-		Content.$list.filter('compose', null);
+		Content.$list.opt('dynamicFilter', null);
+		Content.$list._rebind();
 		Footer.$filters.selection.set('All');
 	});
 
@@ -256,7 +291,10 @@
 		var f = function(v) {
 			return !v.completed;
 		};
-		Content.$list.filter('compose', f);
+//		Content.$list.filter('compose', f);
+		Content.$list.opt('dynamicFilter', f);
+		Content.$list._rebind();
+
 		Footer.$filters.selection.set('Active');
 	});
 
@@ -264,16 +302,19 @@
 		var f = function(v) {
 			return v.completed;
 		};
-		Content.$list.filter('compose', f);
+//		Content.$list.filter('compose', f);
+		Content.$list.opt('dynamicFilter', f);
+		Content.$list._rebind();
+
 		Footer.$filters.selection.set('Completed');
 	});
 
-
+*/
 
 	var routes = {
-		'/': $context.join.bind($context, 'root.all'),
-		'/active': $context.join.bind($context, 'root.active'),
-		'/completed': $context.join.bind($context, 'root.completed')
+		'/': ToDo.set.bind(ToDo, '.all'),
+		'/active': ToDo.set.bind(ToDo, '.active'),
+		'/completed': ToDo.set.bind(ToDo, '.completed')
 	};
 
 	var router = Router(routes);

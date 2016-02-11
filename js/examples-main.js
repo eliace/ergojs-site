@@ -3,19 +3,20 @@
 //-----------------------------------------------------
 // Страница примеров
 //-----------------------------------------------------
-$context.scope('main', function($scope) {
+$context.scopes.scope('main', function($scope) {
 
-	var data = $context.data('examples');
+//	var data = $context.data('examples');
 
 
-	var menu = $scope.widget('menu', {
+	var menu = $ergo({
 
 		etype: 'box',
 		id: 'content-menu',
+		sid: 'menu',
 		include: 'selectable',
 		defaultItem: {
 			layout: 'inherited',
-			autoRender: false,
+//			autoRender: false,
 			components: {
 				title: {
 					dataId: 'title',
@@ -30,7 +31,10 @@ $context.scope('main', function($scope) {
 							format: '#{title}',
 							binding: 'text',
 //							$content_dataId: 'title',
-							$icon_dataId: 'icon'
+							$icon: {
+                binding: 'text',
+                dataId: 'icon'
+              }
 							// onClick: function() {
 								// this.parent.states.toggle('expanded');
 //
@@ -46,22 +50,22 @@ $context.scope('main', function($scope) {
 						onItemExpanded: function(e) {
 							var self = this;
 							this.parent.items.each(function(item) {
-								if(item.states.is('expanded') && item != this)
-									item.states.unset('expanded');
+								if(item.is('expanded') && item != this)
+									item.unset('expanded');
 							});
 						}
 					},
 
 					onMenuAction: function(e) {
 //						console.log(e.target.path());
-						this.events.rise('select', {key: e.target.path()});
+						this.rise('select', {key: e.target.path()});
 					}
 
 				}
 			}
 		},
 
-		data: data,
+		data: 'context:examples',
 //		dataId: '@examples',
 		dynamic: true,
 
@@ -69,7 +73,7 @@ $context.scope('main', function($scope) {
 			lookup: function(key) {
 				var result = {};
 				this.items.each(function(item){
-					var w = item.content.find_path(key);
+					var w = item.$content.findPath(key);
 					if(w) result.found = w;
 				});
 				return result.found;
@@ -77,13 +81,14 @@ $context.scope('main', function($scope) {
 		},
 
 		onSelectionChanged: function(e) {
+
 			var v = e.selection.data.get();
 
-			$context.data('sample', {
+			$context.sample = {
 				name: v.name,
 				title: v.title,
 				section: e.selection.data.source.source.get('title')
-			});
+			};
 
 			$context.join('main.sample:show');
 
@@ -115,6 +120,7 @@ $context.scope('main', function($scope) {
 
 //	menu.bind();
 
-	menu.render('.page-content > aside');
+	menu.render( $('.page-content > aside')[0] );
+
 
 });

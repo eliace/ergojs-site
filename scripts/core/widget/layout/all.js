@@ -13,7 +13,7 @@ var w = $.ergo({
 				text: 'Weight = -1',
 				$box: {
 					style: {'visibility': 'hidden'},
-					items: ['.']					
+					items: ['.']
 				}
 			}, {
 				text: 'Weight = 0',
@@ -22,10 +22,10 @@ var w = $.ergo({
 					items: ['Item 0', 'Item 1', 'Item 2']
 				}
 			}, {
-				text: 'Weight = 1',			
+				text: 'Weight = 1',
 				$box: {
 					style: {'visibility': 'hidden'},
-					items: ['.']					
+					items: ['.']
 				}
 			}]
 		}
@@ -162,7 +162,7 @@ $.ergo({
 		wrapper: function(item) {
 			var w = $('<div class="my-widget">');
 			w.append(item.el);
-			return w;
+			return w[0];
 		}
 	},
 	items: ['Item 0', 'Item 1', 'Item 2']
@@ -188,30 +188,8 @@ $.ergo({
 });
 
 
-$context.section('Селектор обертки', 'Если виджет состоит из нескольких тегов, можно добиться нужного результата, настраивая компоновку');
-$context.section_begin('layout-selector');
-$context.section_end('layout-selector');
-
-$.ergo({
-	etype: 'box',
-	renderTo: '#sample',
-	html: '<div><h4/></div>',
-	layout: {
-		selector: function(item) {
-			// дочерний виджет с ключом 'title' добавляется во вложенный тег <h4/>
-			if(item._key == 'title')
-				return $('h4', this.el);
-			return this.el;
-		}
-	},
-	$title: {
-		text: 'Заголовок'
-	},
-	$content: {
-		text: LOREMIPSUM
-	}
-});
-
+//$context.section('Селектор обертки', 'Если виджет состоит из нескольких тегов, можно добиться нужного результата, настраивая компоновку');
+// = require layout-selector
 $context.section('Авто-высота вертикальных элементов', 'autoHeight = true');
 $context.section_begin('layout-autoheight-v');
 $context.section_end('layout-autoheight-v');
@@ -235,7 +213,7 @@ var w = $.ergo({
 			}]
 		},
 		set: {
-			'text': function(v) { this.title.opt('text', v); }
+			'text': function(v) { this.$title.opt('text', v); }
 		}
 	},
 
@@ -264,7 +242,7 @@ $context.section_end('layout-autoheight-h');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	
+
 	defaultItem: {
 		$title: {
 		},
@@ -281,13 +259,13 @@ var w = $.ergo({
 				width: '38%',
 				text: 'Right'
 			}]
-			
+
 		},
 		set: {
-			'text': function(v) { this.title.opt('text', v); }
-		}		
+			'text': function(v) { this.$title.opt('text', v); }
+		}
 	},
-	
+
 	items: [{
 		text: 'До:'
 	}, {
@@ -303,8 +281,6 @@ var w = $.ergo({
 // обновляем компоновку
 w._layoutChanged();
 
-
-
 $context.section('Авто-ширина', 'autoWidth = true');
 $context.section_begin('layout-autowidth');
 $context.section_end('layout-autowidth');
@@ -312,8 +288,8 @@ $context.section_end('layout-autowidth');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	
-	
+
+
 	defaultItem: {
 		$title: {
 		},
@@ -325,21 +301,21 @@ var w = $.ergo({
 			}
 		},
 		set: {
-			'text': function(v) { this.title.opt('text', v); }
+			'text': function(v) { this.$title.opt('text', v); }
 		}
 	},
-	
+
 	items: [{
 		text: 'До:'
-	}, {		
+	}, {
 		text: 'После:',
 		$content: {
 			$content: {
 				autoWidth: true
 			}
 		}
-	}]	
-	
+	}]
+
 });
 
 
@@ -353,8 +329,8 @@ $context.section_end('layout-autofit');
 var w = $.ergo({
 	etype: 'box',
 	renderTo: '#sample',
-	
-	
+
+
 	defaultItem: {
 		$title: {
 		},
@@ -368,27 +344,24 @@ var w = $.ergo({
 			}
 		},
 		set: {
-			'text': function(v) { this.title.opt('text', v); }
+			'text': function(v) { this.$title.opt('text', v); }
 		}
 	},
-	
+
 	items: [{
 		text: 'До:'
-	}, {		
+	}, {
 		text: 'После:',
 		$content: {
 			$content: {
 				autoFit: true
 			}
 		}
-	}]	
-	
+	}]
+
 });
 
 
 // обновляем компоновку
 w._layoutChanged();
-
-
-
 

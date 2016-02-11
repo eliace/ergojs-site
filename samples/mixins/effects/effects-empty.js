@@ -32,7 +32,7 @@ var w = $.ergo({
   },
   onToggleItems: function() {
     var box = this.item(1);
-    if(box.children.is_empty()) {
+    if(box.children.isEmpty()) {
       box.items.add({text: 'Alice'});
       box.items.add({text: 'Bob'});
       box._rerender();

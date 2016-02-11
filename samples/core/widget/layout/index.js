@@ -13,7 +13,7 @@ var w = $.ergo({
 				text: 'Weight = -1',
 				$box: {
 					style: {'visibility': 'hidden'},
-					items: ['.']					
+					items: ['.']
 				}
 			}, {
 				text: 'Weight = 0',
@@ -22,10 +22,10 @@ var w = $.ergo({
 					items: ['Item 0', 'Item 1', 'Item 2']
 				}
 			}, {
-				text: 'Weight = 1',			
+				text: 'Weight = 1',
 				$box: {
 					style: {'visibility': 'hidden'},
-					items: ['.']					
+					items: ['.']
 				}
 			}]
 		}
@@ -61,8 +61,8 @@ $context.section('Обертка компоновки', 'Элементы мож
 //= require layout-wrapper
 $context.section('Обертка виджета', 'Необходимость "обертки" и ее настройки могут задаваться дочерним виджетом');
 //= require layout-item-wrapper
-$context.section('Селектор обертки', 'Если виджет состоит из нескольких тегов, можно добиться нужного результата, настраивая компоновку');
-//= require layout-selector
+//$context.section('Селектор обертки', 'Если виджет состоит из нескольких тегов, можно добиться нужного результата, настраивая компоновку');
+// = require layout-selector
 $context.section('Авто-высота вертикальных элементов', 'autoHeight = true');
 //= require layout-autoheight-v
 $context.section('Авто-высота горизонтальных элементов', 'autoHeight = "ignore-siblings"');
@@ -71,6 +71,3 @@ $context.section('Авто-ширина', 'autoWidth = true');
 //= require layout-autowidth
 $context.section('Авто-размер', 'autoFit = true');
 //= require layout-autofit
-
-
-

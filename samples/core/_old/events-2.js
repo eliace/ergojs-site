@@ -14,7 +14,7 @@ var w = $.ergo({
 			// событие click одно из событий автоматически генерируемых виджетом
 			onClick: function() {
 				// вызываем всплывающее событие action и передаем параметры для перегрузки объекта события
-				this.events.rise('action', {value: 'click'});				
+				this.rise('action', {value: 'click'});				
 			}
 		}		
 	}, {
@@ -60,12 +60,12 @@ var w = $.ergo({
 				// хоть мы и не увидим эти элементы но события они могут обрабатывать
 				autoRender: false,
 				$level2x1: {
-					onNotify: function(e) { this.events.rise('action', {value: this._key}); }					
+					onNotify: function(e) { this.rise('action', {value: this._key}); }					
 				},
 				$level2x2: {
-					onNotify: function(e) { this.events.rise('action', {value: this._key}); }				
+					onNotify: function(e) { this.rise('action', {value: this._key}); }				
 				},
-				onNotify: function(e) { this.events.rise('action', {value: this._key}); }
+				onNotify: function(e) { this.rise('action', {value: this._key}); }
 			}
 		}		
 	}, {

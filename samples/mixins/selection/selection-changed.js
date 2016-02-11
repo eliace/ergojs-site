@@ -15,7 +15,7 @@ var w = $.ergo({
   items: ['Alice', 'Bob', 'Charlie', 'Dave'],
 
   onSelectionChanged: function(e) {
-    growl.info( e.selected.opt('text') );
+    growl.info( e.selected.prop('text') );
   }
 });
 

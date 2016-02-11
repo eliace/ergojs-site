@@ -1,10 +1,10 @@
 
 
 $(document).ready(function(){
-	
-	
-	
-	
+
+
+
+
 	var app = $.ergo({
 		etype: 'box',
 		$navigation: {
@@ -25,21 +25,21 @@ $(document).ready(function(){
 			}
 		}
 		// $content: {
-// 			
+//
 		// }
 	});
-	
-	
-	
+
+
+
 	$context.init();
-	
-	app.$render('body');
-	
+
+	app.render('body');
+
 	$context.app = app;
 	$context.el = app.el; //FIXME
-	
+
 	$context.states.set('mailboxes');
-	
+
 });
 
 
@@ -51,32 +51,32 @@ $context = new Ergo.core.Context({
 		'mailboxes:pages': function(on) {
 			// устанавливаем пункт меню
 			this.app.navigation.content.menu.opt('selected', 0);
-			
+
 			// загружаем данные
-			
+
 			// отрисовываем страницу
 			this.app.components.set('content', mailboxes_page);
-			this.app.$render(); // FIXME
-			
+			this.app.render(); // FIXME
+
 		},
 		'domains:pages': function(on) {
 			// устанавливаем пункт меню
 			this.app.navigation.content.menu.opt('selected', 1);
-			
+
 			// отрисовываем страницу
 			this.app.components.set('content', domains_page);
-			this.app.$render(); // FIXME
-			
-		}		
+			this.app.render(); // FIXME
+
+		}
 	}
 });
 
 
 $context.init = function(o) {
-	
+
 	$('body').height($(window).height());
-	
-	
+
+
 };
 
 
@@ -141,7 +141,3 @@ var domains_page = {
 		}]
 	}
 };
-
-
-
-

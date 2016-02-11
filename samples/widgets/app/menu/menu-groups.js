@@ -11,7 +11,8 @@ var menu = $.ergo({
 
 		$header: {
 			etype: 'html:li',
-			as: 'header'
+			as: 'header',
+			weight: -10
 		},
 
 		defaultItem: {
@@ -38,15 +39,15 @@ var menu = $.ergo({
 		}
 	},
 	items: [{
-		$header_text: 'User',
+		$header__text: 'User',
 		items: [
 			{ text: 'Profile' }
 		]
 	}, {
-		$header_text: 'Actions',
+		$header__text: 'Actions',
 		items: [
 			{	text: 'Dashboard'	},
-			{	text: 'Mail',	$content_label: '24' },
+			{	text: 'Mail',	$content__label: '24' },
 			{	text: 'Tasks'	}
 		]
 	}],

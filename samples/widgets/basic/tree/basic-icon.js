@@ -16,7 +16,8 @@ var w = $.ergo({
 					'countries': 'fa-flag',
 					'cities': 'fa-building-o'
 				},
-				dataId: 'type'
+				dataId: 'type',
+				binding: 'icon'
 			},
 			$content: {
 				etype: '.',

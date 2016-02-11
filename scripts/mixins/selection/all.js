@@ -10,8 +10,9 @@ var w = $.ergo({
   defaultItem: {
     as: 'text action',
     // по клику создаем всплывающее событие `select`
-    onClick: function() {
-      this.events.rise('select');
+    onClick: function(e) {
+      this.rise('select');
+      e.stop();
     },
     states: {
       // заменяем стандартный класс состояния `selected` на `blue`
@@ -38,7 +39,7 @@ var w = $.ergo({
   defaultItem: {
     as: 'text action',
     // по клику создаем всплывающее событие `clickItem`
-    onClick: 'action:clickItem',
+    onClick: 'rise:clickItem',
     // заменяем стандартный класс состояния `selected` на `blue`
     states: {
       'selected': 'blue'
@@ -49,11 +50,11 @@ var w = $.ergo({
 
   onClickItem: function(e) {
     // инвертируем выборку элемента
-    if( e.target.states.is('selected') ) {
+    if( e.target.is('selected') ) {
       this.selection.unset( e.target );
     }
     else {
-      this.selection.set( e.target );        
+      this.selection.set( e.target );
     }
 
   }
@@ -82,7 +83,7 @@ var w = $.ergo({
   items: ['Alice', 'Bob', 'Charlie', 'Dave'],
 
   onSelectionChanged: function(e) {
-    growl.info( e.selected.opt('text') );
+    growl.info( e.selected.prop('text') );
   }
 });
 

@@ -10,8 +10,8 @@ var w = $.ergo({
 			menu: {
 				etype: 'menu-bar',
 				items: [
-					'Mailboxes', 
-					'Domains', 
+					'Mailboxes',
+					'Domains',
 				{
 					etype: 'dropdown-box',
 					text: 'Dropdown',
@@ -54,7 +54,7 @@ var w = $.ergo({
 								},
 								'jquery:mouseleave': function(e, w) {
 									w.submenu.hide();
-									w.events.rise('closeMenu');
+									w.rise('closeMenu');
 								}
 							}
 						}],
@@ -71,7 +71,7 @@ var w = $.ergo({
 				items: [{
 					$content: {
 						etype: 'html:img',
-						src: 'img/Lil_cr.png'							
+						src: 'img/Lil_cr.png'
 					}
 				}, {
 					cls: 'username',
@@ -83,11 +83,11 @@ var w = $.ergo({
 							at: 'right bottom',
 							my: 'right top'
 						},
-						items: ['Профиль', '|', 'Выход']							
+						items: ['Профиль', '|', 'Выход']
 					}
 				}]
-			}				
-		}		
+			}
+		}
 	}
 });
 
@@ -143,14 +143,13 @@ w = $.ergo({
 					at: 'right bottom',
 					my: 'right top'
 				},
-				items: ['Профиль', '|', 'Выход']							
+				items: ['Профиль', '|', 'Выход']
 			},
 			$content_$caret: {
 				cls: 'after'
 			}
 		}]
-	}						
+	}
 });
 
 w.render('#sample');
-

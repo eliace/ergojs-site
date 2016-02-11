@@ -3,7 +3,7 @@
 var input1 = $.ergo({
 	etype: 'input',
 	as: 'has-icon at-right',
-	text: 'Search...',
+	placeholder: 'Search...',
 //	width: 180,
 	$icon: {
 		etype: 'icon',
@@ -22,7 +22,7 @@ var input2 = $.ergo({
 		weight: 10,
 		as: 'right'
 	},
-	text: 'Search...',
+	placeholder: 'Search...',
 //	width: 180
 });
 
@@ -32,7 +32,7 @@ var input3 = $.ergo({
 	include: 'icon:at-left',
 //	cls: 'icon left',
 	icon: 'fa-folder-open',
-	text: 'Search...',
+	placeholder: 'Search...',
 //	width: 180
 });
 

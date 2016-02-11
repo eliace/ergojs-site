@@ -79,21 +79,21 @@ var menu = $.ergo({
 		{
 			text: 'Почта',
 			submenu: true,
-			$sub_items: ['Входящие', 'Отправленные', 'Черновики']
+			$sub__items: ['Входящие', 'Отправленные', 'Черновики']
 		}, {
 			text: 'Задачи',
 			submenu: true,
-			$sub_items: [{
+			$sub__items: [{
 					text: 'Мои',
 					submenu: true,
-					$sub_items: [{
+					$sub__items: [{
 						text: 'Новые',
 						submenu: true,
-						$sub_items: ['test@gmail.com', 'foo@gmail.com', 'me@mail.ru', 'test@yandex.ru']
+						$sub__items: ['test@gmail.com', 'foo@gmail.com', 'me@mail.ru', 'test@yandex.ru']
 					}, {
 						text: 'В работе',
 						submenu: true,
-						$sub_items: ['boss@business.com']
+						$sub__items: ['boss@business.com']
 					}, 'Решенные']
 				},
 				'Назначенные мне'

@@ -56,7 +56,8 @@ var select2 = $.ergo({
         // this.items.add({text: selected.opt('text'), name: selected.opt('name')}).render();
 
         this.$content.opt('text', '');
-        this.$dropdown.options.renderFilter = textFilter.curry('');
+        this.$dropdown.opt('renderFilter', textFilter.bind(this, ''));
+//        this.$dropdown.options.renderFilter = textFilter.curry('');
       }
 
     }
@@ -69,10 +70,12 @@ var select2 = $.ergo({
 		this.$content.el.focus();
 	},
 
-	onInput: function(e) {
-		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
+	onInput: $ergo.debounce(function(e) {
+    this.$dropdown.opt('renderFilter', textFilter.bind(this, e.text));
+    this.$dropdown._rerender();
+//		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
 		this.states.toggle('opened', !(!e.text));
-	}.debounce(300),
+	}, 300),
 
 	onDropdown: function(e) {
 		this.$content.el.focus();

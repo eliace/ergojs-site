@@ -7,7 +7,7 @@ $context.section_end('ext-checkboxes');
 // создаем провайдера тестовых данных дерева
 TreeAjaxProvider = {
 	url: 'data/tree',
-	find_all: function(source, query) {
+	findAll: function(source, query) {
 		var id = query.id || 0;
 		return $.ajax(this.url+'/'+id+'.json', {
 			data: query,

@@ -5,7 +5,7 @@ var w = $.ergo({
 	renderTo: '#sample',
 	defaultItem: {
 		etype: 'split-button',
-		$dropdown_items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
+		$dropdown__items: ['Action', 'Another action', 'Something else here', '|', 'Separated link']
 	},
 	items: [
 		{	text: 'Default'	},

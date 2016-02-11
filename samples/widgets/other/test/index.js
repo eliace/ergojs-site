@@ -50,7 +50,7 @@ var provider = {
 	},
 
 
-	find_all: function() {
+	findAll: function() {
 
 		var g = this.generator;
 

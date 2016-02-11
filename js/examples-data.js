@@ -381,7 +381,13 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 			}, {
 				title: "Perf Tests",
 				name: 'widgets/other/test'
+			}, {
+				title: "Vue.js Examples",
+				name: 'widgets/other/vue'
 			}/*, {
+				title: "Dbmonster",
+				name: 'widgets/other/dbmonster'
+			}, {
 				title: 'Tags & Badges',
 				name: 'widgets/other/tags_badges'
 			}, {

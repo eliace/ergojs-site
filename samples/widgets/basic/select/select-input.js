@@ -3,14 +3,14 @@
 var w = $.ergo({
 	etype: 'select',
 
-	'-include': 'focusable',
+	'~include': 'focusable',
 
 	$content: {
 		etype: 'html:input',
 		placeholder: 'Сторона света'
 	},
 
-	$dropdown_items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+	$dropdown__items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
 
 });
 

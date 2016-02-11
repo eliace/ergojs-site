@@ -1,7 +1,7 @@
 
 var data = new Ergo.data.Collection({
 	provider: {
-		find_all: function() {
+		findAll: function() {
 			return $.getJSON('data/tree-countries.json');
 		}
 	}

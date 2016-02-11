@@ -48,3 +48,5 @@ var w2 = $.ergo({
 
 
 w2.opt('index', 12);
+
+console.log( 'pagination', w2.$footer.$toolbar.item(0) );

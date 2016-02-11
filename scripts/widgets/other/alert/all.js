@@ -5,6 +5,7 @@ $context.section_end('alert-basic');
 
 var w = $.ergo({
 	etype: 'box',
+	as: 'box vertical __gap',
 	defaultItem: {
 		etype: 'alert',
 		$icon: {
@@ -35,7 +36,7 @@ var w = $.ergo({
 		icon: 'fa-times',
 		title: 'Ошибка!',
 		text: 'Действия пользователя привели к исключительной ситуации',
-		as: 'danger'		
+		as: 'danger'
 	}]
 });
 
@@ -47,6 +48,7 @@ $context.section_end('alert-simple');
 
 var w = $.ergo({
 	etype: 'box',
+	as: 'box vertical __gap',
 	defaultItem: {
 		etype: 'simple-alert',
 	},

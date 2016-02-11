@@ -11,7 +11,7 @@ var data = new Ergo.data.Collection({
 // };
 
 var text_filter = function(item) {
-	var s = this.opt('filterText');
+	var s = this.opt('filterText') || '';
 	var v = item.opt('value');
 	return v && v.toLowerCase().indexOf(s.toLowerCase()) > -1;
 };

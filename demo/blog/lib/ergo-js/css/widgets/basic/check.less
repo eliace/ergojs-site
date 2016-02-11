@@ -1,0 +1,128 @@
+
+
+.check {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: @select-color;// #0a80cb;
+  display: inline-block;
+  height: 16px;
+  line-height: 1; //16px;
+  text-align: center;
+  width: 16px;
+  cursor: pointer;
+//	transition: border-color 0.05s ease-in-out 0s, box-shadow 0.05s ease-in-out 0s;
+
+	> i {
+		display: inline-block;
+		height: 16px;
+//		margin-top: -1px;
+		width: 14px;
+		cursor: pointer;
+		vertical-align: middle;		
+	}
+}
+
+.check:hover, label:hover .check {
+	border-color: darken(@border-color, 10%);//#0a80cb;
+}
+
+.check.indeterminate > i {
+	font-size: 10px;
+	height: 14px;
+}
+
+
+
+
+.radio {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+/*  color: #0a80cb;*/
+  display: inline-block;
+  height: 16px;
+  line-height: 1;//16px;
+  text-align: center;
+  width: 16px;
+  cursor: pointer;
+//	transition: border-color 0.05s ease-in-out 0s, box-shadow 0.05s ease-in-out 0s;
+/*	margin: 0 4px;*/
+
+	&:before {
+		display: inline-block;
+	  border-radius: 50%;
+		height: 8px;
+		margin-top: -2px;
+		width: 8px;
+		cursor: pointer;
+		vertical-align: middle;		
+		content: "";
+	}
+}
+
+
+.radio:hover, label:hover .radio {
+	border-color: darken(@border-color, 10%);//#0a80cb;
+}
+
+.radio.checked:before {
+  background-color: @select-color;//#0a80cb;	
+}
+
+
+
+
+.switch {
+
+	display: inline-block;
+	position: relative;
+	height: 1.5rem;
+	width: 3.5rem;
+	vertical-align: middle;
+
+	&:before {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 500px;
+    content: "";
+    cursor: pointer;
+    display: block;
+    height: 1.5rem;
+    position: absolute;
+    top: 0;
+    width: 3.5rem;
+    z-index: 1;
+    transition: background-color 0.3s ease 0s, border 0.3s ease 0s, box-shadow 0.3s ease 0s;
+	}
+
+
+	&:after {
+    background: #fff linear-gradient(transparent, rgba(0, 0, 0, 0.05)) repeat scroll 0 0;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(39, 41, 43, 0.15) inset;
+    content: "";
+    height: 1.5rem;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    transition: background 0.3s ease 0s, left 0.3s ease 0s;
+    width: 1.5rem;
+    z-index: 2;
+    cursor: pointer;
+	}
+
+
+	&:hover:before {
+		background-color: rgba(0, 0, 0, 0.1);//#0a80cb;		
+	}
+
+	&.checked:before {
+		background-color: @select-color;//#0a80cb;
+	}
+
+	&.checked:after {
+		left: 2.05rem;
+	}
+
+}

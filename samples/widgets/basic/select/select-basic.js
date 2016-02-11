@@ -23,4 +23,8 @@ var w = $.ergo({
 });
 
 
+console.log('events', w.events.events);
+console.log('events', w.options.events);
+
+
 w.render('#sample');

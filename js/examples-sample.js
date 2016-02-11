@@ -1,13 +1,10 @@
 
-
-
-
 //----------------------------------------------------------------
 // Скоуп загружаемого примера
 //----------------------------------------------------------------
-$context.scope('sample:show', function($scope) {
+$context.scopes.scope('sample:show', function($scope) {
 
-	var sample = $context.data('sample');
+	var sample = $context.sample;//.data('sample');
 
 	var w;
 
@@ -15,12 +12,13 @@ $context.scope('sample:show', function($scope) {
 
 		w = {
 			etype: 'panel',
-			cls: 'sample',
+			sid: 'samplePanel',
+			as: 'sample',
 			title: sample.title,
 			$content: {
 				id: 'sample'
 
-/*				
+/*
 				etype: 'tab-panel',
 				$tabbar: {
 					state: 'simple'
@@ -54,22 +52,22 @@ $context.scope('sample:show', function($scope) {
 					}
 				}],
 				selected: 0
-*/				
+*/
 			}
 		};
 
 
 		$.getScript('scripts/'+sample.name+'/all.js').success(function(script){
-			
+
 
 //			$('pre code.javascript', $scope.widget('samplePanel').el).append( Ergo.escapeHtml(script).replace(/\t/g, '  ') );
-			
-			$('pre code.javascript', $scope.widget('samplePanel').el).each(function(i, block) {
+
+			$('pre code.javascript', $scope.widgets['samplePanel'].el).each(function(i, block) {
 		    hljs.highlightBlock(block);
-		  });		
-			
-			
-//			sh_highlightDocument();			
+		  });
+
+
+//			sh_highlightDocument();
 		});
 
 
@@ -81,11 +79,11 @@ $context.scope('sample:show', function($scope) {
         success:function(data){
           $("head").append('<style id="sample-css">' + data + '</style>');
 
-					$('pre code.css', $scope.widget('samplePanel').el).append( Ergo.escapeHtml(data).replace(/\t/g, '  ') );
-					
-					$('pre code.css', $scope.widget('samplePanel').el).each(function(i, block) {
+					$('pre code.css', $scope.widgets['samplePanel'].el).append( Ergo.escapeHtml(data).replace(/\t/g, '  ') );
+
+					$('pre code.css', $scope.widgets['samplePanel'].el).each(function(i, block) {
 				    hljs.highlightBlock(block);
-				  });		
+				  });
 
         }
     });
@@ -97,7 +95,7 @@ $context.scope('sample:show', function($scope) {
 		w = {
 			etype: 'box',
 			layout: 'column',
-			cls: 'under-construct',
+			as: 'under-construct',
 			components: {
 				icon: {
 					etype: 'icon',
@@ -107,18 +105,16 @@ $context.scope('sample:show', function($scope) {
 					cls: 'message',
 					text: 'Пример все еще находится в разработке. Немножко терпения :)'
 				}
-			}				
+			}
 		};
 
 
 	}
 
 
-	w = $scope.widget('samplePanel', w);
-	
+	w = $ergo(w);
+
 	w.render('#samples');
 
 
 });
-
-

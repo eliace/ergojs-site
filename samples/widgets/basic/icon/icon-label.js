@@ -3,7 +3,7 @@
 var colored_icons = [];
 
 COLORS.forEach(function(c, i) {
-	colored_icons.push({icon: ICONS[i], cls: COLORS[i]});
+	colored_icons.push({icon: ICONS[i], as: COLORS[i]});
 });
 
 

@@ -26,7 +26,7 @@ var menu = $.ergo({
 			text: 'Dashboard'
 		}, {
 			text: 'Mail',
-			$content_label: '5'
+			$content__label: '5'
 		}, {
 			text: 'Tasks'
 		}
@@ -58,7 +58,7 @@ var menu2 = $.ergo({
 	width: 240,
 	defaultItem: {
 		onClick: function() {
-			this.events.rise('select');
+			this.rise('select');
 		},
 		$content: {
 			$label: {
@@ -79,7 +79,7 @@ var menu2 = $.ergo({
 			text: 'Dashboard'
 		}, {
 			text: 'Mail',
-			$content_label: '124'
+			$content__label: '124'
 		}, {
 			text: 'Tasks'
 		}
@@ -129,7 +129,7 @@ var menu3 = $.ergo({
 	items: [
 		{	text: 'Dashboard'	},
 		{	text: 'Mail' },
-		{	text: 'Tasks',	$content_label: '12' }
+		{	text: 'Tasks',	$content__label: '12' }
 	],
 	set: {
 		'index': function(v) {

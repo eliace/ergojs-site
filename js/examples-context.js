@@ -5,7 +5,7 @@ $context = new Ergo.core.Context({
 	include: 'growls'
 });
 
-
+Ergo.context = $context;
 
 
 
@@ -27,12 +27,12 @@ $context.alert = function(msg, type) {
 		renderTo: '#sample',
 		etype: 'simple-alert',
 		$icon: {
-			cls: 'fa fa-fw rounded'
+			as: 'fa fa-fw rounded'
 		},
 //			title: titles[type],
 		icon: icons[type],
 		text: msg,
-		state: type
+		as: type
 	});
 
 };
@@ -55,14 +55,16 @@ $context.section_begin = function(block) {
 
 	var info = $context._section;
 
+//	console.log('info', info);
+
 
 	$.ergo({
 		etype: 'box',
 		renderTo: '#sample',
-		cls: 'demo-section',
+		as: 'demo-section',
 		$content: {
 			text: info.title,
-			cls: 'clearfix',
+			as: 'clearfix',
 			layout: 'hbox',
 			// $icon: {
 			// 	etype: 'icon',
@@ -73,9 +75,9 @@ $context.section_begin = function(block) {
 			},
 			$codeToggle: {
 				etype: 'icon',
-				cls: 'contextual fa-code pull-right action',
+				as: 'contextual fa-code pull-right action',
 				onClick: function() {
-					this.events.rise('toggleExpand');
+					this.rise('toggleExpand');
 				}
 			},
 			// $jsfiddle: {
@@ -87,7 +89,7 @@ $context.section_begin = function(block) {
 			// }
 		},
 		$description: {
-			cls: 'description',
+			as: 'description',
 			innerHtml: info.desc
 		},
 		// $codePanel: {
@@ -104,11 +106,11 @@ $context.section_begin = function(block) {
 
 			var section = this;
 
-			var sample = $context.data('sample');
+			var sample = $context.sample;
 
 			var path = (block) ? sample.name+'/'+block+'.js' : sample.name+'.js';
 
-			var codePanel = $('.'+block).ergo();
+			var codePanel = $('.'+block)[0]._vdom._widget;
 
 			if(!codePanel.el.is(':visible')) {
 
@@ -127,8 +129,8 @@ $context.section_begin = function(block) {
 						  });
 
 		//					section.codePanel.show();
-							codePanel.states.unset('hidden');
-							codePanel.states.set('fadeIn');
+							codePanel.unset('hidden');
+							codePanel.set('fadeIn');
 
 						  codePanel._loaded = true;
 
@@ -136,20 +138,20 @@ $context.section_begin = function(block) {
 					});
 			  }
 			  else {
-					codePanel.states.unset('hidden');
-					codePanel.states.set('fadeIn');
+					codePanel.unset('hidden');
+					codePanel.set('fadeIn');
 			  }
 
 		  }
 		  else {
 
-		  	codePanel.el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-		  		codePanel.states.set('hidden');
-			  	codePanel.states.unset('fadeOut');
-			  	codePanel.states.unset('fadeIn');
+		  	$(codePanel.el).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+		  		codePanel.set('hidden');
+			  	codePanel.unset('fadeOut');
+			  	codePanel.unset('fadeIn');
 		  	});
 
-		  	codePanel.states.set('fadeOut');
+		  	codePanel.set('fadeOut');
 		  }
 
 
@@ -169,17 +171,17 @@ $context.section_end = function(block) {
 	$.ergo({
 		etype: 'box',
 		renderTo: '#sample',
-		cls: 'code-panel paper ' + block,
-		state: 'animated hidden',
+		as: 'code-panel paper ' + block + ' +animated +hidden',
+//		state: '',
 		$content: {
 			etype: 'html:pre',
 			$code: {
 				etype: 'html:code',
-				cls: 'javascript'
+				as: 'javascript'
 			}
 		},
 		$tabs: {
-			cls: 'code-tabs',
+			as: 'code-tabs',
 			layout: 'hbox',
 			defaultItem: {
 				include: 'icon:before',
@@ -193,7 +195,7 @@ $context.section_end = function(block) {
 
 		onJsFiddle: function(e) {
 
-			var sample = $context.data('sample');
+			var sample = $context.sample;
 
 			var path = (block) ? sample.name+'/'+block+'.js' : sample.name+'.js';
 

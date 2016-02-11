@@ -10,19 +10,19 @@ var alerts = {
 	'info': {
 		icon: 'fa-info',
 		title: 'Информация!',
-		text: 'Помощь при работе с приложением',			
+		text: 'Помощь при работе с приложением',
 		as: 'info'
 	},
 	'warning': {
 		icon: 'fa-bell-o',
 		title: 'Предупреждение!',
-		text: 'Автоматическая проверка отключена',					
+		text: 'Автоматическая проверка отключена',
 		as: 'warning'
 	},
 	'danger': {
 		icon: 'fa-times',
 		title: 'Ошибка!',
-		text: 'Сервер не отвечает на запросы',					
+		text: 'Сервер не отвечает на запросы',
 		as: 'danger'
 	}
 };
@@ -41,7 +41,7 @@ var Growls = $.ergo({
 			width: 300,
 			$icon: {
 				as: 'fa circular'
-			}			
+			}
 		}
 	}
 });
@@ -56,7 +56,7 @@ var w = $.ergo({
 	defaultItem: {
 		etype: 'button',
 		onClick: function() {
-						
+
 			var name = this.opt('name');
 
 			Growls.addGrowl( alerts[name] );

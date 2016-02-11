@@ -1,6 +1,7 @@
 
 var w = $.ergo({
 	etype: 'box',
+	as: 'box vertical __gap',
 	defaultItem: {
 		etype: 'simple-alert',
 	},

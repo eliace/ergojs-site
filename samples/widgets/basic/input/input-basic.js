@@ -2,11 +2,9 @@
 
 var input1 = $.ergo({
 	etype: 'input',
-	text: 'Search...'
+	placeholder: 'Search...'
 });
 
 
 
 input1.render('#sample');
-
-

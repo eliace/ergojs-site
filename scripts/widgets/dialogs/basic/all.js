@@ -7,7 +7,7 @@ var Dialog = Ergo.widgets.Panel.extend({
 		effects: {
 			show: {type: 'fadeIn', delay: 300}
 		},
-		cls: 'modal paper',
+		as: 'modal paper',
 		renderTo: 'body',
 		destroyOnClose: true,
 		closeOn: 'outerClick',
@@ -37,16 +37,16 @@ var Dialog = Ergo.widgets.Panel.extend({
 var DialogX = Dialog.extend({
 
 	defaults: {
-		
+
 		$header: {
-			layout: 'fluid',
+			layout: 'float',
 			$buttons: {
 				etype: 'box',
 				cls: 'align-right tools',
 				defaultItem: {
 					etype: 'icon',
 					onClick: function(e) {
-						this.events.rise(this.options.name || 'action');
+						this.rise(this.opt('name') || 'action');
 					}
 				},
 				items: [{
@@ -84,7 +84,7 @@ var dlg = new Dialog({
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
-					this.events.rise(this.opt('name'));
+					this.rise(this.opt('name'));
 				}
 			},
 			items: [{
@@ -120,7 +120,7 @@ var dlg = new Dialog({
 	as: 'simple padded center',
 	title: 'Диалог',
 	$header: {
-		layout: 'fluid',
+		layout: 'float',
 		as: 'padding',
 		$buttons: {
 			etype: 'box',
@@ -129,7 +129,7 @@ var dlg = new Dialog({
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
-					this.events.rise(this.opt('name'));
+					this.rise(this.opt('name'));
 				}
 			},
 			items: [{
@@ -165,7 +165,7 @@ var dlg = new Dialog({
 	as: 'simple center padded',
 	title: 'Диалог',
 	$header: {
-		layout: 'fluid',
+		layout: 'float',
 		$buttons: {
 			etype: 'box',
 			as: 'align-right tools',
@@ -173,7 +173,7 @@ var dlg = new Dialog({
 				etype: 'icon',
 				as: 'contextual action',
 				onClick: function(e) {
-					this.events.rise(this.opt('name'));
+					this.rise(this.opt('name'));
 				}
 			},
 			items: [{
@@ -215,7 +215,7 @@ var dlg = new DialogX({
 			defaultItem: {
 				etype: 'button',
 				onClick: function(e) {
-					this.events.rise(this.options.name || 'action');
+					this.rise(this.options.name || 'action');
 				}
 			},
 			items: ['Заголовок 1', 'Заголовок 2']
@@ -259,7 +259,7 @@ dlg.load = function() {
 	var d = this;
 
 	setTimeout(function() {
-		d.content.el.load('data/info.html', function(){
+		d.$content.el.load('data/info.html', function(){
 //			d.resize();
 		});
 	}, 1500);
@@ -299,7 +299,7 @@ var MyDialogX = DialogX.extend({
 				text: 'Открыть новый диалог',
 				name: 'newDialog',
 				onClick: function() {
-					this.events.rise(this.options.name || 'action');
+					this.rise(this.options.name || 'action');
 				}
 			}
 		},
@@ -356,7 +356,7 @@ var dlg = new DialogX({
 			defaultItem: {
 				etype: 'button',
 				onClick: function() {
-					this.events.rise('changeTheme', {theme: this.opt('text')});
+					this.rise('changeTheme', {theme: this.opt('text')});
 				}
 			},
 			items: [{
@@ -398,11 +398,4 @@ $.ergo({
 		this.options.dialog.open();
 	}
 });
-
-
-
-
-
-
-
 
