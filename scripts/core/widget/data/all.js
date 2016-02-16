@@ -27,7 +27,7 @@ var w = $.ergo({
 	// виджет text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
 		etype: 'text',
-		binding: 'text',
+		binding: 'prop:text',
 		include: 'label',
 	},
 
@@ -90,6 +90,7 @@ var w = $.ergo({
 	// видеж text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
 		etype: 'text',
+		binding: 'prop:text',
 		include: 'label'
 	},
 
@@ -139,9 +140,10 @@ var w = $.ergo({
 	// видеж text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
 		etype: 'text',
+		binding: 'prop:text',
 		include: 'label'
 	},
-	
+
 	items: [{
 		label: 'ФИО',
 		format: '#{lastName} #{firstName} #{middleName}'
@@ -165,12 +167,11 @@ var w = $.ergo({
 			this.el.addClass((v == 'м') ? 'fa-male' : 'fa-female');
 		}
 	}]
-	
-	
+
+
 });
 
 w.render('#sample');
-
 
 $context.section('Динамическое связывание', 'Управление коллекцией элементов виджета через источник данных');
 $context.section_begin('data-dynamic');
@@ -224,10 +225,11 @@ var w = $.ergo({
 	},
 
 	items: [{
-		etype: 'html:input',
-		onChange: function(e) {
-			this.opt('value', e.value);
-		}
+		etype: 'html:input'
+//		onInput: 'prop:value'
+		// onChange: function(e) {
+		// 	this.opt('value', e.value);
+		// }
 	}, {
 		etype: 'text',
 		$title: {
@@ -236,7 +238,7 @@ var w = $.ergo({
 		},
 		$content: {
 			etype: '.',
-			binding: 'text'
+			binding: 'prop:text'
 		}
 	}]
 

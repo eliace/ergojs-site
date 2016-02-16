@@ -4,6 +4,11 @@
     -moz-box-sizing: border-box;
 }
 
+html {
+	font-size: 14px;
+	height: 100%;
+}
+
 
 body {
 	font-family: "Roboto", "Lato",Helvetica,Arial, sans-serif;
@@ -15,8 +20,16 @@ button {
 	margin: 0;
 }
 
-input {
+input, a {
 	font-family: "Roboto", "Lato",Helvetica,Arial, sans-serif;
+}
+
+
+
+
+.page {
+  width: 900px;
+  margin: 0 auto;
 }
 
 
@@ -25,21 +38,30 @@ input {
 .page-header {
 	display: table;
 	width: 100%;
-	background-color: #37474f;
-	padding: 0 10px;
+/*	background-color: #37474f;*/
+	padding: 1rem 10px;
+  margin-bottom: 2rem;
 }
 
 .page-header > h3 {
 	float: left;
-	color: #f0f0f0;
+	color: #aaa;
 	text-transform: uppercase;
 	font-size: 18px;
 	padding: 14px 0;
 	margin: 0;
 }
 
+.page-header > h3 > span {
+  color: #0288d1;
+}
+
+
+
+
 .page-header > nav {
-	float: left;
+	float: right;
+  text-align: center;
 }
 
 .page-header a:hover {
@@ -52,17 +74,26 @@ input {
 }
 */
 
-.page-header .menu {
+.page-menu {
 	list-style: none;
 	margin: 0;
 }
 
-.page-header .menu > li {
+.page-menu > li {
 	float: left;
+  display: inline-block;
+  color: #666;
 }
 
-.page-header .menu > li > a {
-	color: #f0f0f0;
+
+.page-menu > li.selected {
+  border-bottom: 2px solid #0288d1;
+  color: #222;
+}
+
+
+.page-menu > li > a {
+  color: inherit;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 12px;
@@ -70,8 +101,8 @@ input {
 	float: left;
 }
 
-.page-header .menu > li:hover {
-	background-color: #455a64;
+.page-menu > li:hover {
+/*	background-color: #455a64;*/
 }
 
 
@@ -83,8 +114,8 @@ input {
 }
 
 .github > a {
-	color: #f0f0f0;
-	text-decoration: none;	
+	color: #444;
+	text-decoration: none;
 }
 
 .github > a > i {

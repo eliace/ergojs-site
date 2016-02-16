@@ -9,7 +9,7 @@ body {
 	font-family: "Roboto", "Lato",Helvetica,Arial, sans-serif;
 	margin: 0;
 	padding: 0;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 
@@ -52,8 +52,15 @@ pre {
 */
 
 
+.page {
+  width: 900px;
+  margin: 0 auto;
+}
+
+
+
 .before {
-	margin-right: 8px;
+	margin-right: 0.6em;
 }
 
 
@@ -104,10 +111,10 @@ pre {
 	margin: 0 auto;
 	/*background-color: #607d8b; /*#78909c;*/
 	color: #444;
-	padding: 70px 0;
+	padding: 2rem 0;
 	clear: both;
 	border-bottom: 1px solid #ccc;
-	background: url('fabric_of_squares_gray.png');
+/*	background: url('fabric_of_squares_gray.png');*/
 }
 
 
@@ -118,8 +125,9 @@ pre {
 
 
 .banner p {
-	font-size: 24px;
+	font-size: 2rem;
 	text-align: center;
+  color: #aaa;
 }
 
 
@@ -135,15 +143,16 @@ pre {
 	width: 128px;
 	color: #666;
 	border: 1px solid #ccc;
-	border-radius: 4px;
+/*	border-radius: 4px;*/
 	font-size: 16px;
 	cursor: pointer;
 	text-decoration: none;
+  display: inline-block;
 }
 
 
 .banner a > i {
-	margin-right: 8px;
+	margin-right: 1rem;
 }
 
 .banner a:hover {
@@ -153,20 +162,24 @@ pre {
 
 .description {
 	display: table;
-	width: 80%;
+/*	width: 80%;*/
 	margin: 0 auto;
 }
 
 
 .description p {
-	color: #888;
+	color: #444;
+  font-size: 1rem;
 }
 
 .description > div {
-	display: table-cell;
+/*	display: table-cell;*/
 	padding: 32px;
+  float: left;
+  width: 50%;
 }
 
+/*
 .description > div:first-child {
 	padding-left: 0;
 }
@@ -174,6 +187,7 @@ pre {
 .description > div:last-child {
 	padding-right: 0;
 }
+*/
 
 .description h3 {
 	text-transform: capitalize;
@@ -181,20 +195,39 @@ pre {
 
 .description h2 {
 	color: #444;
+  font-size: 1.6em;
+  font-weight: normal;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.description .icon {
+  background-color: #0288d1;/*#5cb85c;*/
+  color: #fff;
+  padding: 0.4rem;
+  border-radius: 2px;
+  opacity: 0.9;
+/*  display: none;*/
 }
 
 
 
 .banner a.download {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+/*  background-color: #5cb85c;*/
+  border: transparent;
+/*  border-color: #4cae4c;*/
+/*  color: #0288d1;
+  background-color: rgba(0,0,0,0.02);*/
+  background-color: #0288d1;
   color: #fff;
 }
 
 .banner a.download:hover {
-  background-color: #449d44;
+/*  background-color: #449d44;
   border-color: #398439;
-  color: #fff;
+  color: #fff;*/
+  background-color: #0176B5;
+
 }
 
 

@@ -20,19 +20,20 @@ $context.scopes.scope('main', function($scope) {
 			components: {
 				title: {
 					dataId: 'title',
-					binding: 'text'
+					binding: 'prop:text'
 				},
 				content: {
 					etype: 'side-menu',
 					dataId: 'children',
+					as: 'at-left',
 					nestedItem: {
 						$content: {
 //							etype: 'link',
 							format: '#{title}',
-							binding: 'text',
+							binding: 'prop:text',
 //							$content_dataId: 'title',
 							$icon: {
-                binding: 'text',
+                binding: 'prop:text',
                 dataId: 'icon'
               }
 							// onClick: function() {

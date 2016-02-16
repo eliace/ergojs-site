@@ -22,7 +22,7 @@ var w = $.ergo({
 	// виджет text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
 		etype: 'text',
-		binding: 'text',
+		binding: 'prop:text',
 		include: 'label',
 	},
 

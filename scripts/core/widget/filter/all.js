@@ -52,7 +52,7 @@ $.ergo({
 		renderFilter: text_filter,
 
 		defaultItem: {
-			binding: 'text',
+			binding: 'prop:text',
 			format: '#{full_name}'
 		}
 	},
@@ -121,7 +121,7 @@ $.ergo({
 		filterKey: 'full_name',
 
 		defaultItem: {
-			binding: 'text',
+			binding: 'prop:text',
 			dataId: 'full_name'
 		}
 	},
@@ -191,7 +191,7 @@ $.ergo({
 		height: 300,
 		style: {'overflow': 'auto'},
 		defaultItem: {
-			binding: 'text',
+			binding: 'prop:text',
 			dataId: 'full_name'
 		}
 	},

@@ -64,20 +64,20 @@ $.ergo({
 //			etype: 'list',
 		height: 300,
 		dynamic: true,
-		cls: 'list-box',
+		as: 'list-box',
 		style: {'overflow': 'auto'},
 		defaultItem: {
 			etype: 'box',
 			layout: 'float',
 			$content: {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'full_name',
 			},
 			$after: {
 //					etype: 'inline',
 				autoRender: true,
-				binding: 'text',
-				cls: 'label small warning right',
+				binding: 'prop:text',
+				as: 'label small warning right',
 				dataId: 'country'
 			}
 

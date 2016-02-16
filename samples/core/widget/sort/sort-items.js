@@ -60,13 +60,13 @@ var w = $.ergo({
 			etype: 'box',
 			layout: 'float',
 			$content: {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'full_name',
 			},
 			$after: {
 //					etype: 'inline',
 				autoRender: true,
-				binding: 'text',
+				binding: 'prop:text',
 				as: 'label small warning right',
 				dataId: 'country'
 			}

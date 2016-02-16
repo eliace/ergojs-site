@@ -1,7 +1,7 @@
 
-Ergo.$foo = function(o, etype) {
+Ergo.$foo = function(etype, o) {
 	o.unshift({text: 'foo'}); 					// для всех элементов пространства foo: задаем текст по умолчанию
-	return Ergo.object('foo', o, etype);
+	return Ergo.object('foo', etype, o);
 };
 
 

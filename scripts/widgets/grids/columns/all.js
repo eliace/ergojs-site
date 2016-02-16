@@ -176,24 +176,24 @@ var w = $.ergo({
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: 'Full Name',
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Country',
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	data: data
 });
@@ -245,24 +245,24 @@ var w = $.ergo({
 			text: 'ID',
 		},
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: 'Full Name',
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Country',
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 //	mixins: ['loader'],
 //	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
@@ -313,24 +313,24 @@ var w = $.ergo({
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: 'Full Name',
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Country',
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 //	mixins: ['loader'],
 

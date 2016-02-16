@@ -34,16 +34,17 @@ body > div {
 
 .page-content {
 	display: table;
-/*	width: 100%;*/
-/*	position: relative;*/
 	height: calc(100% - 51px);
+	position: relative;
 }
 
 .page-content > aside {
 /*	background-color: #f2f4f6;*/
-	background-color: #F8F8F8;
+/*	background-color: #F8F8F8;*/
 	border-right: 1px solid #eee;
 	width: 250px;
+	left: -250px;
+	position: absolute;
 /*	float: left;*/
 }
 
@@ -102,7 +103,7 @@ body > div {
 .demo-section .icon {
 	margin-right: 8px;
 	font-size: 18px;
-	color: #888;
+	color: #222;
 }
 
 .demo-section .description {
@@ -203,7 +204,7 @@ aside {
 
 
 #content-menu {
-	width: 300px;
+/*	width: 300px;*/
 }
 
 

@@ -33,7 +33,7 @@ $.ergo({
 		height: 300,
 		style: {'overflow': 'auto'},
 		defaultItem: {
-			binding: 'text',
+			binding: 'prop:text',
 			dataId: 'full_name'
 		}
 	},

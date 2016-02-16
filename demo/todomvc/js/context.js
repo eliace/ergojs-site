@@ -28,7 +28,7 @@ $ergo.alias('providers:localStorage', {
 
   storeKey: 'todomvc.ergojs',
 
-  find_all: function(ds) {
+  findAll: function(ds) {
     var json = JSON.parse( window.localStorage.getItem(this.storeKey) ) || {};
     return $.when( json[ds.options.storeId] || [] );
   },
@@ -48,86 +48,101 @@ $ergo.alias('includes:editor:input', {
 
   defaults: {
     editor: {
-      etype: 'html:input',
+      tag: 'input',
+      binding: 'text',
+//      etype: 'html:input',
       events: {
+        'vdom:keydown': function(e) {
+          if( e.keyCode == KEY_ESC )
+            this.parent.cancelEdit();
+          else if( e.keyCode == KEY_ENTER ) {
+            this.prop('value', this.prop('text'));
+            this.parent.stopEdit();
+          }
+        },
+        'vdom:click': function(e) {
+          e.stopPropagation();
+        }
         // 'jquery:change': function() {
         //   this.events.fire('change', {value: this.el.val()});
         // },
-        'jquery:keydown': function(e) {
-          this.events.fire('keyDown', {keyCode: e.keyCode, value: this.el.val()});
-        }
+        // 'jquery:keydown': function(e) {
+        //   this.events.fire('keyDown', {keyCode: e.keyCode, value: this.el.val()});
+        // }
       },
-      onClick: function(e) {
-        e.stop();
+
+      set: {
+        'text': function(v) { this.vdom.el.value = v; }
       },
-      // onChange: function(e) {
-      //   this.opt('value', e.value);
-      //     this.parent.stopEdit();
-      // },
-      onKeyDown: function(e) {
-        if( e.keyCode == KEY_ESC )
-          this.parent.cancelEdit();
-        else if( e.keyCode == KEY_ENTER ) {
-          this.value = e.value;//.opt('value', e.value);
-          this.parent.stopEdit();
-        }
+      get: {
+        'text': function(v) { return this.vdom.el.value; }
       }
+
+      // onClick: function(e) {
+      //   e.stop();
+      // },
+      // onKeyDown: function(e) {
+      //   if( e.keyCode == KEY_ESC )
+      //     this.parent.cancelEdit();
+      //   else if( e.keyCode == KEY_ENTER ) {
+      //     this.value = e.value;//.opt('value', e.value);
+      //     this.parent.stopEdit();
+      //   }
+      // }
     }
   },
 
-
-  overrides: {
-
-    startEdit: function(data) {
-
-      var w = this;
-
-      this.components.set('editor', this.options.editor);
+  // props: {
+  // },
 
 
-      this.states.set('editing');
+  startEdit: function(data) {
+
+    var w = this;
+
+    this.components.set('editor', this.options.editor);
+
+    this.set('editing');
 
 //        this.$content.unrender();
 
-      this.$editor.render()
-        .then(function() {
-          w.$editor.el.focus();
-        });
+    this.$editor.render()
+    this.$editor.el.focus();
+      // .then(function() {
+      //   w.$editor.el.focus();
+      // });
 
-      $('html').one('click', function() {
-        if(w.states.is('editing'))
-          w.cancelEdit();
+    $('html').one('click', function() {
+      if(w.is('editing'))
+        w.cancelEdit();
 //          w.events.rise('cancelEdit');
-      });
+    });
 
 
-      this.$editor.bind( data );
+    this.$editor.bind( data );
 
 //      this.events.rise('beginEdit');
-    },
+  },
 
 
-    stopEdit: function() {
+  stopEdit: function() {
 
-      this.events.rise('stopEdit', {value: this.$editor.data.get()} );
+    this.rise('stopEdit', {value: this.$editor.data.get()} );
 
-      this.$editor._destroy();
-      this.states.unset('editing');
+    this.$editor._destroy();
+    this.unset('editing');
 
-    },
+  },
 
 
-    cancelEdit: function() {
+  cancelEdit: function() {
 
-      this.events.rise('cancelEdit');
+    this.rise('cancelEdit');
 
-      this.$editor._destroy();
-      this.states.unset('editing');
-
-    }
+    this.$editor._destroy();
+    this.unset('editing');
 
   }
-
 
 });
 
@@ -137,7 +152,7 @@ $ergo.alias('includes:editor:input', {
 
 
 $context = new Ergo.core.Context({
-  include: 'history router',
+//  include: 'history router',
 //   events: {
 //     'scopeRestore': function(e) {
 // //      this.to(e.hash);

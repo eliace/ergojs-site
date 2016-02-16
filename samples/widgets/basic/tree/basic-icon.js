@@ -12,9 +12,9 @@ var w = $.ergo({
 				weight: -10,
 				states: {
 					// отображение состояния на класс иконки
-					'cardinals': 'fa-globe',
-					'countries': 'fa-flag',
-					'cities': 'fa-building-o'
+					'cardinals': 'cls:fa-globe',
+					'countries': 'cls:fa-flag',
+					'cities': 'cls:fa-building-o'
 				},
 				dataId: 'type',
 				binding: 'icon'

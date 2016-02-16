@@ -22,8 +22,8 @@ var w = $.ergo({
 	data: data,
 	nestedItem: {
 		binding: function(v) {
-			if(this.data.opt('branch')) this.states.set('expandable');
-			this.$icon.states.set(v.type);
+			if(this.data.opt('branch')) this.set('expandable');
+			this.$icon.set(v.type);
 		},
 		$content: {
 			dataId: 'title'
@@ -43,9 +43,9 @@ var w = $.ergo({
 			weight: -10,
 			states: {
 				// настраиваем FontAwesome-иконки для состояний
-				'drive': 'fa-hdd-o',
-				'folder': 'fa-folder-o',
-				'clip': 'fa-film'
+				'drive': 'cls:fa-hdd-o',
+				'folder': 'cls:fa-folder-o',
+				'clip': 'cls:fa-film'
 			}
 		}
 	}

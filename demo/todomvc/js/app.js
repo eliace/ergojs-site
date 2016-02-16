@@ -28,56 +28,66 @@
 
 
 	var Header = $.ergo({
-		etype: 'html:header',
+		etype: 'html',
+		tag: 'header',
 		as: 'header',
 //		autoBind: false,
 		$title: {
-			etype: 'html:h1',
+			tag: 'h1',
 			text: 'todos'
 		},
 		$newTodo: {
-			etype: 'html:input',
+			tag: 'input',
 			as: 'new-todo',
 			placeholder: 'What needs to be done?',
-			onChange: function(e) {
-				this.prop('value', '');
-				this.rise('addTask', e);
+			events: {
+				'vdom:keyup': function(e) {
+					if(e.keyCode == KEY_ENTER) {
+						var val = this.vdom.el.value;
+						this.rise('addTask', val);
+						this.vdom.el.value = '';
+					}
+				}
 			}
 		},
 	});
 
 
 	var Footer = $.ergo({
-		etype: 'html:footer',
+		tag: 'footer',
 		as: 'footer',
 		data: todos,
 		$todoCount: {
-			etype: 'html:span',
+			tag: 'span',
 			as: 'todo-count',
 			$counter: {
-				etype: 'html:strong',
+				tag: 'strong',
 				binding: 'text',
 				format: '#{*|countActive}'
 			},
 			$content: {
-				etype: 'html:.',
 				format: ' #{*|countActive|pluralizeItem} left',
 				binding: 'text'
 			}
 		},
 		$filters: {
-			etype: 'html:ul',
+			tag: 'ul',
 			as: 'filters',
 			include: 'selectable',
 //			autoBind: false,
 			defaultItem: {
-				etype: 'html:li',
+				tag: 'li',
 				$content: {
 					etype: 'html:a',
 				},
 				get: {
 					'name': function() {
 						return this.prop('text');
+					}
+				},
+				set: {
+					'href': function(v) {
+						this.$content.prop('href', v);
 					}
 				}
 			},
@@ -87,19 +97,19 @@
 				}
 			},
 			items: [
-				{	text: 'All', $content__href: '#/' },
-				{	text: 'Active', $content__href: '#/active' },
-				{	text: 'Completed', $content__href: '#/completed' }
+				{	text: 'All', href: '#/' },
+				{	text: 'Active', href: '#/active' },
+				{	text: 'Completed', href: '#/completed' }
 			]
 		},
 		$clearBtn: {
-			etype: 'html:button',
+			tag: 'button',
 			as: 'clear-completed',
-			text: 'Crear completed',
-			onClick: 'action:clearCompleted',
+			text: 'Clear completed',
+			onClick: 'rise:clearCompleted',
 			format: '#{*|countCompleted}',
 			binding: function(v) {
-				this.toggle('hidden', v == '0');
+				this.toggle('hidden', !v);
 			}
 		},
 		binding: function(v) {
@@ -109,69 +119,79 @@
 
 
 	var Content = $.ergo({
-		etype: 'html:section',
+		etype: 'html',
+		tag: 'section',
 		as: 'main',
 		data: todos,
 		$checkbox: {
-			etype: 'html:checkbox',
-//			type: 'checkbox',
+//			etype: 'html:checkbox',
+			tag: 'input',
+			type: 'checkbox',
 			as: 'toggle-all',
-			// events: {
-			// 	'jquery:change': function() {
-			// 		this.events.fire('change', {value: this.el.prop('checked')});
-			// 	}
-			// },
-			binding: function(v) {
-				this.el.prop('checked', v == 'true');
-			},
 			format: '#{*|allCompleted}',
-			onChange: function(e) {
-//				console.log(e);
-				this.rise('toggleAll', e);
-				e.interrupt();
+			binding: 'checked',
+			// binding: function(v) {
+			// 	this.prop('checked', v);//v == 'true');
+			// },
+			events: {
+				'vdom:change': function(e) {
+//					console.log('change', this.vdom.el.checked);//.prop('checked'));
+					this.rise('toggleAll', this.prop('checked'), e);
+				}//'rise:toggleAll'
 			}
-//			onChange: 'action:toggleAll'
 		},
 		$label: {
-			etype: 'html:label',
-			_for: 'toggle-all',
+			tag: 'label',
+			forName: 'toggle-all',
 			text: 'Mark all as complete'
 		},
 		$list: {
-			etype: 'html:ul',
+			tag: 'ul',
 			as: 'todo-list',
 			dynamic: true,
-			events: {
-				'data:dirty': function(e) {
-//					console.log('dirty', e.updated);
-					this._dataDiff([], [], e.updated);
-				}
-			},
+			// events: {
+			// 	'data:dirty': function(e) {
+			// 		this._dataDiff([], [], e.updated);
+			// 	}
+			// },
 			defaultItem: {
-				etype: 'html:li',
+				tag: 'li',
 				include: 'editor:input',
 				editor: {
 					dataId: 'title',
 		      as: 'edit'
 				},
 				$content: {
-					etype: 'html:div',
+					tag: 'div',
 					as: 'view',
 					$check: {
-						etype: 'html:checkbox',
+						tag: 'input',
+						type: 'checkbox',
+//						etype: 'html:checkbox',
 						as: 'toggle',
-						dataId: 'completed'
+						dataId: 'completed',
+						binding: 'checked',
+						// binding: function(v) {
+						// 	this.prop('checked', v/*this.prop('value')*/);
+						// },
+						events: {
+							'vdom:change': function(e) {
+//								this.emit('change', this.prop('checked'), e);
+								this.prop('value', this.prop('checked'));
+							}
+						},
+//						onChange: 'prop:value'
 					},
 					$content: {
-						etype: 'html:label',
+						tag: 'label',
 						binding: 'text',
 						format: '#{title}',
-						onDoubleClick: 'action:edit'
+						onDoubleClick: 'rise:edit'
 					},
 					$close: {
-						etype: 'html:button',
+						tag: 'button',
 						as: 'destroy',
-						onClick: 'action:deleteTask'
+						onClick: 'rise:deleteTask'
 					},
 				},
 				binding: function(v) {
@@ -208,13 +228,13 @@
 
 
 	var ToDo = $.ergo({
-		etype: 'html:section',
+		tag: 'section',
 		as: 'todoapp',
 //		data: data,
 		items: [ Header, Content, Footer ],
 
 		onAddTask: function(e) {
-			todos.add( {title: e.value.trim()} );
+			todos.add( {title: e.$data.trim()} );
 		},
 
 		onDeleteTask: function(e) {
@@ -222,12 +242,13 @@
 		},
 
 		onEditTask: function(e) {
-			e.target.data.set('title', e.value.trim() );
+			e.target.data.set('title', e.$data.trim() );
 		},
 
 		onToggleAll: function(e) {
+			console.log(e);
 			todos.each(function(todo) {
-				todo.set('completed', e.value);
+				todo.set('completed', e.$data);
 			})
 		},
 
@@ -239,32 +260,30 @@
 
 
 		states: {
-			'': {
-				'all': function(on) {
-					Content.$list.opt('dynamicFilter', null);
-					Content.$list._rebind();
-					Footer.$filters.selection.set('All');
-				},
-				'active': function(on) {
-					var f = function(v) {
-						return !v.completed;
-					};
-			//		Content.$list.filter('compose', f);
-					Content.$list.opt('dynamicFilter', f);
-					Content.$list._rebind();
+			'all': function(on) {
+				Content.$list.opt('dynamicFilter', null);
+				Content.$list._rebind();
+				Footer.$filters.selection.set('All');
+			},
+			'active': function(on) {
+				var f = function(v) {
+					return !v.completed;
+				};
+		//		Content.$list.filter('compose', f);
+				Content.$list.opt('dynamicFilter', f);
+				Content.$list._rebind();
 
-					Footer.$filters.selection.set('Active');
-				},
-				'completed': function(on) {
-					var f = function(v) {
-						return v.completed;
-					};
-			//		Content.$list.filter('compose', f);
-					Content.$list.opt('dynamicFilter', f);
-					Content.$list._rebind();
+				Footer.$filters.selection.set('Active');
+			},
+			'completed': function(on) {
+				var f = function(v) {
+					return v.completed;
+				};
+		//		Content.$list.filter('compose', f);
+				Content.$list.opt('dynamicFilter', f);
+				Content.$list._rebind();
 
-					Footer.$filters.selection.set('Completed');
-				}
+				Footer.$filters.selection.set('Completed');
 			}
 		}
 
@@ -273,6 +292,7 @@
 	$('body').prepend(ToDo.el);
 
 	ToDo.render();
+
 
 
 /*

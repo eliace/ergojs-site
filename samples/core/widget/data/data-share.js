@@ -13,10 +13,11 @@ var w = $.ergo({
 	},
 
 	items: [{
-		etype: 'html:input',
-		onChange: function(e) {
-			this.opt('value', e.value);
-		}
+		etype: 'html:input'
+//		onInput: 'prop:value'
+		// onChange: function(e) {
+		// 	this.opt('value', e.value);
+		// }
 	}, {
 		etype: 'text',
 		$title: {
@@ -25,7 +26,7 @@ var w = $.ergo({
 		},
 		$content: {
 			etype: '.',
-			binding: 'text'
+			binding: 'prop:text'
 		}
 	}]
 

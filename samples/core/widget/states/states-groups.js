@@ -8,11 +8,11 @@ var g = $.ergo({
 		states: {
 			// задаем набор состояний с группой 'fa'
 			fa: {
-				'icon1': 'fa-calculator',
-				'icon2': 'fa-calendar',
-				'icon3': 'fa-calendar-o',
-				'icon4': 'fa-camera',
-				'icon5': 'fa-bug'
+				'icon1': 'cls:fa-calculator',
+				'icon2': 'cls:fa-calendar',
+				'icon3': 'cls:fa-calendar-o',
+				'icon4': 'cls:fa-camera',
+				'icon5': 'cls:fa-bug'
 			}
 		}
 	},
@@ -44,11 +44,11 @@ $.ergo({
 		states: {
 			// задаем набор состояний с группой 'fa'
 			fa: {
-				'icon1': 'fa-calculator',
-				'icon2': 'fa-calendar',
-				'icon3': 'fa-calendar-o',
-				'icon4': 'fa-camera',
-				'icon5': 'fa-bug'
+				'icon1': 'cls:fa-calculator',
+				'icon2': 'cls:fa-calendar',
+				'icon3': 'cls:fa-calendar-o',
+				'icon4': 'cls:fa-camera',
+				'icon5': 'cls:fa-bug'
 			}
 		}
 	},
@@ -58,7 +58,7 @@ $.ergo({
 	},
 	set: {
 		'index': function(v) {
-			this.$icon.states.set('icon'+v);
+			this.$icon.set('icon'+v);
 		}
 	},
 	index: 1

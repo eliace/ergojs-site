@@ -140,9 +140,11 @@ var w = $.ergo({
 					}
 				},
 				states: {
-					'asc:sort': 'asc',
-					'desc:sort': 'desc',
-					'natural:sort': ''
+					sort: {
+						'asc': 'cls:asc',
+						'desc': 'cls:desc',
+						'natural': 'cls:'
+					}
 				},
 				state: 'off',
 				onClick: function() {
@@ -164,30 +166,30 @@ var w = $.ergo({
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: {
 			text: 'Full Name',
-			state: 'sortable'
+			as: 'sortable'
 		},
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: {
 			text: 'Country',
-			state: 'sortable'
+			as: 'sortable'
 		},
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 //	mixins: ['loader'],
 //	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',

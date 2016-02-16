@@ -17,9 +17,10 @@ var w = $.ergo({
 	// видеж text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
 		etype: 'text',
+		binding: 'prop:text',
 		include: 'label'
 	},
-	
+
 	items: [{
 		label: 'ФИО',
 		format: '#{lastName} #{firstName} #{middleName}'
@@ -43,9 +44,8 @@ var w = $.ergo({
 			this.el.addClass((v == 'м') ? 'fa-male' : 'fa-female');
 		}
 	}]
-	
-	
+
+
 });
 
 w.render('#sample');
-

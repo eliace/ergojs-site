@@ -23,6 +23,7 @@ var w = $.ergo({
 	// видеж text по умолчанию преобразует связанные данные в innerText
 	defaultItem: {
 		etype: 'text',
+		binding: 'prop:text',
 		include: 'label'
 	},
 

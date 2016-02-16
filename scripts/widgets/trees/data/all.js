@@ -38,10 +38,10 @@ var w = $.ergo({
 				binding: 'icon',
 				states: {
 					// настраиваем FontAwesome-иконки для состояний
-					'drive:type': 'fa-hdd-o',
-					'folder:type': 'fa-folder-o',
-					'clip:type': 'fa-film',
-					'loading': 'spinner'
+					'drive:type': 'cls:fa-hdd-o',
+					'folder:type': 'cls:fa-folder-o',
+					'clip:type': 'cls:fa-film',
+					'loading': 'cls:spinner'
 				},
 				dataId: 'type'
 				// binding: function(v) {

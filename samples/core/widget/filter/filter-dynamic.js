@@ -37,7 +37,7 @@ $.ergo({
 		filterKey: 'full_name',
 
 		defaultItem: {
-			binding: 'text',
+			binding: 'prop:text',
 			dataId: 'full_name'
 		}
 	},

@@ -35,7 +35,7 @@ $.ergo({
 		renderFilter: text_filter,
 
 		defaultItem: {
-			binding: 'text',
+			binding: 'prop:text',
 			format: '#{full_name}'
 		}
 	},
