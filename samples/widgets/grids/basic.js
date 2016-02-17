@@ -17,12 +17,12 @@ var data = [{
 	title: 'Европа',
 	area: '10,180,000'
 	population: '739,165,030',
-	countries: '50'	
+	countries: '50'
 }]
 
-['Африка', '30,221,532', '1,032,532,974 (2011)', '55'], 
-				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'], 
-				 ['Европа', '10,180,000', '739,165,030', '50'], 
+['Африка', '30,221,532', '1,032,532,974 (2011)', '55'],
+				 ['Азия', '44,579,000', '4,164,252,000', '49 (+5 частично непризнанных)'],
+				 ['Европа', '10,180,000', '739,165,030', '50'],
 				 ['Австралия и Океания', '8,520,000', '33,800,000', '14'],
 				 ['Америка', '42,549,000', '953,700,000', '35+23'],
 				 ['Антарктида', '14,107,000', '-', '-']
@@ -740,7 +740,7 @@ var w = $.ergo({
 	etype: 'table-grid',
 	cls: 'widget',
 	height: 400,
-	
+
 	column: {
 		// обычный заголовок
 		components: {
@@ -758,29 +758,27 @@ var w = $.ergo({
 		// },
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: 'Full Name',
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Country',
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	data: data
 });
 
 
 w.render('#sample');
-
-

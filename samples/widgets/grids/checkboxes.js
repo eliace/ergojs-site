@@ -32,7 +32,7 @@ var w = $.ergo({
 		},
 		autoBind: false
 	},
-	
+
 	$header_$content: {
 		$control: {
 			$checkcol: {
@@ -50,11 +50,11 @@ var w = $.ergo({
 					$content: {
 						etype: 'check',
 						onChange: function() {
-							this.rise('checkAll', {value: this.opt('value')}); 
+							this.rise('checkAll', {value: this.opt('value')});
 						}
 					}
 				}
-			}			
+			}
 		}
 	},
 
@@ -76,7 +76,7 @@ var w = $.ergo({
 							etype: 'check',
 							autoBind: false,
 							onChange: function() {
-								this.rise('checkOne', {value: this.opt('value')}); 
+								this.rise('checkOne', {value: this.opt('value')});
 							}
 						}
 					}
@@ -84,13 +84,13 @@ var w = $.ergo({
 			}
 		}
 	},
-	
+
 	columns: [/*{
 		header: {
 			$content: {
 				etype: 'check',
 				onAction: function() {
-					this.rise('checkAll', {value: this.opt('value')}); 
+					this.rise('checkAll', {value: this.opt('value')});
 				}
 			}
 		},
@@ -99,30 +99,30 @@ var w = $.ergo({
 			etype: 'check',
 			autoBind: false,
 			onAction: function() {
-				this.rise('checkOne', {value: this.opt('value')}); 
+				this.rise('checkOne', {value: this.opt('value')});
 			}
 		}
 	},*/ {
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: 'Full Name',
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Country',
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	mixins: ['loader'],
 	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
@@ -133,26 +133,26 @@ var w = $.ergo({
 		});
 	},
 	onCheckOne: function(e) {
-		
-		
+
+
 		var checked = 0;
 		this.rows().each(function(row) {
 			if(row.checkcol.content.opt('value')) checked++;
 		});
 		var checker = this.header.content.body.item(0).checkcol.content;
-		
-		
-		console.log(checked, this.rows().count());		
-		
+
+
+		console.log(checked, this.rows().count());
+
 		if(checked == 0)
 			checker.states.unset('indeterminate');
 		else if(checked < this.rows().count())
 			checker.states.set('indeterminate');
 		else {
-			checker.opt('value', true);			
+			checker.opt('value', true);
 			checker.states.unset('indeterminate');
 		}
-			
+
 	}
 });
 

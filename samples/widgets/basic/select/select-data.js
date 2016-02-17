@@ -14,7 +14,7 @@ var w = $.ergo({
 	$content: {
 		format: '#{user_title}',
 		placeholder: 'Варианты...',
-		binding: 'text'
+		binding: 'prop:text'
 	},
 	$dropdown: {
 		defaultItem: {

@@ -30,7 +30,7 @@ var w = $.ergo({
 				etype: 'icon',
 				as: 'before',
 				weight: -10,
-				binding: 'icon',
+				binding: 'prop:icon',
 				states: {
 					// настраиваем FontAwesome-иконки для состояний
 					'drive:type': 'cls:fa-hdd-o',
@@ -46,7 +46,7 @@ var w = $.ergo({
 			$content: {
 				etype: '.',
 				format: '#{title}',
-				binding: 'text'
+				binding: 'prop:text'
 			},
 			binding: false
 		},

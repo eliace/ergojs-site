@@ -15,7 +15,7 @@ $.ergo({
 		onClick: function() {
 			n = 0;
 			data.fetch();
-		}		
+		}
 	}, {
 		etype: 'button',
 		cls: 'warning',
@@ -55,7 +55,7 @@ var data = new Ergo.data.Collection({provider: {
 
 		appconstant: {
 		  letters : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-		  
+
 		  avatars: {
 		      'M': 'demo/blog/img/avatars/001.jpg', //http://howlstream.com/dist/images/icons/PNG/Dude.png',
 		      'F': 'demo/blog/img/avatars/003.jpg', // 'http://howlstream.com/dist/images/icons/PNG/Girl.png'
@@ -143,32 +143,32 @@ var w = $.ergo({
 	columns: [{
 		header: '#',
 		dataId: 'id',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Avatar',
 		dataId: 'avatar',
 		$content: {
 			etype: 'html:img',
-			binding: 'src',
+			binding: 'prop:src',
 			cls: 'rounded',
 			width: 40
 		}
 	}, {
 		header: 'First Name',
 		dataId: 'first_name',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Last Name',
 		dataId: 'last_name',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Age',
 		dataId: 'age',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Gender',
 		dataId: 'gender',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Profile',
 		$content: {

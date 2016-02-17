@@ -134,7 +134,7 @@ var Controls = $ergo({
     items: [{
       tag: 'label',
       format: '#{label}',
-      binding: 'text'
+      binding: 'prop:text'
     }, {
       etype: 'html:input',  // обеспечивает связывание input->value
       type: 'range',
@@ -143,7 +143,7 @@ var Controls = $ergo({
     }, {
       tag: 'span',
       format: '#{value}',
-      binding: 'text'
+      binding: 'prop:text'
     }, {
       tag: 'button',
       text: 'X',
@@ -175,7 +175,7 @@ var NewStat = $ergo({
 var RawStats = $ergo({
   tag: 'pre',
   id: 'raw',
-  binding: 'text',
+  binding: 'prop:text',
   format: '#{*|json}'
 });
 

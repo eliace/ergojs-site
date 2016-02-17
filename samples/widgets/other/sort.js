@@ -102,13 +102,13 @@ var w = $.ergo({
 			defaultItem: {
 				etype: 'item-box',
 				$content: {
-					binding: 'text',
+					binding: 'prop:text',
 					dataId: 'full_name',
 				},
 				$after: {
 //					etype: 'inline',
 					autoRender: true,
-					binding: 'text',
+					binding: 'prop:text',
 					cls: 'tag warning',
 					dataId: 'country'
 				}

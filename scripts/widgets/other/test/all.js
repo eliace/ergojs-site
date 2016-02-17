@@ -167,7 +167,7 @@ var w = $.ergo({
 		header: '#',
 //		dataId: 'id',
 		format: '#{id}',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 40
 	}, {
 		header: 'Avatar',
@@ -176,7 +176,7 @@ var w = $.ergo({
 			etype: 'html:img',
 			format: '#{avatar}',
 //			dataId: 'avatar',
-			binding: 'src',
+			binding: 'prop:src',
 			as: 'rounded',
 			width: 40
 		}
@@ -184,28 +184,28 @@ var w = $.ergo({
 		header: 'First Name',
 //		dataId: 'first_name',
 		format: '#{first_name}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Last Name',
 //		dataId: 'last_name',
 		format: '#{last_name}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Middle Name',
 //		dataId: 'middle_name',
 		format: '#{middle_name}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Age',
 //		dataId: 'age',
 		format: '#{age}',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 40
 	}, {
 		header: 'Gender',
 //		dataId: 'gender',
 		format: '#{gender}',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}/*, {
 		header: 'Profile',
@@ -226,12 +226,12 @@ var w = $.ergo({
 		header: 'Home page',
 //		dataId: 'url',
 		format: '#{url}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 //		dataId: 'email',
 		format: '#{email}',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	data: data1wb
 });
@@ -319,7 +319,7 @@ var w = $.ergo({
 		header: '#',
 		dataId: 'id',
 //		format: '#{id}',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 40
 	}, {
 		header: 'Avatar',
@@ -328,7 +328,7 @@ var w = $.ergo({
 			etype: 'html:img',
 //			format: '#{avatar}',
 			dataId: 'avatar',
-			binding: 'src',
+			binding: 'prop:src',
 			as: 'rounded',
 			width: 40
 		}
@@ -336,28 +336,28 @@ var w = $.ergo({
 		header: 'First Name',
 		dataId: 'first_name',
 //		format: '#{first_name}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Last Name',
 		dataId: 'last_name',
 //		format: '#{last_name}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Middle Name',
 		dataId: 'middle_name',
 //		format: '#{middle_name}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Age',
 		dataId: 'age',
 //		format: '#{age}',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 40
 	}, {
 		header: 'Gender',
 		dataId: 'gender',
 //		format: '#{gender}',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	},
 // 	{
@@ -380,12 +380,12 @@ var w = $.ergo({
 		header: 'Home page',
 		dataId: 'url',
 //		format: '#{url}',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'email',
 //		format: '#{email}',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	data: data2wb
 });
@@ -475,7 +475,7 @@ var box = $.ergo({
 	etype: 'box',
 	dynamic: true,
 	defaultItem: {
-		binding: 'text'
+		binding: 'prop:text'
 	}
 });
 

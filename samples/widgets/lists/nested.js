@@ -38,7 +38,7 @@ $.ergo({
 					// аватарка пользователя
 					$avatar: {
 						etype: 'html:img',
-						binding: 'src',
+						binding: 'prop:src',
 						format: function(v) {
 							var s = v.id;
 							if(v.id < 10) s = '0'+s;

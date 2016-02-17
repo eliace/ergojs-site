@@ -13,38 +13,38 @@ JsonAjaxProvider = {
 
 
 var SortableCollection = Ergo.data.Collection.extend({
-	
+
 	sort2: function() {
-		
+
 		var entries = this.entries.copy();
-		
+
 		var field = this.options.sortField;
 		var order = this.options.sortOrder;
 
 
-		
+
 		entries.sort(function(x, y){
 			a = x.get();
 			b = y.get();
-			
+
 			if(order == 'asc') {
 				var c = b[field];
 				b = a[field];
-				a = c;			
+				a = c;
 			}
 			else if(order == 'desc') {
 				a = a[field];
-				b = b[field];			
+				b = b[field];
 			}
 			else {
 				b = x.id;
 				a = y.id;
 			}
-			
+
 			return this.options.sort.call(this, a, b);
 		}.bind(this));
 
-		
+
 		var ids = [];
 		for(var i = 0; i < entries.count(); i++) {
 			ids.push(entries.get(i).id);
@@ -53,54 +53,54 @@ var SortableCollection = Ergo.data.Collection.extend({
 		for(var i = 0; i < entries.count(); i++) {
 			this.entries.get(i).id = ids[i];
 		}
-		
-		
+
+
 	},
-	
-	
+
+
 	sort: function() {
 
 		var field = this.options.sortField;
 		var order = this.options.sortOrder;
-		
+
 		this.entries.sort(function(x, y){
 			a = x.get();
 			b = y.get();
-			
+
 			if(order == 'asc') {
 				var c = b[field];
 				b = a[field];
-				a = c;			
+				a = c;
 			}
 			else if(order == 'desc') {
 				a = a[field];
-				b = b[field];			
+				b = b[field];
 			}
 			else {
 				b = x.id;
 				a = y.id;
 			}
-			
+
 			return this.options.sort.call(this, a, b);
 		}.bind(this));
-		
+
 	},
-	
-/*	
+
+/*
 	each: function(callback) {
-		
+
 		var v = this.get();
-		
+
 		v.sort(this.options.sort);
-		
+
 		for(var i = 0; i < v.length; i++) {
 			callback.call(this, this.entry(i), i, v[i]);
 		}
-		
+
 //		Ergo.each(v, callback.bind(this));
-		
+
 	}
-*/	
+*/
 });
 
 
@@ -159,7 +159,7 @@ var w = $.ergo({
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: {
@@ -167,22 +167,22 @@ var w = $.ergo({
 			state: 'sortable'
 		},
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: {
 			text: 'Country',
 			state: 'sortable'
 		},
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	mixins: ['loader'],
 	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',

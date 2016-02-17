@@ -14,7 +14,7 @@ var w = $.ergo({
 		$image: {
 			etype: 'html:img',
 			as: 'rounded before',
-			binding: 'src',
+			binding: 'prop:src',
 			format: function(v) {
 				var s = v.id;
 				if(v.id < 10) s = '0'+s;
@@ -27,7 +27,7 @@ var w = $.ergo({
 		$content: {
 			$content: {
 				etype: '.',
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'full_name'
 			},
 			$email: {

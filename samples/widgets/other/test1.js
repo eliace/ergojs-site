@@ -5,7 +5,7 @@
 
 
 var dt = new Array();
-    
+
 for (var i = 0; i < 6; i++) {
      var group = {
         Name: "Group "+i,
@@ -43,7 +43,7 @@ var w = $.ergo({
 		$title: {
 //			weight: -10,
 			etype: 'html:span',
-			binding: 'text',
+			binding: 'prop:text',
 			format: '#{Name}',
 //			dataId: 'Name',
 			style: {'font-weight': 'bold'},
@@ -62,7 +62,7 @@ var w = $.ergo({
 				$label: {
 					etype: 'html:label',
 					dataId: 'Name',
-					binding: 'text'
+					binding: 'prop:text'
 				},
 				$selectbox: {
 					etype: 'html:select',

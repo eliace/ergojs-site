@@ -109,13 +109,14 @@ var w = $.ergo({
 	data: data,
 	nestedItem: {
 		$content: {
-			dataId: 'title'
+			dataId: 'title',
+			binding: 'prop:text'
 		},
 		binding: function(v) {
-			if(v.type != 'cities') this.states.set('expandable');
+			if(v.type != 'cities') this.set('expandable');
 		}
 	}
-	
+
 });
 
 w.render('#sample');
@@ -144,7 +145,7 @@ w.render('#sample');
 // 				// item.$subtree.el.one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function() {
 // 				// 	deferred.resolve();
 // 				// });
-				
+
 // 				item.$subtree.states.set('opened');
 
 // //				return deferred.promise();
@@ -156,7 +157,7 @@ w.render('#sample');
 // 				item.$subtree.states.set('slide-item-hidden');
 
 
-// 				this.$subtree.states.unset('opened'); 
+// 				this.$subtree.states.unset('opened');
 // 			}
 // 		},
 
@@ -183,7 +184,7 @@ var w = $.ergo({
 				if(v.type != 'cities') this.states.set('expandable');
 			}
 		}
-		
+
 	}, {
 		etype: 'basic-tree',
 		data: data,
@@ -227,14 +228,14 @@ var w = $.ergo({
 			},
 			binding: function(v) {
 				// узлы с типом cities не должны раскрываться,
-				// для них не будет устанавливаться состояние expandable, которое отображает toggler  
-				if(v.type != 'cities') 
+				// для них не будет устанавливаться состояние expandable, которое отображает toggler
+				if(v.type != 'cities')
 					this.states.set('expandable');
 				// устанавливаем состояние иконки
 				this.content.icon.states.set(v.type);
 			}
 		}
-		
+
 	}]
 });
 
@@ -253,6 +254,7 @@ var w = $.ergo({
 	nestedItem: {
 		$content: {
 			format: '#{title}',
+			binding: 'prop:text',
 			$icon: {
 				etype: 'icon',
 				as: 'before',
@@ -264,10 +266,10 @@ var w = $.ergo({
 					'cities': 'cls:fa-building-o'
 				},
 				dataId: 'type',
-				binding: 'icon'
+				binding: 'prop:icon'
 			},
 			$content: {
-				etype: '.',
+//				etype: '.',
 //				dataId: 'title'
 			}
 		},
@@ -294,14 +296,16 @@ var w = $.ergo({
 		$toggler: {
 			as: 'fa-2x before',
 			states: {
-				'caret:c': 'fa-angle-right',
-				'opened:c': 'fa-angle-down'
+				toggler: {
+					'caret': 'cls:fa-angle-right',
+					'opened': 'cls:fa-angle-down'
+				}
 			}
 		},
 		$image: {
 			etype: 'html:img',
 			as: 'rounded before',
-			binding: 'src',
+			binding: 'prop:src',
 			format: function(v) {
 				var s = v.id;
 				if(v.id < 10) s = '0'+s;
@@ -317,7 +321,7 @@ var w = $.ergo({
 				$content: {
 					etype: '.',
 					format: '#{full_name}',
-					binding: 'text'
+					binding: 'prop:text'
 
 //					dataId: 'full_name'
 				},
@@ -330,7 +334,7 @@ var w = $.ergo({
 			}
 		},
 		binding: function(v) {
-			if(v.children) this.states.set('expandable');
+			if(v.children) this.set('expandable');
 		}
 	}
 
@@ -370,7 +374,8 @@ var w = $.ergo({
 			this.$icon.set(v.type);
 		},
 		$content: {
-			dataId: 'title'
+			dataId: 'title',
+			binding: 'prop:text'
 		},
 		$checkbox: {
 			etype: 'check',

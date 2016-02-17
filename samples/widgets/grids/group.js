@@ -13,9 +13,9 @@ JsonAjaxProvider = {
 
 /*
 var data = new Ergo.data.Collection({provider: JsonAjaxProvider, parser: function(v){
-	
+
 	var groups = {};
-	
+
 	for(var i = 0; i < v.length; i++) {
 		var obj = v[i];
 		var g = groups[obj.group];
@@ -25,18 +25,18 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider, parser: functio
 //		if(g.content.length == 0)
 		g.content.push(obj);
 	}
-	
+
 	var result = [];
 	for(var i in groups) {
 		result.push(groups[i]);
 	}
-	
+
 	result.sort(function(a, b){
 		if(a.title > b.title) return -1;
 		else if(a.title < b.title) return 1;
 		return 0;
 	});
-	
+
 	return result;
 }});
 
@@ -127,7 +127,7 @@ var w = $.ergo({
 						this.opt('group', v.group);
 					}
 				}
-			}			
+			}
 		}
 	},
 	columns: [{
@@ -159,9 +159,9 @@ var w = $.ergo({
 
 
 var data = new Ergo.data.Collection({provider: JsonAjaxProvider, parser: function(v){
-	
+
 	var groups = {};
-	
+
 	for(var i = 0; i < v.length; i++) {
 		var obj = v[i];
 		var g = groups[obj.group];
@@ -171,18 +171,18 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider, parser: functio
 //		if(g.content.length == 0)
 		g.content.push(obj);
 	}
-	
+
 	var result = [];
 	for(var i in groups) {
 		result.push(groups[i]);
 	}
-	
+
 	result.sort(function(a, b){
 		if(a.title > b.title) return -1;
 		else if(a.title < b.title) return 1;
 		return 0;
 	});
-	
+
 	return {
 		rows: v,
 		groups: result
@@ -211,9 +211,9 @@ var w = $.ergo({
 			etype: 'table',
 			columns: [{}, {}, {}, {}]
 		},
-		
+
 //		dynamic: false,
-		
+
 		$groups: {
 			dynamic: true,
 			layout: 'inherited',
@@ -225,14 +225,14 @@ var w = $.ergo({
 				cls: 'group',
 				items: [{
 					dataId: 'title',
-					binding: 'text'
+					binding: 'prop:text'
 				}],
 				binding: function(v) {
 					this.opt('group', v.title);
 				}
 			}
 		},
-		
+
 		$summary: {
 			dynamic: true,
 			layout: 'inherited',
@@ -245,14 +245,14 @@ var w = $.ergo({
 				items: [{
 					binding: function(v) {
 						this.opt('text', '('+v.content.length+' Users)');
-					} 
+					}
 				}, {}, {}, {}],
 				binding: function(v) {
 					this.opt('group', v.title);
 				}
-			}			
+			}
 		},
-		
+
 		$rows: {
 			// dynamic: true,
 			// layout: 'inherited',
@@ -279,9 +279,9 @@ var w = $.ergo({
 				}
 			}
 		}
-		
-		
-/*		
+
+
+/*
 		$groups: {
 			data: data.groups,
 			autoRender: false,
@@ -297,7 +297,7 @@ var w = $.ergo({
 			}
 		}
 */
-/*		
+/*
 		defaultItem: {
 			etype: 'box',
 
@@ -326,10 +326,10 @@ var w = $.ergo({
 						this.opt('group', v.group);
 					}
 				}
-			}			
-			
+			}
+
 		}
-*/		
+*/
 //		dataId: 'rows',
 		// dynamic: false,
 		// $content: {
@@ -342,12 +342,12 @@ var w = $.ergo({
 				// defaultItem: {
 					// binding: function(v) {
 						// this.opt('group', v.group);
-					// }			
-				// }				
+					// }
+				// }
 			// }
-// 			
+//
 		// }
-/*		
+/*
 		defaultItem: {
 			etype: 'box',
 			layout: 'inherited',
@@ -404,26 +404,26 @@ var w = $.ergo({
 						this.opt('group', v.group);
 					}
 				}
-			}			
+			}
 		}
-*/		
+*/
 	},
 	columns: [{
 		header: 'Full Name',
 		dataId: 'full_name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Email',
 		dataId: 'email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Country',
 		dataId: 'country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'IP Address',
 		dataId: 'ip_address',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	mixins: ['loader'],
 	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',

@@ -70,23 +70,23 @@ var w = $.ergo({
 	}, {
 		header: 'Имя',
 		dataId: 'full_name',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'E-mail',
 		dataId: 'email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Страна',
 		dataId: 'country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'IP',
 		dataId: 'ip_address',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Дата',
 		dataId: 'created_at',
-		binding: 'text'
+		binding: 'prop:text'
 	}]
 
 

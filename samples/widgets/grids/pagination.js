@@ -1,7 +1,7 @@
 
 
 JsonAjaxProvider = {
-	url: 'data/grid.json', 
+	url: 'data/grid.json',
 	findAll: function(source, query) {
 		return $.ajax(this.url, {
 			data: query,
@@ -13,22 +13,22 @@ JsonAjaxProvider = {
 
 
 var data = new Ergo.data.PagedCollection({
-	provider: JsonAjaxProvider, 
+	provider: JsonAjaxProvider,
 	parser: function(data){
 		// эмуляция страницы данных
 		var from = (this.options.index-1)*this.options.pageSize;
 		var to = this.options.index*this.options.pageSize;
-		
+
 		var v = [];
-		
+
 		to = Math.min(to, data.length);
-		
+
 		for(var i = from; i < to; i++) {
 			v.push(data[i]);
 		}
-		
+
 		this.options.totalCount = data.length;
-		
+
 		return v;
 	},
 	// totalCount: 0,
@@ -36,7 +36,7 @@ var data = new Ergo.data.PagedCollection({
 	// index: 0,
 	// get: {
 		// 'count': function() {
-			// return Math.ceil(this.options.totalCount / this.options.pageSize);		
+			// return Math.ceil(this.options.totalCount / this.options.pageSize);
 		// }
 	// }
 });
@@ -59,29 +59,29 @@ var w = $.ergo({
 		autoBind: false,
 		set: {
 			'text': function(v) {this.content.opt('text', v);}
-		}		
+		}
 	},
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: 'Full Name',
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Country',
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	mixins: ['loader'],
 	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
@@ -92,7 +92,7 @@ var w = $.ergo({
 				etype: 'tool-bar',
 				items: [{
 					etype: 'grid-pagination',
-/*					
+/*
 					defaultComponent: {
 						cls: 'flat',
 						set: {
@@ -135,7 +135,7 @@ var w = $.ergo({
 	// //						this._index = v;
 						// }
 					// }
-*/					
+*/
 				}]
 			}
 		}
@@ -145,11 +145,11 @@ var w = $.ergo({
 	},
 	set: {
 		'index': function(index) {
-			
+
 			this.data.opt('index', index);
-			
+
 			this.data.fetch();
-			
+
 //			this.footer.item(0).opt('index', v);
 		}
 	}

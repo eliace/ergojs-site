@@ -26,7 +26,8 @@ var w = $.ergo({
 			this.$icon.set(v.type);
 		},
 		$content: {
-			dataId: 'title'
+			dataId: 'title',
+			binding: 'prop:text'
 		},
 		$checkbox: {
 			etype: 'check',

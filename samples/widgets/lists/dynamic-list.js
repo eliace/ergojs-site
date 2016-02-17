@@ -44,7 +44,7 @@ var w = $.ergo({
 			format: function(v) {
 				return 'Удалить элементы ('+v+')';
 			},
-			binding: 'text',
+			binding: 'prop:text',
 			state: 'danger',
 			hidden: true,
 			include: 'effects',

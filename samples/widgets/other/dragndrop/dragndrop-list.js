@@ -23,7 +23,7 @@ var w = $.ergo({
 			etype: 'html:li',
 			as: 'list-view-item drag',
 			style: {'position': 'absolute'},
-			binding: 'text',
+			binding: 'prop:text',
 			autoRender: false
 		},
 		defaultItem: {

@@ -30,7 +30,7 @@ var list = $.ergo({
 					as: 'fa-chevron-right muted'
 				},
 				$image: {
-					binding: 'src',
+					binding: 'prop:src',
 					format: '#{id|avatarUrl}'
 				},
 				$content: {

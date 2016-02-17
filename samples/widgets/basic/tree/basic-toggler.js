@@ -9,14 +9,16 @@ var w = $.ergo({
 		$toggler: {
 			as: 'fa-2x before',
 			states: {
-				'caret:c': 'fa-angle-right',
-				'opened:c': 'fa-angle-down'
+				toggler: {
+					'caret': 'cls:fa-angle-right',
+					'opened': 'cls:fa-angle-down'
+				}
 			}
 		},
 		$image: {
 			etype: 'html:img',
 			as: 'rounded before',
-			binding: 'src',
+			binding: 'prop:src',
 			format: function(v) {
 				var s = v.id;
 				if(v.id < 10) s = '0'+s;
@@ -32,7 +34,7 @@ var w = $.ergo({
 				$content: {
 					etype: '.',
 					format: '#{full_name}',
-					binding: 'text'
+					binding: 'prop:text'
 
 //					dataId: 'full_name'
 				},
@@ -45,7 +47,7 @@ var w = $.ergo({
 			}
 		},
 		binding: function(v) {
-			if(v.children) this.states.set('expandable');
+			if(v.children) this.set('expandable');
 		}
 	}
 

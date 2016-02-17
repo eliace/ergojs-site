@@ -15,7 +15,7 @@ var w = $.ergo({
 			$avatar: {
 				etype: 'html:img',
 				as: 'rounded before',
-				binding: 'src',
+				binding: 'prop:src',
 				format: function(v) {
 					var s = v.id;
 					if(v.id < 10) s = '0'+s;
@@ -26,7 +26,7 @@ var w = $.ergo({
 			},
 			// текстовое содержимое элемента списка
 			$content: {
-				binding: 'text',
+				binding: 'prop:text',
 				format: '#{full_name}',
 				$content: {
 					etype: '.'

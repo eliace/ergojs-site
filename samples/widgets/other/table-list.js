@@ -16,13 +16,13 @@ var data = new Ergo.data.Collection({provider: JsonAjaxProvider});
 var w = $.ergo({
 	etype: 'table',
 	cls: 'table-list',
-	
+
 	data: data,
-	
+
 	// $head: {
 		// autoRender: false
 	// },
-	
+
 	columns: [{
 		header: 'Фото',
 		$content: {
@@ -32,7 +32,7 @@ var w = $.ergo({
 			// dataId: 'id',
 			// cls: 'avatar',
 			// binding: function(v) {
-				// var src = 'img/avatars/'; 
+				// var src = 'img/avatars/';
 				// src += (v < 10) ? '00' : '0';
 				// this.opt('src', src + v + '.jpg');
 			// }
@@ -40,25 +40,25 @@ var w = $.ergo({
 	}, {
 		header: 'Имя',
 		dataId: 'full_name',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'E-mail',
 		dataId: 'email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Страна',
 		dataId: 'country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'IP',
 		dataId: 'ip_address',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Дата',
 		dataId: 'created_at',
-		binding: 'text'
+		binding: 'prop:text'
 	}]
-	
+
 });
 
 

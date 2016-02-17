@@ -6,13 +6,14 @@ var w = $.ergo({
 	data: data,
 	nestedItem: {
 		$content: {
-			dataId: 'title'
+			dataId: 'title',
+			binding: 'prop:text'
 		},
 		binding: function(v) {
-			if(v.type != 'cities') this.states.set('expandable');
+			if(v.type != 'cities') this.set('expandable');
 		}
 	}
-	
+
 });
 
 w.render('#sample');
@@ -41,7 +42,7 @@ w.render('#sample');
 // 				// item.$subtree.el.one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function() {
 // 				// 	deferred.resolve();
 // 				// });
-				
+
 // 				item.$subtree.states.set('opened');
 
 // //				return deferred.promise();
@@ -53,7 +54,7 @@ w.render('#sample');
 // 				item.$subtree.states.set('slide-item-hidden');
 
 
-// 				this.$subtree.states.unset('opened'); 
+// 				this.$subtree.states.unset('opened');
 // 			}
 // 		},
 
@@ -80,7 +81,7 @@ var w = $.ergo({
 				if(v.type != 'cities') this.states.set('expandable');
 			}
 		}
-		
+
 	}, {
 		etype: 'basic-tree',
 		data: data,
@@ -124,14 +125,14 @@ var w = $.ergo({
 			},
 			binding: function(v) {
 				// узлы с типом cities не должны раскрываться,
-				// для них не будет устанавливаться состояние expandable, которое отображает toggler  
-				if(v.type != 'cities') 
+				// для них не будет устанавливаться состояние expandable, которое отображает toggler
+				if(v.type != 'cities')
 					this.states.set('expandable');
 				// устанавливаем состояние иконки
 				this.content.icon.states.set(v.type);
 			}
 		}
-		
+
 	}]
 });
 

@@ -15,7 +15,7 @@ var w = $.ergo({
 		$image: {
 			etype: 'html:img',
 			cls: 'rounded before',
-			binding: 'src',
+			binding: 'prop:src',
 			col: 'avatar-img',
 			format: function(v) {
 				var s = v.id;
@@ -31,7 +31,7 @@ var w = $.ergo({
 //			format: '#{full_name}'
 			$content: {
 				etype: '.',
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'full_name'
 			},
 			$email: {

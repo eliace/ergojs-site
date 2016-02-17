@@ -6,6 +6,7 @@ var w = $.ergo({
 	nestedItem: {
 		$content: {
 			format: '#{title}',
+			binding: 'prop:text',
 			$icon: {
 				etype: 'icon',
 				as: 'before',
@@ -17,10 +18,10 @@ var w = $.ergo({
 					'cities': 'cls:fa-building-o'
 				},
 				dataId: 'type',
-				binding: 'icon'
+				binding: 'prop:icon'
 			},
 			$content: {
-				etype: '.',
+//				etype: '.',
 //				dataId: 'title'
 			}
 		},

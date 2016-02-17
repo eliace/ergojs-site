@@ -77,7 +77,7 @@ var box = $.ergo({
 	etype: 'box',
 	dynamic: true,
 	defaultItem: {
-		binding: 'text'
+		binding: 'prop:text'
 	}
 });
 

@@ -37,12 +37,12 @@ var w = $.ergo({
 					'margin-right': 8
 				}
 			}, {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'full_name',
 				width: 140
 			}, {
 				etype: 'link',
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'email',
 				width: 160,
 				style: {
@@ -58,10 +58,10 @@ var w = $.ergo({
 					}
 				},
 				$content: {
-					etype: '&text'
+					etype: '.'
 				}
 			}, {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'country'
 			}],
 			$after: {
@@ -108,12 +108,12 @@ var w = $.ergo({
 					'margin-right': 8
 				}
 			}, {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'full_name',
 				width: 140
 			}, {
 				etype: 'link',
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'email',
 				width: 160,
 				style: {
@@ -129,10 +129,10 @@ var w = $.ergo({
 					}
 				},
 				$content: {
-					etype: '&text'
+					etype: '.'
 				}
 			}, {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'country'
 			}],
 			$after: {
@@ -192,11 +192,11 @@ var w = $.ergo({
 					this.states.toggle('checked');
 				}
 			}, {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'full_name',
 			}, {
 				etype: 'link',
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'email',
 				style: {
 					'text-overflow': 'ellipsis',
@@ -214,7 +214,7 @@ var w = $.ergo({
 					etype: '&text'
 				}
 			}, {
-				binding: 'text',
+				binding: 'prop:text',
 				dataId: 'country'
 			}],
 			$after: {

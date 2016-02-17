@@ -40,9 +40,9 @@ var w = $.ergo({
 				var maxX = offset.left + this.el.outerWidth();
 				// var minY = offset.top;
 				// var maxY = minY + this.el.outerHeight();
-				
+
 				var prev = this.prev();
-				
+
 				if((x < minX+2 && prev && prev.states.is('resizable') ) || (this.states.is('resizable') && x > maxX-6))
 					this.parent.states.set('resize');
 				else if(this.parent.states.is('resize'))
@@ -54,24 +54,24 @@ var w = $.ergo({
 	columns: [{
 		header: 'ID',
 		dataId: 'User Id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
-		header: 'Full Name', 
+		header: 'Full Name',
 		dataId: 'Full Name',
-		binding: 'text',
+		binding: 'prop:text',
 	}, {
 		header: 'Country',
 		dataId: 'Country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'Email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Created At',
 		dataId: 'Created At',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 //	mixins: ['loader'],
 
@@ -104,7 +104,7 @@ var w = $.ergo({
 						content: {
 							etype: '&text'
 						}
-						
+
 					}
 				},
 				items: ['ID', 'Full Name', 'Country', 'Email', 'Created At']
@@ -113,8 +113,8 @@ var w = $.ergo({
 		// loader: {
 			// $icon_cls: 'fa fa-spinner fa-spin fa-3x'
 		// },
-		
-		
+
+
 		footer: {
 			etype: 'tool-bar',
 			items: [{
@@ -125,8 +125,8 @@ var w = $.ergo({
 					this.data.fetch();
 				}
 			}]
-		}		
-	},	
+		}
+	},
 	data: data,
 	onHideColumn: function(e) {
 		this.columns.hide(e.key);

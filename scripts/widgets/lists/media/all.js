@@ -56,7 +56,7 @@ var w = $.ergo({
 				etype: 'html:h4',
 //				text: 'Media heading'
 				dataId: 'title',
-				binding: 'text'
+				binding: 'prop:text'
 			},
 			$description: {
 				etype: 'text',
@@ -104,7 +104,7 @@ var w = $.ergo({
 				etype: 'html:h4',
 //				text: 'Media heading'
 				dataId: 'title',
-				binding: 'text'
+				binding: 'prop:text'
 			},
 			$description: {
 				etype: 'text',

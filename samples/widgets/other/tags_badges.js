@@ -16,13 +16,13 @@ var w = $.ergo({
 			{text: 'success', state: 'success'},
 			{text: 'warning', state: 'warning'},
 			{text: 'danger', state: 'danger'},
-		]		
+		]
 	}, {
 		layout: 'bar',
 		defaultItem: {
 			etype: 'html:span',
 			cls: 'badge',
-			binding: 'text'
+			binding: 'prop:text'
 		},
 		items: [
 			{value: 10, state: 'default'},

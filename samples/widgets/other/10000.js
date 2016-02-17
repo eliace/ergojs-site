@@ -375,7 +375,7 @@ var w = $.ergo({
 	data: [],
 	defaultItem: {
 		etype: 'html:li',
-		binding: 'text',
+		binding: 'prop:text',
 //		dataId: 'number'
 	}
 });

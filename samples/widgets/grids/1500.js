@@ -34,24 +34,24 @@ var w = $.ergo({
 	columns: [{
 		header: 'ID',
 		dataId: 'id',
-		binding: 'text',
+		binding: 'prop:text',
 		width: 60
 	}, {
 		header: 'Full Name',
 		dataId: 'full_name',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Email',
 		dataId: 'email',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'Country',
 		dataId: 'country',
-		binding: 'text'
+		binding: 'prop:text'
 	}, {
 		header: 'IP Address',
 		dataId: 'ip_address',
-		binding: 'text'
+		binding: 'prop:text'
 	}],
 	mixins: ['loader'],
 	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
