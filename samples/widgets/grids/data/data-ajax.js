@@ -1,8 +1,8 @@
 
 JsonAjaxProvider = {
-	findAll: function(source) {
-		return $.ajax(source.options.url, {
-			data: source.options.query,
+	findAll: function(ds) {
+		return $.ajax(ds.options.url, {
+			data: ds.options.query,
 			dataType: 'json'
 		});
 	}
@@ -51,23 +51,6 @@ var w = $.ergo({
 		dataId: 'Created At',
 		binding: 'prop:text'
 	}],
-//	mixins: ['loader'],
-//	$loader_$icon_cls: 'fa fa-spinner fa-spin fa-3x',
-	// $toolbar: {
-		// weight: -100,
-		// etype: 'tool-bar',
-		// state: 'right',
-		// items: [{
-			// etype: 'icon',
-			// cls: 'lock-icon fa-refresh fa-spin'
-		// }]
-	// },
-	// onFetch: function() {
-		// this.states.set('locked');
-	// },
-	// onFetched: function() {
-		// this.states.unset('locked');
-	// },
 	data: data
 });
 

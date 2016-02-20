@@ -100,7 +100,7 @@ var w = $.ergo({
 			col: 'content',
 //			format: '#{full_name}'
 			$content: {
-				etype: '.',
+//				etype: '.',
 				binding: 'prop:text',
 				dataId: 'full_name'
 			},

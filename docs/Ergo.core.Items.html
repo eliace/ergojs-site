@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Mixin: Effects</title>
+    <title>Class: Items</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -3176,7 +3176,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="Ergo.mixins.Effects.html">Mixin: Effects</h1>
+        <h1 class="page-title" data-filename="Ergo.core.Items.html">Class: Items</h1>
         
 
 
@@ -3185,7 +3185,9 @@
     
 <header>
     <h2>
-    Effects
+        <span class="ancestors"><a href="Ergo.html">Ergo</a><a href="Ergo.core.html">.core</a>.</span>
+    
+    Items
     </h2>
     
 </header>  
@@ -3196,12 +3198,37 @@
     
     
         
-            <div class="description"><p>Перегружаемт методы show() и hide() для поддержки анимации</p>
-<p>Опции:
-    <code>effects</code></p></div>
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="Items">
+            
+            new Ergo.core.Items<span class="signature">()</span>
+        </h4>
+    
         
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8261">line 8261</a>
+        </div>
         
-        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Коллекция элементов виджета</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
 <dl class="details">
     
         
@@ -3226,12 +3253,29 @@
     
 </dl>
 
-        
-        
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
     
     </div>
     
     
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="Ergo.core.Components.html">Ergo.core.Components</a></li>
+        </ul>
     
     
     
@@ -3243,6 +3287,2170 @@
     
     
     
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="add">
+            
+                <span class="inherited"><a href="Ergo.core.Array.html#add">inherited</a></span>
+            
+            add<span class="signature">(item, i)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7434">line 7434</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Добавить новый элемент</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="applyAll">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#applyAll">inherited</a></span>
+            
+            applyAll<span class="signature">(m, args)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8218">line 8218</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Вызов для всех элементов коллекции указанного метода</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>m</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="clear">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#clear">inherited</a></span>
+            
+            clear<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8037">line 8037</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Очистка коллекции от всех значений</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="count">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#count">inherited</a></span>
+            
+            count<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8190">line 8190</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Размер коллекции</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="each">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#each">inherited</a></span>
+            
+            each<span class="signature">(callback, delegate)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8050">line 8050</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Последовательный обход всех значений</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>delegate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="filter">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#filter">inherited</a></span>
+            
+            filter<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8168">line 8168</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Фильтрация элементов</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="find">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#find">inherited</a></span>
+            
+            find<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8148">line 8148</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Поиск первого элемента, удовлетворяющего критерию</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="findAll">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#findAll">inherited</a></span>
+            
+            findAll<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8155">line 8155</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Поиск всех элементов, удовлетворяющих критерию</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="first">
+            
+                <span class="inherited"><a href="Ergo.core.Array.html#first">inherited</a></span>
+            
+            first<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7479">line 7479</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Первый элемент коллекции</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="get">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#get">inherited</a></span>
+            
+            get<span class="signature">(i)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7969">line 7969</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Получение значения по ключу</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="has_key">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#has_key">inherited</a></span>
+            
+            has_key<span class="signature">(i)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8227">line 8227</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Проверка наличия элемента с указанным ключом</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>ключ</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="includes">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#includes">inherited</a></span>
+            
+            includes<span class="signature">(criteria)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8183">line 8183</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Проверка вхождения значения в коллекцию</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>criteria</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="isEmpty">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#isEmpty">inherited</a></span>
+            
+            isEmpty<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8200">line 8200</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Проверка, является ли коллекция пустой</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="keyOf">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#keyOf">inherited</a></span>
+            
+            keyOf<span class="signature">(item)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8208">line 8208</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Получение ключа элемента</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="keys">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#keys">inherited</a></span>
+            
+            keys<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8234">line 8234</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Список всех ключей в коллекции</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="last">
+            
+                <span class="inherited"><a href="Ergo.core.Array.html#last">inherited</a></span>
+            
+            last<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7486">line 7486</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Последний элемент коллекции</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="map">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#map">inherited</a></span>
+            
+            map<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8175">line 8175</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Отображение элементов</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="remove">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#remove">inherited</a></span>
+            
+            remove<span class="signature">(item)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8005">line 8005</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Удаление значения</p>
+<p>Для удаления используется метод removeAt</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>значение</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="removeAt">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#removeAt">inherited</a></span>
+            
+            removeAt<span class="signature">(item, <span class="optional">i</span>)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7991">line 7991</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Добавление нового значения</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>значение</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>ключ</p>
+<p>Аналогично по работе методу set</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="removeIf">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#removeIf">inherited</a></span>
+            
+            removeIf<span class="signature">(criteria)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line8018">line 8018</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Удаление значения по условию</p>
+<p>Для удаления используется метод removeAt</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>criteria</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>функция-условие</p>
+<p>Значение удаляеся, если результат, возвращаемый criteria равен true</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="set">
+            
+                <span class="inherited"><a href="Ergo.core.Components.html#set">inherited</a></span>
+            
+            set<span class="signature">(i, item)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ergojs-core.js.html">ergojs-core.js</a>, <a href="ergojs-core.js.html#line7953">line 7953</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Установка значения</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>ключ</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>значение</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -3259,7 +5467,7 @@
         
 
         <footer>
-            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Fri Feb 19 2016 21:20:41 GMT+0300 (RTZ 2 (зима))
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Fri Feb 19 2016 21:20:40 GMT+0300 (RTZ 2 (зима))
         </footer>
     </div>
 </div>

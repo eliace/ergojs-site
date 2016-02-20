@@ -6,7 +6,7 @@ var data = new Ergo.data.Collection({
 
 
 
-$context.section('Fluid', 'Выравнивание только по верхнему краю. Можно привязывать элементы к разным сторонам');
+$context.section('Float', 'Выравнивание только по верхнему краю. Можно привязывать элементы к разным сторонам');
 //= require layout-fluid
 $context.section('HBox', 'Выравнивание произвольное. К разным сторонам элементы не привязываются');
 //= require layout-hbox
