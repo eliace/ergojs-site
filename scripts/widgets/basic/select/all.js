@@ -13,56 +13,13 @@ var usersProvider = {
 }
 
 
-
-$context.alert('Поскольку `select` использует стиль `display-table`, его не следует применять с компоновками типа `hbox` или `vbox`');
-
-$context.section('Простой список');
-$context.section_begin('select-basic');
-$context.section_end('select-basic');
-
-
-
-	// $(window).on('keydown', function(e) {
-	// 	if(e.keyCode == 32) {
-	// 		e.preventDefault();
-	// //		return false;
-	// 	}
-	// });
-
-
-
-var w = $.ergo({
-	etype: 'select',
-//	placeholder: 'Варианты...',
-//	as: '+placeholder',
-	$content: {
-		placeholder: 'Варианты...'
-	},
-	$dropdown: {
-		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
-	}
-});
-
-
-console.log('events', w.events.events);
-console.log('events', w.options.events);
-
-
-w.render('#sample');
-
-$context.section('Связывание с данными');
-$context.section_begin('select-dropdown');
-$context.section_end('select-dropdown');
-
-
-
-var data = {
+var CountryData = {
 	country: 2,
 	countries: ['Югославия', 'Болгария', 'Венгрия', 'Польша', 'Чехия', 'Словакия', 'Словения']
 };
 
 
-var data2 = {
+var CountryData2 = {
 	country: 'CZ',
 	countries: [
 		{iso: 'HR', name: 'Хорватия'},
@@ -73,6 +30,49 @@ var data2 = {
 		{iso: 'SK', name: 'Словакия'},
 		{iso: 'SI', name: 'Словения'}]
 };
+
+var IsoCountries = [
+	{iso: 'HR', name: 'Хорватия'},
+	{iso: 'BG', name: 'Болгария'},
+	{iso: 'HU', name: 'Венгрия'},
+	{iso: 'PL', name: 'Польша'},
+	{iso: 'CZ', name: 'Чехия'},
+	{iso: 'SK', name: 'Словакия'},
+	{iso: 'SI', name: 'Словения'}
+]
+
+var FormData = new Ergo.core.DataSource({
+	id: 1,
+	title: 'Horns\'n\'Hoofs Ltd',
+	iso: 'PL',
+	name: 'Польша'
+});
+
+
+
+$context.alert('Поскольку `select` использует стиль `display-table`, его не следует применять с компоновками типа `hbox` или `vbox`');
+
+$context.section('Простой список');
+$context.section_begin('select-basic');
+$context.section_end('select-basic');
+
+var w = $.ergo({
+	etype: 'select',
+	$content: {
+		placeholder: 'Варианты...'
+	},
+	$dropdown: {
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+	}
+});
+
+
+w.render('#sample');
+
+$context.section('Связывание с данными', '', ['data.js']);
+$context.section_begin('select-dropdown');
+$context.section_end('select-dropdown');
+
 
 
 
@@ -110,11 +110,11 @@ var select3 = $.ergo({
 	etype: 'select',
 
 	$dropdown: {
-		data: data,
+		data: CountryData,
 		dataId: 'countries'
 	},
 
-	data: data,
+	data: CountryData,
 	dataId: 'country'
 });
 
@@ -124,7 +124,7 @@ var select4 = $.ergo({
 	etype: 'select',
 
 	$dropdown: {
-		data: data2,
+		data: CountryData2,
 		dataId: 'countries',
 		defaultItem: {
 			binding: function(v) {
@@ -134,8 +134,39 @@ var select4 = $.ergo({
 		}
 	},
 
-	data: data2,
+	data: CountryData2,
 	dataId: 'country'
+
+});
+
+
+
+
+
+var select5 = $.ergo({
+	etype: 'select',
+
+	$content: {
+		format: '#{name}',
+		binding: 'prop:text'
+	},
+
+	$dropdown: {
+		data: IsoCountries,
+		defaultItem: {
+			binding: function(v) {
+				this.prop('text', v.name);
+			},
+			get: {
+				'name': function() {
+					return this.prop('value');
+				}
+			}
+		}
+	},
+
+	data: FormData,
+	dataId: ['iso', 'name']
 
 });
 
@@ -147,7 +178,7 @@ var w = $.ergo({
 	etype: 'box',
 	layout: 'rows',
 	as: '__gap',
-	items: [ select1, select2, select3, select4 ]
+	items: [ select1, select2, select3, select4, select5 ]
 });
 
 w.render('#sample');
@@ -175,7 +206,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('С фильтрацией');
+$context.section('С фильтрацией', '', ['provider.js']);
 $context.section_begin('select-filter');
 $context.section_end('select-filter');
 
@@ -198,25 +229,12 @@ var w = $.ergo({
     placeholder: 'Country',
 		autoBind: false,
 		events: {
-      'jquery:keyup': function(e) {
+      'vdom:keyup': function(e) {
         this.rise('keyUp', {text: this.opt('text')}, e);
       },
-      'jquery:keydown': function(e) {
+      'vdom:keydown': function(e) {
         this.rise('keyDown', {text: this.opt('text')}, e);
       },
-      //
-			// 'jquery:keyup': function() {
-			// 	this.rise('input', {value: this.el.val()});
-			// },
-			// // 'jquery:focus': function() {
-			// // 	this.rise('focus', {focus: true});
-			// // },
-			// // 'jquery:blur': function() {
-			// // 	this.rise('focus', {focus: false});
-			// // },
-			// 'jquery:change': function() {
-			// 	this.rise('change', {text: this.el.val()});
-			// }
 		}
 	},
 
@@ -228,7 +246,7 @@ var w = $.ergo({
 
 	onKeyUp: function(e) {
 
-    console.log('keyup', e.text);
+//    console.log('keyup', e.text);
 
 //		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
 
@@ -240,7 +258,6 @@ var w = $.ergo({
 });
 
 
-w.render('#sample');
 
 
 
@@ -326,10 +343,9 @@ var w2 = $.ergo({
       .then(function() {
         //FIXME обновляем выборку, поскольку список перестроился
         self.selection.set( self.opt('value') );
-//        self.$dropdown.navigator.selected = self.selection.get();
       });
 
-    this.states.set('opened');
+    this.set('opened');
 
   },
 
@@ -372,7 +388,16 @@ var w2 = $.ergo({
 });
 
 
-w2.render('#sample');
+
+
+var box = $ergo({
+  etype: 'box',
+  as: 'box horizontal __gap',
+  items: [ w, w2 ]
+});
+
+
+box.render('#sample');
 
 $context.section('Множественный выбор');
 $context.section_begin('select-multi');
@@ -649,7 +674,7 @@ var select2 = $.ergo({
 
 select2.render('#sample');
 
-$context.section('Ajax');
+$context.section('Ajax', '', ['provider.js']);
 $context.section_begin('select-data');
 $context.section_end('select-data');
 
@@ -664,35 +689,49 @@ var users = new Ergo.data.Collection({provider: usersProvider});
 
 var w = $.ergo({
 	etype: 'select',
-//	as: '+placeholder',
+
 	$content: {
 		format: '#{user_title}',
 		placeholder: 'Варианты...',
 		binding: 'prop:text'
 	},
+
 	$dropdown: {
 		defaultItem: {
 			format: '#{full_name}',
 			get: {
 				'name': function() {
-					return {user_id: this.data.get('id'), user_title: this.opt('text')}
+					return {user_id: this.data.get('id'), user_title: this.prop('text')}
 				}
 			}
 		},
 		data: users
 	},
+
 	data: userData,
-	dataId: ['user_id', 'user_title'],
-	// selection: {
-	// 	lookup: function(v) {
-	// 		return this.$dropdown.items.find(function(item) { return item.opt('name').user_id == v.user_id; } );
-	// 	}
-	// }
+	dataId: ['user_id', 'user_title']
 });
 
 
 users.fetch();
 
+
+w.render('#sample');
+
+$context.section('Состояния');
+$context.section_begin('select-states');
+$context.section_end('select-states');
+
+var w = $.ergo({
+	etype: 'select',
+  as: '+disabled',
+	$content: {
+		placeholder: 'Disabled'
+	},
+	$dropdown: {
+		items: ['Африка', 'Азия', 'Америка', 'Австралия', 'Антарктика', 'Европа']
+	}
+});
 
 
 w.render('#sample');

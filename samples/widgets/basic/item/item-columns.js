@@ -4,7 +4,7 @@ var w = $.ergo({
 	etype: 'list',
 	as: '__indent',
 	defaultItem: {
-		etype: 'item',
+		etype: 'chip',
 		layout: 'columns',
 		autoClass: true,
 		as: 'items-align-top',

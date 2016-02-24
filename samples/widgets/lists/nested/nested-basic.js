@@ -1,8 +1,4 @@
 
-
-
-
-
 var w = $.ergo({
 	etype: 'nested-list',
 	as: 'list nested hovered divide',
@@ -16,12 +12,7 @@ var w = $.ergo({
 				etype: 'html:img',
 				as: 'rounded before',
 				binding: 'prop:src',
-				format: function(v) {
-					var s = v.id;
-					if(v.id < 10) s = '0'+s;
-					if(v.id < 100) s = '0'+s;
-					return 'demo/blog/img/avatars/'+s+'.jpg';
-				},
+				format: '#{id|avatarUrl}',
 				width: 32
 			},
 			// текстовое содержимое элемента списка
@@ -29,7 +20,7 @@ var w = $.ergo({
 				binding: 'prop:text',
 				format: '#{full_name}',
 				$content: {
-					etype: '.'
+//					etype: '.'
 				},
 				$email: {
 					etype: 'text',
@@ -49,7 +40,7 @@ var w = $.ergo({
 				},
 				'item#rendered': function(e) {
 					// при отрисовке устанавливаем значение отступа
-					e.item.$content.el.css('padding-left', e.item._depth * 32);
+					e.item.$content.vdom.setStyle('padding-left', e.item._depth * 32);
 				}
 			}
 		}

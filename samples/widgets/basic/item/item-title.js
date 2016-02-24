@@ -4,16 +4,13 @@ var w = $.ergo({
 	etype: 'list',
 	as: '__gap',
 	defaultItem: {
-		etype: 'item',
+		etype: 'chip',
 		$image: {
-			etype: 'html:img',
-			as: 'image circular before',
-			width: 48,
-			weight: -10
+			as: 'circular before',
 		},
 		$content: {
 			$content: {
-				etype: 'html:h4',
+				tag: 'h4',
 				as: 'title'
 			},
 			$description: {
@@ -21,8 +18,7 @@ var w = $.ergo({
 			}
 		},
 		set: {
-			'avatar': function(v) { this.$image.opt('src', AVATARS_URL+v+'.jpg'); },
-			'description': function(v) { this.$content.$description.opt('text', v); }
+			'avatar': function(v) { this.$image.prop('src', AVATARS_URL+v+'.jpg'); }
 		}
 	},
 	items: ITEMS

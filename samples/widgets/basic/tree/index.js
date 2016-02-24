@@ -1,110 +1,13 @@
 
-var data = [{
-		title: 'Африка',
-		type: 'cardinals',
-		children: [{
-			title: 'Египет',
-			iso: 'EG',
-			type: 'countries'
-		}, {
-			title: 'Марокко',
-			iso: 'MA',
-			type: 'countries'			
-		}, {
-			title: 'Кения',
-			iso: 'KE',
-			type: 'countries'						
-		}, {
-			title: 'Ангола',
-			iso: 'AO',
-			type: 'countries'						
-		}]
-	}, {
-		title: 'Азия',
-		type: 'cardinals',
-		children: [{
-			title: 'Китай',
-			type: 'countries'						
-		}, {
-			title: 'Индия',
-			type: 'countries'						
-		}, {
-			title: 'Иран',
-			type: 'countries'						
-		}, {
-			title: 'Индонезия',
-			type: 'countries'						
-		}, {
-			title: 'Ливия',
-			type: 'countries'						
-		}, {
-			title: 'Непал',
-			type: 'countries'						
-		}]
-	}, {
-		title: 'Европа',
-		type: 'cardinals',
-		children: [{
-			title: 'Великобритания',
-			iso: 'GB',
-			type: 'countries',
-			children: [{
-				title: 'Лондон',
-				type: 'cities'
-			}, {
-				title: 'Бирмингем',
-				type: 'cities'
-			}, {
-				title: 'Глазго',
-				type: 'cities'
-			}]
-		}, {
-			title: 'Германия',
-			iso: 'DE',
-			type: 'countries',
-			children: [{
-				title: 'Берлин',
-				type: 'cities'
-			}, {
-				title: 'Гамбург',
-				type: 'cities'
-			}, {
-				title: 'Мюнхен',
-				type: 'cities'
-			}]
-		}, {
-			title: 'Италия',
-			iso: 'IT',
-			type: 'countries',
-			children: [{
-				title: 'Рим',
-				type: 'cities'
-			}, {
-				title: 'Милан',
-				type: 'cities'
-			}, {
-				title: 'Неаполь',
-				type: 'cities'
-			}]
-		}]
-}];
+//= include data
 
 
 
-var USERS = new Ergo.data.Collection({
-	provider: new Ergo.data.AjaxProvider('data/tree-users.json')
-});
-
-
-
-
-$context.section('Базовое дерево');
+$context.section('Базовое дерево', '', ['data.js']);
 //= require basic-create
-$context.section('Иконка');
+$context.section('Иконка', '', ['data.js']);
 //= require basic-icon
-$context.section('Переключатель');
+$context.section('Переключатель', '', ['data.js']);
 //= require basic-toggler
-$context.section('Checkboxes');
+$context.section('Checkboxes', '', ['data.js']);
 //= require basic-checkboxes
-
-USERS.fetch();

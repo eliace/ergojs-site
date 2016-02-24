@@ -1,4 +1,6 @@
 
+
+
 var data = [{
 		title: 'Африка',
 		type: 'cardinals',
@@ -9,37 +11,37 @@ var data = [{
 		}, {
 			title: 'Марокко',
 			iso: 'MA',
-			type: 'countries'			
+			type: 'countries'
 		}, {
 			title: 'Кения',
 			iso: 'KE',
-			type: 'countries'						
+			type: 'countries'
 		}, {
 			title: 'Ангола',
 			iso: 'AO',
-			type: 'countries'						
+			type: 'countries'
 		}]
 	}, {
 		title: 'Азия',
 		type: 'cardinals',
 		children: [{
 			title: 'Китай',
-			type: 'countries'						
+			type: 'countries'
 		}, {
 			title: 'Индия',
-			type: 'countries'						
+			type: 'countries'
 		}, {
 			title: 'Иран',
-			type: 'countries'						
+			type: 'countries'
 		}, {
 			title: 'Индонезия',
-			type: 'countries'						
+			type: 'countries'
 		}, {
 			title: 'Ливия',
-			type: 'countries'						
+			type: 'countries'
 		}, {
 			title: 'Непал',
-			type: 'countries'						
+			type: 'countries'
 		}]
 	}, {
 		title: 'Европа',
@@ -96,9 +98,12 @@ var USERS = new Ergo.data.Collection({
 });
 
 
+USERS.fetch();
 
 
-$context.section('Базовое дерево');
+
+
+$context.section('Базовое дерево', '', ['data.js']);
 $context.section_begin('basic-create');
 $context.section_end('basic-create');
 
@@ -243,7 +248,7 @@ w.render('#sample');
 
 */
 
-$context.section('Иконка');
+$context.section('Иконка', '', ['data.js']);
 $context.section_begin('basic-icon');
 $context.section_end('basic-icon');
 
@@ -282,7 +287,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('Переключатель');
+$context.section('Переключатель', '', ['data.js']);
 $context.section_begin('basic-toggler');
 $context.section_end('basic-toggler');
 
@@ -343,7 +348,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('Checkboxes');
+$context.section('Checkboxes', '', ['data.js']);
 $context.section_begin('basic-checkboxes');
 $context.section_end('basic-checkboxes');
 
@@ -406,5 +411,3 @@ w.render('#sample');
 
 data.fetch();
 
-
-USERS.fetch();

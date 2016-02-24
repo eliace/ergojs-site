@@ -2,7 +2,6 @@
 
 var w = $.ergo({
 	etype: 'list',
-	dynamic: true,
 	height: 300,
 	style: {
 		'overflow-y': 'auto'
@@ -10,8 +9,8 @@ var w = $.ergo({
 	as: 'bordered',
 	data: data,
 	defaultItem: {
-		etype: 'box',
-//		html: '<li/>',
+ 		etype: 'box',
+// //		html: '<li/>',
 
 		layout: 'float',  // ITEM LAYOUT
 
@@ -20,15 +19,14 @@ var w = $.ergo({
 		items: [{
 			etype: 'check',
 			autoBind: false,
-			// style: {
-			// 	'margin-right': 8
-			// }
 		}, {
 			binding: 'prop:text',
 			dataId: 'full_name',
 			width: 140
 		}, {
 			etype: 'link',
+			include: ['icon:before'],
+			icon: 'fa-envelope',
 			binding: 'prop:text',
 			dataId: 'email',
 			width: 160,
@@ -36,13 +34,6 @@ var w = $.ergo({
 				'text-overflow': 'ellipsis',
 				'overflow': 'hidden',
 				'white-space': 'nowrap'
-			},
-			$icon: {
-				etype: 'icon',
-				as: 'before fa-envelope'
-			},
-			$content: {
-				etype: '.'
 			}
 		}, {
 			binding: 'prop:text',
@@ -50,7 +41,7 @@ var w = $.ergo({
 		}],
 		$after: {
 			etype: 'icon',
-			as: 'fluid-right contextual action fa-close',
+			as: 'right contextual action fa-close',
 			binding: false,
 			weight: 10
 		}

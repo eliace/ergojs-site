@@ -969,6 +969,8 @@ span.tool-item, .tool-item.link, .tool-item.icon {
 .code-panel {
 	position: relative;
 	margin-bottom: 20px;
+	padding-top: 3rem;
+	background-color: rgba(0,0,0,0.78);
 
   -webkit-animation-duration: 0.3s !important;
   animation-duration: 0.3s !important;
@@ -981,14 +983,21 @@ span.tool-item, .tool-item.link, .tool-item.icon {
 */
 
 .code-tabs {
-  background-color: rgba(255, 255, 255, 0.05);
   color: #ccc;
   padding: 8px;
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
 /*  opacity: 0;
   transition: opacity 0.2s ease-in 0s;*/
+}
+
+
+.code-tabs.jsfiddle {
+	background-color: rgba(255, 255, 255, 0.05);
+	left: auto;
+  right: 0;
+  top: 0;
 }
 
 

@@ -1,229 +1,135 @@
 
 
-$context.section('Редактирование списка');
-$context.section_begin('dynamic-edit');
-$context.section_end('dynamic-edit');
+$ergo.defineClass('Ergo.demo.List', {
 
-var w = $.ergo({
-	etype: 'panel',
-	renderTo: '#sample',
+  extends: 'Ergo.widgets.Panel',
 
-	title: 'Динамический список',
+  defaults: {
 
-	as: 'widget default',
+    title: 'Список',
+    as: 'widget default blue',
+
+    $header: {
+  		$title: {
+  			as: 'heavy padding large'
+  		}
+  	},
+
+    $toolbar: {
+  		as: 'padding',
+  		weight: -5,
+  		items: [{
+  			etype: 'button',
+  			include: ['icon:after'],
+  			icon: 'fa-plus',
+  			text: 'Добавить элемент',
+  			as: 'primary flat',
+        name: 'add',
+  			onClick: 'rise:addItem'
+  		}, {
+  			etype: 'button',
+  			as: 'danger +hidden',
+  			name: 'delete',
+  			onClick: 'rise:removeItems'
+  		}]
+
+  	},
+
+    $content: {
+  		as: 'list',
+
+      css: {'max-height': 300},
+
+  		defaultItem: {
+
+  			include: ['editor-input'],
+
+  			layout: 'hbox',
+
+  			$checker: {
+  				etype: 'check',
+  				as: 'before'
+  			},
+
+  			$content: {
+  				etype: 'text',
+  				as: 'padding'
+  			},
+
+  			$editor: {
+  				as: 'border padding fluid'
+  			},
+
+  			events: {
+  				'doubleClick': 'startEdit'
+  			}
+
+  		}
+
+
+  	},
+
+
+  }
+
+});
+
+
+
+
+
+
+
+$context.section('Без связывания', '', ['list.js']);
+$context.section_begin('dynamic-items');
+$context.section_end('dynamic-items');
+
+
+
+
+var w = new Ergo.demo.List({
 
 	include: 'selectable',
 
 	selection: {
 		multiselect: true,
 		lookup: function(i) {
-			return this.content.item(i);
+			return this.$content.item(i);
 		}
-	},
-
-
-	$toolbar: {
-		etype: 'tool-bar',
-		as: 'box-medium',
-		weight: -5,
-		items: [{
-			etype: 'button',
-			text: 'Добавить элемент',
-			as: 'primary',
-			$icon: {
-				etype: 'icon',
-				weight: 10,
-				as: 'after',
-				icon: 'fa-plus'
-			},
-			$content: {
-				etype: '.'
-			},
-			onClick: 'action:newItem'
-		}, {
-			etype: 'button',
-//			text: 'Удалить элемент',
-			format: function(v) {
-				return 'Удалить элементы ('+v+')';
-			},
-			binding: 'text',
-			as: 'danger',
-			hidden: true,
-
-			include: 'effects',
-
-			effects: {
-				show: {type: 'fadeIn', delay: 400},
-				hide: {type: 'fadeOut', delay: 400}
-			},
-
-			// $icon: {
-				// etype: 'icon',
-				// weight: 10,
-				// cls: 'after',
-				// icon: 'fa-ban'
-			// },
-			// $content: {
-				// etype: 'text'
-			// },
-			onClick: 'action:removeItems'
-
-		}]
 	},
 
 	$content: {
-		as: 'list-box',
-		dynamic: true,
-
-		height: 300,
-
-		data: [],
-
-
 
 		defaultItem: {
-//			etype: 'item-box',
-
-			include: 'effects',
-
-			effects: {
-				show: {type: 'fadeIn', delay: 400},
-				hide: {type: 'fadeOut', delay: 400}
-			},
-
-			renderEffects: true,
-
-			hidden: true,
 
 			$checker: {
-				etype: 'check',
-				autoBind: false,
-				as: 'before',
-				// onChange: function(e) {
-//
-				// }
-			},
-			// $icon: {
-				// etype: 'icon',
-				// icon: 'fa-cloud',
-				// binding: false,
-				// weight: -10
-			// },
-			$content: {
-				etype: 'text',
-				// $icon: {
-					// etype: 'icon',
-					// icon: 'fa-cog',
-					// binding: false,
-					// weight: -10
-				// },
-				// $content: {
-					// etype: 'text'
-				// }
+				onChange: function(e) {
+					this.parent.rise( 'selectItem', this.prop('value'));
+				}
 			},
 
 			states: {
-				'selected': function(on) {
-					this.checker.opt('value', on);
+				'edit': function(on, params) {
+
+					if(on) {
+						this.$checker.set('hidden');
+						this.$content.set('hidden');
+
+						this.$editor.prop('value', this.$content.prop('text'));
+					}
+					else {
+						this.$checker.unset('hidden');
+						this.$content.unset('hidden');
+
+						if(!params.cancel) {
+							this.$content.prop('text', this.$editor.prop('value'));
+						}
+					}
+
 				}
-			},
-
-
-			onClick: function() {
-				this.rise( this.states.is('selected') ? 'unselect' : 'select');
 			}
 
-
-
-
-			// $after: {
-				// etype: 'icon-button',
-				// icon: 'fa-close',
-// //				cls: 'addon',
-				// state: 'line tool danger tiny',
-				// binding: false,
-// //				autoDock: true,
-			// }
 		}
-
-
-	},
-
-
-	onNewItem: function() {
-
-		var self = this;
-
-		var obj = {text: 'Новый элемент'};
-
-
-		var dlg = $.ergo({
-			etype: 'modal-dialog',
-			title: 'Добавление элемента списка',
-			as: 'dark',
-			data: obj,
-			$content: {
-				layout: 'form',
-				as: 'panel-content',
-				items: [{
-					etype: 'text-box',
-					include: 'label',
-					label: 'Текст',
-					width: '100%',
-					dataId: 'text'
-				}]
-			},
-			$footer: {
-				as: 'right',
-				$buttons: {
-					items: [{text: 'ОК', state: 'primary', name: 'ok'}, {text: 'Отмена', name: 'cancel'}]
-				}
-			},
-
-			onOpen: function() {
-
-				var s = this.data.get('text');
-
-				$('input', this.content.el).first().focus();
-
-				$('.text-box', this.content.el).ergo().cursor_position(s.length);
-
-//				console.log('open');
-/*
-				var input = this.content.item(0).content.el;
-
-				input.focus();//[0].setSelectionRange(0, 5);//.select();
-//				this.content.item(0).content.el.select();
-				var pos = input.val().length;
-				var elem = input[0];
-
-		    if (elem.setSelectionRange) {
-		      elem.setSelectionRange(pos, pos);
-		    } else if (elem.createTextRange) {
-		      var range = elem.createTextRange();
-		      range.collapse(true);
-		      range.moveEnd('character', pos);
-		      range.moveStart('character', pos);
-		      range.select();
-		    }
-*/
-
-			},
-
-			onOk: function() {
-
-				self.events.fire('addItem', {value: obj.text});
-			}
-
-		});
-
-
-//		console.log('---1---');
-
-
-
-//		dlg.render('body');
-		dlg.open();
 
 
 	},
@@ -231,33 +137,271 @@ var w = $.ergo({
 
 	onAddItem: function(e) {
 
-		this.content.data.add( e.value );
+    var item = this.$content.items.add({
+      $content: {
+        text: 'Новый элемент'
+      }
+    });
 
-//		this.content._layoutChanged();
+    this.$content.render();
+
+		item.startEdit();
+
+	},
+
+
+	onRemoveItems: function() {
+		// удаляем элементы списка, которые находятся в выборке
+		while( !this.selection.isEmpty() ) {
+			this.selection.first()._destroy();
+		}
+	},
+
+
+	onSelectItem: function(e) {
+		// при изменении выбоа элемента списка добавляем/удаляем его из выборки
+		this.selection.toggle(e.target, e.$data);
+	},
+
+
+	onSelectionChanged: function() {
+		// при изменении выборки обновляем значение кнопки удаления
+    var n = this.selection.count();
+    var delBtn = this.$toolbar.item('delete');
+
+    delBtn.prop('text', 'Удалить элементы ('+n+')');
+    delBtn.toggle('hidden', !n);
+	}
+
+});
+
+
+w.render('#sample');
+
+$context.section('Частичное связывание с данными', 'Если данные предоставляются в том виде, в котором они должны сохраняться, в них не должно быть посторонней информации');
+$context.section_begin('dynamic-edit');
+$context.section_end('dynamic-edit');
+
+
+
+var w = new Ergo.demo.List({
+
+	include: 'selectable',
+
+	data: [],
+
+	selection: {
+		multiselect: true,
+		lookup: function(i) {
+			return this.$content.item(i);
+		}
+	},
+
+	$toolbar: {
+		autoBind: false,
+		items: [{
+			//
+		}, {
+			binding: function(v) {
+				this.prop('text', 'Удалить элементы ('+v+')');
+				this.toggle('hidden', !v);
+			}
+		}]
+
+
+	},
+
+	$content: {
+
+		dynamic: true,
+
+		defaultItem: {
+
+			$checker: {
+				autoBind: false,
+				onChange: function(e) {
+					this.parent.rise( 'selectItem', this.prop('value'));
+				}
+			},
+
+			$content: {
+				binding: 'prop:text',
+				dataId: 'text',
+			},
+
+			states: {
+				'edit': function(on, params) {
+
+					if(on) {
+						this.$checker.set('hidden');
+						this.$content.set('hidden');
+
+						this.$editor.prop('value', this.$content.prop('value'));
+					}
+					else {
+						this.$checker.unset('hidden');
+						this.$content.unset('hidden');
+
+						if(!params.cancel) {
+							this.$content.prop('value', this.$editor.prop('value'));
+						}
+					}
+
+				}
+			}
+
+		}
+
+
+	},
+
+
+	onAddItem: function(e) {
+
+		var obj = {text: 'Новый элемент'};
+
+		var d = this.data.add( obj );
+
+		var item = this.$content.item({data: d});
+
+		item.startEdit();
+
+	},
+
+
+	onRemoveItems: function() {
+		// удаляем элементы списка, которые находятся в выборке
+		while( !this.selection.isEmpty() ) {
+			this.selection.first().data.del();
+		}
+	},
+
+
+	onSelectItem: function(e) {
+		// при изменении выбоа элемента списка добавляем/удаляем его из выборки
+		this.selection.toggle(e.target, e.$data);
+	},
+
+
+	onSelectionChanged: function() {
+		// при изменении выборки обновляем значение кнопки удаления
+		this.$toolbar.item('delete').prop('value', this.selection.count());
+	}
+
+});
+
+
+w.render('#sample');
+
+$context.section('Полное связывание с данными', 'В данных хранится и сохраняемая и временная информация');
+$context.section_begin('dynamic-data');
+$context.section_end('dynamic-data');
+
+
+$ergo.alias('formats:countChecked', function(obj) {
+  var n = 0;
+  obj.forEach(function(v) {
+    if(v.checked) n++;
+  });
+	return n;
+});
+
+
+
+
+
+
+var w = new Ergo.demo.List({
+
+	data: [],
+
+	$toolbar: {
+		items: [{
+		}, {
+      format: '#{*|countChecked}',
+      binding: function(v) {
+        this.prop('text', 'Удалить элементы ('+v+')');
+        this.toggle('hidden', !v);
+      }
+		}]
+
+
+	},
+
+	$content: {
+
+		dynamic: true,
+
+		defaultItem: {
+
+			$checker: {
+        dataId: 'checked'
+			},
+
+			$content: {
+				binding: 'prop:text',
+				dataId: 'text',
+			},
+
+			states: {
+				'edit': function(on, params) {
+
+					if(on) {
+						this.$checker.set('hidden');
+						this.$content.set('hidden');
+
+						this.$editor.prop('value', this.$content.prop('value'));
+					}
+					else {
+						this.$checker.unset('hidden');
+						this.$content.unset('hidden');
+
+						if(!params.cancel) {
+							this.$content.prop('value', this.$editor.prop('value'));
+						}
+					}
+
+				}
+			}
+
+		}
+
+
+	},
+
+
+	onAddItem: function(e) {
+
+		var obj = {text: 'Новый элемент', checked: false};
+
+		var d = this.data.add( obj );
+
+		var item = this.$content.item({data: d});
+
+		item.startEdit();
 
 	},
 
 
 	onRemoveItems: function() {
 
-		this.selection.each(function(item) {
-			item.data.del();
-		});
+    var v = this.data.raw();
 
-		this.selection.clear();
+    for(var i = v.length-1; i >= 0; i--) {
+      if(v[i].checked) {
+        this.data.del(i);
+      }
+    }
 
-	},
 
-
-	onSelectionChanged: function() {
-
-		this.toolbar.item(1).opt('value', this.selection.size());
-
-		this.selection.isEmpty() ? this.toolbar.item(1).hide() : this.toolbar.item(1).show();
-
+		// удаляем элементы списка, которые находятся в выборке
+		// while( !this.selection.isEmpty() ) {
+		// 	this.selection.first().data.del();
+		// }
 	}
 
-
-
-
 });
+
+
+w.render('#sample');
+

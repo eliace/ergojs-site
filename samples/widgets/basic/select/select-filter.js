@@ -18,25 +18,12 @@ var w = $.ergo({
     placeholder: 'Country',
 		autoBind: false,
 		events: {
-      'jquery:keyup': function(e) {
+      'vdom:keyup': function(e) {
         this.rise('keyUp', {text: this.opt('text')}, e);
       },
-      'jquery:keydown': function(e) {
+      'vdom:keydown': function(e) {
         this.rise('keyDown', {text: this.opt('text')}, e);
       },
-      //
-			// 'jquery:keyup': function() {
-			// 	this.rise('input', {value: this.el.val()});
-			// },
-			// // 'jquery:focus': function() {
-			// // 	this.rise('focus', {focus: true});
-			// // },
-			// // 'jquery:blur': function() {
-			// // 	this.rise('focus', {focus: false});
-			// // },
-			// 'jquery:change': function() {
-			// 	this.rise('change', {text: this.el.val()});
-			// }
 		}
 	},
 
@@ -48,7 +35,7 @@ var w = $.ergo({
 
 	onKeyUp: function(e) {
 
-    console.log('keyup', e.text);
+//    console.log('keyup', e.text);
 
 //		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
 
@@ -60,7 +47,6 @@ var w = $.ergo({
 });
 
 
-w.render('#sample');
 
 
 
@@ -146,10 +132,9 @@ var w2 = $.ergo({
       .then(function() {
         //FIXME обновляем выборку, поскольку список перестроился
         self.selection.set( self.opt('value') );
-//        self.$dropdown.navigator.selected = self.selection.get();
       });
 
-    this.states.set('opened');
+    this.set('opened');
 
   },
 
@@ -192,4 +177,13 @@ var w2 = $.ergo({
 });
 
 
-w2.render('#sample');
+
+
+var box = $ergo({
+  etype: 'box',
+  as: 'box horizontal __gap',
+  items: [ w, w2 ]
+});
+
+
+box.render('#sample');

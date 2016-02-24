@@ -1,7 +1,4 @@
 
-
-
-
 var list = $.ergo({
 	etype: 'box',
 
@@ -10,9 +7,9 @@ var list = $.ergo({
 			etype: 'button',
 			as: 'flat +disabled',
 			text: 'Назад',
-			include: 'icon:at-left',
+			include: ['icon:at-left'],
 			icon: 'fa fa-chevron-left',
-			onClick: 'action:back'
+			onClick: 'rise:back'
 		}
 	},
 
@@ -21,7 +18,7 @@ var list = $.ergo({
 		defaultComponent: {
 			dynamic: true,
 			as: 'list __indent __hover slide',
-			style: {'background-color': '#fff'},
+			css: {'background-color': '#fff'},
 			defaultItem: {
 				etype: 'chip',
 				include: 'icon:at-right',
@@ -35,19 +32,21 @@ var list = $.ergo({
 				},
 				$content: {
 					format: '#{full_name}',
+					binding: 'prop:text',
 					$description: {
-						format: '#{email}'
+						format: '#{email}',
+						binding: 'prop:text'
 					}
 				},
 				binding: function(v) {
-//					console.log(this.$icon._rendered);
+
 					if(v.children) {
 						this.$icon.options.autoRender = true;
 						this.render();
 					}
-					this.states.toggle('has-sub', !(!v.children));
+					this.toggle('has-sub', !(!v.children));
 				},
-				onClick: 'action:itemClick'
+				onClick: 'rise:itemClick'
 			}
 		},
 
@@ -62,7 +61,7 @@ var list = $.ergo({
 				var s = this.$content ? 'xcontent' : 'content';
 				var c2 = this.components.get( s == 'content' ? 'xcontent' : 'content' );
 
-				console.log(s, c2);
+//				console.log(s, c2);
 
 				var c = this.components.set(s, {
 					data: e.target.data.entry('children'),
@@ -104,7 +103,7 @@ var list = $.ergo({
 	},
 
 	onSlide: function(e) {
-		this.$header.$button.states.unset('disabled');//opt('hidden', false);
+		this.$header.$button.unset('disabled');//opt('hidden', false);
 	},
 
 	onBack: function(e) {
@@ -114,7 +113,7 @@ var list = $.ergo({
 		var s = box.$content ? 'xcontent' : 'content';
 		var c2 = box.components.get( s == 'content' ? 'xcontent' : 'content' );
 
-		console.log('back', s, c2);
+//		console.log('back', s, c2);
 
 
 		c2.el.css({'z-index': 100, 'position': 'absolute'});
@@ -144,9 +143,10 @@ var list = $.ergo({
 
 		// var list = this.$content.$content || this.$content.$xcontent;
 		if( !c.data.source.source )
-			this.$header.$button.states.set('disabled');//.opt('hidden', true);
+			this.$header.$button.set('disabled');//.opt('hidden', true);
 	}
 
 });
+
 
 list.render('#sample');

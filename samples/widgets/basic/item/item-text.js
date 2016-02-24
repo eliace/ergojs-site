@@ -1,11 +1,9 @@
 
-
-
 var w = $.ergo({
 	etype: 'list',
 	as: '__gap',
 	defaultItem: {
-		etype: 'item'
+		etype: 'chip'
 	},
 	items: ITEMS
 });

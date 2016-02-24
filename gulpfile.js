@@ -58,6 +58,8 @@ gulp.task('scripts', function() {
 
 	var MATCH_REGEXP = /^\/\/= require (.*)$/mg;
 	var MATCH_REGEXP_S = /^\/\/= require (.*)$/m;
+	var MATCH_REGEXP_INC = /^\/\/= include (.*)$/mg;
+	var MATCH_REGEXP_INC_S = /^\/\/= include (.*)$/m;
 
 
 	gulp.src("samples/**/index.js")
@@ -66,6 +68,24 @@ gulp.task('scripts', function() {
 			var dir = path.dirname(file.path);
 
 			var s = String(file.contents);
+
+
+
+			while(match = MATCH_REGEXP_INC.exec(s)) {
+
+				var filename = match[1];
+
+				var content = fs.readFileSync( path.join(dir, filename+'.js') );
+
+				var a = [
+					String(content)
+				]
+
+				s = s.replace(MATCH_REGEXP_INC_S, a.join('\n'));
+
+			}
+
+
 
 			while(match = MATCH_REGEXP.exec(s)) {
 

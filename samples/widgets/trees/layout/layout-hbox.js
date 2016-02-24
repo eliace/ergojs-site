@@ -15,12 +15,7 @@ var w = $.ergo({
 			etype: 'html:img',
 			as: 'rounded before',
 			binding: 'prop:src',
-			format: function(v) {
-				var s = v.id;
-				if(v.id < 10) s = '0'+s;
-				if(v.id < 100) s = '0'+s;
-				return 'demo/blog/img/avatars/'+s+'.jpg';
-			},
+			format: '#{id|avatarUrl}',
 			width: 32,
 			weight: -10
 		},

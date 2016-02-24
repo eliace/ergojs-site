@@ -1,22 +1,5 @@
 
-
-var ITEMS = [{
-	text: 'Волков А.Н.',
-	description: 'Java-разработчик',
-	avatar: '001'
-}, {
-	text: 'Зайцев И.Д.',
-	description: 'Руководитель группы',
-	avatar: '002'
-}, {
-	text: 'Медведев К.Г.',
-	description: 'Веб-разработчик',
-	avatar: '004'
-}, {
-	text: 'Лисицина О.Е.',
-	description: 'Дизайнер',
-	avatar: '003'
-}];
+//= include items
 
 
 var AVATARS_URL = 'demo/blog/img/avatars/';
@@ -27,17 +10,17 @@ var AVATARS_URL = 'demo/blog/img/avatars/';
 
 
 
-$context.section('Текст');
+$context.section('Текст', '', ['items.js']);
 //= require item-text
-$context.section('Иконка');
+$context.section('Иконка', '', ['items.js']);
 //= require item-icon
-$context.section('Картинка');
+$context.section('Картинка', '', ['items.js']);
 //= require item-image
-$context.section('Описание', 'Добавляем компонент с описанием');
-//= require item-desc
-$context.section('Заголовок', 'Добавляем компонент с заголовком');
+$context.section('Описание', 'Добавляем компонент с описанием', ['items.js']);
+// require item-desc
+$context.section('Заголовок', 'Добавляем компонент с заголовком', ['items.js']);
 //= require item-title
-$context.section('Колоночная компоновка');
+$context.section('Колоночная компоновка', '', ['items.js']);
 //= require item-columns
 //$context.section('Иконка справа');
 // require item-xicon

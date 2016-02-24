@@ -1,25 +1,6 @@
 
 
 
-var data = {
-	country: 2,
-	countries: ['Югославия', 'Болгария', 'Венгрия', 'Польша', 'Чехия', 'Словакия', 'Словения']
-};
-
-
-var data2 = {
-	country: 'CZ',
-	countries: [
-		{iso: 'HR', name: 'Хорватия'},
-		{iso: 'BG', name: 'Болгария'},
-		{iso: 'HU', name: 'Венгрия'},
-		{iso: 'PL', name: 'Польша'},
-		{iso: 'CZ', name: 'Чехия'},
-		{iso: 'SK', name: 'Словакия'},
-		{iso: 'SI', name: 'Словения'}]
-};
-
-
 
 var select1 = $.ergo({
 	etype: 'select',
@@ -55,11 +36,11 @@ var select3 = $.ergo({
 	etype: 'select',
 
 	$dropdown: {
-		data: data,
+		data: CountryData,
 		dataId: 'countries'
 	},
 
-	data: data,
+	data: CountryData,
 	dataId: 'country'
 });
 
@@ -69,7 +50,7 @@ var select4 = $.ergo({
 	etype: 'select',
 
 	$dropdown: {
-		data: data2,
+		data: CountryData2,
 		dataId: 'countries',
 		defaultItem: {
 			binding: function(v) {
@@ -79,8 +60,39 @@ var select4 = $.ergo({
 		}
 	},
 
-	data: data2,
+	data: CountryData2,
 	dataId: 'country'
+
+});
+
+
+
+
+
+var select5 = $.ergo({
+	etype: 'select',
+
+	$content: {
+		format: '#{name}',
+		binding: 'prop:text'
+	},
+
+	$dropdown: {
+		data: IsoCountries,
+		defaultItem: {
+			binding: function(v) {
+				this.prop('text', v.name);
+			},
+			get: {
+				'name': function() {
+					return this.prop('value');
+				}
+			}
+		}
+	},
+
+	data: FormData,
+	dataId: ['iso', 'name']
 
 });
 
@@ -92,7 +104,7 @@ var w = $.ergo({
 	etype: 'box',
 	layout: 'rows',
 	as: '__gap',
-	items: [ select1, select2, select3, select4 ]
+	items: [ select1, select2, select3, select4, select5 ]
 });
 
 w.render('#sample');

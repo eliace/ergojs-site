@@ -8,21 +8,16 @@ var w = $.ergo({
 	cls: 'tree',
 
 	nestedItem: {
-		cls: 'item margin-top items-align-top',
+		as: 'item margin-top items-align-top',
 
 		layout: 'columns',	// LAYOUT
 
 		$image: {
 			etype: 'html:img',
-			cls: 'rounded before',
+			as: 'rounded before',
 			binding: 'prop:src',
 			col: 'avatar-img',
-			format: function(v) {
-				var s = v.id;
-				if(v.id < 10) s = '0'+s;
-				if(v.id < 100) s = '0'+s;
-				return 'demo/blog/img/avatars/'+s+'.jpg';
-			},
+			format: '#{id|avatarUrl}',
 			width: 32,
 			weight: -10
 		},

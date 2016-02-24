@@ -214,7 +214,7 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Вложенные',
 				name: 'widgets/lists/nested'
 			}, {
-				title: "Dynamic List",
+				title: "Редактирование",
 				name: 'widgets/lists/dynamic'
 			}, {
 				title: "Detail List",

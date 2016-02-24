@@ -49,6 +49,32 @@ $context.split = function() {
 
 
 
+$context.loadSample = function(codePanel, path) {
+
+	return $.ajax({
+		url:'samples/'+path,
+		dataType:"text",
+		success:function(data){
+
+
+			$('pre code.javascript', codePanel.el).html( Ergo.escapeHtml(data).replace(/\t/g, '  ') );
+
+			$('pre code.javascript', codePanel.el).each(function(i, blk) {
+				hljs.highlightBlock(blk);
+			});
+
+//					section.codePanel.show();
+			codePanel.unset('hidden');
+			codePanel.set('fadeIn');
+
+			codePanel._loaded = true;
+
+		}
+	});
+
+};
+
+
 
 
 $context.section_begin = function(block) {
@@ -116,26 +142,28 @@ $context.section_begin = function(block) {
 
 				if(!codePanel._loaded) {
 
-			    $.ajax({
-			        url:'samples/'+path,
-			        dataType:"text",
-			        success:function(data){
+					$context.loadSample(codePanel, path);
 
-
-							$('pre code.javascript', codePanel.el).append( Ergo.escapeHtml(data).replace(/\t/g, '  ') );
-
-							$('pre code.javascript', codePanel.el).each(function(i, blk) {
-						    hljs.highlightBlock(blk);
-						  });
-
-		//					section.codePanel.show();
-							codePanel.unset('hidden');
-							codePanel.set('fadeIn');
-
-						  codePanel._loaded = true;
-
-						}
-					});
+		// 	    $.ajax({
+		//         url:'samples/'+path,
+		//         dataType:"text",
+		//         success:function(data){
+		//
+		//
+		// 					$('pre code.javascript', codePanel.el).append( Ergo.escapeHtml(data).replace(/\t/g, '  ') );
+		//
+		// 					$('pre code.javascript', codePanel.el).each(function(i, blk) {
+		// 				    hljs.highlightBlock(blk);
+		// 				  });
+		//
+		// //					section.codePanel.show();
+		// 					codePanel.unset('hidden');
+		// 					codePanel.set('fadeIn');
+		//
+		// 				  codePanel._loaded = true;
+		//
+		// 				}
+		// 			});
 			  }
 			  else {
 					codePanel.unset('hidden');
@@ -168,6 +196,11 @@ $context.section_begin = function(block) {
 
 $context.section_end = function(block) {
 
+	var section = $context._section;
+
+	var tabItems = [].concat( [block+'.js'], section.files || [] );
+
+
 	$.ergo({
 		etype: 'box',
 		renderTo: '#sample',
@@ -185,11 +218,43 @@ $context.section_end = function(block) {
 			layout: 'hbox',
 			defaultItem: {
 				include: 'icon:before',
+				icon: 'fa-file-code-o',
+				as: 'action',
+				onClick: 'rise:tabAction'//'action:jsFiddle'
+			},
+			items: tabItems//['jsFiddle']//{text: 'JS', state: 'selected'}, 'CSS']
+		},
+		$jsfiddle: {
+			as: 'code-tabs jsfiddle',
+			items: [{
+				include: 'icon:before',
 				icon: 'fa-jsfiddle',
 				as: 'action',
-				onClick: 'action:jsFiddle'
-			},
-			items: ['jsFiddle']//{text: 'JS', state: 'selected'}, 'CSS']
+				onClick: 'rise:jsFiddle',
+				text: 'jsFiddle'
+			}]
+		},
+
+		onTabAction: function(e) {
+
+			var name = e.target.prop('text');
+
+			// if( name == 'jsFiddle' ) {
+			// 	//TODO
+			// }
+			// else {
+
+				var sample = $context.sample;
+
+				var path = sample.name+'/'+name;//(block) ? sample.name+'/'+block+'.js' : sample.name+'.js';
+
+				var codePanel = $('.'+block)[0]._vdom._widget;
+
+				console.log(codePanel, path);
+
+				$context.loadSample(codePanel, path);
+//			}
+
 		},
 
 
@@ -267,11 +332,12 @@ $context.section_end = function(block) {
 
 
 
-$context.section = function(title, desc) {
+$context.section = function(title, desc, files) {
 
 	$context._section = {
 		title: title,
-		desc: desc
+		desc: desc,
+		files: files
 	};
 
 };

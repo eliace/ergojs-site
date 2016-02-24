@@ -25,8 +25,12 @@ var w = $.ergo({
 			}
 		},
 		set: {
-			'description': function(v) { this.$content.$description.opt('text', v); },
-			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'description': function(v) {
+				this.$content.$description.opt('text', v);
+			},
+			'avatar': function(v) {
+				this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg')
+			}
 		}
 	},
 	set: {

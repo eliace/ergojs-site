@@ -47,7 +47,7 @@ var w = $.ergo({
 				binding: function(v) {
 					$.when(this.el.fadeOut(150))
 						.then(function(){
-							this.src = v;
+							this.prop('src', v);
 							//this.opt('src', 'img/galleries/space/'+v);
 						}.bind(this));
 				},
@@ -96,7 +96,7 @@ var w = $.ergo({
 //					binding: 'src',
 //					format: 'img/galleries/space/preview/#{*}',
 					binding: function(v) {
-						this.opt('src', 'img/galleries/space/preview/'+v);
+						this.prop('src', 'img/galleries/space/preview/'+v);
 					},
 					onClick: 'action:changeImage'
 					// actions: {
@@ -135,8 +135,8 @@ var w = $.ergo({
 			},
 
 			onSlide: function(e) {
-				this.$prevBtn.states.toggle('disabled', !e.base.hasPrev);
-				this.$nextBtn.states.toggle('disabled', !e.base.hasNext);
+				this.$prevBtn.toggle('disabled', !e.base.hasPrev);
+				this.$nextBtn.toggle('disabled', !e.base.hasNext);
 			}
 
 //			index: 0

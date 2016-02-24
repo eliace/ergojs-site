@@ -19,10 +19,10 @@ var ITEMS = [{
 }];
 
 
-
 var data = new Ergo.data.Collection({
 	provider: new Ergo.data.AjaxProvider('data/mock-15.json')
 });
+
 
 
 
@@ -49,7 +49,7 @@ w.render('#sample');
 // require list-icons
 //$context.section('С изображением');
 // require list-images
-$context.section('С плавающим элементом');
+$context.section('С плавающим элементом', '', ['items.js']);
 $context.section_begin('list-floats');
 $context.section_end('list-floats');
 
@@ -76,7 +76,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('С боковой иконкой');
+$context.section('С боковой иконкой', '', ['items.js']);
 $context.section_begin('list-side');
 $context.section_end('list-side');
 
@@ -127,7 +127,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('С активной иконкой');
+$context.section('С активной иконкой', '', ['items.js']);
 $context.section_begin('list-action');
 $context.section_end('list-action');
 
@@ -175,7 +175,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('Hovered');
+$context.section('Hovered', '', ['items.js']);
 $context.section_begin('list-hover');
 $context.section_end('list-hover');
 
@@ -202,7 +202,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('Striped');
+$context.section('Striped', '', ['items.js']);
 $context.section_begin('list-striped');
 $context.section_end('list-striped');
 
@@ -230,7 +230,7 @@ var w = $.ergo({
 
 w.render('#sample');
 
-$context.section('Selected');
+$context.section('Selected', '', ['items.js']);
 $context.section_begin('list-select');
 $context.section_end('list-select');
 
@@ -260,8 +260,12 @@ var w = $.ergo({
 			}
 		},
 		set: {
-			'description': function(v) { this.$content.$description.opt('text', v); },
-			'avatar': function(v) { this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg') }
+			'description': function(v) {
+				this.$content.$description.opt('text', v);
+			},
+			'avatar': function(v) {
+				this.$image.opt('src', 'demo/blog/img/avatars/'+v+'.jpg')
+			}
 		}
 	},
 	set: {
@@ -281,4 +285,4 @@ w.render('#sample');
 
 
 
-data.fetch();
+//data.fetch();
