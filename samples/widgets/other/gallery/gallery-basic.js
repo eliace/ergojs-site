@@ -115,19 +115,19 @@ var w = $.ergo({
 
 			onNext: function() {
 
-				this.$content.vdom.slide_next();
+				this.$content.dom.slide_next();
 
 			},
 
 
 			onPrev: function() {
 
-				this.$content.vdom.slide_prev();
+				this.$content.dom.slide_prev();
 			},
 
 			onChangeImage: function(e) {
 				console.log('----');
-				this.$content.vdom.slide_to_item( e.target, 20 );
+				this.$content.dom.slide_to_item( e.target, 20 );
 			},
 
 			onSlide: function(e) {

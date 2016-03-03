@@ -60,7 +60,7 @@ var w = $.ergo({
 				},
 				'item#rendered': function(e) {
 					// при отрисовке устанавливаем значение отступа
-					e.item.$content.vdom.setStyle('padding-left', e.item._depth * 32);
+					e.item.$content.dom.setStyle('padding-left', e.item._depth * 32);
 				}
 			}
 		}

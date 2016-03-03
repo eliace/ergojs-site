@@ -9,7 +9,7 @@ var w = $.ergo({
     onClick: 'action:select',
     states: {
       // заменяем стандартный класс состояния `selected` на `blue`
-      'selected': 'blue'
+      'selected': 'cls:blue'
     }
   },
   items: ['Alice', 'Bob', 'Charlie', 'Dave'],

@@ -136,7 +136,7 @@ $context.section_begin = function(block) {
 
 			var path = (block) ? sample.name+'/'+block+'.js' : sample.name+'.js';
 
-			var codePanel = $('.'+block)[0]._vdom._widget;
+			var codePanel = $('.'+block)[0]._dom._widget;
 
 			if(!codePanel.el.is(':visible')) {
 
@@ -248,7 +248,7 @@ $context.section_end = function(block) {
 
 				var path = sample.name+'/'+name;//(block) ? sample.name+'/'+block+'.js' : sample.name+'.js';
 
-				var codePanel = $('.'+block)[0]._vdom._widget;
+				var codePanel = $('.'+block)[0]._dom._widget;
 
 				console.log(codePanel, path);
 

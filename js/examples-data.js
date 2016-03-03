@@ -306,7 +306,7 @@ var LOREMIPSUM_6 = 'Sed eget justo ullamcorper, congue enim a, pretium mi. Morbi
 				title: 'Таблица-Свойства'
 			}*/, {
 				title: '1500 строк',
-				name: 'widgets/grids/1500'
+				name: 'widgets/grids/perf'
 			}]
 		}, {
 			title: 'Диалоги',

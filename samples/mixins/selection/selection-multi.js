@@ -12,7 +12,7 @@ var w = $.ergo({
     onClick: 'rise:clickItem',
     // заменяем стандартный класс состояния `selected` на `blue`
     states: {
-      'selected': 'blue'
+      'selected': 'cls:blue'
     }
   },
 

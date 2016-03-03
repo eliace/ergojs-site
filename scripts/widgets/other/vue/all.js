@@ -1,6 +1,6 @@
 
 
-function Attribute(v, i) { this.vdom.el.setAttribute(i, v); }
+function Attribute(v, i) { this.dom.el.setAttribute(i, v); }
 
 
 $ergo.defineClass('Ergo.widgets.Svg', {

@@ -18,10 +18,10 @@ var w = $.ergo({
     placeholder: 'Country',
 		autoBind: false,
 		events: {
-      'vdom:keyup': function(e) {
+      'dom:keyup': function(e) {
         this.rise('keyUp', {text: this.opt('text')}, e);
       },
-      'vdom:keydown': function(e) {
+      'dom:keydown': function(e) {
         this.rise('keyDown', {text: this.opt('text')}, e);
       },
 		}

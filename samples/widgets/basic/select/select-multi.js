@@ -1,5 +1,7 @@
 
-var textFilter = function(s, item) {
+var TextFilter = function(item) {
+  var s = this.opt('filter');
+  if(!s) return true;
   var v = item.opt('text');
   return v && v.toLowerCase().indexOf(s.toLowerCase()) > -1;
 };
@@ -10,6 +12,7 @@ var textFilter = function(s, item) {
 var select = $.ergo({
 	etype: 'select',
 	as: 'multi',
+
   selection: {
     multiselect: true
   },
@@ -37,14 +40,16 @@ var select = $.ergo({
 //	},
 	$content: {
 		etype: 'edit',
-    include: 'user-input',
+    include: ['user-input'],
 		weight: 5,
 	},
+
 	$dropdown: {
-		items: COUNTRIES
+		items: COUNTRIES,
+    renderFilter: TextFilter
 	},
 
-
+/*
 	binding: function(v) {
 
     if(!v) return;
@@ -56,39 +61,40 @@ var select = $.ergo({
         var selected = this.selection.set( v[i] );
 
         this.$content.opt('text', '');
-        this.$dropdown.opt('renderFilter', textFilter.bind(this, ''));
+        this.$dropdown.opt('filter', '');
+//        this.$dropdown.opt('renderFilter', textFilter.bind(this, ''));
       }
 
     }
 
 	},
+*/
+
+  // get: {
+  //   'value': function() {
+  //     return this.selection.get();
+  //   }
+  // },
+
+
 
 	onClick: 'action:dropdown',
 
-	// onChange: function(e) {
-	// 	this.items.add(e.text).render();
-	// 	this.$content.opt('text', '');
-	// },
 	onSelect: function(e) {
-		this.$content.el.focus();
-		// this.opt('value', e.target.opt('name'));
-		// e.stop(true);
+		this.$content.dom.el.focus();
+	},
+
+  onDropdown: function(e) {
+		this.$content.dom.el.focus();
 	},
 
 	onInput: $ergo.debounce(function(e) {
 
-    this.$dropdown.opt('renderFilter', textFilter.bind(this, e.text));
-    this.$dropdown._rerender();
-//		this.$dropdown.filter( 'render', textFilter.curry(e.text) );
-		this.states.toggle('opened', !(!e.text));
-	}, 300),
+    this.$dropdown.opt('filter', e.text)._rerender();
 
-	onDropdown: function(e) {
-		this.$content.el.focus();
-		// this.$dropdown._rerender();
-		// this.states.set('opened');
-//		e.stop(true);
-	},
+		this.toggle('opened', !(!e.text));
+
+	}, 300),
 
   onChangeSelect: function(e) {
 
@@ -98,23 +104,30 @@ var select = $.ergo({
 
     this.items.add({text: e.target.opt('text'), name: e.target.opt('name')}).render();
 
-    console.log('select', this.value);
-
-    var v = this.value || [];
 
 
-    v.push(k);
+//    console.log('select', this.value);
 
-    // this.selection.each(function(sel) {
-    //   v.push( sel.opt('name') );
-    // });
+    // var v = this.value || [];
+    //
+    //
+    // v.push(k);
+    //
+    // this.value = v;//opt('value', v);
 
-    this.value = v;//opt('value', v);
+    // сбрасываем фильтр
+    this.$content.opt('text', '');
+    
+//    this.$dropdown.opt('filter', '')._rerender();
 
-    this.states.unset('opened');
+    this.unset('opened');
+
+    this.$content.dom.el.focus();
+
 
     e.interrupt();
   },
+
 
 
   // onAddSelect: function(e) {
@@ -129,11 +142,13 @@ var select = $.ergo({
     e.target._destroy();
 
 
-    var v = this.opt('value') || [];
 
-    Ergo.remove(v, k);
 
-    this.opt('value', v);
+    // var v = this.opt('value') || [];
+    //
+    // Ergo.remove(v, k);
+    //
+    // this.opt('value', v);
 //
 //     this.selection.unset(k);
   }

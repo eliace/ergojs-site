@@ -62,15 +62,15 @@ var form = $.ergo({
 		items: [{
 			etype: 'input',
 			as: 'flat primary',
-			text: 'First Name'
+			placeholder: 'First Name'
 		}, {
 			etype: 'input',
 			as: 'flat primary',
-			text: 'Last Name'
+			placeholder: 'Last Name'
 		}, {
 			etype: 'input',
 			as: 'flat primary',
-			text: 'Middle Name'
+			placeholder: 'Middle Name'
 		}]
 	}, {
 		layout: 'hform',
@@ -80,13 +80,13 @@ var form = $.ergo({
 			include: 'icon:at-left',
 			icon: 'fa-calendar',
 			as: 'flat primary',
-			text: 'Birth Date'
+			placeholder: 'Birth Date'
 		}, {
 			etype: 'input',
 			include: 'icon:at-left',
 			icon: 'fa-map-marker',
 			as: 'flat primary',
-			text: 'Birth Place'
+			placeholder: 'Birth Place'
 		}]
 	}]
 });

@@ -143,10 +143,10 @@ var w = $.ergo({
 			$context.alert('Поддержка событий обеспечивается примесью Observable');
 		},
 		// на события VDOM можно подписаться через префикс
-		'vdom:mouseenter': function(e) {
+		'dom:mouseenter': function(e) {
 			this.el.css('background-color', 'blue');
 		},
-		'vdom:mouseleave': function(e) {
+		'dom:mouseleave': function(e) {
 			this.el.css('background-color', '');
 		},
 		// на события контекста тоже можно подписаться через префикс
