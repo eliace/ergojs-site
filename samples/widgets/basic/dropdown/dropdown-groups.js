@@ -7,15 +7,15 @@ var w = $.ergo({
 
 	as: 'button',
 
-	include: 'dropdown',
+	include: ['dropdown'],
 
 	onClick: function(e) {
-		this.states.toggle('opened');
+		this.toggle('opened');
 		e.stop();
 	},
 
-	onClose: function() {
-		this.states.unset('opened');
+	onClickItem: function() {
+		this.unset('opened');
 	},
 
 	$content: {
@@ -32,20 +32,17 @@ var w = $.ergo({
 		},
 		items: [{
 			etype: 'list',
-			layout: 'inherited',
-			autoRender: false,
+			layout: 'contents',
 			$header: {
 				as: 'header',
-				include: 'icon',
+				include: ['icon'],
 				icon: 'fa-globe before',
 				text: 'Группа 1',
 				weight: -1
 			},
 			defaultItem: {
 				as: 'item',
-				onClick: function() {
-					this.rise('close');
-				}
+				onClick: 'action:clickItem'
 			},
 			items: ['Испания', 'Германия', 'Франция'],
 		}/*, {
@@ -53,20 +50,17 @@ var w = $.ergo({
 			cls: 'divider'
 		}*/, {
 			etype: 'list',
-			layout: 'inherited',
-			autoRender: false,
+			layout: 'contents',
 			$header: {
 				as: 'header',
-				include: 'icon',
+				include: ['icon'],
 				icon: 'fa-globe before',
 				text: 'Группа 2',
 				weight: -1
 			},
 			defaultItem: {
 				as: 'item',
-				onClick: function() {
-					this.rise('close');
-				}
+				onClick: 'action:clickItem'
 			},
 			items: ['Россия', 'Украина', 'Казахстан'],
 		}]

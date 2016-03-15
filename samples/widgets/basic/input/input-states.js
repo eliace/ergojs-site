@@ -33,7 +33,7 @@ var input5 = $.ergo({
 	etype: 'input',
 	include: 'icon:at-right',
 	icon: 'fa-search',
-	text: 'Search...',
+	placeholder: 'Search...',
 	as: '&transparent'
 });
 

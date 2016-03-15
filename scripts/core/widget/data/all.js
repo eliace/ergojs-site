@@ -225,11 +225,10 @@ var w = $.ergo({
 	},
 
 	items: [{
-		etype: 'html:input'
-//		onInput: 'prop:value'
-		// onChange: function(e) {
-		// 	this.opt('value', e.value);
-		// }
+		etype: 'html:input',
+		events: {
+			'dom:input': 'input' // обновляем значение по событию `input`
+		}
 	}, {
 		etype: 'text',
 		$title: {
@@ -258,12 +257,12 @@ var w = $.ergo({
 	data: {qty: 1, cost: 2},
 	layout: 'form',
 	items: [{
-		etype: 'html:text-input',
+		etype: 'html:input',
 		type: 'number',
 		dataId: 'qty',
 		label: 'Количество'
 	}, {
-		etype: 'html:text-input',
+		etype: 'html:input',
 		type: 'number',
 		dataId: 'cost',
 		label: 'Цена'

@@ -62,11 +62,11 @@ var w = $.ergo({
   defaultItem: {
     as: 'item',
     $input: {
-      etype: 'html:text-input',
+      etype: 'html:input',
       events: {
         'data:invalid': 'action:invalid',
         'data:valid': 'action:valid',
-        'input': 'do_change'
+        'dom:input': 'change'
       }
     },
     $message: {

@@ -13,7 +13,7 @@ var w = $.ergo({
   data: data,
 
   defaultItem: {
-    etype: 'html:text-input',
+    etype: 'html:input'
   },
 
   items: [{
@@ -26,25 +26,30 @@ var w = $.ergo({
       }
       return v;
     },
-    // при вводе символа вызываем onChange (символ появляется)
-    onInput: 'do_change'
+    events: {
+      'dom:input': 'change' // обновляем значение при вводе символа
+    }
   }, {
     dataId: 'b',
     placeholder: 'Без цифр',
     unformat: function(v) {
       if(v && /\d/.test(v)) {
         this.rise('invalid', {value: v});
-        return this.opt('value');
+        return this.prop('value');
       }
       return v;
     },
     // при нажатии клавиши вызываем onChange (символ не появляется)
-    onKeyDown: function(e) {
-      var self = this;
-      setTimeout(function(){
-        self.do_change();//rise('change', {value: self.el.val()});
-      }, 0);
+    events: {
+      'dom:keydown': function(e) {
+        var self = this;
+        setTimeout(function(){
+          self.change();
+        }, 0);
+      }
     }
+    // onKeyDown: function(e) {
+    // }
   }]
 
 });

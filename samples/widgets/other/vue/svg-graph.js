@@ -99,6 +99,10 @@ var Controls = $ergo({
       etype: 'html:input',  // обеспечивает связывание input->value
       type: 'range',
       dataId: 'value',
+      events: {
+        'dom:input': 'change
+        '
+      },
       unformat: Number    // пользователь вводит строки, а нам нужно число
     }, {
       tag: 'span',

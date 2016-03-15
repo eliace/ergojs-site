@@ -13,11 +13,10 @@ var w = $.ergo({
 	},
 
 	items: [{
-		etype: 'html:input'
-//		onInput: 'prop:value'
-		// onChange: function(e) {
-		// 	this.opt('value', e.value);
-		// }
+		etype: 'html:input',
+		events: {
+			'dom:input': 'input' // обновляем значение по событию `input`
+		}
 	}, {
 		etype: 'text',
 		$title: {

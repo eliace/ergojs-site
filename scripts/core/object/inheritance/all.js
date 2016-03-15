@@ -43,7 +43,7 @@ obj = $ergo({
 	weight: 5.4
 });
 
-$context.alert( Ergo.format_obj('Цвет: #{color}, Размер: #{size}, Вес: #{weight}', obj.options) );
+$context.alert( Ergo.formatObj('Цвет: #{color}, Размер: #{size}, Вес: #{weight}', obj.options) );
 
 
 

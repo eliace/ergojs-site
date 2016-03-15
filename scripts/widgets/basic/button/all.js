@@ -457,19 +457,19 @@ $.ergo({
 //		type: 'default',
 		icon: 'fa-filter'
 	}, {
-		type: 'basic',
+		as: 'basic',
 		icon: 'fa-edit'
 	}, {
-		type: 'primary',
+		as: 'primary',
 		icon: 'fa-upload'
 	}, {
-		type: 'success',
+		as: 'success',
 		icon: 'fa-check'
 	}, {
-		type: 'warning',
+		as: 'warning',
 		icon: 'fa-warning'
 	}, {
-		type: 'danger',
+		as: 'danger',
 		icon: 'fa-unlock'
 	}]
 });
@@ -496,19 +496,19 @@ $.ergo({
 //		type: 'default',
 		icon: 'fa-filter'
 	}, {
-		type: 'basic',
+		as: 'basic',
 		icon: 'fa-edit'
 	}, {
-		type: 'primary',
+		as: 'primary',
 		icon: 'fa-upload'
 	}, {
-		type: 'success',
+		as: 'success',
 		icon: 'fa-check'
 	}, {
-		type: 'warning',
+		as: 'warning',
 		icon: 'fa-warning'
 	}, {
-		type: 'danger',
+		as: 'danger',
 		icon: 'fa-unlock'
 	}]
 });
@@ -647,7 +647,7 @@ $context.section_end('button-fit');
 
 var w = $.ergo({
 	etype: 'button',
-	as: 'block primary',
+	as: 'fluid primary',
 	text: 'Fluid button',
 });
 

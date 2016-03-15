@@ -33,7 +33,7 @@ var w = $.ergo({
 	}*/, {
 		etype: 'input',
 		placeholder: 'Имя',
-		as: 'block',
+		as: 'fluid',
 		$label: {
 			etype: 'label',
 			as: 'pointing-below',
