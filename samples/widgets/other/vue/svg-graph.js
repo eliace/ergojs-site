@@ -100,8 +100,7 @@ var Controls = $ergo({
       type: 'range',
       dataId: 'value',
       events: {
-        'dom:input': 'change
-        '
+        'dom:input': 'change'
       },
       unformat: Number    // пользователь вводит строки, а нам нужно число
     }, {

@@ -32,11 +32,126 @@ data.fetch();
 
 
 
+var w = $ergo({
+  etype: 'box',
+  height: 400,
+  data: data,
+  layout: 'hbox',
+  items: [{
+    width: 180,
+    autoHeight: 'ignore-siblings',
+    style: {
+      'overflow-x': 'hidden',
+    },
+    $content: {
+      etype: 'table-grid',
+      as: 'table grid single-line celled',
+      style: {
+        'margin-right': -17
+      },
+      column: {
+    		components: {
+    			content: {
+    				etype: 'text',
+    				as: 'column-text',
+    			}
+    		},
+    		autoBind: false
+    	},
+      columns: COLUMNS.slice(0,1),
+      $content: {
+        events: {
+          'jquery:scroll': function(e) {
+            if(!this._noScroll)
+              this.rise('scrollFrozen', {scrollTop: this.el.scrollTop()});
+            this._noScroll = false;
+          }
+        }
+      }
+    }
+  }, {
+    autoWidth: true,
+//    width: 600,
+    autoHeight: 'ignore-siblings',
+    style: {
+      'overflow-y': 'hidden',
+      'overflow-x': 'auto'
+    },
+    $content: {
+      etype: 'table-grid',
+      as: 'table grid single-line celled',
+//      width: 2000,
+      // style: {
+      //   'padding-right': 17
+      // },
+      column: {
+    		components: {
+    			content: {
+    				etype: 'text',
+    				as: 'column-text',
+    			}
+    		},
+    		autoBind: false
+    	},
+      columns: [{
+//        header: 'User',
+        binding: 'prop:text',
+        format: '#{full_name}',
+        width: 0
+      }].concat(COLUMNS.slice(1)),
+      $header: {
+        $content: {
+          width: 2000
+        }
+      },
+      $content: {
+        $content: {
+          width: 2000
+        },
+        events: {
+          'jquery:scroll': function(e) {
+            if(!this._noScroll)
+              this.rise('scrollContent', {scrollTop: this.el.scrollTop(), scrollLeft: this.el.scrollLeft()});
+            this._noScroll = false;
+          }
+        }
 
+//        autoHeight: false
+//        width: '100%'
+        // style: {
+        //   'overflow-y': 'visible'
+        // }
+      }
+    }
+  }],
+
+  onScrollContent: function(e) {
+      this.item(0).$content.$content._noScroll = true;
+      this.item(0).$content.$content.el.scrollTop(e.scrollTop);
+
+      this.item(1).$content.$header.$content.el.css('margin-left', -e.scrollLeft);
+  },
+
+  onScrollFrozen: function(e) {
+    this.item(1).$content.$content._noScroll = true;
+    this.item(1).$content.$content.el.scrollTop(e.scrollTop);
+  }
+
+});
+
+
+
+/*
 var w = $.ergo({
 	etype: 'table-grid',
   as: 'table box grid single-line celled',
-	height: 400,
+
+  style: {
+    'position': 'relative'
+  },
+
+  height: 400,
+  width: 2000,
 
 	column: {
 		components: {
@@ -52,11 +167,21 @@ var w = $.ergo({
 
   $frozen: {
     as: 'frozen-grid',
+    style: {
+      'position': 'absolute',
+      'top': 0,
+      'overflow-x': 'hidden'
+    },
     etype: 'table-grid',
-    columns: [COLUMNS[0]]
+//    height: 400,
+    autoHeight: 'ignore-siblings',
+    columns: [COLUMNS[0]],
+    // $content: {
+    //   style: {'overflow-y': 'hidden'}
+    // }
   }
 
 });
-
+*/
 
 w.render('#sample');
