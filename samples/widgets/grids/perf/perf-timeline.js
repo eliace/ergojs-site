@@ -32,23 +32,30 @@ data.fetch();
 
 
 
+
 var w = $ergo({
   etype: 'box',
   height: 400,
   data: data,
   layout: 'hbox',
+  as: 'border',
   items: [{
     width: 180,
     autoHeight: 'ignore-siblings',
     style: {
       'overflow-x': 'hidden',
     },
+    as: 'border-right',
     $content: {
       etype: 'table-grid',
       as: 'table grid single-line celled',
-      style: {
-        'margin-right': -17
+
+      rendering: function() {
+        this.dom.setStyle({'margin-right': -18, 'padding-bottom': 17});
       },
+      // style: {
+      //   'margin-right': -17
+      // },
       column: {
     		components: {
     			content: {
